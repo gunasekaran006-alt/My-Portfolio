@@ -1,61 +1,79 @@
+/* Premium Dark & Cyan Theme (60-30-10 UI/UX Rule) */
+
+
 /* 1. Tag Selector */
 body {
-    background-color: black;
-    color: white;
+    background-color: #121212; /* Deep Dark Background */
+    color: #f0f0f0; /* Soft White text for readability */
     font-family: Arial, sans-serif; /* Basic font style */
+}
+
+/* Styling the default HTML horizontal line (<hr>) */
+hr {
+    border: none;
+    border-top: 1px solid #333333;
+    margin: 40px 0;
 }
 
 /* 2. Class Selectors (.) */
 .header-section {
-    background-color: #27C8F5;
-    padding: 15px;
+    background-color: #1a1a1a; /* Slightly lighter than background */
+    padding: 20px;
     border-radius: 8px;
-    color: black; /* Text visibility on light blue */
+    border-bottom: 3px solid #27C8F5; /* Premium Cyan highlight at the bottom */
+    color: white;
 }
 
 .section-box {
-    background-color: white; /* Making content boxes white to stand out */
-    color: black;
-    padding: 20px;
+    background-color: #1e1e1e; /* Dark gray for content boxes */
+    color: #e0e0e0;
+    padding: 25px;
     margin-bottom: 20px;
     border-radius: 10px;
+    border: 1px solid #2a2a2a; /* Very subtle border */
 }
 
 /* 3. ID Selectors (#) */
 #main-name {
-    color: red;
-}
+    color: #27C8F5; /* Replaced Red with Cyan */
+    letter-spacing: 1px; /* Slight spacing for a premium look */
+} 
 
 #highlight {
-    color: blue;
+    color: #27C8F5; /* Replaced Blue with Cyan */
     font-weight: bold;
 }
 
 /* Multiple Tag Selectors */
 h2, h3, h4 {
-    color: peru;
+    color: #ffffff; /* Replaced Peru with Clean White */
 }
 
 /* Base Links */
 a{
     color: #27C8F5; /* Adjusted link color to glow on dark background */
     font-weight: bold;
+    text-decoration: none; /* Pro Tip: Removes the default underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Adds underline only when mouse hovers over it */
 }
 
 /* Header Links */
 .header-section a {
-    color: #333;    
+    color: #27C8F5;    
 }
 
 /*Card Layout & Buttons --- */
 .card {
     width: 300px;
-    border: 1px solid black;
+    border: 1px solid #333333; /* Dark border instead of black */
     padding: 15px;
     margin: 30px auto; /* 'auto" mean card push to centre */
     border-radius: 10px;
-    background-color: #f2f2f2;
-    color: black;
+    background-color: #252525; /* Darker card background */
+    color: #f0f0f0;
 }
 
 .card img {
@@ -63,37 +81,78 @@ a{
     border-radius: 5px;
 }
 
+/* Primary Button */
 .btn {
-    background-color: green;
+    background-color: #27C8F5; /* Cyan */
     border: none;
     outline: none;
-    color: white;
-    padding: 8px 12px;
+    color: black; /* Black text on cyan looks bold and readable */
+    padding: 10px 12px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
 }
 
+/* Secondary Button (Ghost Style) */
 .info {
-    background-color: green;
-    border: none;
+    background-color: transparent; /* No background */
+    border: 2px solid #27C8F5; /* Cyan border */
     outline: none;
-    color: white; 
+    color: #27C8F5; /* Cyan text */ 
     padding: 8px 12px;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
     cursor: pointer;
     margin-top: 10px;
+    font-weight: bold;
 }
 
 /* Padding Example (Box Model Banner) --- */
 .padding-example {
-    border: 3px solid red;
+    border: 2px dashed #27C8F5; /* Replaced solid red with dashed cyan */
     text-align: center;
     padding: 30px;
-    border-radius: 20px;
+    border-radius: 15px;
     margin-top: 30px;
     margin-bottom: 30px;
-    background-color: black; /* Matching the body */
+    background-color: #1a1a1a;
 }
 
+/* --- Service Section Alignment Fix --- */
+
+/* Centering the Headings and Image in Services Section */
+#services h3,
+#services h4,
+#services figure {
+    text-align: center;
+}
+
+/* Centering the Pricing Table */
+#services table {
+    margin: 20px auto;
+    text-align: center;
+}
+
+/* --- Centering and Styling the Hire Me Now Button --- */
+#hire-btn {
+    display: block; /* Changes the button into a block-level element */
+    margin: 30px auto; /* Perfectly centers the button horizontally */
+
+/* Premium Button Design */
+background-color: #27C8F5; /* Cyan background */
+color: black; /* Black text */
+border: none;
+padding: 12px 30px;
+border-radius: 8px;
+font-weight: bold;
+font-size: 16px;
+cursor: pointer;
+transition: 0.3s; /* Smooth hover transition */
+}
+
+/* Hover Animation for Hire Me Now Button */
+
+#hire-btn:hover {
+    background-color: white; /* Changes to white when you hover over it */
+}
