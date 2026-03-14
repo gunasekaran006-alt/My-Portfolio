@@ -42,5 +42,14 @@ Instead of just keeping my daily class codes in separate folders, I am implement
 * Created a professional pricing structure using HTML Tables (`<table>`, `<thead>`, `<tbody>`, `<tfoot>`, `<th>`, `<td>`) with `colspan`.
 * Integrated a "Quick Support Query" form using the day's learnings without removing any previous code.
 
+### ✅ Day 6: Introduction to CSS & Styling
+* Stepped into the world of web design by implementing **CSS (Cascading Style Sheets)**.
+* Connected an External CSS file (`style.css`) to the main HTML document using the `<link>` tag.
+* Learned and applied different types of CSS Selectors: 
+  * **Element/Tag Selectors** (e.g., `body`, `h1`, `p`)
+  * **ID Selectors** (e.g., `#main-name`, `#highlight`)
+  * **Class Selectors** (e.g., `.header-section`, `.section-box`)
+* Used CSS properties like `color` and `background-color` with both predefined color names and Hex codes (`#27C8F5`).
+
 ---
 *Consistency is the key! More updates coming soon...*

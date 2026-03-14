@@ -1,0 +1,38 @@
+/* 1. Tag Selector */
+body {
+    background-color: #f4f4f9; /* Light background for the whole page */
+    font-family: Arial, sans-serif; /* Basic font style */
+}
+
+/* 2. Class Selectors (.) */
+.header-section {
+    background-color: #27C8F5;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.section-box {
+    background-color: white; /* Making content boxes white to stand out */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+/* 3. ID Selectors (#) */
+#main-name {
+    color: red;
+}
+
+#highlight {
+    color: blue;
+    font-weight: bold;
+}
+
+/* Multiple Tag Selectors */
+h2, h3, h4 {
+    color: peru;
+}
+
+a{
+    color: #333;
+    font-weight: bold;
+}
