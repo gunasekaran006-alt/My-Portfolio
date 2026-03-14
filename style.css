@@ -1,6 +1,7 @@
 /* 1. Tag Selector */
 body {
-    background-color: #f4f4f9; /* Light background for the whole page */
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif; /* Basic font style */
 }
 
@@ -9,12 +10,15 @@ body {
     background-color: #27C8F5;
     padding: 15px;
     border-radius: 8px;
+    color: black; /* Text visibility on light blue */
 }
 
 .section-box {
     background-color: white; /* Making content boxes white to stand out */
+    color: black;
     padding: 20px;
     margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 /* 3. ID Selectors (#) */
@@ -32,7 +36,64 @@ h2, h3, h4 {
     color: peru;
 }
 
+/* Base Links */
 a{
-    color: #333;
+    color: #27C8F5; /* Adjusted link color to glow on dark background */
     font-weight: bold;
 }
+
+/* Header Links */
+.header-section a {
+    color: #333;    
+}
+
+/*Card Layout & Buttons --- */
+.card {
+    width: 300px;
+    border: 1px solid black;
+    padding: 15px;
+    margin: 30px auto; /* 'auto" mean card push to centre */
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    color: black;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.btn {
+    background-color: green;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.info {
+    background-color: green;
+    border: none;
+    outline: none;
+    color: white; 
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* Padding Example (Box Model Banner) --- */
+.padding-example {
+    border: 3px solid red;
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: black; /* Matching the body */
+}
+

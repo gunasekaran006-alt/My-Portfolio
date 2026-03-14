@@ -51,5 +51,12 @@ Instead of just keeping my daily class codes in separate folders, I am implement
   * **Class Selectors** (e.g., `.header-section`, `.section-box`)
 * Used CSS properties like `color` and `background-color` with both predefined color names and Hex codes (`#27C8F5`).
 
+### ✅ Day 7: CSS Box Model, Dark Theme & Card UI Layout
+* Mastered the **CSS Box Model**, understanding the crucial relationship between `margin`, `padding`, and `border`.
+* Implemented a global **Dark Theme** by manipulating the `body` background and text colors.
+* Engineered a professional **Card Layout** (`.card`) to display services and featured projects, an industry standard for modern UI.
+* Designed clean, structured Call-to-Action (CTA) buttons (`.btn`, `.info`) by removing default borders/outlines and adding padding, background colors, and border-radius.
+* Created a highly visible "Call to Action" banner using `border`, `border-radius`, and `text-align: center`.
+
 ---
 *Consistency is the key! More updates coming soon...*
