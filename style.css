@@ -1,226 +1,244 @@
-/* Premium Dark & Cyan Theme (60-30-10 UI/UX Rule) */
+/* Master Premium Dark & Cyan Theme - Final Polished Version */
 
-
-/* 1. Tag Selector */
+/* --- 1. Global Layout & Container Setup --- */
 body {
-    background-color: #121212; /* Deep Dark Background */
-    color: #f0f0f0; /* Soft White text for readability */
-    font-family: Arial, sans-serif; /* Basic font style */
+    background-color: #121212; 
+    color: #f0f0f0; 
+    font-family: Arial, sans-serif;
 }
 
-/* Styling the default HTML horizontal line (<hr>) */
+main, .header-section {
+    max-width: 1100px; 
+    margin: 20px auto; 
+    padding: 0 20px; 
+}
+
 hr {
     border: none;
     border-top: 1px solid #333333;
-    margin: 40px 0;
+    margin: 40px auto;
+    max-width: 1100px; 
 }
 
-/* 2. Class Selectors (.) */
-.header-section {
-    background-color: #1a1a1a; /* Slightly lighter than background */
-    padding: 20px;
-    border-radius: 8px;
-    border-bottom: 3px solid #27C8F5; /* Premium Cyan highlight at the bottom */
-    color: white;
+/* --- 2. Headings & Visual Hierarchy --- */
+h2 { 
+    color: #ffffff; 
 }
 
-.section-box {
-    background-color: #1e1e1e; /* Dark gray for content boxes */
-    color: #e0e0e0;
-    padding: 25px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    border: 1px solid #2a2a2a; /* Very subtle border */
+/* Main section headings */
+h3 { 
+    color: #27C8F5; /* Cyan for main headings */
+    margin-top: 30px; 
+    display: inline-block; 
+    padding-bottom: 5px;
+    transition: 0.3s;
 }
 
-/* 3. ID Selectors (#) */
-#main-name {
-    color: #27C8F5; /* Replaced Red with Cyan */
-    letter-spacing: 1px; /* Slight spacing for a premium look */
+h3:hover {
+    border-bottom: 2px solid #27C8F5; /* Underline appears only on hover */
+}
+
+/* Smaller sub-headings (Cyan globally) */
+h4 { 
+    color: #27C8F5; 
+    margin-bottom: 15px; 
+    font-size: 18px; 
+}
+
+/* Specific Fix: Education degrees to White Bold */
+#journey h4 {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+#main-name { color: #27C8F5; letter-spacing: 1px; }
+#highlight { color: #27C8F5; font-weight: bold; }
+
+/* Global Bold Text Fix: White Bold for general bold text */
+b, strong { 
+    color: #ffffff; 
+    font-weight: bold; 
 } 
 
-#highlight {
-    color: #27C8F5; /* Replaced Blue with Cyan */
-    font-weight: bold;
+/* Light Blue Highlight for Key Contributions */
+#journey p b {
+    color: #87CEEB; 
 }
 
-/* Multiple Tag Selectors */
-/* --- Visual Hierarchy for Headings --- */
-h2 {
-    color: #ffffff; /* Pure white for main sub-titles */
+/* "Quality" word styling */
+figcaption b { 
+    color: #ffffff; 
+    font-size: 1.2em; 
+} 
+
+/* --- 3. Links --- */
+a { color: #27C8F5; font-weight: bold; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+nav a { color: #ffffff; transition: color 0.3s ease; }
+nav a:hover { color: #27C8F5; text-decoration: none; }
+
+/* Merged LinkedIn and GitHub to have the same color */
+a[href*="linkedin.com"], 
+a[href*="github.com"] { 
+    color: #0077B5; 
 }
 
-h3 {
-    color: #27C8F5; /* Cyan highlight for main section titles and prices */
+a[href*="linkedin.com"]:hover, 
+a[href*="github.com"]:hover { 
+    color: #27C8F5; 
+    text-decoration: underline; 
 }
 
-h4 {
-    color: #cccccc; /* Elegant light gray for smaller sub-headings like degrees */
+/* --- 4. Section Boxes --- */
+.header-section { background-color: #1a1a1a; padding: 20px; border-radius: 8px; border-bottom: 3px solid #27C8F5; color: white; }
+.section-box { background-color: #1e1e1e; color: #e0e0e0; padding: 25px; margin-bottom: 20px; border-radius: 10px; border: 1px solid #2a2a2a; }
+
+/* --- 5. Skills Section Alignment Fix --- */
+#skills li {
+    margin-bottom: 15px; 
+    line-height: 1.6;
 }
 
-
-/* Base Links */
-a{
-    color: #27C8F5; /* Adjusted link color to glow on dark background */
-    font-weight: bold;
-    text-decoration: none; /* Pro Tip: Removes the default underline */
+#skills li b {
+    display: block; 
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #ffffff; 
 }
 
-a:hover {
-    text-decoration: underline; /* Adds underline only when mouse hovers over it */
+/* --- 6. Services Section & Table --- */
+#services .section-box {
+    text-align: center; 
 }
 
-/* Header Links */
-.header-section a {
-    color: #27C8F5;    
-}
-
-/*Card Layout & Buttons --- */
+/* Card Container */
 .card {
     width: 300px;
-    border: 1px solid #333333; /* Dark border instead of black */
+    border: 1px solid #333333; 
     padding: 15px;
-    margin: 30px auto; /* 'auto" mean card push to centre */
+    margin: 20px 15px; 
     border-radius: 10px;
-    background-color: #252525; /* Darker card background */
+    background-color: #252525; 
     color: #f0f0f0;
+    display: inline-block; 
+    text-align: left; 
+    vertical-align: top;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 5px;
+.card img { width: 100%; border-radius: 5px; }
+
+.card h2 {
+    font-size: 21px; 
+    line-height: 1.4;
+    margin: 15px 0 10px 0;
+    color: #ffffff;
 }
 
-/* Primary Button */
-.btn {
-    background-color: #27C8F5; /* Cyan */
-    border: none;
-    outline: none;
-    color: black; /* Black text on cyan looks bold and readable */
-    padding: 10px 12px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
+/* Pricing Table Fix (Input Style Background) */
+table {
+    margin: 30px auto;
+    border-collapse: collapse;
+    width: 80%;
+    background-color: #1a1a1a; 
+}
+
+th, td { padding: 12px; border: 1px solid #444; text-align: center; }
+
+th { 
+    background-color: #1a1a1a; 
+    color: #ffffff; 
+    font-size: 16px;
     font-weight: bold;
 }
 
-/* Secondary Button (Ghost Style) */
-.info {
-    background-color: transparent; /* No background */
-    border: 2px solid #27C8F5; /* Cyan border */
-    outline: none;
-    color: #27C8F5; /* Cyan text */ 
-    padding: 8px 12px;
-    width: 100%;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 10px;
-    font-weight: bold;
+th[colspan="3"] {
+    color: #ffffff; 
+    font-size: 18px;
+    border-bottom: 2px solid #444;
 }
 
-/* Padding Example (Box Model Banner) --- */
+td { color: #e0e0e0; }
+
+/* --- 7. Buttons --- */
+.btn { background-color: #27C8F5; border: none; outline: none; color: black; padding: 10px 12px; width: 100%; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+.btn:hover { background-color: white; }
+
+.info { background-color: transparent; border: 2px solid #27C8F5; outline: none; color: #27C8F5; padding: 8px 12px; width: 100%; border-radius: 8px; cursor: pointer; margin-top: 10px; font-weight: bold; transition: 0.3s; }
+.info:hover { background-color: #27C8F5; color: black; }
+
+#hire-btn { display: inline-block; margin: 30px auto; background-color: #27C8F5; color: black; border: none; padding: 12px 30px; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; }
+#hire-btn:hover { background-color: white; }
+
+/* --- 8. CTA Banner --- */
 .padding-example {
-    border: 2px dashed #27C8F5; /* Replaced solid red with dashed cyan */
+    border: 2px dashed #27C8F5; 
     text-align: center;
     padding: 30px;
     border-radius: 15px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin: 40px auto;
+    max-width: 800px; 
     background-color: #1a1a1a;
 }
 
-/* --- Service Section Alignment Fix --- */
-
-/* Centering the Headings and Image in Services Section */
-#services h3,
-#services h4,
-#services figure {
-    text-align: center;
+.padding-example h4 {
+    color: #ffffff; 
+    font-size: 22px;
+    margin: 0;
+    line-height: 1.5;
 }
 
-/* Centering the Pricing Table */
-#services table {
-    margin: 20px auto;
-    text-align: center;
+/* --- 9. Contact Forms Alignment --- */
+#contact .section-box { text-align: center; }
+
+#contact form {
+    max-width: 600px; 
+    margin: 0 auto 40px auto; 
+    background-color: #252525; 
+    padding: 30px; 
+    border-radius: 12px; 
+    border: 1px solid #333333; 
+    text-align: left; 
 }
 
-/* --- Centering and Styling the Hire Me Now Button --- */
-#hire-btn {
-    display: block; /* Changes the button into a block-level element */
-    margin: 30px auto; /* Perfectly centers the button horizontally */
-
-/* Premium Button Design */
-background-color: #27C8F5; /* Cyan background */
-color: black; /* Black text */
-border: none;
-padding: 12px 30px;
-border-radius: 8px;
-font-weight: bold;
-font-size: 16px;
-cursor: pointer;
-transition: 0.3s; /* Smooth hover transition */
+/* FIX: Thin and elegant border for the Fieldset */
+#contact fieldset {
+    border: 1px solid #444444; 
+    border-radius: 8px; 
+    padding: 20px;
 }
 
-/* Hover Animation for Hire Me Now Button */
-
-#hire-btn:hover {
-    background-color: white; /* Changes to white when you hover over it */
+/* FIX: Styling the Legend text to Bold White */
+#contact legend {
+    color: #ffffff; /* Changed to White */
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 10px; 
 }
 
-/* --- Contact Form Buttons Fix --- */
-#contact .btn,
-#contact .info {
-    width: auto;
+#contact form .btn, 
+#contact form .info {
+    width: auto !important; 
     display: inline-block;
-    padding: 10px 25px;
+    padding: 12px 25px;
     margin-right: 15px;
     margin-top: 20px;
 }
 
-/* --- Centering the Contact Forms --- */
-/* Centering the headings inside the contact section */
-
-#contact h3, 
-#contact h4 {
-    text-align: center;
-}
-
-/* Restricting form width and centering it */
-#contact form {
-    max-width: 600px; /* Restricts the form from stretching too much */
-    margin: 0 auto; /* Pushes the form to the exact center of the screen */
-    background-color: #252525; /* Adds a slightly darker premium background to the form */
-    padding: 30px; /* Adds breathing space inside the form */
-    border-radius: 12px; /* Smooth rounded corners */
-    border: 1px solid #333333; /* Subtle border */
-}
-
-/* Making input fields look premium and full width within the centered form */
-#contact input[type="text"],
-#contact input[type="email"],
-#contact input[type="password"],
-#contact input[type="number"],
-#contact input[type="time"],
-#contact select,
-#contact textarea {
-    width: 100%; /* Makes inputs take full width of the 600px form */
-    padding: 10px;
-    margin-top: 5px;
+#contact input[type="text"], #contact input[type="email"], #contact input[type="password"], #contact input[type="number"], #contact input[type="time"], #contact select, #contact textarea {
+    box-sizing: border-box; 
+    width: 100%; 
+    padding: 12px;
+    margin-top: 8px;
+    margin-bottom: 15px; 
     border-radius: 5px;
     border: 1px solid #444;
     background-color: #1a1a1a;
     color: white;
-
 }
 
-/* --- Fix for Input Box Overflow (Box Sizing Magic) --- */
-#contact input,
-#contact select,
-#contact textarea {
-    box-sizing: border-box; /* Forces padding and borders to stay within the 100% width */
+#contact input::placeholder, #contact textarea::placeholder {
+    color: #a0a0a0; 
+    font-style: italic; 
+    opacity: 1; 
 }
-
-
-/* --- Differentiating Social Links and Navigation Links --- */
-
-/* 1. Main Navigation Links (About, Skills, etc.) */
