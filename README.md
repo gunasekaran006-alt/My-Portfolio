@@ -58,5 +58,11 @@ Instead of just keeping my daily class codes in separate folders, I am implement
 * Designed clean, structured Call-to-Action (CTA) buttons (`.btn`, `.info`) by removing default borders/outlines and adding padding, background colors, and border-radius.
 * Created a highly visible "Call to Action" banner using `border`, `border-radius`, and `text-align: center`.
 
+### ✅ Day 8: CSS Flexbox & Core Expertise Showcase
+* Mastered **CSS Flexbox** (`display: flex`) to build modern, responsive web layouts without relying on floats or complex margins.
+* Engineered a fully responsive **Navigation Bar** (Shopyfy UI) using `justify-content: space-between` and `align-items: center`.
+* Created a **Flexible Card System** using `flex-wrap: wrap` and `gap` to showcase my Core Expertise (AI-Enhanced MERN Apps, E-Commerce Operations, and Data-Driven Insights).
+* Adopted the **"Live Record"** methodology: Successfully integrated new Flexbox sections without deleting previous days' work, turning this portfolio into a complete, evolving digital learning diary.
+
 ---
 *Consistency is the key! More updates coming soon...*

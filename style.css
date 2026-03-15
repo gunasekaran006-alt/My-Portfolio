@@ -242,3 +242,98 @@ td { color: #e0e0e0; }
     font-style: italic; 
     opacity: 1; 
 }
+
+
+/* ======================================================== */
+/* --- CORE EXPERTISE & FLEXBOX UI SHOWCASE SECTION --- */
+/* ======================================================== */
+
+/* Flexbox Navbar Styling */
+.flex-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #252525;
+    border-radius: 8px;
+    padding: 15px 30px;
+    border: 1px solid #333333;
+}
+
+.flex-navbar .navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+
+.flex-navbar .navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+
+.flex-navbar .navbar-links li {
+    color: #cccccc;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+
+.flex-navbar .navbar-links Li:hover {
+    color: #27C8F5;
+}
+
+
+/* Flexbox Button */
+.flex-btn {
+    background-color: #27C8F5;
+    color: black;
+    border: none;
+    padding: 10PX 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+
+.flex-btn:hover {
+    background-color: white;
+}
+
+
+/* Flexbox Product Cards Styling */
+.flex-card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+.flex-card {
+    flex: 1;
+    min-width: 250px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #444444;
+    text-align: left;
+}
+
+.flex-card h4 {
+    color: #ffffff;
+    margin-top: 0;
+    font-size: 20px;
+}
+
+
+.flex-card p {
+    color: #e0e0e0;
+    line-height: 1.5;
+}
