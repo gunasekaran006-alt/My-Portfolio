@@ -337,3 +337,55 @@ td { color: #e0e0e0; }
     color: #e0e0e0;
     line-height: 1.5;
 }
+
+
+/* ======================================================== */
+/* --- DAY 9: CSS GRID PROJECT & CERTIFICATE GALLERY --- */
+/* ======================================================== */
+
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Day 9 Code: Creates 3 equal columns */
+    gap: 15px; /* Day 9 Code: Spacing between grid items */
+    grid-auto-rows: 200px; /* Day 9 Code: Base height for grid rows */
+}
+
+.masonry-grid .item {
+    background: #1a1a1a;
+    overflow: hidden; /* Prevents the image from overflowing the grid item box */
+    border-radius: 8px;
+    display: flex;
+    border: 1px solid #333333;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+/* Premium Hover Effect */
+.masonry-grid .item:hover {
+    transform: scale(1.03); /* Slight zoom in */
+    border-color: #27C8F5; /* Cyan glow */
+    box-shadow: 0 4px 15px rgba(39, 200, 245, 0.2);
+}
+
+.masonry-grid .item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* THE MAGIC: Ensures the image perfectly fills the entire box without leaving empty spaces */
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.masonry-grid .item:hover img {
+    opacity: 1; /* Brightens on hover */
+}
+
+/* Day 9 Grid Row Span Codes */
+.item-tall { grid-row: span 3; }   /* Makes the box 3 rows tall */
+.item-medium { grid-row: span 2; } /* Makes the box 2 rows tall */
+.item-small { grid-row: span 1; }  /* Standard 1 row height */
+
+
+/* Special class to prevent certificate cropping */
+.masonry-grid .item .fit-cert {
+    object-fit: contain;
+    background-color: #f4f4f4; /* A white or grey background specifically for the certificate. */
+}
