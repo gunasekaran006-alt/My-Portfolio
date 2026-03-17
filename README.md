@@ -64,5 +64,29 @@ Instead of just keeping my daily class codes in separate folders, I am implement
 * Created a **Flexible Card System** using `flex-wrap: wrap` and `gap` to showcase my Core Expertise (AI-Enhanced MERN Apps, E-Commerce Operations, and Data-Driven Insights).
 * Adopted the **"Live Record"** methodology: Successfully integrated new Flexbox sections without deleting previous days' work, turning this portfolio into a complete, evolving digital learning diary.
 
+# Day 9 - CSS Grid Portfolio & Certificate Gallery
+
+## 📝 Project Overview
+This project is a fully responsive, visually appealing Masonry-style image gallery built using advanced CSS Grid techniques. It is designed to showcase portfolio projects and certifications with a premium, modern user interface. 
+
+The gallery intelligently handles images of different aspect ratios without cropping them, ensuring that important details (like certificate text and borders) remain fully visible.
+
+## ✨ Key Features
+* **CSS Grid Architecture:** Utilizes a 6-column grid layout for a wider, expansive view on larger screens.
+* **Dynamic Row Spanning:** Implements `span 1`, `span 2`, and `span 3` grid rows to create a dynamic, Pinterest-like masonry aesthetic.
+* **Zero Cropping Guarantee:** Uses `object-fit: contain` and `object-fit: cover` strategically to ensure images fit their containers perfectly without losing edge details.
+* **Premium Hover Effects:** Features a clean, non-disruptive hover state where the container border glows (Cyan) and the image smoothly scales up internally without overlapping adjacent grid items.
+* **Reusable Utility Classes:** Includes a custom `.hover-zoom-effect` class that can be applied to any UI element (like profile pictures or tech stack icons) across the website for consistent micro-interactions.
+
+## 🛠️ Technologies & Concepts Used
+* **HTML5:** Semantic structuring of the gallery items.
+* **CSS3:** * `display: grid`
+    * `grid-template-columns` & `grid-auto-rows`
+    * `overflow: hidden`
+    * `transition` & `transform: scale()` for smooth animations.
+
+## 💡 What I Learned
+During this module, I mastered the core concepts of CSS Grid layout. I learned how to manipulate grid tracks, handle image aspect ratios professionally without relying on JavaScript, and implement seamless CSS transitions that enhance the user experience without breaking the page layout.
+
 ---
 *Consistency is the key! More updates coming soon...*

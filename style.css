@@ -383,3 +383,17 @@ td { color: #e0e0e0; }
 .item-tall { grid-row: span 3; }
 .item-medium { grid-row: span 2; }
 .item-small { grid-row: span 1; }
+
+
+
+/* --- REUSABLE ZOOM HOVER EFFECT --- */
+/* ======================================================== */
+
+.hover-zoom-effect {
+    transition: transform 0.3s ease; /* Smooth animation timing for the zoom */
+}
+
+.hover-zoom-effect:hover {
+    transform: scale(1.1); /* Scales the element to 110% of its original size on hover */
+    cursor: pointer; /* Changes the mouse pointer to a hand icon */
+}
