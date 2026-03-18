@@ -245,6 +245,39 @@ td { color: #e0e0e0; }
 
 
 /* ======================================================== */
+/* --- CUSTOM FILE UPLOAD DESIGN (NO BORDER & TRANSPARENT) --- */
+/* ======================================================== */
+
+/* 1. Transparent container with NO outer border */
+#contact input[type="file"] {
+    background-color: transparent; /* No background */
+    border: none; /* MAGIC: Removed the outer border completely! */
+    outline: none; /* Removes any default focus outline */
+    color: #a0a0a0;
+    padding: 10px 0; /* Adjusted padding to align perfectly with text */
+    cursor: pointer;
+}
+
+/* 2. Styling the native browser "Choose File" button inside */
+#contact input[type="file"]::file-selector-button {
+    background-color: #252525;
+    color: #27C8F5;
+    border: 1px solid #27C8F5;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 3. Hover Effect for the "Choose File" button */
+#contact input[type="file"]::file-selector-button:hover {
+    background-color: #27C8F5;
+    color: black;
+}
+
+/* ======================================================== */
 /* --- CORE EXPERTISE & FLEXBOX UI SHOWCASE SECTION --- */
 /* ======================================================== */
 
@@ -396,4 +429,19 @@ td { color: #e0e0e0; }
 .hover-zoom-effect:hover {
     transform: scale(1.1); /* Scales the element to 110% of its original size on hover */
     cursor: pointer; /* Changes the mouse pointer to a hand icon */
+}
+
+/* ======================================================== */
+/* --- SPECIAL JOB FOR 'fit-cert' CLASS (3D & Glow Effect) --- */
+/* ======================================================== */
+
+.fit-cert {
+    filter: drop-shadow(0px 5px 10px rgba(0, 0, 0, 0.8)); /* Creates a dark 3D shadow behind the image */
+    border-radius: 4px; /* Adds a slight elegant curve to the image edges */
+    transition: filter 0.3s ease; /* Smooth animation timing */
+}
+
+/* Adds a bright Cyan glow behind the image and increases contrast on hover */
+.masonry-grid .item:hover .fit-cert {
+    filter: drop-shadow(0px 0px 15px rgba(39, 200, 245, 0.6)) contrast(1.1); 
 }
