@@ -146,7 +146,7 @@ table {
 th, td { padding: 12px; border: 1px solid #444; text-align: center; }
 
 th { 
-    background-color: #1a1a1a; 
+    /* background-color: #1a1a1a;  */
     color: #ffffff; 
     font-size: 16px;
     font-weight: bold;
@@ -351,7 +351,7 @@ td { color: #e0e0e0; }
 
 .flex-card {
     flex: 1;
-    min-width: 250px;
+    min-width: 300px;
     background: #1a1a1a;
     border-radius: 10px;
     padding: 20px;
@@ -377,9 +377,10 @@ td { color: #e0e0e0; }
 
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(8, 1fr); /* 3 Columns (Day 9 Code) */
+    grid-template-columns: repeat(7, 1fr); /* 8 Columns (Day 9 Code) */
     gap: 15px; /* Day 9 Code */
-    grid-auto-rows: 100px; /* Day 9 Code */
+    grid-auto-rows: 100px; /* another option min 100px auto */ 
+    /* grid-auto-flow: dense; (grid any area white gap visible used this option) */ 
 }
 
 .masonry-grid .item {
@@ -391,12 +392,13 @@ td { color: #e0e0e0; }
     border: 1px solid #333333;
     overflow: hidden;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    
 }
 
 /* Simple, clean hover effect - NO ZOOM, just border glow */
 .masonry-grid .item:hover {
     border-color: #27C8F5;
-    box-shadow: 0 4px 15px rgba(39, 200, 245, 0.2);
+    box-shadow: 0 4px 15px rgba(39, 200, 245, 0.2);  /*outside border only shadow*/
 }
 
 .masonry-grid .item img {
@@ -418,19 +420,6 @@ td { color: #e0e0e0; }
 .item-small { grid-row: span 1; }
 
 
-
-/* --- REUSABLE ZOOM HOVER EFFECT --- */
-/* ======================================================== */
-
-.hover-zoom-effect {
-    transition: transform 0.3s ease; /* Smooth animation timing for the zoom */
-}
-
-.hover-zoom-effect:hover {
-    transform: scale(1.1); /* Scales the element to 110% of its original size on hover */
-    cursor: pointer; /* Changes the mouse pointer to a hand icon */
-}
-
 /* ======================================================== */
 /* --- SPECIAL JOB FOR 'fit-cert' CLASS (3D & Glow Effect) --- */
 /* ======================================================== */
@@ -444,4 +433,19 @@ td { color: #e0e0e0; }
 /* Adds a bright Cyan glow behind the image and increases contrast on hover */
 .masonry-grid .item:hover .fit-cert {
     filter: drop-shadow(0px 0px 15px rgba(39, 200, 245, 0.6)) contrast(1.1); 
+}
+
+
+
+
+/* --- REUSABLE ZOOM HOVER EFFECT --- */
+/* ======================================================== */
+
+.hover-zoom-effect {
+    transition: transform 0.3s ease; /* Smooth animation timing for the zoom */
+}
+
+.hover-zoom-effect:hover {
+    transform: scale(1.1); /* Scales the element to 110% of its original size on hover */
+    cursor: pointer; /* Changes the mouse pointer to a hand icon */
 }
