@@ -463,12 +463,19 @@ header nav {
     left: 0;
     width: 100%; /* MAGIC: Forces it to be full screen width */
     background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent Premium dark background */
-    padding: 15px 0;
+    padding: 18px 0;
     /* border-radius: 8px; */
     border-bottom: 2px solid #27C8F5; /* Sleek Cyan line at the bottom */
     z-index: 1000; /* Keeps the navbar above all other elements */
-    text-align: center;
+    /* text-align: center; */
     backdrop-filter: blur(5px); /* Premium blur effect for modern UI */
+    /* THE FLEXBOX MAGIC */
+    display: flex;
+    justify-content: center; /* Centers the whole menu */
+    gap: 75px; /* Creates perfect, even spacing between each link */
+    align-items: center;
+
+
 }
 
 /* 2. FIX: Pushing the main header down so the fixed nav doesn't cover your name */
