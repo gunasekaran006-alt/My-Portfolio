@@ -456,18 +456,26 @@ td { color: #e0e0e0; }
 /* --- DAY 10: FIXED/STICKY NAVBAR --- */
 /* ======================================================== */
 
+/* 1. Making the navbar span the entire screen elegantly */
 header nav {
     position: fixed; /* Smarter version of fixed. Sticks to top ONLY when scrolling past it */
     top: 0;
-    background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent dark background */
-    padding: 15px;
+    left: 0;
+    width: 100%; /* MAGIC: Forces it to be full screen width */
+    background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent Premium dark background */
+    padding: 15px 0;
     /* border-radius: 8px; */
-    border-bottom: 2px solid #27C8F5;
+    border-bottom: 2px solid #27C8F5; /* Sleek Cyan line at the bottom */
     z-index: 1000; /* Keeps the navbar above all other elements */
-    /* text-align: center; */
-    width: 100%;
+    text-align: center;
     backdrop-filter: blur(5px); /* Premium blur effect for modern UI */
 }
+
+/* 2. FIX: Pushing the main header down so the fixed nav doesn't cover your name */
+.header-section {
+    margin-top: 80px; 
+}
+
 
 
 /* ======================================================== */
