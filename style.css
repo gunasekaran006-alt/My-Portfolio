@@ -449,3 +449,55 @@ td { color: #e0e0e0; }
     transform: scale(1.1); /* Scales the element to 110% of its original size on hover */
     cursor: pointer; /* Changes the mouse pointer to a hand icon */
 }
+
+
+
+/* ======================================================== */
+/* --- DAY 10: FIXED/STICKY NAVBAR --- */
+/* ======================================================== */
+
+header nav {
+    position: fixed; /* Smarter version of fixed. Sticks to top ONLY when scrolling past it */
+    top: 0;
+    background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent dark background */
+    padding: 15px;
+    /* border-radius: 8px; */
+    border-bottom: 2px solid #27C8F5;
+    z-index: 1000; /* Keeps the navbar above all other elements */
+    /* text-align: center; */
+    width: 100%;
+    backdrop-filter: blur(5px); /* Premium blur effect for modern UI */
+}
+
+
+/* ======================================================== */
+/* --- DAY 10: IMAGE OVERLAY TEXT (POSITIONING) --- */
+/* ======================================================== */
+
+/* 1. Set the reference point for the absolute text */
+.masonry-grid .item {
+    position: relative; /* REQUIRED for absolute positioning to work inside this container */
+ }
+
+ /* 2. Styling the text that floats on top of the image */
+ .overlay-text {
+    position: absolute; /* Floats completely over the image */
+    bottom: -50px; /* Hidden below the container initially */
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Dark transparent background */
+    color: #27C8F5; /* Cyan text */
+    text-align: center;
+    padding: 5px 0;
+    font-weight: bold;
+    font-size: 8px;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: bottom 0.4s ease, opacity 0.4s ease; /* Smooth slide-up animation */
+ }
+
+ /* 3. When hovering over the container (.item), slide the text up */
+ .masonry-grid .item:hover .overlay-text {
+    bottom: 0; /* Slides into view from the bottom */
+    opacity: 1; /* Becomes fully visible */
+ }
