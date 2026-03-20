@@ -464,7 +464,7 @@ header nav {
     width: 100%; /* MAGIC: Forces it to be full screen width */
     background-color: rgba(26, 26, 26, 0.95); /* Semi-transparent Premium dark background */
     padding: 18px 0;
-    /* border-radius: 8px; */
+    border-radius: 8px;
     border-bottom: 2px solid #27C8F5; /* Sleek Cyan line at the bottom */
     z-index: 1000; /* Keeps the navbar above all other elements */
     /* text-align: center; */
@@ -472,7 +472,7 @@ header nav {
     /* THE FLEXBOX MAGIC */
     display: flex;
     justify-content: center; /* Centers the whole menu */
-    gap: 75px; /* Creates perfect, even spacing between each link */
+    gap: 150px; /* Creates perfect, even spacing between each link */
     align-items: center;
 
 
