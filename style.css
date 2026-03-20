@@ -535,23 +535,21 @@ header nav {
     /* transition: bottom 0.4s ease, opacity 0.4s ease; */
  }
 
-/* 2. Keyframes Magic: Slides up, stays, then hides automatically */
+/* 2. 
+hide option 1 :
+Keyframes Magic: Slides up, stays, then hides automatically */
 @keyframes peekAndHide {
     0% { bottom: -50px; opacity: 0; } 
-    15% { bottom: 0; opacity: 1; } /* Slides up quickly into view */
+    25% { bottom: 0; opacity: 1; } /* Slides up quickly into view */
     75% { bottom: 0; opacity: 1;} /* Stays visible for a few seconds */
-    100% { bottom: -50px; opacity: 0; } /* Slides back down and hides completely */
+    /*  stay hide need */  100% { bottom: 0; opacity: 0; }
+    /*  down hide need     100% { bottom: -50px; opacity: 0; }     Slides back down and hides completely */
 }
 
  /* 3. Trigger the animation when the user hovers over the image (When hovering over the container (.item), slide the text up) */
  .masonry-grid .item:hover .overlay-text {
-    /* Slides into view from the bottom */
-    /* bottom: 0;  */
-
-    /* Becomes fully visible */
-    /* opacity: 1; */
-
-    animation: peekAndHide 3s ease forwards;
+    /* Runs for  seconds. 'forwards' ensures it stays invisible at the end */
+    animation: peekAndHide 3s ease forwards; 
  }
 
 
