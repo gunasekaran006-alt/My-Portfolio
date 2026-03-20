@@ -1,3 +1,16 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden; /* Safely applied ONLY to body to prevent hang */
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
 /* Master Premium Dark & Cyan Theme - Final Polished Version */
 
 /* --- 1. Global Layout & Container Setup --- */
@@ -126,7 +139,12 @@ a[href*="github.com"]:hover {
     vertical-align: top;
 }
 
-.card img { width: 100%; border-radius: 5px; }
+.card img { 
+    width: 100%; 
+    height: 180px;
+    object-fit: cover;    
+    border-radius: 5px; 
+}
 
 .card h2 {
     font-size: 21px; 
@@ -516,3 +534,167 @@ header nav {
     bottom: 0; /* Slides into view from the bottom */
     opacity: 1; /* Becomes fully visible */
  }
+
+
+
+ /* ======================================================== */
+/* --- DAY 11: RESPONSIVE WEB DESIGN (MEDIA QUERIES) --- */
+/* --- FINAL MASTER PATCH (LAPTOP, TABLET & MOBILE) --- */
+/* ======================================================== */
+
+/* 🌍 Global Media Safety (Ensures Video/Audio never break out) */
+img, video {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+audio {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* 💻 LAPTOP & TABLET LANDSCAPE (Screens smaller than 1024px) */
+@media (max-width: 1024px) {
+    header nav { gap: 40px; }
+    .masonry-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* 📱 TABLET PORTRAIT & LARGE MOBILE (Screens smaller than 768px) */
+@media (max-width: 768px) {
+    /* 1. Main Navbar Fix */
+    header nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 12px 10px;
+    }
+    .header-section { margin-top: 100px; }
+
+    /* 2. Intro Section Alignment */
+    .section-box { text-align: center; }
+    .section-box ul, .section-box ol, .section-box p { text-align: left; }
+    #about img { display: block; margin: 0 auto 20px auto; }
+
+    /* 3. Masonry Grid */
+    .masonry-grid { grid-template-columns: repeat(2, 1fr); }
+
+    /* 4. Shopyfy Navbar & Showcase Cards Fix */
+    .flex-navbar {
+        flex-direction: column;
+        gap: 20px; /* Space added */
+        padding: 15px;
+    }
+    .flex-navbar .navbar-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px; /* Space added */
+    }
+    .flex-btn { width: 100%; } /* Login button full width on mobile */
+
+    .flex-card-container { flex-direction: column; }
+    .flex-card {
+        width: 100%;
+        min-width: 0; /* Prevents overflow */
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    /* 5. Form Layout & Fieldset Overflow Fix */
+    #contact form {
+        width: 100%;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+    #contact fieldset {
+        width: 100%;
+        min-width: 0; /* MAGIC: Prevents fieldset from breaking mobile screen */
+        padding: 15px 10px;
+        box-sizing: border-box;
+    }
+    
+    /* Safely target only text inputs, preventing radio/checkbox damage */
+    #contact input:not([type="radio"]):not([type="checkbox"]):not([type="file"]),
+    #contact select,
+    #contact textarea {
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    
+/* 6. Radio Box Alignment Fix (Prevents dot and text from separating) */
+    .radio-group {
+        display: flex;
+        flex-wrap: wrap; /* Safely moves to next line if screen is too small */
+        gap: 15px;
+        margin-top: 8px;
+    }
+    .radio-box {
+        display: flex;
+        align-items: center;
+        white-space: nowrap; /* MAGIC: Strictly keeps the dot and text glued together */
+        font-size: 14px;
+    }
+    #contact input[type="radio"] {
+        width: auto !important;
+        margin: 0 6px 0 0 !important; /* Adds gap ONLY between the dot and its text */
+    }
+    
+    /* Ensure Checkbox also stays glued to its text */
+    #contact input[type="checkbox"] {
+        width: auto !important;
+        margin: 0 8px 0 0 !important;
+        vertical-align: middle;
+    }
+
+    /* 7. File Upload Button Overflow Fix (Stops it from poking right side) */
+    #contact input[type="file"] {
+        width: 100% !important;
+        max-width: 100%;
+        box-sizing: border-box;
+        overflow: hidden; /* Hides text if it's too long */
+        text-overflow: ellipsis; /* Adds '...' if text is too long */
+        white-space: nowrap; /* Keeps it strictly on one line */
+    }
+    #contact input[type="file"]::file-selector-button {
+        display: block; 
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+
+
+    /* Form Buttons mobile friendly */
+    #contact form .btn, #contact form .info {
+        width: 100% !important;
+        margin: 10px 0 0 0;
+        display: block;
+    }
+}
+
+/* 📱 VERY SMALL MOBILE VIEW (Screens 480px and below - Target: 320px) */
+@media (max-width: 480px) {
+    /* 8. Main Name "S" Cut-off Fix */
+    #main-name {
+        font-size: 26px; /* Scales down name for 320px */
+        word-wrap: break-word;
+    }
+    .header-section h2 { font-size: 16px; }
+
+    /* 9. Masonry Grid to 1 column for tiny screens to prevent image squish */
+    .masonry-grid { grid-template-columns: 1fr; }
+
+    /* Services Cards strictly fits */
+    .card {
+        width: 100%;
+        min-width: 0;
+        margin: 15px 0;
+        box-sizing: border-box;
+    }
+
+    /* 10. Pricing Table strictly fits */
+    table { width: 100%; font-size: 11px; table-layout: fixed; word-wrap: break-word; }
+    th, td { padding: 5px; }
+}

@@ -450,9 +450,12 @@
                         <input type="range" id="budget" min="0" max="10"> <br><br>
 
                         <label>Gender</label>
-                        <input name="gender" type="radio" required>Male
-                        <input name="gender" type="radio">Female
-                        <input name="gender" type="radio">Others <br><br>
+                        <div class="radio-group">
+                            <span class="radio-box"><input name="gender" type="radio" required>Male</span>
+                            <span class="radio-box"><input name="gender" type="radio">Female</span>
+                            <span class="radio-box"><input name="gender" type="radio">Others</span>
+                        </div>
+                        <br>
 
                         <label for="doc">Upload Project Reference / Profile Picture:</label>
                         <input type="file" id="doc" required> <br><br>
