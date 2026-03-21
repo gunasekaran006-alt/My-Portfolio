@@ -17,13 +17,46 @@
         /* Card Hover Effect */
         .hover-card { transition: transform 0.3s; }
         .hover-card:hover { transform: translateY(-5px); border-color: #27C8F5 !important; }
+    
+        /* Custom Animation for Back to Home Button */
+        .home-btn {
+            display: inline-block;
+            background-color: #27C8F5 !important; 
+            color: #000000 !important; 
+            font-size: 15px;
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid #27C8F5 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        /* Mouse Hover Effect */
+        .home-btn:hover {
+            background-color: transparent !important; 
+            color: #27C8F5 !important; 
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8); 
+            transform: scale(1.05);
+        }
+
+        /* Mouse Click Effect */
+        .home-btn:active {
+            transform: scale(0.95);
+            box-shadow: none;
+        }
+    </style>
+
     </style>
 </head>
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #27C8F5;">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="#" style="color: #27C8F5; letter-spacing: 1px;">GUNASEKARAN S</a>
+            <a class="navbar-brand fw-bold home-btn" href="index.html">
+                ⬅ Back to Home
+            </a>
+            
             <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,16 +73,14 @@
     </nav>
 
     <header class="container mt-5 mb-5 text-center">
-        <span class="badge bg-primary mb-3 px-3 py-2">Bootstrap 5 Framework Portfolio</span>
         <h1 class="fw-bold display-4">Gunasekaran S</h1>
         <h3 class="text-cyan">AI-Enhanced Full Stack Developer (MERN)</h3>
         <p class="lead text-secondary mt-3">Transforming operations through intelligent, scalable web applications.</p>
         
         <div class="mt-4">
             <a href="https://www.linkedin.com/in/gunasekaran-tech/" target="_blank" class="btn btn-outline-info me-2"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/gunasekaran006-alt" target="_blank" class="btn btn-outline-light me-2"><i class="bi bi-github"></i> GitHub</a>
-            <a href="index.html" class="btn btn-secondary"><i class="bi bi-house-door"></i> Back to Hub</a>
-        </div>
+            <a href="https://github.com/gunasekaran006-alt" target="_blank" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
+            </div>
     </header>
 
     <div class="container">

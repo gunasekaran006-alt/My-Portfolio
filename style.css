@@ -417,7 +417,7 @@ td { color: #e0e0e0; }
     display: block;
     opacity: 0.85;
     border-radius: 8px; 
-    transition: all 0.4s ease; /* Smooth transition for the zoom effect */
+    transition: all 0.5s ease; /* Smooth transition for the zoom effect */
 }
 
 /* 3. Hover / Click Zoom Magic (Shows Full Uncut Certificate) */
@@ -428,7 +428,7 @@ td { color: #e0e0e0; }
 .masonry-grid .item:hover img,
 .masonry-grid .item:active img {
     object-fit: contain; /* MAGIC: Reveals the full uncut image */
-    transform: scale(2.5); /* Zooms in by 80% */
+    transform: scale(2.0); /* Zooms in by 80% */
     background-color: #121212; /* Dark background behind zoomed image */
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.9); /* Premium 3D shadow */
     border: 2px solid #27C8F5; /* Cyan highlight border */
@@ -495,7 +495,7 @@ header nav {
     /* THE FLEXBOX MAGIC */
     display: flex;
     justify-content: center; /* Centers the whole menu */
-    gap: 150px; /* Creates perfect, even spacing between each link */
+    gap: 85px; /* Creates perfect, even spacing between each link */
     align-items: center;
 
 
