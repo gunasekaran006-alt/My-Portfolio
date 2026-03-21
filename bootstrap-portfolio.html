@@ -7,22 +7,60 @@
     <meta name="Description" content="AI-Enhanced MERN Bootstrap Portfolio">
     <title>AI-Enhanced MERN Bootstrap Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
-        body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        .bg-panel { background-color: #161b22; border: 1px solid #30363d; border-radius: 10px; }
-        .text-cyan { color: #27C8F5; }
-        .text-hover-cyan:hover { color: #27C8F5 !important; }
-        .timeline-step { border-left: 2px solid #27C8F5; padding-left: 20px; position: relative; margin-bottom: 25px; }
-        .timeline-step::before { content: ''; position: absolute; left: -9px; top: 0; width: 16px; height: 16px; background-color: #27C8F5; border-radius: 50%; }
+    <style>
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .bg-panel {
+            background-color: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 10px;
+        }
+
+        .text-cyan {
+            color: #27C8F5;
+        }
+
+        .text-hover-cyan:hover {
+            color: #27C8F5 !important;
+        }
+
+        .timeline-step {
+            border-left: 2px solid #27C8F5;
+            padding-left: 20px;
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-step::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-color: #27C8F5;
+            border-radius: 50%;
+        }
+
         /* Card Hover Effect */
-        .hover-card { transition: transform 0.3s; }
-        .hover-card:hover { transform: translateY(-5px); border-color: #27C8F5 !important; }
-    
+        .hover-card {
+            transition: transform 0.3s;
+        }
+
+        .hover-card:hover {
+            transform: translateY(-5px);
+            border-color: #27C8F5 !important;
+        }
+
         /* Custom Animation for Back to Home Button */
         .home-btn {
             display: inline-block;
-            background-color: #27C8F5 !important; 
-            color: #000000 !important; 
+            background-color: #27C8F5 !important;
+            color: #000000 !important;
             font-size: 15px;
             padding: 6px 15px;
             border-radius: 5px;
@@ -31,12 +69,12 @@
             text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         /* Mouse Hover Effect */
         .home-btn:hover {
-            background-color: transparent !important; 
-            color: #27C8F5 !important; 
-            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8); 
+            background-color: transparent !important;
+            color: #27C8F5 !important;
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8);
             transform: scale(1.05);
         }
 
@@ -49,22 +87,27 @@
 
     </style>
 </head>
+
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #27C8F5;">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"
+        style="background-color: rgba(26, 26, 26, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid #27C8F5;">
         <div class="container">
             <a class="navbar-brand fw-bold home-btn" href="index.html">
                 ⬅ Back to Home
             </a>
-            
-            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+            <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav gap-3 fw-bold">
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#skills">Tech & AI</a></li>
-                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#skills">Tech & AI</a>
+                    </li>
+                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#services">Services</a>
+                    </li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#contact">Contact</a></li>
                 </ul>
@@ -73,14 +116,16 @@
     </nav>
 
     <header class="container mt-5 mb-5 text-center">
-        <h1 class="fw-bold display-4">Gunasekaran S</h1>
-        <h3 class="text-cyan">AI-Enhanced Full Stack Developer (MERN)</h3>
+        <h1 class="fw-bold display-4 text-cyan">Gunasekaran S</h1>
+        <h3 class="text-white mt-3">AI-Enhanced Full Stack Developer (MERN)</h3>
         <p class="lead text-secondary mt-3">Transforming operations through intelligent, scalable web applications.</p>
-        
+
         <div class="mt-4">
-            <a href="https://www.linkedin.com/in/gunasekaran-tech/" target="_blank" class="btn btn-outline-info me-2"><i class="bi bi-linkedin"></i> LinkedIn</a>
-            <a href="https://github.com/gunasekaran006-alt" target="_blank" class="btn btn-outline-light"><i class="bi bi-github"></i> GitHub</a>
-            </div>
+            <a href="https://www.linkedin.com/in/gunasekaran-tech/" target="_blank" class="btn btn-outline-info me-2"><i
+                    class="bi bi-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/gunasekaran006-alt" target="_blank" class="btn btn-outline-info"><i
+                    class="bi bi-github"></i> GitHub</a>
+        </div>
     </header>
 
     <div class="container">
@@ -88,27 +133,36 @@
         <section id="about" class="mb-5 bg-panel p-4">
             <div class="row align-items-center">
                 <div class="col-md-3 text-center mb-3 mb-md-0">
-                    <img src="profile_image.png" alt="Profile Image" class="img-fluid rounded-circle border border-info border-3" style="max-width: 150px;">
+                    <img src="profile_image.png" alt="Profile Image"
+                        class="img-fluid rounded-circle border border-info border-3" style="max-width: 150px;">
                 </div>
                 <div class="col-md-9">
                     <h3 class="h4 text-cyan border-bottom border-secondary pb-2">Hello! I'm Gunasekaran.</h3>
-                    <p class="text-secondary mt-3">Seasoned professional with 12+ years in Operations, Business Development, and Marketing, currently transitioning into a Junior Full Stack Developer role. Engineered this career pivot by leveraging multi-domain expertise to build <strong class="text-light">AI-Enhanced MERN solutions</strong>.</p>
+                    <p class="text-secondary mt-3">Seasoned professional with 12+ years in Operations, Business
+                        Development, and Marketing, currently transitioning into a Junior Full Stack Developer role.
+                        Engineered this career pivot by leveraging multi-domain expertise to build <strong
+                            class="text-light">AI-Enhanced MERN solutions</strong>.</p>
                 </div>
             </div>
         </section>
-        
+
         <section id="skills" class="mb-5">
-            <h2 class="h3 border-bottom border-secondary pb-2 mb-4"><i class="bi bi-layers-fill text-cyan"></i> Architecture & AI Integration</h2>
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-layers-fill"></i>
+                Architecture & AI Integration</h2>
             <div class="row g-4">
-                
+
                 <div class="col-lg-6">
                     <div class="bg-panel p-4 h-100">
                         <h3 class="h4 text-primary mb-4"><i class="bi bi-browser-chrome"></i> Front End & UI AI</h3>
                         <ul class="list-group list-group-flush rounded mb-4">
-                            <li class="list-group-item bg-dark text-white border-secondary">HTML, CSS & Bootstrap <span class="badge bg-primary float-end">UI</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">React.js + Redux <span class="badge bg-primary float-end">Logic</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">Web Speech API <span class="badge bg-warning text-dark float-end">Voice AI</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">Gemini API <span class="badge bg-warning text-dark float-end">Gen AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">HTML, CSS & Bootstrap <span
+                                    class="badge bg-primary float-end">UI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">React.js + Redux <span
+                                    class="badge bg-primary float-end">Logic</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Web Speech API <span
+                                    class="badge bg-warning text-dark float-end">Voice AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Gemini API <span
+                                    class="badge bg-warning text-dark float-end">Gen AI</span></li>
                         </ul>
                     </div>
                 </div>
@@ -117,23 +171,31 @@
                     <div class="bg-panel p-4 h-100">
                         <h3 class="h4 text-success mb-4"><i class="bi bi-server"></i> Back End & Data AI</h3>
                         <ul class="list-group list-group-flush rounded mb-4">
-                            <li class="list-group-item bg-dark text-white border-secondary">Node.js & Express.js <span class="badge bg-success float-end">Server</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">MongoDB <span class="badge bg-success float-end">Database</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">TensorFlow.js <span class="badge bg-warning text-dark float-end">ML Model</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">RapidMiner <span class="badge bg-warning text-dark float-end">Data AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Node.js & Express.js <span
+                                    class="badge bg-success float-end">Server</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">MongoDB <span
+                                    class="badge bg-success float-end">Database</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">TensorFlow.js <span
+                                    class="badge bg-warning text-dark float-end">ML Model</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">RapidMiner <span
+                                    class="badge bg-warning text-dark float-end">Data AI</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-12 mt-2">
                     <div class="bg-panel p-4" style="border-top: 3px solid #27C8F5;">
-                        <h3 class="h5 text-white mb-3"><i class="bi bi-globe2 text-cyan"></i> Multi-Domain Technical Foundations</h3>
+                        <h3 class="h5 text-white mb-3"><i class="bi bi-globe2 text-cyan"></i> Multi-Domain Technical
+                            Foundations</h3>
                         <div class="d-flex flex-wrap gap-2">
                             <span class="badge bg-dark text-light border border-secondary py-2 px-3">AI / ML / DL</span>
                             <span class="badge bg-dark text-light border border-secondary py-2 px-3">Python & SQL</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Data Analytics & Power BI</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Cyber Security & Ethical Hacking</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">IoT & Blockchain</span>
+                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Data Analytics &
+                                Power BI</span>
+                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Cyber Security &
+                                Ethical Hacking</span>
+                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">IoT &
+                                Blockchain</span>
                         </div>
                     </div>
                 </div>
@@ -141,27 +203,32 @@
         </section>
 
         <section id="services" class="mb-5">
-            <h2 class="h3 border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill text-cyan"></i> Freelance Services</h2>
-            
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill"></i>
+                Freelance Services</h2>
+
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <img src="assets/E-commerce Website Creation.jpg" class="card-img-top" alt="E-commerce" style="height: 200px; object-fit: cover;">
+                        <img src="assets/E-commerce Website Creation.jpg" class="card-img-top" alt="E-commerce"
+                            style="height: 200px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title text-cyan">E-commerce Website Creation</h5>
                             <h6 class="card-subtitle mb-2 text-warning">Starts at $500</h6>
-                            <p class="card-text text-secondary small">Complete Frontend and Backend setup for your online store using the MERN stack. Fully responsive and secure.</p>
+                            <p class="card-text text-secondary small">Complete Frontend and Backend setup for your
+                                online store using the MERN stack. Fully responsive and secure.</p>
                             <button class="btn btn-info btn-sm fw-bold">Book Now</button>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg" class="card-img-top" alt="Portfolio" style="height: 200px; object-fit: cover;">
+                        <img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg"
+                            class="card-img-top" alt="Portfolio" style="height: 200px; object-fit: cover;">
                         <div class="card-body">
                             <h5 class="card-title text-cyan">Personal Portfolio Site</h5>
                             <h6 class="card-subtitle mb-2 text-warning">Starts at $150</h6>
-                            <p class="card-text text-secondary small">Beautiful modern websites to showcase your resume, projects, or small business.</p>
+                            <p class="card-text text-secondary small">Beautiful modern websites to showcase your resume,
+                                projects, or small business.</p>
                             <button class="btn btn-info btn-sm fw-bold">Book Now</button>
                         </div>
                     </div>
@@ -181,45 +248,68 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Static Portfolio Website</td><td>3 Days</td><td>$150</td></tr>
-                        <tr><td>Dynamic E-Commerce Site</td><td>2 Weeks</td><td>$500</td></tr>
-                        <tr><td>Backend API Creation</td><td>1 Week</td><td>$250</td></tr>
+                        <tr>
+                            <td>Static Portfolio Website</td>
+                            <td>3 Days</td>
+                            <td>$150</td>
+                        </tr>
+                        <tr>
+                            <td>Dynamic E-Commerce Site</td>
+                            <td>2 Weeks</td>
+                            <td>$500</td>
+                        </tr>
+                        <tr>
+                            <td>Backend API Creation</td>
+                            <td>1 Week</td>
+                            <td>$250</td>
+                        </tr>
                     </tbody>
                     <tfoot class="table-active fw-bold">
-                        <tr><td colspan="2" class="text-end">Complete Full Stack Package</td><td class="text-warning">$900</td></tr>
+                        <tr>
+                            <td colspan="2" class="text-end">Complete Full Stack Package</td>
+                            <td class="text-warning">$900</td>
+                        </tr>
                     </tfoot>
                 </table>
             </div>
         </section>
 
         <section id="gallery" class="mb-5">
-            <h2 class="h3 border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images text-cyan"></i> Portfolio Showcase</h2>
+<h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images"></i> Portfolio Showcase</h2>
             <div class="row g-3">
                 <div class="col-6 col-md-4">
-                    <div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" class="card-img" alt="Project"></div>
+                    <div class="card bg-dark border-secondary hover-card"><img
+                            src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg"
+                            class="card-img" alt="Project"></div>
                 </div>
                 <div class="col-6 col-md-4">
-                    <div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" class="card-img" alt="Project"></div>
+                    <div class="card bg-dark border-secondary hover-card"><img
+                            src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg"
+                            class="card-img" alt="Project"></div>
                 </div>
                 <div class="col-6 col-md-4">
-                    <div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg" class="card-img" alt="Project"></div>
+                    <div class="card bg-dark border-secondary hover-card"><img
+                            src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg"
+                            class="card-img" alt="Project"></div>
                 </div>
             </div>
         </section>
 
         <section id="contact" class="mb-5 pb-5">
-            <h2 class="h3 border-bottom border-secondary pb-2 mb-4"><i class="bi bi-envelope-paper-fill text-cyan"></i> Book a Project / Consultation</h2>
-            
+<h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-envelope-paper-fill"></i> Book a Project / Consultation</h2>
+
             <div class="bg-panel p-4 p-md-5">
                 <form action="success.html">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label text-light">Name:</label>
-                            <input type="text" class="form-control bg-dark text-white border-secondary" placeholder="John Doe" required>
+                            <input type="text" class="form-control bg-dark text-white border-secondary"
+                                placeholder="John Doe" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light">Email:</label>
-                            <input type="email" class="form-control bg-dark text-white border-secondary" placeholder="@mail.com" required>
+                            <input type="email" class="form-control bg-dark text-white border-secondary"
+                                placeholder="@mail.com" required>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label text-light">Mobile Number:</label>
@@ -235,7 +325,8 @@
                         </div>
                         <div class="col-12">
                             <label class="form-label text-light">Project Details / Message:</label>
-                            <textarea rows="4" class="form-control bg-dark text-white border-secondary" required></textarea>
+                            <textarea rows="4" class="form-control bg-dark text-white border-secondary"
+                                required></textarea>
                         </div>
                         <div class="col-12 mt-4">
                             <button type="submit" class="btn btn-info fw-bold px-4 me-2">Submit Details</button>
@@ -250,4 +341,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
