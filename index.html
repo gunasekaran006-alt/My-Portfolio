@@ -1,521 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="Description" content="Gunasekaran - Portfolio and Resume">
-    <title>Gunasekaran | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- javascript connection -->
+    <meta name="Description" content="Master Portfolio Hub">
+    <title>Gunasekaran S | Master Portfolio Hub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body { 
+            background-color: #0a0a0c; 
+            color: #ffffff; 
+            font-family: 'Arial', sans-serif; 
+            padding: 50px 20px; 
+            overflow-x: hidden; 
+    }
+        .hub-container {
+             max-width: 1000px; 
+             margin: 0 auto; 
+             text-align: center; 
+            }
+        .main-title { 
+            color: #27C8F5; 
+            font-weight: bold; 
+            letter-spacing: 2px; 
+            font-size: 36px; 
+        }
+        .sub-title { 
+            color: #a0a0a0; 
+            margin-bottom: 40px; 
+            font-size: 16px; 
+        }
+        .path-card { 
+            background-color: #15151a; 
+            border: 1px solid #2a2a35; 
+            border-radius: 12px; 
+            padding: 30px 20px; 
+            transition: all 0.3s ease; 
+            height: 100%; cursor: pointer; 
+            text-decoration: none; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: white; 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .path-card:hover { 
+            transform: translateY(-8px); 
+            border-color: #27C8F5; 
+            box-shadow: 0 10px 25px rgba(39, 200, 245, 0.15); 
+            color: white; 
+        }
+        .icon-box { 
+            font-size: 40px; 
+        }
+        .path-title { 
+            font-size: 20px; 
+            font-weight: bold; 
+            margin: 15px 0 10px 0; 
+        }
+        .path-desc { 
+            color: #909090; 
+            font-size: 14px; 
+            line-height: 1.5; 
+            text-align: center; 
+            flex-grow: 1; 
+        }
+        .locked-card { 
+            opacity: 0.6; 
+            pointer-events: none; 
+            border-style: dashed; 
+        }
+        .locked-badge { 
+            position: absolute; 
+            top: 15px; right: -30px; 
+            background: #ff4757; 
+            color: white; 
+            font-size: 11px; 
+            font-weight: bold; 
+            padding: 5px 30px; 
+            transform: rotate(45deg); 
+        }
+
+        .badge:hover {
+           padding-right: 15px;
+           transition: 0.3s;
+        }
+    </style>
+
 </head>
-
-
 <body>
 
-    <!-- All tags --> <!-- Opening & Closing Tag --> <!-- Self Closing Tag -->
+    <div class="hub-container"> 
+        <h1 class="main-title">GUNASEKARAN S</h1>
+        <p class="sub-title">The Complete AI-Enhanced MERN Journey Under One Roof</p>
 
-    <header class="header-section">
-        <div>
-            <h1 id="main-name">GUNASEKARAN S</h1>
-            <h2>AI Enhanced MERN Fullstack Developer Intern @ Entri Elevate</h2>
-            <p><b>Open to:</b> Junior Full Stack Developer | Frontend Developer | React Developer | Software Engg Intern
-            </p>
-            <p>Coimbatore, Tamil Nadu | +91 9789345684 | gunasekaran006@gmail.com</p>
-            <p>
-                <b>Connect with me: </b>
-                <a href="https://www.linkedin.com/in/gunasekaran-tech/" target="_blank">LinkedIn</a> |
-                <a href="https://github.com/gunasekaran006-alt" target="_blank">GitHub</a>
-            </p>
-        </div>
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#journey">Journey & Experience</a>
-            <a href="#services">Services & Pricing</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
-    <hr>
-
-    <main>
-
-        <section id="about">
-            <div class="section-box">
-                <img src="profile_image.png" class="hover-zoom-effect" alt="profile image" width="150" height="150">
-
-                <p>Hello! I'm Gunasekaran. Seasoned professional with 12+ years in Operations, Business Development, and
-                    Marketing, currently transitioning into a Junior Full Stack Developer role. Engineered this career
-                    pivot by leveraging multi-domain expertise to build <span id="highlight">AI-Enhanced MERN
-                        solutions</span>. Bridging an MBA in IT
-                    Management (SRM) with technical specialization from Entri Elevate in collaboration with Illinois
-                    (USA) to architect scalable web applications and AI-driven automation.</p>
-
-                <h4>My Self Indroduction:</h4>
-                <!-- multimedia tags (img , audio, vedio )-->
-                <audio controls>
-                    <source src="badri07.mp3" type="audio/mpeg">
-                    Your browser does not support the audio element.
-                </audio>
-                <!-- <audio controls src="badri07.mp3" type="audio/mpeg"></audio> /* alternate method -->
-
-                <br>
-
-                <video width="350" height="250" controls autoplay muted>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-                <!-- <video width="350" height="250" controls autoplay muted src="https://www.w3schools.com/html/mov_bbb.mp4" type="vedio/mp4"></video>  /* alternate method -->
+        <h4 class="text-start mb-3 mt-5" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">Phase 1: UI Foundations</h4>
+        <div class="row g-4 mb-5"> 
+            <div class="col-md-6">
+                <a href="vanilla-portfolio.html" class="path-card">
+                    <div class="icon-box" style="color: #F16529;">🎨</div>
+                    <div class="path-title">Vanilla CSS Architecture</div>
+                    <div class="path-desc">100% Custom built from scratch. Flexbox, CSS Grid, Advanced Animations, and Media Queries without any frameworks.</div>
+                    <div class="mt-3 badge bg-success">Complete Scratch Portfolio ➔</div>
+                </a>
             </div>
-        </section>
-
-        <hr>
-
-        <section id="skills">
-            <div class="section-box">
-                <h3>My Technical & Soft Skills:</h3>
-                <ul>
-                    <li><b>Frontend Technologies:</b> Architecting responsive UIs with React.js, Redux, Tailwind CSS,
-                        and Voice UI (Web Speech API).</li>
-                    <li><b>Backend & Databases:</b> Engineering robust server-side logic with Node.js, Express.js, REST
-                        APIs, MongoDB, and MySQL.</li>
-                    <li><b>Programming & AI:</b> Developing AI solutions with Python, JavaScript, ML/DL, Gemini API, and
-                        TensorFlow.js.</li>
-                    <li><b>Data Science & Security:</b> Executing strategic insights via SQL, Power BI, and RapidMiner.
-                        Implementing secure authentication using JWT and RBAC.</li>
-                    <li><b>Tools & Platforms:</b> Git, GitHub, Postman, Netlify, and CI/CD pipelines.</li>
-                    <li><b>Soft Skills:</b> Advanced Problem Solving, Cross-Functional Team Leadership, Business
-                        Analysis & Adaptability.</li>
-                </ul>
+            <div class="col-md-6">
+                <a href="bootstrap-portfolio.html" class="path-card border-primary">
+                    <div class="icon-box" style="color: #7952B3;">⚡</div>
+                    <div class="path-title">Bootstrap 5 Framework</div>
+                    <div class="path-desc">Rapid UI development utilizing Bootstrap's grid system, utility classes, and pre-built components.</div>
+                    <div class="mt-3 badge bg-primary">Framework Driven Portfolio ➔</div>
+                </a>
             </div>
-        </section>
-
-        <hr>
-
-        <section id="flexbox-showcase">
-            <div class="section-box">
-                <h3>My Core Expertise & UI Showcase</h3>
-                <br><br>
-
-                <nav class="flex-navbar">
-                    <div class="navbar-brand">Shopyfy.</div>
-                    <ul class="navbar-links">
-                        <li>Home</li>
-                        <li>All Products</li>
-                        <li>My Profile</li>
-                        <li>Help & Support</li>
-                    </ul>
-                    <button class="flex-btn">Login</button>
-                </nav>
-
-                <br><br>
-
-                <div class="flex-card-container">
-                    <div class="flex-card">
-                        <h4>AI-Enhanced MERN Apps</h4>
-                        <p>Building scalable full-stack applications integrated with AI to deliver smart user
-                            experiences and intelligent automation.</p>
-                    </div>
-
-                    <div class="flex-card">
-                        <h4>E-Commerce Operations</h4>
-                        <p>Leveraging 12+ years of multi-domain experience to architect robust, high-conversion online
-                            stores and inventory systems.</p>
-                    </div>
-
-                    <div class="flex-card">
-                        <h4>Data-Driven Insights</h4>
-                        <p>Transforming raw business data into strategic insights using SQL, Python, and Power BI for
-                            effective decision-making.</p>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <hr>
-
-        <section id="journey">
-            <div class="section-box">
-                <h3>My Educational Journey & Certifications:</h3>
-
-                <ol type="1">
-                    <li>
-                        <article>
-                            <h4>MBA - IT Management (Pursuing)</h4>
-                            <p>SRM Institute of Science & Technology</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>AI-Enhanced MERN Full Stack (Dec 2025 - Sep 2026)</h4>
-                            <p>Illinois Tech (USA) & Entri Elevate</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Full Stack MERN - Grade A: 84% (Feb 2026)</h4>
-                            <p>Government of Tamil Nadu - Naan Mudhalvan & SmartBridge</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>Multi-Domain Tech Foundation (2025 - 2026)</h4>
-                            <p>Novi Tech (AI, ML, DL, Python, SQL, Data Analytics, UI/UX, IoT, Cyber Security, Ethical
-                                Hacking, Blockchain)</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>AI for All Specialization (Nov 2025)</h4>
-                            <p>Intel & Skill India Digital (NSDC)</p>
-                        </article>
-                    </li>
-                    <li>
-                        <article>
-                            <h4>B.Com - Commerce</h4>
-                            <p>Bharathiyar University</p>
-                        </article>
-                    </li>
-                </ol>
-
-                <h3>Professional Experience (12+ Years):</h3>
-                <ul>
-                    <li><b>2024 - Present:</b> Admin (E-commerce Operations) @ Zero Gravity</li>
-                    <li><b>2023 - 2024:</b> Business Development Manager @ Easan Print</li>
-                    <li><b>2022 - 2023:</b> Marketing Manager @ Mudhra Cards</li>
-                    <li><b>2020 - 2022:</b> Team Coordinator @ Balaji Printers</li>
-                    <li><b>2016 - 2020:</b> Sr Marketing Executive @ Mudhra Cards</li>
-                    <li><b>2015 - 2016:</b> Field Officer @ Classic Cards</li>
-                    <li><b>2013 - 2015:</b> Store In-charge @ KG Tyres</li>
-                    <li><b>2012 - 2013:</b> Dispatch In-charge @ Raja Magnetics</li>
-                </ul>
-
-                <p><b>Key Contributions:</b> Translated business requirements into technical workflows and UX/UI logic,
-                    automated inventory and operational processes, and managed CRM solutions and digital transformation
-                    support.</p>
-
-                <h3>Career Vision:</h3>
-                <p>My final goal is to leverage my MERN stack expertise to grow into a Platform Engineering role and
-                    ultimately become a Technical Program Manager (TPM).</p>
-
-            </div>
-        </section>
-
-        <hr>
-
-
-        <section id="services">
-
-            <div class="section-box">
-                <h3>My Freelance Services & Featured Projects:</h3>
-
-                <figure>
-                    <img src="assets/E-commerce project.jpg" width="300" height="200" alt="E-commerce project">
-                    <figcaption>Explore <b>Quality</b> Full Stack Projects built by me.</figcaption>
-                </figure>
-
-                <section>
-                    <h4>Web Development Services</h4>
-
-                    <article class="card">
-                        <img src="assets/E-commerce Website Creation.jpg" width="300" height="200"
-                            alt="E-commerce Website Creation">
-                        <h2>E-commerce Website Creation</h2>
-                        <h3>Starts at $500</h3>
-                        <p>Complete Frontend and Backend setup for your online store using the MERN stack. Fully
-                            responsive and secure. </p>
-                        <button class="btn">Book Now</button>
-                        <button class="info">View Details</button>
-                    </article>
-
-                    <br>
-
-                    <article class="card">
-                        <img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg" width="300" height="200"
-                            alt="Personal Portfolio / Static Site">
-                        <h2>Personal Portfolio / Static Site</h2>
-                        <h3>Starts at $150</h3>
-                        <p>Beautiful semantic HTML5 and CSS3 websites to showcase your resume, projects, or small
-                            business.</p>
-                        <button class="btn">Book Now</button>
-                        <button class="info">View Details</button>
-                    </article>
-                </section>
-
-                <br>
-
-                <h4>Pricing & Project Delivery Estimates</h4>
-                <table border="3">
-                    <thead>
-                        <tr>
-                            <th colspan="3">Freelance Services Menu</th>
-                        </tr>
-                        <tr>
-                            <th>Service Type</th>
-                            <th>Estimated Delivery</th>
-                            <th>Price</th>
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        <tr>
-                            <td>Static Portfolio Website</td>
-                            <td>3 Days</td>
-                            <td>$150</td>
-                        </tr>
-                        <tr>
-                            <td>Dynamic E-Commerce Site</td>
-                            <td>2 Weeks</td>
-                            <td>$500</td>
-                        </tr>
-                        <tr>
-                            <td>Backend API Creation</td>
-                            <td>1 Week</td>
-                            <td>$250</td>
-                        </tr>
-                    </tbody>
-
-                    <tfoot>
-                        <tr>
-                            <td colspan="2"><b>Complete Full Stack Package</b></td>
-                            <td><b>$900</b></td>
-                        </tr>
-                    </tfoot>
-                </table>
-
-                <br>
-
-                <button id="hire-btn">Hire Me Now</button>
-            </div>
-        </section>
-
-        <hr>
-
-
-        <section id="project-gallery">
-            <div class="section-box">
-                <h3>My Portfolio Showcase</h3>
-                <br><br>
-
-                <h4 style="color: #ffffff;">💻 Featured Projects</h4>
-                <div class="masonry-grid">
-                    <div class="item item-medium">
-                        <img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg"
-                            class="fit-cert" alt="E-Commerce Mobile View">
-                        <div class="overlay-text">E-Commerce App</div>
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg"
-                            class="fit-cert" alt="AI Dashboard">
-                        <div class="overlay-text">AI Dashboard</div>
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg"
-                            class="fit-cert" alt="Backend API">
-                        <div class="overlay-text">Node.js Backend</div>
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg"
-                            class="fit-cert" alt="React Portfolio">
-                        <div class="overlay-text">React Portfolio</div>
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="https://i.pinimg.com/1200x/02/5a/cf/025acf56a8d33616e27520fadfa46931.jpg"
-                            class="fit-cert" alt="CRM System">
-                        <div class="overlay-text">CRM System</div>
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg"
-                            class="fit-cert" alt="Voice UI App">
-                        <div class="overlay-text">Voice UI App</div>
-                    </div>
-                </div>
-
-                <br><br><br>
-
-                <h4 style="color: #ffffff;">🎓 Certifications & Achievements</h4>
-                <div class="masonry-grid">
-
-
-                    <div class="item item-medium">
-                        <img src="assets/tn skill  - score card.jpg" class="fit-cert" alt="TN SCORE CARD">
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="assets/TN SKILL.jpg" class="fit-cert" alt="TN SKILL">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/codetech -fullstack.jpg" class="fit-cert" alt="codetech">
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="assets/intel.jpg" class="fit-cert" alt="intel">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH AI.jpg" class="fit-cert" alt="AI">
-                    </div>
-
-                    <div class="item item-small">
-                        <img src="assets/SRM Certificate of Participation.jpg" class="fit-cert" alt="SRM">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH MERN 3 MONTH.jpg" class="fit-cert" alt="MERN">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH PYTHON.jpg" class="fit-cert" alt="PYTHON">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH UI & UX.jpg" class="fit-cert" alt="UI UX">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH DA.jpg" class="fit-cert" alt="DA">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH POWER BI.jpg" class="fit-cert" alt="POWER BI">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH DL.jpg" class="fit-cert" alt="DL">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH ML.jpg" class="fit-cert" alt="ML">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH CYBER SECURITY.jpg" class="fit-cert" alt="CYBER SECURITY">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH BLOCKCHAIN.jpg" class="fit-cert" alt="BLOCKCHAIN">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH ETHICAL HACKING.jpg" class="fit-cert" alt="ETHICAL HACKING">
-                    </div>
-
-                    <div class="item item-medium">
-                        <img src="assets/NOVI TECH IOT.jpg" class="fit-cert" alt="IOT">
-                    </div>
-
-
-                </div>
-
-            </div>
-        </section>
-
-        <hr>
-
-        <div class="padding-example">
-            <h4>Ready to build scalable web applications? <br> Let's collaborate on your next project!</h4>
         </div>
 
-        <section id="contact">
-            <div class="section-box">
-                <h3>Book a Freelance Project / Consultation:</h3>
-
-                <form action="success.html">
-                    <fieldset>
-                        <legend>Client / Event Booking Form</legend> <br>
-
-                        <label for="name">Enter your Name:</label>
-                        <input type="text" id="name" placeholder="John" required> <br><br>
-
-                        <label for="email">Enter your Email:</label>
-                        <input type="email" id="email" placeholder="@mail.com" required> <br><br>
-
-                        <label for="pwd">Create your Password:</label>
-                        <input type="password" id="pwd" required> <br><br>
-
-                        <label for="phone">Mobile Number:</label>
-                        <input type="number" id="phone" required> <br><br>
-
-                        <label for="meetTime">Select Meeting Time</label>
-                        <input type="time" id="meetTime" required> <br><br>
-
-                        <label for="budget">Project Budget Scale (0 to 10):</label>
-                        <input type="range" id="budget" min="0" max="10"> <br><br>
-
-                        <label>Gender</label>
-                        <div class="radio-group">
-                            <span class="radio-box"><input name="gender" type="radio" required>Male</span>
-                            <span class="radio-box"><input name="gender" type="radio">Female</span>
-                            <span class="radio-box"><input name="gender" type="radio">Others</span>
-                        </div>
-                        <br>
-
-                        <label for="doc">Upload Project Reference / Profile Picture:</label>
-                        <input type="file" id="doc" required> <br><br>
-
-                        <label for="country">Select your Country:</label>
-                        <select name="country" id="country" required>
-                            <option value="">Select Country</option>
-                            <option value="India">India</option>
-                            <option value="Australia">Australia</option>
-                            <option value="South Africa">South Africa</option>
-                            <option value="UAE">UAE</option>
-                            <option value="USA">USA</option>
-                            <option value="China">China</option>
-                            <option value="Russia">Russia</option>
-                            <option value="Brazil">Brazil</option>
-                            <option value="England">England</option>
-                            <option value="France">France</option>
-                        </select> <br><br>
-
-                        <label for="address">Enter your Full Address / Project Details:</label><br>
-                        <textarea rows="5" name="address" id="address" required></textarea> <br><br>
-
-                        <input required type="checkbox" id="terms">
-                        <label for="terms">Accept Terms & Conditions</label> <br><br>
-
-                        <button type="submit" class="btn">Submit your Form Data</button>
-                        <button type="reset" class="info">Reset your Form Data</button>
-                    </fieldset>
-                </form>
-
-                <br><br>
-
-                <h4>Have a quick query or need support?</h4>
-                <form action="index.html">
-                    <label for="supportName">Username:</label>
-                    <input type="text" id="supportName" placeholder="Enter your username" required> <br><br>
-
-                    <label for="supportEmail">Email:</label>
-                    <input type="email" id="supportEmail" placeholder="Enter your email" required> <br><br>
-
-                    <label for="queries">Query:</label><br>
-                    <textarea id="queries" rows="4" placeholder="Enter your Queries" required></textarea> <br><br>
-
-                    <button type="submit" class="btn">Send Query</button>
-                </form>
-
+        <h4 class="text-start mb-3" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">Phase 2 & 3: Advanced Full Stack</h4>
+        <div class="row g-4 mb-5">
+            <div class="col-md-6">
+                <div class="path-card locked-card">
+                    <div class="locked-badge">LOCKED</div>
+                    <div class="icon-box" style="color: #61DAFB;">⚛️</div>
+                    <div class="path-title">React.js Ecosystem</div>
+                    <div class="path-desc">Component-based UI, State Management (Redux), and SPA development.</div>
+                </div>
             </div>
-        </section>
+            <div class="col-md-6">
+                <div class="path-card locked-card" style="border-color: #4CAF50;">
+                    <div class="locked-badge">LOCKED</div>
+                    <div class="icon-box" style="color: #4CAF50;">🧠</div>
+                    <div class="path-title">Node.js + MERN + <span style="color: #ffc107;">AI APIs</span></div>
+                    <div class="path-desc">Robust backend servers & databases, seamlessly integrated with <b>Web Speech, Gemini, TensorFlow.js & RapidMiner</b>.</div>
+                </div>
+            </div>
+        </div>
 
+        <h4 class="text-start mb-3" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">Phase 4: Multi-Domain Foundations</h4>
+        <div class="row g-4 mb-5">
+            <div class="col-12">
+                <div class="path-card" style="align-items: flex-start; text-align: left; padding: 25px;">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div style="font-size: 30px;">🌐</div>
+                        <h3 class="path-title mb-0" style="margin: 0 !important;">Broadening the T-Shape (Concurrent Learning)</h3>
+                    </div>
+                    <p class="path-desc text-start mb-3">Building foundational knowledge across multiple domains to architect secure, data-driven, and intelligent Full Stack applications.</p>
+                    
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-robot text-info"></i> AI / ML / DL</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-filetype-py text-warning"></i> Python & SQL</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-bar-chart-fill text-success"></i> Data Analytics</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-shield-lock-fill text-danger"></i> Cyber Security & Ethical Hacking</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-link-45deg text-primary"></i> Blockchain & IoT</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-palette text-info"></i> UI / UX</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
 
-    </main>
-
-    <hr>
-
-    <footer style="text-align: center; margin-bottom: 20px;">
-        <p>&copy; 2026 Gunasekaran. All Rights Reserved</p>
-    </footer>
-
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
 
 </html>
