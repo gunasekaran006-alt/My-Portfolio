@@ -83,9 +83,41 @@
             transform: scale(0.95);
             box-shadow: none;
         }
-    </style>
+
+
+
+        /* Minimalist Title Hover Effect */
+        .title-hover {
+            color: #ffffff !important;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+        .title-hover:hover {
+            color: #27C8F5 !important;
+        }
+
+        /* Premium Transparent Cyan Badges */
+        .badge-outline-cyan {
+            background-color: transparent !important;
+            color: #27C8F5 !important;
+            border: 1px solid #27C8F5 !important;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .badge-outline-cyan:hover {
+            background-color: rgba(39, 200, 245, 0.1) !important;
+            box-shadow: 0px 0px 10px rgba(39, 200, 245, 0.4);
+        }
+
+        /* Subtle Badges for Normal Tech */
+        .badge-subtle {
+            background-color: transparent !important;
+            color: #a0a0a0 !important;
+            border: 1px solid #444c56 !important;
+        }
 
     </style>
+
 </head>
 
 <body>
@@ -147,55 +179,42 @@
         </section>
 
         <section id="skills" class="mb-5">
-            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-layers-fill"></i>
-                Architecture & AI Integration</h2>
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-layers-fill"></i> Architecture & AI Integration</h2>
             <div class="row g-4">
-
+                
                 <div class="col-lg-6">
                     <div class="bg-panel p-4 h-100">
-                        <h3 class="h4 text-primary mb-4"><i class="bi bi-browser-chrome"></i> Front End & UI AI</h3>
+                        <h3 class="h4 title-hover mb-4"><i class="bi bi-browser-chrome"></i> Front End & UI AI</h3>
                         <ul class="list-group list-group-flush rounded mb-4">
-                            <li class="list-group-item bg-dark text-white border-secondary">HTML, CSS & Bootstrap <span
-                                    class="badge bg-primary float-end">UI</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">React.js + Redux <span
-                                    class="badge bg-primary float-end">Logic</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">Web Speech API <span
-                                    class="badge bg-warning text-dark float-end">Voice AI</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">Gemini API <span
-                                    class="badge bg-warning text-dark float-end">Gen AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">HTML, CSS & Bootstrap <span class="badge badge-subtle float-end">UI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">React.js + Redux <span class="badge badge-subtle float-end">Logic</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Web Speech API <span class="badge badge-outline-cyan float-end">Voice AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Gemini API <span class="badge badge-outline-cyan float-end">Gen AI</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-lg-6">
                     <div class="bg-panel p-4 h-100">
-                        <h3 class="h4 text-success mb-4"><i class="bi bi-server"></i> Back End & Data AI</h3>
+                        <h3 class="h4 title-hover mb-4"><i class="bi bi-server"></i> Back End & Data AI</h3>
                         <ul class="list-group list-group-flush rounded mb-4">
-                            <li class="list-group-item bg-dark text-white border-secondary">Node.js & Express.js <span
-                                    class="badge bg-success float-end">Server</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">MongoDB <span
-                                    class="badge bg-success float-end">Database</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">TensorFlow.js <span
-                                    class="badge bg-warning text-dark float-end">ML Model</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">RapidMiner <span
-                                    class="badge bg-warning text-dark float-end">Data AI</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">Node.js & Express.js <span class="badge badge-subtle float-end">Server</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">MongoDB <span class="badge badge-subtle float-end">Database</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">TensorFlow.js <span class="badge badge-outline-cyan float-end">ML Model</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">RapidMiner <span class="badge badge-outline-cyan float-end">Data AI</span></li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="col-12 mt-2">
                     <div class="bg-panel p-4" style="border-top: 3px solid #27C8F5;">
-                        <h3 class="h5 text-white mb-3"><i class="bi bi-globe2 text-cyan"></i> Multi-Domain Technical
-                            Foundations</h3>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">AI / ML / DL</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Python & SQL</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Data Analytics &
-                                Power BI</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">Cyber Security &
-                                Ethical Hacking</span>
-                            <span class="badge bg-dark text-light border border-secondary py-2 px-3">IoT &
-                                Blockchain</span>
+                        <h3 class="h5 title-hover mb-3"><i class="bi bi-globe2"></i> Multi-Domain Technical Foundations</h3>
+                        <div class="d-flex flex-wrap gap-2 mt-4">
+                            <span class="badge badge-outline-cyan py-2 px-3"><i class="bi bi-robot"></i> AI / ML / DL</span>
+                            <span class="badge badge-outline-cyan py-2 px-3"><i class="bi bi-filetype-py"></i> Python & SQL</span>
+                            <span class="badge badge-outline-cyan py-2 px-3"><i class="bi bi-bar-chart-fill"></i> Data Analytics & Power BI</span>
+                            <span class="badge badge-outline-cyan py-2 px-3"><i class="bi bi-shield-lock-fill"></i> Cyber Security & Ethical Hacking</span>
+                            <span class="badge badge-outline-cyan py-2 px-3"><i class="bi bi-link-45deg"></i> IoT & Blockchain</span>
                         </div>
                     </div>
                 </div>
