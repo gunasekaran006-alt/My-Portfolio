@@ -74,13 +74,14 @@
         }
         .locked-badge { 
             position: absolute; 
-            top: 15px; right: -30px; 
+            top: 15px; 
+            right: -30px; 
             background: #ff4757; 
             color: white; 
             font-size: 11px; 
             font-weight: bold; 
             padding: 5px 30px; 
-            transform: rotate(45deg); 
+            transform: rotate(45deg); /*for cross badge*/
         }
 
         .badge:hover {
@@ -119,7 +120,7 @@
         <h4 class="text-start mb-3" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">Phase 2 & 3: Advanced Full Stack</h4>
         <div class="row g-4 mb-5">
             <div class="col-md-6">
-                <div class="path-card locked-card">
+                <div class="path-card locked-card" style="border-color: #61DAFB;">
                     <div class="locked-badge">LOCKED</div>
                     <div class="icon-box" style="color: #61DAFB;">⚛️</div>
                     <div class="path-title">React.js Ecosystem</div>
@@ -127,9 +128,9 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="path-card locked-card" style="border-color: #4CAF50;">
+                <div class="path-card locked-card" style="border-color: #61DAFB;">
                     <div class="locked-badge">LOCKED</div>
-                    <div class="icon-box" style="color: #4CAF50;">🧠</div>
+                    <div class="icon-box" style="color: #61DAFB;">🧠</div>
                     <div class="path-title">Node.js + MERN + <span style="color: #ffc107;">AI APIs</span></div>
                     <div class="path-desc">Robust backend servers & databases, seamlessly integrated with <b>Web Speech, Gemini, TensorFlow.js & RapidMiner</b>.</div>
                 </div>
@@ -149,7 +150,7 @@
                     <div class="d-flex flex-wrap gap-2">
                         <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-robot text-info"></i> AI / ML / DL</span>
                         <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-filetype-py text-warning"></i> Python & SQL</span>
-                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-bar-chart-fill text-success"></i> Data Analytics</span>
+                        <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-bar-chart-fill text-success"></i> Data Analytics & PowerBI</span>
                         <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-shield-lock-fill text-danger"></i> Cyber Security & Ethical Hacking</span>
                         <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-link-45deg text-primary"></i> Blockchain & IoT</span>
                         <span class="badge bg-dark border border-secondary text-light px-3 py-2"><i class="bi bi-palette text-info"></i> UI / UX</span>
