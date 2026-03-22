@@ -24,6 +24,7 @@
         .home-btn:hover { background-color: transparent !important; color: #27C8F5 !important; box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8); transform: scale(1.05); }
         .home-btn:active { transform: scale(0.95); box-shadow: none; }
 
+        /* Hover Title Fix */
         .title-hover { color: #ffffff !important; transition: color 0.3s ease; cursor: pointer; }
         .title-hover:hover { color: #27C8F5 !important; }
 
@@ -44,19 +45,26 @@
         .native-bullets { list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #e6edf3; }
         .native-bullets li { margin-bottom: 8px; }
 
-        /* Dummy Nav Links (White initially, Blue on hover) */
+        /* Dummy Nav Links */
         .dummy-nav .nav-link { color: #ffffff !important; font-weight: 500; }
         .dummy-nav .nav-link:hover { color: #27C8F5 !important; }
 
-        /* Masonry Grid & Uniform Images Fix */
-        .masonry-grid { column-count: 3; column-gap: 15px; }
-        @media (max-width: 991px) { .masonry-grid { column-count: 2; } }
+        /* Masonry Grid (Big & Small Compact Fix) */
+        .masonry-grid { column-count: 5; column-gap: 12px; margin-bottom: 20px;}
+        @media (max-width: 991px) { .masonry-grid { column-count: 3; } }
+        @media (max-width: 767px) { .masonry-grid { column-count: 2; } }
         @media (max-width: 575px) { .masonry-grid { column-count: 1; } }
         
-        .grid-item { break-inside: avoid; margin-bottom: 15px; position: relative; overflow: hidden; border-radius: 8px; border: 1px solid #444c56; }
+        .grid-item { break-inside: avoid; margin-bottom: 12px; position: relative; overflow: hidden; border-radius: 6px; border: 1px solid #444c56; }
         
-        /* Forces uniform, contained images that fit the page */
-        .grid-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        /* Restored Vanilla Sizes for staggered look */
+        .grid-item img { 
+            width: 100%; 
+            height: auto;             
+            display: block; 
+            transition: transform 0.4s ease; }
+        /* .item-small { height: 160px; }
+        .item-medium { height: 260px; } */
         .grid-item:hover img { transform: scale(1.1); }
         
         .overlay-text { position: absolute; bottom: -100%; left: 0; width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.8); color: white; text-align: center; transition: bottom 0.3s ease; font-weight: bold; border-top: 2px solid #27C8F5; }
@@ -70,21 +78,11 @@
 
         /* Modern Bootstrap Choose File Button Fix */
         .modern-file-input::file-selector-button {
-            background-color: #27C8F5;
-            color: #000000;
-            border: none;
-            padding: 8px 15px;
-            margin-right: 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            cursor: pointer;
+            background-color: #27C8F5; color: #000000; border: none; padding: 8px 15px; margin-right: 15px; border-radius: 5px; font-weight: bold; transition: all 0.3s ease; cursor: pointer;
         }
-        .modern-file-input::file-selector-button:hover {
-            background-color: transparent;
-            color: #27C8F5;
-            box-shadow: 0px 0px 10px rgba(39, 200, 245, 0.6);
-        }
+        .modern-file-input::file-selector-button:hover { background-color: #27C8F5 !important; color: #000000 !important; box-shadow: none; }
+    
+        
     </style>
 </head>
 
@@ -132,7 +130,7 @@
                     <h3 class="h4 text-cyan border-bottom border-secondary pb-2">Hello! I'm Gunasekaran.</h3>
                     <p class="text-light mt-3">Seasoned professional with 12+ years in Operations, Business Development, and Marketing, currently transitioning into a Junior Full Stack Developer role. Engineered this career pivot by leveraging multi-domain expertise to build <strong class="text-cyan">AI-Enhanced MERN solutions</strong>. Bridging an MBA in IT Management (SRM) with technical specialization from Entri Elevate in collaboration with Illinois (USA) to architect scalable web applications and AI-driven automation.</p>
                     
-                    <h4 class="h5 mt-4 text-light">My Self Introduction:</h4>
+                    <h4 class="h5 mt-4 text-cyan">My Self Introduction:</h4>
                     <audio controls class="w-100 mt-2 mb-3 bg-dark"><source src="badri07.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
                     <video class="img-fluid rounded border border-secondary" controls autoplay muted style="max-width: 350px;"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">Your browser does not support the video tag.</video>
                 </div>
@@ -245,7 +243,12 @@
                             <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">MBA - IT Management (Pursuing)</h4><p class="small text-secondary mb-0">SRM Institute of Science & Technology</p></article></li>
                             <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">AI-Enhanced MERN Full Stack (Dec 2025 - Sep 2026)</h4><p class="small text-secondary mb-0">Illinois Tech (USA) & Entri Elevate</p></article></li>
                             <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">Full Stack MERN - Grade A: 84% (Feb 2026)</h4><p class="small text-secondary mb-0">Government of Tamil Nadu - Naan Mudhalvan & SmartBridge</p></article></li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">Multi-Domain Tech Foundation (2025 - 2026)</h4><p class="small text-secondary mb-0">Novi Tech (AI, ML, DL, Python, SQL, UI/UX, IoT, etc.)</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-secondary py-1 d-flex align-items-start">
+    <article class="ms-2">
+        <h4 class="h6 text-info mb-0">Multi-Domain Tech Foundation (2025 - 2026)</h4>
+        <p class="small text-secondary mb-0">Novi Tech (AI, ML, DL, Python, SQL, Data Analytics, Power BI, UI/UX, Cyber Security, Ethical Hacking, IoT, Blockchain)</p>
+    </article>
+</li>
                             <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">AI for All Specialization (Nov 2025)</h4><p class="small text-secondary mb-0">Intel & Skill India Digital (NSDC)</p></article></li>
                             <li class="list-group-item bg-transparent text-light border-0"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">B.Com - Commerce</h4><p class="small text-secondary mb-0">Bharathiyar University</p></article></li>
                         </ol>
@@ -282,7 +285,7 @@
                 <figcaption class="text-secondary">Explore <b>Quality</b> Full Stack Projects built by me.</figcaption>
             </figure>
 
-            <h4 class="h5 text-light mb-4">Web Development Services</h4>
+            <h4 class="h5 text-cyan mb-4">Web Development Services</h4>
 
             <div class="row g-4 mb-5">
                 <div class="col-md-6">
@@ -293,7 +296,7 @@
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $500</h3>
                             <p class="card-text text-secondary small">Complete Frontend and Backend setup for your online store using the MERN stack. Fully responsive and secure.</p>
                             <button class="btn btn-info btn-sm fw-bold">Book Now</button>
-                            <button class="btn btn-outline-light btn-sm">View Details</button>
+                            <button class="btn btn-outline-info btn-sm fw-bold">View Details</button>
                         </div>
                     </article>
                 </div>
@@ -305,7 +308,7 @@
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $150</h3>
                             <p class="card-text text-secondary small">Beautiful semantic HTML5 and CSS3 websites to showcase your resume, projects, or small business.</p>
                             <button class="btn btn-info btn-sm fw-bold">Book Now</button>
-                            <button class="btn btn-outline-light btn-sm">View Details</button>
+                            <button class="btn btn-outline-info btn-sm fw-bold">View Details</button>
                         </div>
                     </article>
                 </div>
@@ -337,35 +340,49 @@
         <section id="gallery" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images"></i> Portfolio Showcase</h2>
             
-            <h4 class="h5 text-light mb-4">💻 Featured Projects</h4>
+            <h4 class="h5 title-hover mb-4">💻 Featured Projects</h4>
+            
             <div class="masonry-grid mb-5">
-                <div class="grid-item"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" alt="E-Commerce Mobile View"><div class="overlay-text">E-Commerce App</div></div>
-                <div class="grid-item"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" alt="AI Dashboard"><div class="overlay-text">AI Dashboard</div></div>
-                <div class="grid-item"><img src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg" alt="Backend API"><div class="overlay-text">Node.js Backend</div></div>
-                <div class="grid-item"><img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg" alt="React Portfolio"><div class="overlay-text">React Portfolio</div></div>
-                <div class="grid-item"><img src="https://i.pinimg.com/1200x/02/5a/cf/025acf56a8d33616e27520fadfa46931.jpg" alt="CRM System"><div class="overlay-text">CRM System</div></div>
-                <div class="grid-item"><img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg" alt="Voice UI App"><div class="overlay-text">Voice UI App</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" alt="E-Commerce Mobile View"><div class="overlay-text">E-Commerce App</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" alt="AI Dashboard"><div class="overlay-text">AI Dashboard</div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/736x/8a/9f/f9/8a9ff9860f8f637632f19a28fa51a031.jpg" alt="Cofe Shop"><div class="overlay-text">Cofe Shop</div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/736x/d8/85/f6/d885f6fad0830174a71cc87c96556f4e.jpg" alt="Digital Resume Builder"><div class="overlay-text">Digital Resume Builder</div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg" alt="Voice UI App"><div class="overlay-text">Voice UI App</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg" alt="React Portfolio"><div class="overlay-text">React Portfolio</div></div>
+
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/e5/d6/1f/e5d61f6942dc05b860d295047c0890c7.jpg" alt="E-Commerce Mobile View"><div class="overlay-text">E-Commerce App</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/1200x/03/60/7e/03607e9980247286e8f501a48abf6c28.jpg" alt="Dashboard - Task Management "><div class="overlay-text">Dashboard - Task Management </div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/ab/9d/b9/ab9db95e052011f2be92886dfbb1b635.jpg" alt="fitness tracker web app"><div class="overlay-text">Fitness tracker web app</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/1200x/1e/a0/9e/1ea09e7dad4ba76329eeb9172dbe4842.jpg" alt="Real-time Weather Dashboard"><div class="overlay-text">Real-time Weather Dashboard</div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/20/26/7a/20267aba00335f86ee1463c3a00195ed.jpg" alt="job portal"><div class="overlay-text">Job portal</div></div>
+                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/8d/5c/b1/8d5cb1164eee4486edc087596a74cf33.jpg" alt="Web Chat UI"><div class="overlay-text">Web Chat UI</div></div>
+                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/59/d9/8a/59d98a9d0632ef8adb0f2b000c8a2195.jpg" alt="E-Commerce Website"><div class="overlay-text">E-Commerce Website</div></div>
+
             </div>
 
-            <h4 class="h5 text-light mb-4">🎓 Certifications & Achievements</h4>
+            <h4 class="h5 title-hover mb-4">🎓 Certifications & Achievements</h4>
+            
             <div class="masonry-grid">
-                <div class="grid-item"><img src="assets/tn skill  - score card.jpg" alt="TN SCORE CARD"></div>
-                <div class="grid-item"><img src="assets/TN SKILL.jpg" alt="TN SKILL"></div>
-                <div class="grid-item"><img src="assets/codetech -fullstack.jpg" alt="codetech"></div>
-                <div class="grid-item"><img src="assets/intel.jpg" alt="intel"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH AI.jpg" alt="AI"></div>
-                <div class="grid-item"><img src="assets/SRM Certificate of Participation.jpg" alt="SRM"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH MERN 3 MONTH.jpg" alt="MERN"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH PYTHON.jpg" alt="PYTHON"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH UI & UX.jpg" alt="UI UX"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH DA.jpg" alt="DA"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH POWER BI.jpg" alt="POWER BI"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH DL.jpg" alt="DL"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH ML.jpg" alt="ML"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH CYBER SECURITY.jpg" alt="CYBER SECURITY"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH BLOCKCHAIN.jpg" alt="BLOCKCHAIN"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH ETHICAL HACKING.jpg" alt="ETHICAL HACKING"></div>
-                <div class="grid-item"><img src="assets/NOVI TECH IOT.jpg" alt="IOT"></div>
+                
+                <div class="grid-item item-small"><img src="assets/TN SKILL.jpg" alt="TN SKILL"></div>
+                <div class="grid-item item-medium"><img src="assets/tn skill  - score card.jpg" alt="TN SCORE CARD"></div>
+                <div class="grid-item item-medium"><img src="assets/codetech -fullstack.jpg" alt="codetech"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH AI.jpg" alt="AI"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH MERN 3 MONTH.jpg" alt="MERN"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH PYTHON.jpg" alt="PYTHON"></div>
+                
+                <div class="grid-item item-small"><img src="assets/SRM Certificate of Participation.jpg" alt="SRM"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH UI & UX.jpg" alt="UI UX"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH DA.jpg" alt="DA"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH POWER BI.jpg" alt="POWER BI"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH DL.jpg" alt="DL"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH ML.jpg" alt="ML"></div>
+               
+                <div class="grid-item item-small"><img src="assets/intel.jpg" alt="intel"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH CYBER SECURITY.jpg" alt="CYBER SECURITY"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH BLOCKCHAIN.jpg" alt="BLOCKCHAIN"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH ETHICAL HACKING.jpg" alt="ETHICAL HACKING"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH IOT.jpg" alt="IOT"></div>
             </div>
         </section>
 
@@ -452,7 +469,7 @@
                             </div>
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-info fw-bold px-4 me-2">Submit your Form Data</button>
-                                <button type="reset" class="btn btn-outline-info px-4 fw-bold text-hover-cyan">Reset your Form Data</button>
+                                <button type="reset" class="btn btn-outline-info px-4 fw-bold">Reset your Form Data</button>
                             </div>
                         </div>
                     </fieldset>
@@ -487,7 +504,7 @@
 
     <footer style="text-align: center; margin-bottom: 20px;" class="text-secondary pb-4">
         <hr class="border-secondary mb-4">
-        <p>&copy; 2026 Gunasekaran. All Rights Reserved</p>
+        <p><span class="text-cyan fw-bold">&copy;</span> 2026 Gunasekaran. All Rights Reserved</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
