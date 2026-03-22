@@ -10,90 +10,81 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     
     <style>
-        body {
-            background-color: #0d1117;
-            color: #e6edf3;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .bg-panel {
-            background-color: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 10px;
-        }
-
-        .text-cyan { color: #27C8F5; }
+        body { background-color: #0d1117; color: #e6edf3; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .bg-panel { background-color: #161b22; border: 1px solid #30363d; border-radius: 10px; }
+        .text-cyan { color: #27C8F5 !important; }
         .text-hover-cyan:hover { color: #27C8F5 !important; }
 
         /* Custom Animation for Back to Home Button */
         .home-btn {
-            display: inline-block;
-            background-color: #27C8F5 !important;
-            color: #000000 !important;
-            font-size: 15px;
-            padding: 6px 15px;
-            border-radius: 5px;
-            font-weight: bold;
-            border: 2px solid #27C8F5 !important;
-            text-decoration: none;
-            transition: all 0.3s ease;
+            display: inline-block; background-color: #27C8F5 !important; color: #000000 !important; font-size: 15px; 
+            padding: 6px 15px; border-radius: 5px; font-weight: bold; border: 2px solid #27C8F5 !important; 
+            text-decoration: none; transition: all 0.3s ease;
         }
-        .home-btn:hover {
-            background-color: transparent !important;
-            color: #27C8F5 !important;
-            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8);
-            transform: scale(1.05);
-        }
-        .home-btn:active {
-            transform: scale(0.95);
-            box-shadow: none;
-        }
+        .home-btn:hover { background-color: transparent !important; color: #27C8F5 !important; box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8); transform: scale(1.05); }
+        .home-btn:active { transform: scale(0.95); box-shadow: none; }
 
-        /* Minimalist Title Hover Effect */
-        .title-hover {
-            color: #ffffff !important;
-            transition: color 0.3s ease;
-            cursor: pointer;
-        }
-        .title-hover:hover {
-            color: #27C8F5 !important;
-        }
+        .title-hover { color: #ffffff !important; transition: color 0.3s ease; cursor: pointer; }
+        .title-hover:hover { color: #27C8F5 !important; }
 
         /* Badge Styles */
-        .badge-frontend {
-            background-color: transparent !important;
-            color: #FF7F50 !important;
-            border: 1px solid #FF7F50 !important;
-            transition: all 0.3s ease;
-            display: inline-block;
-            cursor: pointer;
-        }
+        .badge-frontend { background-color: transparent !important; color: #FF7F50 !important; border: 1px solid #FF7F50 !important; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
         .badge-frontend:hover { background-color: rgba(255, 127, 80, 0.1) !important; box-shadow: 0px 0px 10px rgba(255, 127, 80, 0.4); transform: scale(1.05); }
 
-        .badge-backend {
-            background-color: transparent !important;
-            color: #00FA9A !important;
-            border: 1px solid #00FA9A !important;
-            transition: all 0.3s ease;
-            display: inline-block;
-            cursor: pointer;
-        }
+        .badge-backend { background-color: transparent !important; color: #00FA9A !important; border: 1px solid #00FA9A !important; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
         .badge-backend:hover { background-color: rgba(0, 250, 154, 0.1) !important; box-shadow: 0px 0px 10px rgba(0, 250, 154, 0.4); transform: scale(1.05); }
 
-        .badge-ai {
-            background-color: transparent !important;
-            color: #27C8F5 !important;
-            border: 1px solid #27C8F5 !important;
-            transition: all 0.3s ease;
-            display: inline-block;
-            cursor: pointer;
-        }
+        .badge-ai { background-color: transparent !important; color: #27C8F5 !important; border: 1px solid #27C8F5 !important; transition: all 0.3s ease; display: inline-block; cursor: pointer; }
         .badge-ai:hover { background-color: rgba(39, 200, 245, 0.1) !important; box-shadow: 0px 0px 10px rgba(39, 200, 245, 0.4); transform: scale(1.05); }
 
         .hover-card { transition: transform 0.3s; }
         .hover-card:hover { transform: translateY(-5px); border-color: #27C8F5 !important; }
 
-        .fit-cert { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+        /* Native Bullets Fix */
+        .native-bullets { list-style-type: disc; padding-left: 2rem; margin-bottom: 1rem; color: #e6edf3; }
+        .native-bullets li { margin-bottom: 8px; }
+
+        /* Dummy Nav Links (White initially, Blue on hover) */
+        .dummy-nav .nav-link { color: #ffffff !important; font-weight: 500; }
+        .dummy-nav .nav-link:hover { color: #27C8F5 !important; }
+
+        /* Masonry Grid & Uniform Images Fix */
+        .masonry-grid { column-count: 3; column-gap: 15px; }
+        @media (max-width: 991px) { .masonry-grid { column-count: 2; } }
+        @media (max-width: 575px) { .masonry-grid { column-count: 1; } }
+        
+        .grid-item { break-inside: avoid; margin-bottom: 15px; position: relative; overflow: hidden; border-radius: 8px; border: 1px solid #444c56; }
+        
+        /* Forces uniform, contained images that fit the page */
+        .grid-item img { width: 100%; height: 250px; object-fit: cover; display: block; transition: transform 0.4s ease; }
+        .grid-item:hover img { transform: scale(1.1); }
+        
+        .overlay-text { position: absolute; bottom: -100%; left: 0; width: 100%; padding: 12px; background: rgba(0, 0, 0, 0.8); color: white; text-align: center; transition: bottom 0.3s ease; font-weight: bold; border-top: 2px solid #27C8F5; }
+        .grid-item:hover .overlay-text { bottom: 0; }
+
+        .padding-example { border: 3px dotted #27C8F5 !important; padding: 25px; border-radius: 10px; margin-bottom: 3rem; background-color: rgba(39, 200, 245, 0.05); }
+
+        /* Fieldset & Legend Fix */
+        fieldset.custom-fieldset { border: 2px solid #444c56; padding: 25px; border-radius: 8px; }
+        legend.custom-legend { width: auto; float: none; padding: 0 15px; font-size: 1.2rem; color: #27C8F5; font-weight: bold; }
+
+        /* Modern Bootstrap Choose File Button Fix */
+        .modern-file-input::file-selector-button {
+            background-color: #27C8F5;
+            color: #000000;
+            border: none;
+            padding: 8px 15px;
+            margin-right: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .modern-file-input::file-selector-button:hover {
+            background-color: transparent;
+            color: #27C8F5;
+            box-shadow: 0px 0px 10px rgba(39, 200, 245, 0.6);
+        }
     </style>
 </head>
 
@@ -139,17 +130,11 @@
                 </div>
                 <div class="col-md-9">
                     <h3 class="h4 text-cyan border-bottom border-secondary pb-2">Hello! I'm Gunasekaran.</h3>
-                    <p class="text-secondary mt-3">Seasoned professional with 12+ years in Operations, Business Development, and Marketing, currently transitioning into a Junior Full Stack Developer role. Engineered this career pivot by leveraging multi-domain expertise to build <strong class="text-light">AI-Enhanced MERN solutions</strong>. Bridging an MBA in IT Management (SRM) with technical specialization from Entri Elevate in collaboration with Illinois (USA) to architect scalable web applications and AI-driven automation.</p>
+                    <p class="text-light mt-3">Seasoned professional with 12+ years in Operations, Business Development, and Marketing, currently transitioning into a Junior Full Stack Developer role. Engineered this career pivot by leveraging multi-domain expertise to build <strong class="text-cyan">AI-Enhanced MERN solutions</strong>. Bridging an MBA in IT Management (SRM) with technical specialization from Entri Elevate in collaboration with Illinois (USA) to architect scalable web applications and AI-driven automation.</p>
                     
                     <h4 class="h5 mt-4 text-light">My Self Introduction:</h4>
-                    <audio controls class="w-100 mt-2 mb-3 bg-dark">
-                        <source src="badri07.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-                    <video class="img-fluid rounded border border-secondary" controls autoplay muted style="max-width: 350px;">
-                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <audio controls class="w-100 mt-2 mb-3 bg-dark"><source src="badri07.mp3" type="audio/mpeg">Your browser does not support the audio element.</audio>
+                    <video class="img-fluid rounded border border-secondary" controls autoplay muted style="max-width: 350px;"><source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">Your browser does not support the video tag.</video>
                 </div>
             </div>
         </section>
@@ -158,13 +143,13 @@
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-layers-fill"></i> My Technical & Soft Skills</h2>
             
             <div class="bg-panel p-4 mb-4">
-                <ul class="list-group list-group-flush text-secondary">
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Frontend Technologies:</b> Architecting responsive UIs with React.js, Redux, Tailwind CSS, and Voice UI (Web Speech API).</li>
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Backend & Databases:</b> Engineering robust server-side logic with Node.js, Express.js, REST APIs, MongoDB, and MySQL.</li>
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Programming & AI:</b> Developing AI solutions with Python, JavaScript, ML/DL, Gemini API, and TensorFlow.js.</li>
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Data Science & Security:</b> Executing strategic insights via SQL, Power BI, and RapidMiner. Implementing secure authentication using JWT and RBAC.</li>
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Tools & Platforms:</b> Git, GitHub, Postman, Netlify, and CI/CD pipelines.</li>
-                    <li class="list-group-item bg-transparent text-light border-secondary"><b>Soft Skills:</b> Advanced Problem Solving, Cross-Functional Team Leadership, Business Analysis & Adaptability.</li>
+                <ul class="native-bullets">
+                    <li><b>Frontend Technologies:</b> Architecting responsive UIs with React.js, Redux, Tailwind CSS, and Voice UI (Web Speech API).</li>
+                    <li><b>Backend & Databases:</b> Engineering robust server-side logic with Node.js, Express.js, REST APIs, MongoDB, and MySQL.</li>
+                    <li><b>Programming & AI:</b> Developing AI solutions with Python, JavaScript, ML/DL, Gemini API, and TensorFlow.js.</li>
+                    <li><b>Data Science & Security:</b> Executing strategic insights via SQL, Power BI, and RapidMiner. Implementing secure authentication using JWT and RBAC.</li>
+                    <li><b>Tools & Platforms:</b> Git, GitHub, Postman, Netlify, and CI/CD pipelines.</li>
+                    <li><b>Soft Skills:</b> Advanced Problem Solving, Cross-Functional Team Leadership, Business Analysis & Adaptability.</li>
                 </ul>
             </div>
 
@@ -174,7 +159,7 @@
                         <h3 class="h4 title-hover mb-4"><i class="bi bi-browser-chrome"></i> Front End & UI AI</h3>
                         <ul class="list-group list-group-flush rounded mb-4">
                             <li class="list-group-item bg-dark text-white border-secondary">HTML, CSS & Bootstrap <span class="badge badge-frontend float-end">UI</span></li>
-                            <li class="list-group-item bg-dark text-white border-secondary">React.js + Redux <span class="badge badge-frontend float-end">Logic</span></li>
+                            <li class="list-group-item bg-dark text-white border-secondary">JavaScript & React.js <span class="badge badge-frontend float-end">Logic</span></li>
                             <li class="list-group-item bg-dark text-white border-secondary">Web Speech API <span class="badge badge-ai float-end">Voice AI</span></li>
                             <li class="list-group-item bg-dark text-white border-secondary">Gemini API <span class="badge badge-ai float-end">Gen AI</span></li>
                         </ul>
@@ -198,8 +183,9 @@
                             <span class="badge badge-ai py-2 px-3"><i class="bi bi-robot"></i> AI / ML / DL</span>
                             <span class="badge badge-ai py-2 px-3"><i class="bi bi-filetype-py"></i> Python & SQL</span>
                             <span class="badge badge-ai py-2 px-3"><i class="bi bi-bar-chart-fill"></i> Data Analytics & Power BI</span>
-                            <span class="badge badge-ai py-2 px-3"><i class="bi bi-shield-lock-fill"></i> Cyber Security & Ethical Hacking</span>
+                            <span class="badge badge-ai py-2 px-3"><i class="bi bi-palette"></i> UI / UX</span>
                             <span class="badge badge-ai py-2 px-3"><i class="bi bi-link-45deg"></i> IoT & Blockchain</span>
+                            <span class="badge badge-ai py-2 px-3"><i class="bi bi-shield-lock-fill"></i> Cyber Security & Ethical Hacking</span>
                         </div>
                     </div>
                 </div>
@@ -210,7 +196,7 @@
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-display"></i> My Core Expertise & UI Showcase</h2>
             <div class="bg-panel p-4">
                 
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mb-4 px-3 border border-secondary">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded mb-4 px-3 border border-secondary dummy-nav">
                     <a class="navbar-brand text-info fw-bold" href="#">Shopyfy.</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dummyNav">
                         <span class="navbar-toggler-icon"></span>
@@ -256,42 +242,12 @@
                 <div class="col-md-6">
                     <div class="bg-panel p-4 h-100">
                         <ol class="list-group list-group-numbered list-group-flush bg-transparent">
-                            <li class="list-group-item bg-transparent text-light border-secondary">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">MBA - IT Management (Pursuing)</h4>
-                                    <p class="small text-secondary mb-0">SRM Institute of Science & Technology</p>
-                                </article>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light border-secondary">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">AI-Enhanced MERN Full Stack (Dec 2025 - Sep 2026)</h4>
-                                    <p class="small text-secondary mb-0">Illinois Tech (USA) & Entri Elevate</p>
-                                </article>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light border-secondary">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">Full Stack MERN - Grade A: 84% (Feb 2026)</h4>
-                                    <p class="small text-secondary mb-0">Government of Tamil Nadu - Naan Mudhalvan & SmartBridge</p>
-                                </article>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light border-secondary">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">Multi-Domain Tech Foundation (2025 - 2026)</h4>
-                                    <p class="small text-secondary mb-0">Novi Tech (AI, ML, DL, Python, SQL, UI/UX, IoT, etc.)</p>
-                                </article>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light border-secondary">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">AI for All Specialization (Nov 2025)</h4>
-                                    <p class="small text-secondary mb-0">Intel & Skill India Digital (NSDC)</p>
-                                </article>
-                            </li>
-                            <li class="list-group-item bg-transparent text-light border-0">
-                                <article class="ms-2 d-inline-block align-top">
-                                    <h4 class="h6 text-info mb-1">B.Com - Commerce</h4>
-                                    <p class="small text-secondary mb-0">Bharathiyar University</p>
-                                </article>
-                            </li>
+                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">MBA - IT Management (Pursuing)</h4><p class="small text-secondary mb-0">SRM Institute of Science & Technology</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">AI-Enhanced MERN Full Stack (Dec 2025 - Sep 2026)</h4><p class="small text-secondary mb-0">Illinois Tech (USA) & Entri Elevate</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">Full Stack MERN - Grade A: 84% (Feb 2026)</h4><p class="small text-secondary mb-0">Government of Tamil Nadu - Naan Mudhalvan & SmartBridge</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">Multi-Domain Tech Foundation (2025 - 2026)</h4><p class="small text-secondary mb-0">Novi Tech (AI, ML, DL, Python, SQL, UI/UX, IoT, etc.)</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-secondary"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">AI for All Specialization (Nov 2025)</h4><p class="small text-secondary mb-0">Intel & Skill India Digital (NSDC)</p></article></li>
+                            <li class="list-group-item bg-transparent text-light border-0"><article class="ms-2 d-inline-block align-top"><h4 class="h6 text-info mb-1">B.Com - Commerce</h4><p class="small text-secondary mb-0">Bharathiyar University</p></article></li>
                         </ol>
                     </div>
                 </div>
@@ -299,19 +255,19 @@
                 <div class="col-md-6">
                     <div class="bg-panel p-4 h-100">
                         <h3 class="h5 text-cyan mb-3">Professional Experience (12+ Years)</h3>
-                        <ul class="list-group list-group-flush text-light">
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2024 - Present:</b> Admin (E-commerce Operations) @ Zero Gravity</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2023 - 2024:</b> Business Development Manager @ Easan Print</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2022 - 2023:</b> Marketing Manager @ Mudhra Cards</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2020 - 2022:</b> Team Coordinator @ Balaji Printers</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2016 - 2020:</b> Sr Marketing Executive @ Mudhra Cards</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2015 - 2016:</b> Field Officer @ Classic Cards</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2013 - 2015:</b> Store In-charge @ KG Tyres</li>
-                            <li class="list-group-item bg-transparent text-light border-secondary"><b>2012 - 2013:</b> Dispatch In-charge @ Raja Magnetics</li>
+                        <ul class="native-bullets">
+                            <li><b>2024 - Present:</b> Admin (E-commerce Operations) @ Zero Gravity</li>
+                            <li><b>2023 - 2024:</b> Business Development Manager @ Easan Print</li>
+                            <li><b>2022 - 2023:</b> Marketing Manager @ Mudhra Cards</li>
+                            <li><b>2020 - 2022:</b> Team Coordinator @ Balaji Printers</li>
+                            <li><b>2016 - 2020:</b> Sr Marketing Executive @ Mudhra Cards</li>
+                            <li><b>2015 - 2016:</b> Field Officer @ Classic Cards</li>
+                            <li><b>2013 - 2015:</b> Store In-charge @ KG Tyres</li>
+                            <li><b>2012 - 2013:</b> Dispatch In-charge @ Raja Magnetics</li>
                         </ul>
                         <div class="mt-4 p-3 border border-secondary rounded bg-dark">
-                            <p class="small text-light mb-2"><b>Key Contributions:</b> Translated business requirements into technical workflows and UX/UI logic, automated inventory and operational processes, and managed CRM solutions.</p>
-                            <p class="small text-light mb-0"><b>Career Vision:</b> My final goal is to leverage my MERN stack expertise to grow into a Platform Engineering role and ultimately become a Technical Program Manager (TPM).</p>
+                            <p class="small text-light mb-2"><b class="text-cyan">Key Contributions:</b> Translated business requirements into technical workflows and UX/UI logic, automated inventory and operational processes, and managed CRM solutions.</p>
+                            <p class="small text-light mb-0"><b class="text-cyan">Career Vision:</b> My final goal is to leverage my MERN stack expertise to grow into a Platform Engineering role and ultimately become a Technical Program Manager (TPM).</p>
                         </div>
                     </div>
                 </div>
@@ -326,11 +282,13 @@
                 <figcaption class="text-secondary">Explore <b>Quality</b> Full Stack Projects built by me.</figcaption>
             </figure>
 
+            <h4 class="h5 text-light mb-4">Web Development Services</h4>
+
             <div class="row g-4 mb-5">
                 <div class="col-md-6">
                     <article class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <img src="assets/E-commerce Website Creation.jpg" class="card-img-top" alt="E-commerce" style="height: 200px; object-fit: cover;">
-                        <div class="card-body">
+                        <div class="p-3"><img src="assets/E-commerce Website Creation.jpg" class="card-img-top rounded" alt="E-commerce" style="height: 200px; object-fit: cover;"></div>
+                        <div class="card-body pt-0">
                             <h2 class="card-title h5 text-cyan">E-commerce Website Creation</h2>
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $500</h3>
                             <p class="card-text text-secondary small">Complete Frontend and Backend setup for your online store using the MERN stack. Fully responsive and secure.</p>
@@ -341,9 +299,9 @@
                 </div>
                 <div class="col-md-6">
                     <article class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg" class="card-img-top" alt="Portfolio" style="height: 200px; object-fit: cover;">
-                        <div class="card-body">
-                            <h2 class="card-title h5 text-cyan">Personal Portfolio Site</h2>
+                        <div class="p-3"><img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg" class="card-img-top rounded" alt="Portfolio" style="height: 200px; object-fit: cover;"></div>
+                        <div class="card-body pt-0">
+                            <h2 class="card-title h5 text-cyan">Personal Portfolio / Static Site</h2>
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $150</h3>
                             <p class="card-text text-secondary small">Beautiful semantic HTML5 and CSS3 websites to showcase your resume, projects, or small business.</p>
                             <button class="btn btn-info btn-sm fw-bold">Book Now</button>
@@ -353,7 +311,7 @@
                 </div>
             </div>
 
-            <h4 class="h5 text-light mb-3">Pricing & Project Delivery Estimates</h4>
+            <h4 class="h5 text-cyan mb-3">Pricing & Project Delivery Estimates</h4>
             <div class="table-responsive bg-panel p-2 rounded">
                 <table class="table table-dark table-hover table-bordered text-center align-middle mb-0">
                     <thead class="table-active border-secondary">
@@ -379,39 +337,39 @@
         <section id="gallery" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images"></i> Portfolio Showcase</h2>
             
-            <h4 class="h5 text-light mb-3">💻 Featured Projects</h4>
-            <div class="row g-3 mb-5">
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" class="card-img fit-cert" alt="E-Commerce Mobile View"></div></div>
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" class="card-img fit-cert" alt="AI Dashboard"></div></div>
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg" class="card-img fit-cert" alt="Backend API"></div></div>
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg" class="card-img fit-cert" alt="React Portfolio"></div></div>
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/1200x/02/5a/cf/025acf56a8d33616e27520fadfa46931.jpg" class="card-img fit-cert" alt="CRM System"></div></div>
-                <div class="col-6 col-md-4"><div class="card bg-dark border-secondary hover-card"><img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg" class="card-img fit-cert" alt="Voice UI App"></div></div>
+            <h4 class="h5 text-light mb-4">💻 Featured Projects</h4>
+            <div class="masonry-grid mb-5">
+                <div class="grid-item"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" alt="E-Commerce Mobile View"><div class="overlay-text">E-Commerce App</div></div>
+                <div class="grid-item"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" alt="AI Dashboard"><div class="overlay-text">AI Dashboard</div></div>
+                <div class="grid-item"><img src="https://i.pinimg.com/1200x/ad/20/1b/ad201b0000188964d9a1dd4cd0e701f2.jpg" alt="Backend API"><div class="overlay-text">Node.js Backend</div></div>
+                <div class="grid-item"><img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg" alt="React Portfolio"><div class="overlay-text">React Portfolio</div></div>
+                <div class="grid-item"><img src="https://i.pinimg.com/1200x/02/5a/cf/025acf56a8d33616e27520fadfa46931.jpg" alt="CRM System"><div class="overlay-text">CRM System</div></div>
+                <div class="grid-item"><img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg" alt="Voice UI App"><div class="overlay-text">Voice UI App</div></div>
             </div>
 
-            <h4 class="h5 text-light mb-3">🎓 Certifications & Achievements</h4>
-            <div class="row g-3">
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/tn skill  - score card.jpg" class="card-img fit-cert" alt="TN SCORE CARD"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/TN SKILL.jpg" class="card-img fit-cert" alt="TN SKILL"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/codetech -fullstack.jpg" class="card-img fit-cert" alt="codetech"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/intel.jpg" class="card-img fit-cert" alt="intel"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH AI.jpg" class="card-img fit-cert" alt="AI"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/SRM Certificate of Participation.jpg" class="card-img fit-cert" alt="SRM"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH MERN 3 MONTH.jpg" class="card-img fit-cert" alt="MERN"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH PYTHON.jpg" class="card-img fit-cert" alt="PYTHON"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH UI & UX.jpg" class="card-img fit-cert" alt="UI UX"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH DA.jpg" class="card-img fit-cert" alt="DA"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH POWER BI.jpg" class="card-img fit-cert" alt="POWER BI"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH DL.jpg" class="card-img fit-cert" alt="DL"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH ML.jpg" class="card-img fit-cert" alt="ML"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH CYBER SECURITY.jpg" class="card-img fit-cert" alt="CYBER SECURITY"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH BLOCKCHAIN.jpg" class="card-img fit-cert" alt="BLOCKCHAIN"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH ETHICAL HACKING.jpg" class="card-img fit-cert" alt="ETHICAL HACKING"></div></div>
-                <div class="col-6 col-md-3"><div class="card bg-dark border-secondary hover-card"><img src="assets/NOVI TECH IOT.jpg" class="card-img fit-cert" alt="IOT"></div></div>
+            <h4 class="h5 text-light mb-4">🎓 Certifications & Achievements</h4>
+            <div class="masonry-grid">
+                <div class="grid-item"><img src="assets/tn skill  - score card.jpg" alt="TN SCORE CARD"></div>
+                <div class="grid-item"><img src="assets/TN SKILL.jpg" alt="TN SKILL"></div>
+                <div class="grid-item"><img src="assets/codetech -fullstack.jpg" alt="codetech"></div>
+                <div class="grid-item"><img src="assets/intel.jpg" alt="intel"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH AI.jpg" alt="AI"></div>
+                <div class="grid-item"><img src="assets/SRM Certificate of Participation.jpg" alt="SRM"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH MERN 3 MONTH.jpg" alt="MERN"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH PYTHON.jpg" alt="PYTHON"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH UI & UX.jpg" alt="UI UX"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH DA.jpg" alt="DA"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH POWER BI.jpg" alt="POWER BI"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH DL.jpg" alt="DL"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH ML.jpg" alt="ML"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH CYBER SECURITY.jpg" alt="CYBER SECURITY"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH BLOCKCHAIN.jpg" alt="BLOCKCHAIN"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH ETHICAL HACKING.jpg" alt="ETHICAL HACKING"></div>
+                <div class="grid-item"><img src="assets/NOVI TECH IOT.jpg" alt="IOT"></div>
             </div>
         </section>
 
-        <div class="text-center py-4 mb-5 rounded bg-panel border border-info">
+        <div class="text-center padding-example">
             <h4 class="text-light m-0">Ready to build scalable web applications? <br> Let's collaborate on your next project!</h4>
         </div>
 
@@ -420,9 +378,9 @@
 
             <div class="bg-panel p-4 p-md-5 mb-5">
                 <form action="success.html">
-                    <fieldset>
-                        <legend class="text-info fw-bold border-bottom border-secondary pb-2 mb-4">Client / Event Booking Form</legend>
-                        <div class="row g-3">
+                    <fieldset class="custom-fieldset">
+                        <legend class="custom-legend">Client / Event Booking Form</legend>
+                        <div class="row g-3 mt-2">
                             <div class="col-md-6">
                                 <label for="name" class="form-label text-light">Enter your Name:</label>
                                 <input type="text" id="name" class="form-control bg-dark text-white border-secondary" placeholder="John" required>
@@ -431,27 +389,22 @@
                                 <label for="email" class="form-label text-light">Enter your Email:</label>
                                 <input type="email" id="email" class="form-control bg-dark text-white border-secondary" placeholder="@mail.com" required>
                             </div>
-                            
                             <div class="col-md-6">
                                 <label for="pwd" class="form-label text-light">Create your Password:</label>
                                 <input type="password" id="pwd" class="form-control bg-dark text-white border-secondary" required>
                             </div>
-                            
                             <div class="col-md-6">
                                 <label for="phone" class="form-label text-light">Mobile Number:</label>
                                 <input type="number" id="phone" class="form-control bg-dark text-white border-secondary" required>
                             </div>
-
                             <div class="col-md-6">
                                 <label for="meetTime" class="form-label text-light">Select Meeting Time:</label>
                                 <input type="time" id="meetTime" class="form-control bg-dark text-white border-secondary" required>
                             </div>
-
                             <div class="col-md-6">
                                 <label for="budget" class="form-label text-light">Project Budget Scale (0 to 10):</label>
                                 <input type="range" id="budget" class="form-range" min="0" max="10">
                             </div>
-
                             <div class="col-md-6">
                                 <label class="form-label text-light d-block">Gender:</label>
                                 <div class="form-check form-check-inline">
@@ -467,13 +420,11 @@
                                     <label class="form-check-label text-secondary" for="other">Others</label>
                                 </div>
                             </div>
-
                             <div class="col-md-6">
-                                <label for="doc" class="form-label text-light">Upload Project Reference / Picture:</label>
-                                <input class="form-control bg-dark text-white border-secondary" type="file" id="doc" required>
+                                <label for="doc" class="form-label text-light">Upload Project Reference / Picture:</label><br>
+                                <input type="file" id="doc" class="modern-file-input" style="color: white;" required>
                             </div>
-
-                            <div class="col-md-12">
+                            <div class="col-md-12 mt-3">
                                 <label for="country" class="form-label text-light">Select your Country:</label>
                                 <select name="country" id="country" class="form-select bg-dark text-white border-secondary" required>
                                     <option value="">Select Country</option>
@@ -489,22 +440,19 @@
                                     <option value="France">France</option>
                                 </select>
                             </div>
-
-                            <div class="col-12">
+                            <div class="col-12 mt-3">
                                 <label for="address" class="form-label text-light">Enter your Full Address / Project Details:</label>
                                 <textarea rows="5" name="address" id="address" class="form-control bg-dark text-white border-secondary" required></textarea>
                             </div>
-
                             <div class="col-12 mt-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="terms" required>
                                     <label class="form-check-label text-secondary" for="terms">Accept Terms & Conditions</label>
                                 </div>
                             </div>
-
                             <div class="col-12 mt-4">
                                 <button type="submit" class="btn btn-info fw-bold px-4 me-2">Submit your Form Data</button>
-                                <button type="reset" class="btn btn-outline-secondary px-4">Reset your Form Data</button>
+                                <button type="reset" class="btn btn-outline-info px-4 fw-bold text-hover-cyan">Reset your Form Data</button>
                             </div>
                         </div>
                     </fieldset>
@@ -524,7 +472,7 @@
                             <input type="email" id="supportEmail" class="form-control bg-dark text-white border-secondary" placeholder="Enter your email" required>
                         </div>
                         <div class="col-12">
-                            <label for="queries" class="form-label text-light">Query:</label>
+                            <label for="queries" class="form-label text-light">Query:</label><br>
                             <textarea id="queries" rows="4" class="form-control bg-dark text-white border-secondary" placeholder="Enter your Queries" required></textarea>
                         </div>
                         <div class="col-12 mt-3">
