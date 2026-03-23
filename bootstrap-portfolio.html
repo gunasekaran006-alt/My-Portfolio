@@ -268,6 +268,28 @@
         :-ms-input-placeholder {
             color: #a1aab3 !important;
         }
+
+
+
+        /* Custom Vanilla-style Hover & Click Effects for Bootstrap Button */
+        .resume-btn-effect {
+            transition: all 0.3s ease !important;
+            border: 2px solid #27C8F5 !important; /* Keeps the border ready for hover */
+        }
+        
+        .resume-btn-effect:hover {
+            background-color: transparent !important;
+            color: #27C8F5 !important;
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8) !important; /* Glowing effect */
+            transform: scale(1.05) !important; /* Slightly scales up on hover */
+        }
+        
+        .resume-btn-effect:active {
+            transform: scale(0.95) !important; /* Shrinks slightly when clicked */
+            box-shadow: none !important;
+        }
+
+
     </style>
 </head>
 
@@ -331,10 +353,9 @@
 
                     <div class="d-flex flex-column align-items-start gap-3 mt-3 mb-2">
 
-                        <a href="Gunasekaran_FullStack_Developer_Resume.pdf" download
-                            class="btn btn-info btn-sm fw-bold px-3 text-dark shadow-sm">
-                            <i class="bi bi-download me-1"></i> Download Resume
-                        </a>
+                        <a href="Gunasekaran_FullStack_Developer_Resume.pdf" download class="btn btn-info btn-sm fw-bold px-3 text-dark shadow-sm resume-btn-effect">
+        <i class="bi bi-download me-1"></i> Download Resume
+    </a>
 
                         <audio controls class="bg-dark rounded" style="width: 260px; height: 45px;">
                             <source src="badri07.mp3" type="audio/mpeg">
