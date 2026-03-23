@@ -715,3 +715,59 @@ audio {
     table { width: 100%; font-size: 11px; table-layout: fixed; word-wrap: break-word; }
     th, td { padding: 5px; }
 }
+
+
+
+
+/* --- Vanilla Resume & Media Styles --- */
+        .intro-heading {
+            color: #27C8F5;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        /* Flexbox & Gap in Vanilla */
+        .intro-media-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px; /* இதுதான் அந்த மேஜிக் Gap */
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        /* Download Button Styling */
+        .vanilla-download-btn {
+            background-color: #27C8F5;
+            color: #000000;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+            border: 2px solid #27C8F5;
+            transition: all 0.3s ease;
+        }
+
+        .vanilla-download-btn:hover {
+            background-color: transparent;
+            color: #27C8F5;
+            box-shadow: 0px 0px 10px rgba(39, 200, 245, 0.6);
+            transform: scale(1.05);
+        }
+
+        /* Audio & Video Styling */
+        .vanilla-audio {
+            width: 260px;
+            height: 45px;
+            border-radius: 5px;
+            background-color: #212529; 
+        }
+
+        .vanilla-video {
+            max-width: 350px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #444c56; 
+        }
