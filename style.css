@@ -771,3 +771,28 @@ audio {
             border-radius: 5px;
             border: 1px solid #444c56; 
         }
+
+        /* --- Vanilla Inspiration Quote Box Styles --- */
+        .vanilla-quote-box {
+            background-color: #212529; /* Dark gray background */
+            border: 1px solid #444c56;
+            border-left: 3px solid #27C8F5; /* Cyan left border highlight */
+            border-radius: 5px;
+            padding: 10px;
+            max-width: 350px;
+            margin-top: 5px;
+        }
+
+        .vanilla-quote-text {
+            color: #e6edf3; /* Light text color for readability */
+            font-size: 0.8rem;
+            font-style: italic; /* Italicized for a quote effect */
+            margin-bottom: 5px;
+            line-height: 1.4;
+        }
+
+        .vanilla-quote-caption {
+            color: #27C8F5; /* Cyan color to match the theme */
+            font-weight: bold;
+            font-size: 0.75rem;
+        }
