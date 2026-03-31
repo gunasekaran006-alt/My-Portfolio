@@ -143,6 +143,20 @@ To make the entire portfolio 100% responsive across all devices (from 320px tiny
 
 
 
+### ✅ Day 12: Introduction to Bootstrap 5 & Rapid UI Development ⚡
+
+**🎯 Objective:**
+To successfully integrate the Bootstrap 5 framework via CDN and utilize its pre-built utility classes and components to accelerate UI development, while maintaining a separate architecture from the Vanilla CSS build.
+
+**🧠 Concepts Learned & Implemented:**
+* **Framework Integration:** Successfully linked Bootstrap 5 CSS (in `<head>`) and JS Bundle (before `</body>`) via CDN.
+* **CSS Methodologies:** Understood the practical differences and use cases for **Inline CSS**, **Internal CSS**, and **External CSS**.
+* **Utility Classes:** Applied spacing and typography utilities like `mt-5`, `mb-5`, `p-5`, `text-center`, and `fw-bold` for rapid layout structuring without writing custom CSS.
+* **Component Architecture:** Mastered Bootstrap Button components, specifically utilizing `btn`, `btn-success`, `btn-outline-danger`, and `btn-lg` for interactive UI elements.
+* **Real-World Application:** Instead of just practicing random buttons, I organically integrated the day's learning by building a **"Current Availability Status" (Call to Action)** section. This section strategically uses the `btn-success` (Available for Full-Time Roles) and `btn-outline-danger` (Not Taking Freelance) classes to communicate my professional availability to HRs and recruiters.
+
+
+
 
 ---
 *Consistency is the key! More updates coming soon...*
