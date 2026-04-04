@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="Description" content="AI-Enhanced MERN Bootstrap Portfolio">
     <title>AI-Enhanced MERN Bootstrap Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
@@ -292,6 +293,17 @@
             /* Shrinks slightly when clicked */
             box-shadow: none !important;
         }
+
+
+        df-messenger {
+        --df-messenger-bot-message: #161b22;
+        --df-messenger-button-titlebar-color: #27C8F5;
+        --df-messenger-chat-background-color: #0d1117;
+        --df-messenger-font-color: #ffffff;
+        --df-messenger-send-icon: #27C8F5;
+        --df-messenger-user-message: #27C8F5;
+      }
+
     </style>
 </head>
 
@@ -981,7 +993,18 @@
         <p><span class="text-cyan fw-bold">&copy;</span> 2026 Gunasekaran. All Rights Reserved</p>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger 
+        intent="WELCOME" 
+        chat-title="Guna's AI Assistant" 
+        agent-id="61f72afb-71bc-4fa7-bf42-003cad597e67" 
+        language-code="en"
+        chat-icon="https://cdn-icons-png.flaticon.com/512/8943/8943377.png">
+    </df-messenger>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
