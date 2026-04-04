@@ -169,5 +169,17 @@ To master and implement Bootstrap's powerful 12-column responsive grid system to
   * **Core MERN Expertise:** I also organically applied the Day 13 basic grid concepts (with `bg-success`, `bg-primary`, etc.) to build a visually striking **"Core MERN Stack Expertise"** banner in my Skills section.
   * **Key Takeaway:** Frameworks like Bootstrap are powerful tools for layout management, but a true developer knows how to blend them seamlessly with custom Vanilla CSS to preserve premium UI/UX without compromising on responsiveness.
 
+
+### ✅ Day 14: Interactive UI Components & UX Journey Mapping 🧠
+
+**🎯 Objective:**
+To implement Bootstrap's interactive JavaScript components (Modals) to display dynamic content without page reloads, and to restructure the portfolio layout for optimal User Experience (UX) and Conversion Rate.
+
+**🧠 Concepts Learned & Implemented:**
+* **Bootstrap Modals (Pop-ups):** Successfully integrated Bootstrap Modals for my freelance service packages. Learned how to trigger hidden HTML content using `data-bs-toggle="modal"` and `data-bs-target` attributes, creating a seamless "View Details" experience.
+* **Modal Architecture:** Structured the pop-ups professionally using `.modal-header`, `.modal-body`, and `.modal-footer`, matching the dark-theme aesthetic of my portfolio.
+* **UX Journey Mapping (Conversion Funnel):** Made a crucial architectural decision to swap sections. I placed my "Portfolio Gallery" *before* the "Freelance Services" section. 
+* **Strategic Anchoring:** Converted the "Hire Me Now" button into a smooth-scroll anchor (`<a href="#contact">`) placed strategically after the services, ensuring recruiters view my actual work before encountering pricing or contact forms.
+
 ---
 *Consistency is the key! More updates coming soon...*
