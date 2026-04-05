@@ -333,5 +333,36 @@ To transform static profile data into a dynamic, logic-driven portfolio engine u
 
 ---
 > **TPM Note:** "Day 22 was about shifting from 'storing data' to 'processing data'. The portfolio is now capable of basic reasoning and dynamic reporting."
+
+
+
+# 🚀 Day 23: JavaScript Control Flows & Logical Systems
+
+## 🎯 Objective
+To implement decision-making capabilities and repetitive task handling in the portfolio using Conditional and Looping statements.
+
+## 🧠 Core Implementations (Direct Portfolio Use)
+
+### 1. Authentication Engine (Logical AND)
+* **Logic:** Used `if (enteredUser === dbUser && enteredPass === dbPass)` for secure access.
+* **Benefit:** Demonstrates how to handle user authorization before loading sensitive profile data.
+
+### 2. Career Ranking System (Nested Conditions)
+* **Logic:** Combined `experienceYears` and `performanceScore` using Nested If-Else to assign professional grades.
+* **Benefit:** Provides a dynamic way to display seniority and skill level without hardcoding text.
+
+### 3. Automated Skill Auditor (For Loop)
+* **Logic:** Iterated through the `skills` array using a `for` loop.
+* **Benefit:** Ensures the portfolio can dynamically list any number of technical skills added to the data structure.
+
+### 4. Progress Tracking (While & Do-While Loops)
+* **Logic:** Implemented `while` for milestones and `do-while` for final system integrity checks.
+* **Benefit:** Shows the ability to manage sequential tasks and ensure system processes execute at least once.
+
+---
+> **TPM Audit:** "Phase 2 (Logic Integration) is successful. The portfolio now acts as a functional system that can validate, calculate, and iterate through data autonomously."
+
+
+
 ---
 *Consistency is the key! More updates coming soon...*
