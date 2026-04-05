@@ -11,6 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
+        /* Pro Developer Touch: Smooth Scroll & Navbar Offset Fix */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+
         body {
             background-color: #0d1117;
             color: #e6edf3;
@@ -295,15 +302,47 @@
         }
 
 
-        df-messenger {
-        --df-messenger-bot-message: #161b22;
-        --df-messenger-button-titlebar-color: #27C8F5;
-        --df-messenger-chat-background-color: #0d1117;
-        --df-messenger-font-color: #ffffff;
-        --df-messenger-send-icon: #27C8F5;
-        --df-messenger-user-message: #27C8F5;
-      }
+/* ========================================== */
+/* EVEN DOTTED BORDER FIX                     */
+/* ========================================== */
+.padding-example {
+    position: relative; 
+    background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1500&auto=format&fit=crop") center/cover no-repeat fixed;
+    
+    /* Border Fix: Using border-box and transparent background clip */
+    border: 3px dotted #27C8F5 !important; 
+    background-clip: padding-box; /* This keeps image inside border */
+    
+    padding: 60px 25px; 
+    border-radius: 10px;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    text-align: center;
+}
 
+.collab-overlay {
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%;
+    background: rgba(13, 17, 23, 0.92); /* Slightly darker for better contrast */
+}
+
+.collab-content {
+    position: relative;
+    z-index: 2; 
+}      
+
+
+        df-messenger {
+            --df-messenger-bot-message: #161b22;
+            --df-messenger-button-titlebar-color: #27C8F5;
+            --df-messenger-chat-background-color: #0d1117;
+            --df-messenger-font-color: #ffffff;
+            --df-messenger-send-icon: #27C8F5;
+            --df-messenger-user-message: #27C8F5;
+        }
     </style>
 </head>
 
@@ -321,10 +360,12 @@
                 <ul class="navbar-nav gap-3 fw-bold">
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#grid-showcase">My
+                            Core</a></li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#journey">Journey</a></li>
+                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#services">Services</a>
                     </li>
-                    <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#gallery">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#contact">Contact</a></li>
                 </ul>
             </div>
@@ -633,48 +674,73 @@
         </section>
 
         <section id="gallery" class="mb-5">
-            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images"></i> Portfolio Showcase</h2>
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-images"></i> Portfolio
+                Showcase</h2>
 
             <h4 class="h5 title-hover mb-4">💻 Featured Projects</h4>
 
             <div class="masonry-grid mb-5">
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg" alt="E-Commerce Mobile View">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/736x/76/3b/e2/763be27fca2d620d4dd632558c98cb6e.jpg"
+                        alt="E-Commerce Mobile View">
                     <div class="overlay-text">E-Commerce App</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg" alt="AI Dashboard">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/736x/b3/d6/92/b3d692152ac86558cbdfe111d5708379.jpg"
+                        alt="AI Dashboard">
                     <div class="overlay-text">AI Dashboard</div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/736x/8a/9f/f9/8a9ff9860f8f637632f19a28fa51a031.jpg" alt="Cofe Shop">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/736x/8a/9f/f9/8a9ff9860f8f637632f19a28fa51a031.jpg" alt="Cofe Shop">
                     <div class="overlay-text">Cofe Shop</div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/736x/d8/85/f6/d885f6fad0830174a71cc87c96556f4e.jpg" alt="Digital Resume Builder">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/736x/d8/85/f6/d885f6fad0830174a71cc87c96556f4e.jpg"
+                        alt="Digital Resume Builder">
                     <div class="overlay-text">Digital Resume Builder</div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg" alt="Voice UI App">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/1200x/20/39/44/20394493c581b1026cd201136347a1b9.jpg"
+                        alt="Voice UI App">
                     <div class="overlay-text">Voice UI App</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg" alt="React Portfolio">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/736x/80/b7/64/80b764c8302ceb8d32c704e15121ffff.jpg"
+                        alt="React Portfolio">
                     <div class="overlay-text">React Portfolio</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/e5/d6/1f/e5d61f6942dc05b860d295047c0890c7.jpg" alt="E-Commerce Mobile View">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/736x/e5/d6/1f/e5d61f6942dc05b860d295047c0890c7.jpg"
+                        alt="E-Commerce Mobile View">
                     <div class="overlay-text">E-Commerce App</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/1200x/03/60/7e/03607e9980247286e8f501a48abf6c28.jpg" alt="Dashboard - Task Management ">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/1200x/03/60/7e/03607e9980247286e8f501a48abf6c28.jpg"
+                        alt="Dashboard - Task Management ">
                     <div class="overlay-text">Dashboard - Task Management </div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/ab/9d/b9/ab9db95e052011f2be92886dfbb1b635.jpg" alt="fitness tracker web app">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/1200x/ab/9d/b9/ab9db95e052011f2be92886dfbb1b635.jpg"
+                        alt="fitness tracker web app">
                     <div class="overlay-text">Fitness tracker web app</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/1200x/1e/a0/9e/1ea09e7dad4ba76329eeb9172dbe4842.jpg" alt="Real-time Weather Dashboard">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/1200x/1e/a0/9e/1ea09e7dad4ba76329eeb9172dbe4842.jpg"
+                        alt="Real-time Weather Dashboard">
                     <div class="overlay-text">Real-time Weather Dashboard</div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/20/26/7a/20267aba00335f86ee1463c3a00195ed.jpg" alt="job portal">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/1200x/20/26/7a/20267aba00335f86ee1463c3a00195ed.jpg" alt="job portal">
                     <div class="overlay-text">Job portal</div>
                 </div>
-                <div class="grid-item item-small"><img src="https://i.pinimg.com/1200x/8d/5c/b1/8d5cb1164eee4486edc087596a74cf33.jpg" alt="Web Chat UI">
+                <div class="grid-item item-small"><img
+                        src="https://i.pinimg.com/1200x/8d/5c/b1/8d5cb1164eee4486edc087596a74cf33.jpg"
+                        alt="Web Chat UI">
                     <div class="overlay-text">Web Chat UI</div>
                 </div>
-                <div class="grid-item item-medium"><img src="https://i.pinimg.com/736x/59/d9/8a/59d98a9d0632ef8adb0f2b000c8a2195.jpg" alt="E-Commerce Website">
+                <div class="grid-item item-medium"><img
+                        src="https://i.pinimg.com/736x/59/d9/8a/59d98a9d0632ef8adb0f2b000c8a2195.jpg"
+                        alt="E-Commerce Website">
                     <div class="overlay-text">E-Commerce Website</div>
                 </div>
             </div>
@@ -683,57 +749,75 @@
 
             <div class="masonry-grid">
                 <div class="grid-item item-small"><img src="assets/TN SKILL.jpg" alt="TN SKILL"></div>
-                <div class="grid-item item-medium"><img src="assets/tn skill  - score card.jpg" alt="TN SCORE CARD"></div>
+                <div class="grid-item item-medium"><img src="assets/tn skill  - score card.jpg" alt="TN SCORE CARD">
+                </div>
                 <div class="grid-item item-medium"><img src="assets/codetech -fullstack.jpg" alt="codetech"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH AI.jpg" alt="AI"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH MERN 3 MONTH.jpg" alt="MERN"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH PYTHON.jpg" alt="PYTHON"></div>
-                <div class="grid-item item-small"><img src="assets/SRM Certificate of Participation.jpg" alt="SRM"></div>
+                <div class="grid-item item-small"><img src="assets/SRM Certificate of Participation.jpg" alt="SRM">
+                </div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH UI & UX.jpg" alt="UI UX"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH DA.jpg" alt="DA"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH POWER BI.jpg" alt="POWER BI"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH DL.jpg" alt="DL"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH ML.jpg" alt="ML"></div>
                 <div class="grid-item item-small"><img src="assets/intel.jpg" alt="intel"></div>
-                <div class="grid-item item-medium"><img src="assets/NOVI TECH CYBER SECURITY.jpg" alt="CYBER SECURITY"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH CYBER SECURITY.jpg" alt="CYBER SECURITY">
+                </div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH BLOCKCHAIN.jpg" alt="BLOCKCHAIN"></div>
-                <div class="grid-item item-medium"><img src="assets/NOVI TECH ETHICAL HACKING.jpg" alt="ETHICAL HACKING"></div>
+                <div class="grid-item item-medium"><img src="assets/NOVI TECH ETHICAL HACKING.jpg"
+                        alt="ETHICAL HACKING"></div>
                 <div class="grid-item item-medium"><img src="assets/NOVI TECH IOT.jpg" alt="IOT"></div>
             </div>
         </section>
 
-        <div class="text-center padding-example">
-            <h4 class="text-light m-0">Ready to build scalable web applications? <br> Let's collaborate on your next project!</h4>
-        </div>
+       <div class="padding-example shadow-lg">
+    <div class="collab-overlay"></div> 
+    
+    <div class="collab-content"> 
+        <h4 class="text-white mb-2 fw-bold">Ready to build scalable web applications?</h4>
+        <h4 class="text-cyan m-0">Let's collaborate on your next project!</h4>
+    </div>
+</div>
 
         <section id="services" class="mb-5">
-            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill"></i> My Freelance Services & Packages</h2>
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill"></i> My
+                Freelance Services & Packages</h2>
 
             <h4 class="h5 text-cyan mb-4">Web Development Services</h4>
 
             <div class="row g-4 mb-5">
                 <div class="col-md-6">
                     <article class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <div class="p-3"><img src="assets/E-commerce Website Creation.jpg" class="card-img-top rounded" alt="E-commerce" style="height: 200px; object-fit: cover;"></div>
+                        <div class="p-3"><img src="assets/E-commerce Website Creation.jpg" class="card-img-top rounded"
+                                alt="E-commerce" style="height: 200px; object-fit: cover;"></div>
                         <div class="card-body pt-0">
                             <h2 class="card-title h5 text-cyan">E-commerce Website Creation</h2>
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $500</h3>
-                            <p class="card-text text-secondary small">Complete Frontend and Backend setup for your online store using the MERN stack. Fully responsive and secure.</p>
-                            
-                            <button class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#ecommerceModal">View Details</button>
+                            <p class="card-text text-secondary small">Complete Frontend and Backend setup for your
+                                online store using the MERN stack. Fully responsive and secure.</p>
+
+                            <button class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#ecommerceModal">View Details</button>
                         </div>
                     </article>
                 </div>
-                
+
                 <div class="col-md-6">
                     <article class="card bg-panel text-white h-100 border-secondary hover-card">
-                        <div class="p-3"><img src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg" class="card-img-top rounded" alt="Portfolio" style="height: 200px; object-fit: cover;"></div>
+                        <div class="p-3"><img
+                                src="https://i.pinimg.com/736x/31/cb/6b/31cb6bffdff5f4b7e84d4b3a2582c579.jpg"
+                                class="card-img-top rounded" alt="Portfolio" style="height: 200px; object-fit: cover;">
+                        </div>
                         <div class="card-body pt-0">
                             <h2 class="card-title h5 text-cyan">Personal Portfolio / Static Site</h2>
                             <h3 class="card-subtitle h6 mb-2 text-warning">Starts at $150</h3>
-                            <p class="card-text text-secondary small">Beautiful semantic HTML5 and CSS3 websites to showcase your resume, projects, or small business.</p>
-                            
-                            <button class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#portfolioModal">View Details</button>
+                            <p class="card-text text-secondary small">Beautiful semantic HTML5 and CSS3 websites to
+                                showcase your resume, projects, or small business.</p>
+
+                            <button class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#portfolioModal">View Details</button>
                         </div>
                     </article>
                 </div>
@@ -786,22 +870,29 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark text-white border-info">
                         <div class="modal-header border-secondary">
-                            <h5 class="modal-title text-cyan fw-bold"><i class="bi bi-cart-check-fill me-2"></i>E-Commerce Package Details</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title text-cyan fw-bold"><i
+                                    class="bi bi-cart-check-fill me-2"></i>E-Commerce Package Details</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <h4 class="text-success fw-bold mb-3">What's Included:</h4>
                             <ul class="text-light" style="line-height: 1.8;">
                                 <li><i class="bi bi-check2-circle text-success me-2"></i>Full MERN Stack Setup</li>
-                                <li><i class="bi bi-check2-circle text-success me-2"></i>Secure User Authentication (JWT)</li>
-                                <li><i class="bi bi-check2-circle text-success me-2"></i>Payment Gateway Integration</li>
-                                <li><i class="bi bi-check2-circle text-success me-2"></i>Admin Dashboard for Inventory</li>
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>Secure User Authentication
+                                    (JWT)</li>
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>Payment Gateway Integration
+                                </li>
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>Admin Dashboard for Inventory
+                                </li>
                             </ul>
                         </div>
                         <div class="modal-footer border-secondary">
                             <p class="text-warning fw-bold mb-0 me-auto">Est. Delivery: 2 Weeks</p>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="#contact" class="btn btn-info fw-bold text-dark" data-bs-dismiss="modal">Book Package</a>
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <a href="#contact" class="btn btn-info fw-bold text-dark" data-bs-dismiss="modal">Book
+                                Package</a>
                         </div>
                     </div>
                 </div>
@@ -811,22 +902,28 @@
                 <div class="modal-dialog modal-dialog-centered">
                     <div class="modal-content bg-dark text-white border-info">
                         <div class="modal-header border-secondary">
-                            <h5 class="modal-title text-cyan fw-bold"><i class="bi bi-person-badge-fill me-2"></i>Portfolio Package Details</h5>
-                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <h5 class="modal-title text-cyan fw-bold"><i
+                                    class="bi bi-person-badge-fill me-2"></i>Portfolio Package Details</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                                aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <h4 class="text-success fw-bold mb-3">What's Included:</h4>
                             <ul class="text-light" style="line-height: 1.8;">
-                                <li><i class="bi bi-check2-circle text-success me-2"></i>Semantic HTML5 & CSS3 Design</li>
-                                <li><i class="bi bi-check2-circle text-success me-2"></i>100% Mobile Responsive Layout</li>
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>Semantic HTML5 & CSS3 Design
+                                </li>
+                                <li><i class="bi bi-check2-circle text-success me-2"></i>100% Mobile Responsive Layout
+                                </li>
                                 <li><i class="bi bi-check2-circle text-success me-2"></i>Contact Form UI</li>
                                 <li><i class="bi bi-check2-circle text-success me-2"></i>Free GitHub Pages Hosting</li>
                             </ul>
                         </div>
                         <div class="modal-footer border-secondary">
                             <p class="text-warning fw-bold mb-0 me-auto">Est. Delivery: 3 Days</p>
-                            <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
-                            <a href="#contact" class="btn btn-info fw-bold text-dark" data-bs-dismiss="modal">Book Package</a>
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Close</button>
+                            <a href="#contact" class="btn btn-info fw-bold text-dark" data-bs-dismiss="modal">Book
+                                Package</a>
                         </div>
                     </div>
                 </div>
@@ -996,8 +1093,8 @@
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
     <df-messenger 
         intent="WELCOME" 
-        chat-title="Guna's AI Assistant" 
-        agent-id="61f72afb-71bc-4fa7-bf42-003cad597e67" 
+        chat-title="Guna_Portfolio_Assistant" 
+        agent-id="6e3e22f5-991d-4f95-b986-19273b8c476a" 
         language-code="en"
         chat-icon="https://cdn-icons-png.flaticon.com/512/8943/8943377.png">
     </df-messenger>

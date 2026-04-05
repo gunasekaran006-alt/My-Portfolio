@@ -182,17 +182,27 @@ To implement Bootstrap's interactive JavaScript components (Modals) to display d
 * **Strategic Anchoring:** Converted the "Hire Me Now" button into a smooth-scroll anchor (`<a href="#contact">`) placed strategically after the services, ensuring recruiters view my actual work before encountering pricing or contact forms.
 
 
-### ✅ Day 15: Google Dialogflow AI Chatbot Integration 🤖
+# 🚀 Day 15: Google Dialogflow AI Chatbot & Hybrid UI Integration 🤖✨
 
 **🎯 Objective:**
-To embed an intelligent conversational agent (Chatbot) into the web portfolio using Google Dialogflow, demonstrating AI integration capabilities and enhancing user engagement.
+To transform a static Bootstrap portfolio into an intelligent, high-performance web application by integrating a custom **Google Dialogflow AI Assistant** and implementing advanced **CSS Hybrid Layouts** to enhance user engagement.
 
 **🧠 Concepts Learned & Implemented:**
-* **AI Integration (Client-Side):** Successfully embedded the Google Dialogflow Messenger (`<df-messenger>`) via external script injection.
-* **Component Customization:** Modified the default agent parameters (`chat-title`, `chat-icon`) to reflect a personal brand identity ("Guna's AI Assistant").
-* **CSS Variable Overriding (Theming):** Learned how to override deeply nested iframe styles using Google's exposed CSS variables (e.g., `--df-messenger-bot-message`, `--df-messenger-chat-background-color`). I seamlessly matched the chatbot's UI to my portfolio's existing Dark/Cyan theme.
-* **Subresource Integrity (SRI) Implementation:** Audited and patched my Bootstrap CDN links (both CSS and JS) to include `integrity` hashes and `crossorigin="anonymous"` attributes. This ensures my portfolio is protected against third-party CDN tampering and clickjacking vulnerabilities.
-* **Next Step (WIP):** The current bot uses a placeholder Proof-of-Concept (POC) Agent ID. The next objective is to train a custom Dialogflow agent specifically on my professional resume and skills to replace the placeholder ID.
+
+* **AI Integration & Customization (Google Dialogflow):** Successfully embedded the Google Dialogflow Messenger (`<df-messenger>`) via script injection. Beyond basic embedding, I mapped **Custom Entities** and **Intent Parameters** to capture specific user interests in my services (e.g., E-commerce, Portfolio, Backend).
+    
+* **Dynamic Response Mapping ($Parameter):** Learned to bridge user input with AI logic by passing captured parameters into the chatbot's response. The agent now dynamically acknowledges user needs (e.g., *"Awesome! You are looking for a $servicetype project..."*), demonstrating sophisticated Natural Language Understanding (NLU).
+
+* **CSS Variable Overriding (Theming):** Mastered the art of overriding internal Chatbot iframe styles using Google's exposed CSS variables (e.g., `--df-messenger-chat-background-color: #0d1117`). I seamlessly unified the chatbot's UI with my portfolio's existing **Dark/Cyan GitHub-inspired theme**.
+
+* **Hybrid UI Design (The Overlay & Z-Index Concept):** Implemented a **Dual-Layered Hero/Call-to-Action Architecture**. Using `position: absolute` for an `rgba` Dark Overlay and `z-index: 1` for content, I achieved a cinematic background-image effect (The "Light மறைஞ்ச" effect) while maintaining 100% text readability.
+
+* **UX/UI Optimization (Icon Personalization):** Replaced the default Dialogflow blue icon with a custom **Cyber-Robot PNG** via the `chat-icon` attribute to align the bot's visual identity with my "AI-Enhanced Developer" brand.
+
+* **Infrastructure Audit (SRI & Security):** Hardened the application's security by auditing and patching Bootstrap CDN links with `integrity` hashes and `crossorigin="anonymous"` attributes, protecting the portfolio against third-party script tampering.
+
+**🚀 Final Outcome:**
+A fully functional, AI-powered professional bridge that actively discusses my resume, tech stack, and freelance services with recruiters and clients 24/7.
 
 ---
 *Consistency is the key! More updates coming soon...*
