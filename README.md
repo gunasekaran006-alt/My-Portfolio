@@ -204,5 +204,33 @@ To transform a static Bootstrap portfolio into an intelligent, high-performance 
 **🚀 Final Outcome:**
 A fully functional, AI-powered professional bridge that actively discusses my resume, tech stack, and freelance services with recruiters and clients 24/7.
 
+
+
+# 🎢 Day 16: Adventure Park - Multi-Page Booking UI
+
+## 🎯 Objective
+To design and develop a fully responsive, multi-page web application for an Adventure Theme Park using **Bootstrap 5**. The primary focus is on engineering a seamless user journey from a landing page to a digital booking confirmation receipt.
+
+## ✨ Key Features & Concepts Mastered
+* **Multi-Page Architecture:** Connected three distinct interfaces (`index.html`, `register.html`, `success.html`) to simulate a real-world user booking flow.
+* **Cinematic Hero Section:** Engineered a full-width hero header using CSS `linear-gradient` overlays on background images to ensure high text contrast and visual appeal.
+* **Responsive Grid Layout:** Utilized Bootstrap's `row-cols` utility to create fluid activity cards that perfectly adapt to mobile, tablet, and desktop screens.
+* **Form Design & Layout:** Built a clean, accessible booking form using Bootstrap's form controls (`form-control`, `form-select`) with proper grid alignment (`row g-3`).
+* **Custom UI Components (The Digital Ticket):** Developed a custom CSS "Digital Ticket" layout on the success page, featuring gradient backgrounds and a `.perforated-line` effect to mimic a real-world physical receipt.
+
+## 🛠️ Tech Stack
+* **HTML5:** Semantic structure and form elements.
+* **CSS3:** Custom gradients, object-fit imagery, and advanced styling.
+* **Bootstrap 5.3:** Grid system, Navbar (Fixed-top), Cards, Buttons, Forms, and Utility classes.
+
+## 📂 Project Structure
+1. `index.html` - The main landing page featuring a hero section and activity highlights.
+2. `register.html` - The booking form for user data collection and activity selection.
+3. `success.html` - The final digital ticket and acknowledgment UI.
+
+> **Note:** The "Digital Ticket" concept built in this exercise was later upgraded and integrated into the main Professional Portfolio as a "Client Acknowledgment Receipt".
+
+
+
 ---
 *Consistency is the key! More updates coming soon...*

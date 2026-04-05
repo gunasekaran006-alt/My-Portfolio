@@ -1,15 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Success!</title>
-</head>
-<body>
-    
-    <h1>Congratulations! You've Successfully Booked the Event / Contacted Me.</h1>
-    <p>I Will Get Back to you Soon.</p>
-    <a href="vanilla-portfolio.html">Go Back to Home Page</a>
+    <meta name="Description" content="Project Request Confirmation">
+    <title>Success | Request Confirmed</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
+    <style>
+        /* Premium Dark Theme Foundation */
+        body {
+            background-color: #0d1117;
+            color: #e6edf3;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .text-cyan {
+            color: #27C8F5 !important;
+        }
+
+        /* Day 16 Concept: The Digital Ticket/Receipt Adapted for Dark Theme */
+        .ticket-card {
+            background-color: #161b22;
+            border: 2px dashed #27C8F5;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(39, 200, 245, 0.15);
+            max-width: 600px;
+            width: 100%;
+        }
+
+        .ticket-header {
+            background-color: #27C8F5;
+            color: #000000;
+        }
+
+        .ticket-logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        /* The Perforated Line Effect from Day 16 */
+        .perforated-line {
+            border-top: 2px dashed #444c56;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        /* Creating the ticket cut-out holes on the left and right */
+        .perforated-line::before,
+        .perforated-line::after {
+            content: '';
+            position: absolute;
+            top: -15px;
+            width: 30px;
+            height: 30px;
+            background-color: #0d1117; /* Matches body background to look like a hole */
+            border-radius: 50%;
+        }
+
+        .perforated-line::before {
+            left: -48px;
+            border-right: 2px dashed #27C8F5;
+        }
+
+        .perforated-line::after {
+            right: -48px;
+            border-left: 2px dashed #27C8F5;
+        }
+
+        /* Button Hover Effects */
+        .btn-cyan {
+            background-color: #27C8F5;
+            color: #000000;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-cyan:hover {
+            background-color: #ffffff;
+            color: #000000;
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8);
+            transform: scale(1.05);
+        }
+
+        .btn-outline-cyan {
+            border: 2px solid #27C8F5;
+            color: #27C8F5;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-cyan:hover {
+            background-color: #27C8F5;
+            color: #000000;
+        }
+    </style>
+</head>
+
+<body>
+
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-center">
+                
+                <article class="card ticket-card">
+                    <header class="card-header ticket-header text-center py-4 border-0">
+                        <div class="ticket-logo"><i class="bi bi-shield-check me-2"></i>GUNASEKARAN S</div>
+                        <h4 class="mb-0 mt-2 fw-bold" style="font-size: 1.1rem;">Digital Acknowledgment Receipt</h4>
+                    </header>
+
+                    <div class="card-body p-4 p-md-5 text-center">
+                        <i class="bi bi-check-circle-fill text-success" style="font-size: 4rem;"></i>
+                        <h1 class="text-white mt-3 mb-3 h3 fw-bold">Request Successfully Logged!</h1>
+                        <p class="text-secondary">Thank you for reaching out. Your project/consultation request has been securely received. I will review the details and get back to you shortly.</p>
+
+                        <div class="perforated-line"></div>
+
+                        <div class="row text-start mt-4 g-3">
+                            <div class="col-6">
+                                <p class="text-secondary small mb-1">Status</p>
+                                <p class="text-cyan fw-bold"><i class="bi bi-clock-history me-1"></i> Under Review</p>
+                            </div>
+                            <div class="col-6 text-end">
+                                <p class="text-secondary small mb-1">Ticket ID</p>
+                                <p class="text-white fw-bold">#REQ-2026</p>
+                            </div>
+                            <div class="col-12 mt-2">
+                                <div class="p-3 bg-dark border border-secondary rounded text-center">
+                                    <p class="text-secondary small mb-1">Expected Response Time</p>
+                                    <p class="text-success fw-bold mb-0">24 - 48 Hours</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5 g-3">
+                            <div class="col-md-6 d-grid">
+                                <a href="index.html" class="btn btn-cyan btn-lg">
+                                    <i class="bi bi-house-door-fill me-1"></i> Master Hub
+                                </a>
+                            </div>
+                            <div class="col-md-6 d-grid">
+                                <a href="bootstrap-portfolio.html" class="btn btn-outline-cyan btn-lg">
+                                    <i class="bi bi-file-earmark-person me-1"></i> Back to Resume
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
