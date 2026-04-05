@@ -1,56 +1,73 @@
 // ========================================================
-// DAY 20: JAVASCRIPT FOUNDATIONS & HOISTING ( Easter Egg )
-// Strictly using Day 20 Concepts: var, let, const, console.log
+// DAY 21: JAVASCRIPT MASTER DIAGNOSTICS
+// Concepts: Hoisting, var, let, const, Object, Array, 
+// Function, String, Number, Boolean, BigInt, Undefined.
 // ========================================================
 
-// 1. HOISTING VERIFICATION (Order is Critical!)
+// 1. DAY 20 REVISION: HOISTING & VAR
 // --------------------------------------------------------
-// 'var' is hoisted and initialized as 'undefined' by the JS engine.
-// This allows us to access it before the line where it is declared.
 console.log("%c--- Hoisting Verification ---", "color: yellow; font-weight: bold;");
 
-console.log("Status of hoistedVar: " + hoistedVar); // Output: undefined (No Error)
-var hoistedVar = "System Online";
-
-// 'let' and 'const' are also hoisted but stay in the 'Temporal Dead Zone' (TDZ).
-// Accessing them before declaration will cause a Reference Error.
-// To test this, you can uncomment the line below:
-// console.log(hoistedLet); 
-let hoistedLet = "Secure Logic";
+// Accessing 'var' before declaration to demonstrate Hoisting
+console.log("Status of hoistedVar: " + hoistedVar); // Output: undefined
+var hoistedVar = "System Online"; 
 
 console.log("%c---------------------------", "color: yellow;");
 
 
-// 2. SYSTEM LOGS (Developer Profile)
+// 2. DAY 21: DATA TYPES & FUNCTION INTEGRATION
 // --------------------------------------------------------
-console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
-console.log("%c🚀 INITIATING PORTFOLIO CORE SYSTEM...", "color: #00FA9A; font-weight: bold; font-size: 14px;");
-console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
+// Defining a Function to encapsulate our logic
+function initDeveloperProfile() {
 
-// CONST: Fixed values that will never change (Block Scope)
-const developerName = "Gunasekaran S";
-const primaryRole = "AI-Enhanced MERN Stack Developer";
-const baseLocation = "Coimbatore, Tamil Nadu";
+    // --- PRIMITIVE DATA TYPES ---
+    const devName = "Gunasekaran S";          // String (Fixed - const)
+    const experienceYears = 12;               // Number (Fixed - const)
+    const isMernStudent = true;               // Boolean (Fixed - const)
+    let pendingCertification;                 // Undefined (Can change - let)
+    const secureId = 9010036699999n;          // BigInt (Large Integer)
 
-// LET: Dynamic values that may change over time (Block Scope)
-let currentStatus = "Actively looking for Junior Developer/Intern roles";
-let targetFrameworks = "React.js, Node.js, Express, MongoDB";
+    // --- REFERENCE DATA TYPES (Object & Array) ---
+    // Organizing all Day 20 data into a Day 21 Object
+    const portfolioData = {
+        name: devName,
+        location: "Coimbatore, Tamil Nadu",
+        
+        // Array: Managing skills as a list
+        skills: ["HTML5", "CSS3", "Bootstrap 5", "JavaScript", "React"],
+        
+        experience: {
+            total: experienceYears,
+            domain: "Operations & Business Development"
+        }
+    };
 
-// VAR: General operational data (Global/Legacy Scope)
-var priorExperience = "12+ Years in Operations & Business Development";
-var transitionPath = "Entri Elevate & Illinois Tech Specialization";
+    // --- SYSTEM LOG OUTPUTS ---
+    console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
+    console.log("%c🚀 INITIATING CORE SYSTEM DIAGNOSTICS...", "color: #00FA9A; font-weight: bold;");
+    console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
 
-// Outputting formatted data using Concatenation (+)
-console.log("👤 Architect Name : " + developerName);
-console.log("🎯 Primary Role   : " + primaryRole);
-console.log("📍 Location       : " + baseLocation);
-console.log("------------------------------------------");
-console.log("💼 Operations Exp : " + priorExperience);
-console.log("🛤️ Tech Journey   : " + transitionPath);
-console.log("------------------------------------------");
-console.log("🔥 Current Goal   : " + currentStatus);
-console.log("🛠️ Core Stack     : " + targetFrameworks);
+    // Accessing data via Object properties and Array index
+    console.log("👤 Architect  : " + portfolioData.name);
+    console.log("📍 Location   : " + portfolioData.location);
+    console.log("💼 Background : " + portfolioData.experience.domain);
+    console.log("🛠️ Learning   : " + portfolioData.skills[3]); // Accessing "JavaScript"
+    
+    console.log("------------------------------------------");
+    console.log("%c🔍 DATA TYPE AUDIT (Internal Check):", "color: #FFD700;");
+    
+    // Verifying every data type for Day 21 practice
+    console.log("1. String Check   : " + (typeof devName));
+    console.log("2. Number Check   : " + (typeof experienceYears));
+    console.log("3. Boolean Check  : " + (typeof isMernStudent));
+    console.log("4. BigInt Check   : " + (typeof secureId));
+    console.log("5. Undefined Check: " + (typeof pendingCertification));
+    console.log("6. Object Check   : " + (typeof portfolioData));
+    console.log("7. Array Check    : " + Array.isArray(portfolioData.skills)); 
+    
+    console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
+}
 
-console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
-console.log("%c✅ SYSTEM LOADED. READY TO BUILD SCALABLE APPS!", "color: #FFD700; font-weight: bold;");
-console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
+// 3. EXECUTING THE MASTER FUNCTION
+// --------------------------------------------------------
+initDeveloperProfile();

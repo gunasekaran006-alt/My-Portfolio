@@ -271,6 +271,37 @@ Architect's Insight: Understanding the difference between var and let is the fir
 
 
 
+# 🚀 Day 21: JavaScript Data Types & Functional Integration
+
+## 🎯 Objective
+To master JavaScript Data Types (Primitive vs. Reference) and implement them within a functional architecture in the Portfolio Project.
+
+## 🧠 Concepts Mastered
+
+### 1. Primitive Data Types (Value Types)
+* **String**: For textual identities (`developerName`).
+* **Number**: For quantitative metrics (`experienceYears`).
+* **Boolean**: For logical states (`isMernStudent`).
+* **BigInt**: For handling large integers (`secureId`).
+* **Undefined**: For variables declared without assignment.
+
+### 2. Reference Data Types (Memory Types)
+* **Objects**: Consolidated all developer data into a single `portfolioData` object for better structure.
+* **Arrays**: Managed a list of technical skills using `skills` array and accessed elements via indices.
+* **Functions**: Wrapped the entire diagnostic logic inside `initDeveloperProfile()` to maintain clean, modular code.
+
+## 🛠️ Portfolio Integration: Data Type Audit
+Upgraded the `script.js` from Day 20 by transforming individual variables into a structured **Object-Oriented** approach.
+
+**Key Features:**
+* **Hoisting Logic:** Retained Day 20's `var` hoisting verification at the start.
+* **Functional Scope:** Used a master function to execute the diagnostics.
+* **Internal Audit:** Printed `typeof` checks for every data category to ensure 100% technical accuracy in the console.
+
+---
+> **Architect's Insight:** By moving from individual variables to Objects and Arrays, we have made the portfolio data-driven and scalable for future MERN integration.
+
+
 
 ---
 *Consistency is the key! More updates coming soon...*
