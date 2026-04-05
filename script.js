@@ -1,73 +1,80 @@
 // ========================================================
-// DAY 21: JAVASCRIPT MASTER DIAGNOSTICS
-// Concepts: Hoisting, var, let, const, Object, Array, 
-// Function, String, Number, Boolean, BigInt, Undefined.
+// 🚀 THE ULTIMATE MASTER CODE: DAY 20 + 21 + 22
+// NO LOGIC MISSING - FULL AUDIT COMPLETED
 // ========================================================
 
-// 1. DAY 20 REVISION: HOISTING & VAR
+// [DAY 20]: HOISTING, VAR, AND CONSOLE LOGGING
 // --------------------------------------------------------
-console.log("%c--- Hoisting Verification ---", "color: yellow; font-weight: bold;");
+console.log("%c--- Level 1: System Hoisting Check ---", "color: yellow; font-weight: bold;");
 
-// Accessing 'var' before declaration to demonstrate Hoisting
-console.log("Status of hoistedVar: " + hoistedVar); // Output: undefined
-var hoistedVar = "System Online"; 
+// Checking var hoisting (Should print 'undefined')
+console.log("Initial Boot Status: " + systemBoot); 
+var systemBoot = "Active"; 
 
-console.log("%c---------------------------", "color: yellow;");
+console.log("%c----------------------------------", "color: yellow;");
 
 
-// 2. DAY 21: DATA TYPES & FUNCTION INTEGRATION
+// [DAY 21 & 22]: PORTFOLIO MASTER FUNCTION (Clean & Modular)
 // --------------------------------------------------------
-// Defining a Function to encapsulate our logic
-function initDeveloperProfile() {
+function initPortfolioSystem() {
 
-    // --- PRIMITIVE DATA TYPES ---
-    const devName = "Gunasekaran S";          // String (Fixed - const)
-    const experienceYears = 12;               // Number (Fixed - const)
-    const isMernStudent = true;               // Boolean (Fixed - const)
-    let pendingCertification;                 // Undefined (Can change - let)
-    const secureId = 9010036699999n;          // BigInt (Large Integer)
+    // --- PRIMITIVE DATA TYPES (Day 21 Revision) ---
+    const devName = "Gunasekaran S";          // String
+    const experienceYears = 12;               // Number
+    const currentTrainingMonths = 6;          // Number
+    const isMernStudent = true;               // Boolean
+    let careerGoal;                           // Undefined (Value not set yet)
+    const profileId = 9010036699999n;         // BigInt (Large Integer)
 
-    // --- REFERENCE DATA TYPES (Object & Array) ---
-    // Organizing all Day 20 data into a Day 21 Object
-    const portfolioData = {
+    // --- REFERENCE DATA TYPES (Day 21 Revision) ---
+    // Object: Grouping real user data
+    const devProfile = {
         name: devName,
         location: "Coimbatore, Tamil Nadu",
-        
-        // Array: Managing skills as a list
+        // Array: Managing tech stack
         skills: ["HTML5", "CSS3", "Bootstrap 5", "JavaScript", "React"],
-        
-        experience: {
-            total: experienceYears,
-            domain: "Operations & Business Development"
-        }
+        background: "Operations & Business Development"
     };
 
-    // --- SYSTEM LOG OUTPUTS ---
+    // --- OPERATORS & EXPRESSIONS (Day 22 Concepts) ---
+    
+    // 1. Arithmetic (+, *) and Assignment (+=)
+    let totalExpInMonths = (experienceYears * 12) + currentTrainingMonths;
+    let dayCount = 22; 
+    dayCount += 1; // Incrementing current day count
+
+    // 2. Comparison (>=) and Ternary Operator (? :)
+    // This logic directly labels your professional standing
+    let professionalRank = (experienceYears >= 10) ? "Senior Tech Leader" : "Junior Developer";
+
+    // --- OUTPUT: TEMPLATE LITERALS (Day 22: Backticks & Curly Brackets) ---
     console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
-    console.log("%c🚀 INITIATING CORE SYSTEM DIAGNOSTICS...", "color: #00FA9A; font-weight: bold;");
+    console.log(`🚀 ARCHITECT PROFILE LOADED: ${devName.toUpperCase()}`);
     console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
 
-    // Accessing data via Object properties and Array index
-    console.log("👤 Architect  : " + portfolioData.name);
-    console.log("📍 Location   : " + portfolioData.location);
-    console.log("💼 Background : " + portfolioData.experience.domain);
-    console.log("🛠️ Learning   : " + portfolioData.skills[3]); // Accessing "JavaScript"
+    // Dynamic output using Template Literals
+    console.log(`👤 Name         : ${devProfile.name}`);
+    console.log(`📍 Profile ID   : ${profileId}`);
+    console.log(`💼 Experience   : ${experienceYears} Years (${totalExpInMonths} Months)`);
+    console.log(`🎯 Profile Rank : ${professionalRank}`);
+    console.log(`🛠️ Current Focus : ${devProfile.skills[3]}`); // Array index access
     
     console.log("------------------------------------------");
-    console.log("%c🔍 DATA TYPE AUDIT (Internal Check):", "color: #FFD700;");
+    console.log("%c🔍 DAY 22 INTERVIEW PROBLEMS (Type Coercion):", "color: #FFD700;");
     
-    // Verifying every data type for Day 21 practice
-    console.log("1. String Check   : " + (typeof devName));
-    console.log("2. Number Check   : " + (typeof experienceYears));
-    console.log("3. Boolean Check  : " + (typeof isMernStudent));
-    console.log("4. BigInt Check   : " + (typeof secureId));
-    console.log("5. Undefined Check: " + (typeof pendingCertification));
-    console.log("6. Object Check   : " + (typeof portfolioData));
-    console.log("7. Array Check    : " + Array.isArray(portfolioData.skills)); 
+    // Explicit Interview Logic Checks (Day 22 strictly included)
+    console.log(`1. Math (5 + "5") : ${5 + "5"}`); // Result: 55 (String conversion)
+    console.log(`2. Math (5 - "5") : ${5 - "5"}`); // Result: 0 (Number conversion)
+    console.log(`3. Math (5 * "5") : ${5 * "5"}`); // Result: 25
+    console.log(`4. Math (5 - "gk"): ${5 - "gk"}`); // Result: NaN (Not a Number)
+    
+    // Equality Comparison (== vs ===)
+    console.log(`5. Loose Check (18 == "18") : ${18 == "18"}`);  // true
+    console.log(`6. Strict Check (18 === "18"): ${18 === "18"}`); // false
     
     console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
 }
 
-// 3. EXECUTING THE MASTER FUNCTION
+// 3. EXECUTE THE FULL ENGINE (Day 21 Function Call)
 // --------------------------------------------------------
-initDeveloperProfile();
+initPortfolioSystem();

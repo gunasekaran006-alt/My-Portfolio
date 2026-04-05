@@ -302,6 +302,36 @@ Upgraded the `script.js` from Day 20 by transforming individual variables into a
 > **Architect's Insight:** By moving from individual variables to Objects and Arrays, we have made the portfolio data-driven and scalable for future MERN integration.
 
 
+# 🚀 Day 22: JavaScript Operators & Dynamic Expressions
 
+## 🎯 Objective
+To transform static profile data into a dynamic, logic-driven portfolio engine using JavaScript operators and modern syntax.
+
+## 🧠 What I Learned & Implemented (Day 22)
+
+### 1. Arithmetic & Assignment (The Calculation Engine)
+* **What I did:** Used `*` and `+` to automatically calculate total experience in months.
+* **Portfolio Use:** Instead of hardcoding numbers, the system now computes data dynamically. 
+* **Key Syntax:** `(expYears * 12) + learningMonths` and `sessionCount += 1`.
+
+### 2. Comparison & Ternary Operators (The Decision Maker)
+* **What I did:** Implemented Logical Comparison (`>=`) and the **Ternary Operator** (`? :`).
+* **Portfolio Use:** This logic directly determines and displays my professional rank (e.g., "Senior Tech Leader") based on years of experience.
+* **Key Syntax:** `let rank = (experience >= 10) ? "Senior" : "Junior";`
+
+### 3. Strict Equality vs. Loose Equality
+* **What I did:** Mastered the difference between `==` (Value only) and `===` (Value + Data Type).
+* **Portfolio Use:** Implemented `===` for secure and accurate data auditing, ensuring the portfolio meets professional coding standards.
+
+### 4. Template Literals (The Modern UI)
+* **What I did:** Replaced old-fashioned string concatenation (`+`) with **Backticks (`` ` ``)** and **Interpolation (`${}`)**.
+* **Portfolio Use:** This makes the console logs and future UI updates much cleaner, readable, and professional.
+
+### 5. Interview Logic (Edge Case Handling)
+* **What I did:** Explored **Type Coercion** (e.g., `5 + "5" = "55"` vs `5 - "5" = 0`) and `NaN`.
+* **Portfolio Use:** Added a "Diagnostic Check" in the console to demonstrate deep technical understanding of JavaScript's unique behaviors.
+
+---
+> **TPM Note:** "Day 22 was about shifting from 'storing data' to 'processing data'. The portfolio is now capable of basic reasoning and dynamic reporting."
 ---
 *Consistency is the key! More updates coming soon...*
