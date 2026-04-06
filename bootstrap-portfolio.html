@@ -469,13 +469,13 @@
             <div class="bg-panel p-4 mb-4">
                 <ul class="native-bullets">
                     <li><b>Frontend Technologies:</b> Architecting responsive UIs with React.js, Redux, Tailwind CSS,
-                        and Voice UI (Web Speech API).</li>
+                        and Voice UI (Web Speech API).Developing advanced client-side form validation using Regular Expressions (RegEx) for enhanced data integrity.</li>
                     <li><b>Backend & Databases:</b> Engineering robust server-side logic with Node.js, Express.js, REST
                         APIs, MongoDB, and MySQL.</li>
                     <li><b>Programming & AI:</b> Developing AI solutions with Python, JavaScript, ML/DL, Gemini API, and
                         TensorFlow.js.</li>
                     <li><b>Data Science & Security:</b> Executing strategic insights via SQL, Power BI, and RapidMiner.
-                        Implementing secure authentication using JWT and RBAC.</li>
+                        Implementing secure authentication using JWT, RBAC, and Multi-Factor Authentication (OTP Logic) via Persistent LocalStorage.</li>
                     <li><b>Tools & Platforms:</b> Git, GitHub, Postman, Netlify, and CI/CD pipelines.</li>
                     <li><b>Soft Skills:</b> Advanced Problem Solving, Cross-Functional Team Leadership, Business
                         Analysis & Adaptability.</li>
@@ -1157,6 +1157,41 @@
         </div>
     </div>
 </section>
+
+
+<div class="mt-4 p-4 bg-dark rounded border border-info" style="border-style: dashed !important;">
+    <h4 class="h6 text-cyan mb-3"><i class="bi bi-shield-lock me-2"></i>Double-Factor Authentication (2FA)</h4>
+    
+    <div class="row g-3">
+        <div class="col-md-12">
+            <div id="message" class="mb-3 text-center small"></div> </div>
+        <div class="col-md-8">
+            <input type="text" id="otpInput" class="form-control bg-dark text-white border-secondary" placeholder="Enter 6-Digit OTP" maxlength="6">
+        </div>
+        <div class="col-md-4">
+            <button id="validateBtn" class="btn btn-success w-100 fw-bold">Verify OTP</button>
+        </div>
+        <div class="col-12 mt-2">
+            <button id="generateBtn" class="btn btn-outline-info w-100 fw-bold">Generate New Security OTP</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="successModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-success">
+            <div class="modal-header border-secondary">
+                <h5 class="modal-title">Identity Verified</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body text-center">
+                <i class="bi bi-check-circle-fill text-success display-1"></i>
+                <h4 class="mt-3">OTP Verified Successfully!</h4>
+                <p class="text-secondary">Security clearance level: ADMIN ACCESS GRANTED.</p>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 
