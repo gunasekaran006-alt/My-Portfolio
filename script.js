@@ -1,113 +1,92 @@
 // ========================================================
-// 🚀 ULTIMATE MASTER ENGINE: DAY 20 - 25 (FINAL)
-// Concepts: Hoisting, Logic, Loops, Functions, Arrow Fns & Callbacks
+// 🚀 ENTERPRISE PORTFOLIO ENGINE: CORE LOGIC V4.0
+// Features: Hoisting, Security, Callbacks, & Dynamic DOM
 // ========================================================
 
-// [DAY 20]: SYSTEM HOISTING CHECK
-console.log("%c--- Day 20: Global Diagnostics ---", "color: yellow; font-weight: bold;");
-console.log("Hoisting Status: " + systemReady); // Outputs undefined initially
-var systemReady = "Fully Operational";
-console.log("%c----------------------------------", "color: yellow;");
+// [SYSTEM DIAGNOSTICS]: BOOTING ENGINE
+console.log("%c--- System Diagnostics: Initializing ---", "color: yellow; font-weight: bold;");
+console.log("Kernel Status: " + kernelStatus); // Output: undefined (Var Hoisting Check)
+var kernelStatus = "ONLINE"; 
+console.log("%c---------------------------------------", "color: yellow;");
 
-// [DAY 25]: MODERN ARROW FUNCTIONS (ES6 Syntax)
-// Replaced traditional function with clean Arrow function
-const getWelcomeMessage = () => "🚀 Welcome to Gunasekaran's Advanced Portfolio Engine";
-console.log(getWelcomeMessage());
+// [GLOBAL CONFIGURATIONS]: IDENTITY & CONSTANTS
+const developerIdentity = "Gunasekaran S";
+const getEngineStatus = () => "🚀 Portfolio Logic Engine: SUCCESSFULLY CONNECTED";
+console.log(getEngineStatus());
 
-// [DAY 21 - 25]: CORE AUDIT (Arrow Function with Parameters)
-const calculateProfessionalRank = (name, exp, performance) => {
-    let rank;
-    
-    // Day 23: Nested Conditions
-    if (exp >= 10) {
-        if (performance >= 90) rank = "Elite Tech Architect (Grade A)";
-        else if (performance >= 75) rank = "Senior Strategy Leader (Grade B)";
-        else rank = "Tech Consultant (Grade C)";
-    } else {
-        rank = "Associate Developer";
+// [UI ENGINE]: DYNAMIC AUTHORIZATION (DOM ID Selection)
+function authorizeUser() {
+    const statusDisplay = document.getElementById("greeting");
+    if (statusDisplay) {
+        // Updates text and style only on user interaction
+        statusDisplay.innerText = `Authorized Access: Welcome, ${developerIdentity}`;
+        statusDisplay.style.color = "#27C8F5"; // Theme Cyan
     }
-    
-    // Day 22: Template Literals
-    return `👤 User: ${name} | 🎯 Rank: ${rank}`;
-};
-
-// Executing Core Audit
-console.log(calculateProfessionalRank("Gunasekaran S", 12, 85));
-
-// [DAY 25]: CALLBACK SYSTEM (Bank Server & UI Scenario)
-// UI Function (Passed as Callback)
-const upiAppNotification = (amount, status) => {
-    console.log(`%c💳 Payment of ${amount} ${status}`, "color: #27C8F5; font-weight: bold;");
-};
-
-// Server Function (Takes UI function as a parameter)
-const serverBankProcess = (amount, upiPin, callback) => {
-    const dbPin = 2222;
-    const balance = 5000;
-    
-    // Day 23: Logical Operators (&&)
-    if (upiPin === dbPin && amount <= balance) {
-        callback(amount, "Successful ✅");
-    } else {
-        callback(amount, "Failed: Invalid Transaction ❌");
-    }
-};
-
-// Triggering the Callback logic
-serverBankProcess(1500, 2222, upiAppNotification);
-
-// [DAY 24 & 25]: ADVANCED NOTIFICATION (Currying + Arrow Functions)
-const sendNotification = (type) => (message) => {
-    if (type === "email") return `📧 Email Sent: ${message}`;
-    if (type === "number") return `📲 OTP Sent to Mobile: ${message}`;
-    return "⚠️ Invalid Option";
-};
-
-// Real-time usage of Curried Arrow Function
-console.log(sendNotification("email")("Your portfolio is now updated with ES6 concepts!"));
-console.log(sendNotification("number")("2387"));
-
-// [DAY 24]: NESTED FUNCTIONS (System Integrity Check)
-function systemIntegrityCheck(moduleName) {
-    console.log(`Parent: Checking ${moduleName} module...`);
-    
-    function databaseChild() {
-        // Day 23: Do-While Loop
-        let verifyCount = 1;
-        do {
-            console.log("   Child: Database connection verified (OK)");
-            verifyCount++;
-        } while (verifyCount <= 1);
-    }
-    databaseChild(); 
 }
-systemIntegrityCheck("Security Shield");
 
-// [DAY 24]: SECURITY SHIELD (Classic Currying for Interview standard)
-function securityShield(username) {
-    return function(password) {
-        const dbUser = "admin@mail.com";
-        const dbPass = "admin@123";
-        
-        // Strict Equality Verification
-        if (username === dbUser && password === dbPass) {
-            console.log("%c✔ Access Granted: Welcome Admin", "color: #00FA9A; font-weight: bold;");
-        } else {
-            console.log("%c❌ Access Denied: Invalid Credentials", "color: #FF4500;");
+// [UI ENGINE]: RESOURCE AUDIT (DOM Class Selection)
+function auditResources() {
+    const resourceNodes = document.getElementsByClassName("course");
+    // Loops through elements to apply batch style updates
+    for (let i = 0; i < resourceNodes.length; i++) {
+        resourceNodes[i].style.color = "#00FA9A"; // Success Green
+        resourceNodes[i].style.fontWeight = "bold";
+    }
+    console.log("Resource availability audit: COMPLETED.");
+}
+
+// [UI ENGINE]: MILESTONE LOGGING (Dynamic DOM Creation)
+function logMilestone() {
+    const inputNode = document.getElementById("taskInput");
+    const containerNode = document.getElementById("taskList");
+
+    // Validation: Ensures data integrity
+    if (inputNode.value.trim() === "") {
+        alert("Action Required: Please enter a valid milestone description.");
+        return;
+    }
+
+    // Creating & Mounting new DOM Element
+    const newEntry = document.createElement("li");
+    newEntry.innerText = `${inputNode.value}`;
+    newEntry.className = "list-group-item"; // UI consistency via Bootstrap
+
+    containerNode.appendChild(newEntry);
+    inputNode.value = ""; // Resetting input field
+}
+
+// [SECURITY LOGIC]: TRANSACTION CALLBACK SIMULATION
+const triggerAuditLog = (amount, status) => {
+    console.log(`%c💳 Transaction Audit: ${amount} ${status}`, "color: #27C8F5; font-weight: bold;");
+};
+
+const processSystemPayment = (amount, pin, callback) => {
+    const dbPin = 2222;
+    if (pin === dbPin) {
+        callback(amount, "Verified Successfully ✅");
+    } else {
+        callback(amount, "Verification Failed ❌");
+    }
+};
+processSystemPayment(2500, 2222, triggerAuditLog); // Execution via Callback
+
+// [SECURITY LOGIC]: GATEWAY AUTHENTICATION (Currying)
+function securityGateway(userKey) {
+    return function(passKey) {
+        if (userKey === "admin@mail.com" && passKey === "admin@123") {
+            console.log("%c✔ Security Gateway: ACCESS GRANTED", "color: #00FA9A; font-weight: bold;");
         }
     };
 }
-securityShield("admin@mail.com")("admin@123"); 
+securityGateway("admin@mail.com")("admin@123"); // Curried Call
 
-// [DAY 23]: LOOPING THROUGH ARRAY SKILLS
-const techSkills = ["HTML5", "CSS3", "JS", "MERN"]; 
-console.log("--- Scanning Skill Set (For Loop) ---");
-for (let i = 0; i < techSkills.length; i++) {
-    console.log(` - Skill ${i + 1}: ${techSkills[i]}`);
-}
+// [CORE STACK SCANNER]: ARRAY & OBJECT AUDIT
+const coreStack = ["MERN", "GenAI", "Platform Engineering"];
+console.log("--- Scanning Professional Stack ---");
+coreStack.forEach((tech) => console.log(`Active Capability: ${tech}`));
 
-// [DAY 22]: INTERVIEW CHECKS (Type Coercion)
+// [DIAGNOSTIC CHECKS]: TYPE COERCION & EQUALITY
 console.log("------------------------------------------");
-console.log(`💡 Coercion Check (5 + "5") : ${5 + "5"}`);
-console.log(`💡 Strict Equality Check     : ${18 === "18"}`);
+console.log(`💡 Diagnostic Coercion Check (5 + "5") : ${5 + "5"}`); 
+console.log(`💡 Diagnostic Strict Equality Check     : ${18 === "18"}`);
 console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
