@@ -248,28 +248,73 @@ function syncProductsLegacy() {
         }).catch(err => console.error("Legacy Sync Error:", err));
 }
 
-// Method B: Modern Async/Await for User Directory
+// --- [DAY 31 + 32 FINAL INTEGRATED LOGIC]: AI AVATARS & PORTFOLIO SYMMETRY ---
 async function syncUsersModern() {
-    dataOutput.innerHTML = `<div class="text-center w-100 py-5"><div class="spinner-border text-cyan"></div><p>Streaming via Async/Await...</p></div>`;
+    const dataOutput = document.getElementById("dataOutput");
+    
+    // 1. Professional Loading UI
+    dataOutput.innerHTML = `
+        <div class="text-center w-100 py-5">
+            <div class="spinner-border text-cyan" role="status"></div>
+            <p class="mt-2 text-cyan fw-bold">Syncing Enterprise User Directory...</p>
+        </div>`;
     
     try {
-        const res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=3");
-        if(!res.ok) throw new Error("Sync Fail");
+        // 2. Fetching Data using Modern Async/Await
+        const res = await fetch("https://fakestoreapi.com/users?limit=3");
+        if(!res.ok) throw new Error("Cloud Gateway Offline");
         const users = await res.json();
         
-        dataOutput.innerHTML = "";
+        dataOutput.innerHTML = ""; // Clear the loader
+
         users.forEach(user => {
+            // 3. Extracting Initials for Fallback Logic
+            const initials = user.name.firstname[0].toUpperCase() + user.name.lastname[0].toUpperCase();
+            
+            // 4. Generating Unique AI Avatar based on User ID
+            const avatarUrl = `https://robohash.org/${user.id}?set=set4`; 
+
+            // 5. Injecting High-Contrast Card Architecture into UI
             dataOutput.innerHTML += `
-                <div class="col-md-4">
-                    <div class="card bg-black border-info p-2 text-center h-100 shadow-sm">
-                        <i class="bi bi-person-badge text-info h3 mb-1"></i>
-                        <p class="small text-white fw-bold mb-0">${user.username}</p>
-                        <p class="text-secondary" style="font-size:10px;">${user.email}</p>
+                <div class="col-md-4 mb-3">
+                    <div class="card bg-black border-info p-3 text-center h-100 shadow-lg hover-card" style="border-width: 2px !important;">
+                        
+                        <div class="position-relative mx-auto mb-3" style="width: 70px; height: 70px;">
+                            <img src="${avatarUrl}" class="rounded-circle border border-cyan p-1 bg-dark shadow" 
+                                 style="width: 100%; height: 100%; object-fit: cover;" alt="User Avatar">
+                            <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-1" style="width:12px; height:12px;"></span>
+                        </div>
+                        
+                        <h6 class="text-white fw-bold mb-1" style="font-size: 14px;">
+                            ${user.name.firstname.toUpperCase()} ${user.name.lastname.toUpperCase()}
+                        </h6>
+                        <p class="text-cyan small mb-3">@${user.username}</p>
+                        
+                        <div class="text-start border-top border-secondary pt-3 mt-auto">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="bi bi-envelope-at text-cyan me-2"></i>
+                                <span class="text-white fw-bold" style="font-size: 11px;">${user.email}</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="bi bi-geo-alt-fill text-warning me-2"></i>
+                                <span class="text-white fw-bold" style="font-size: 11px;">${user.address.city.toUpperCase()}</span>
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-info btn-sm fw-bold mt-3 w-100 py-1 resume-btn-effect" style="font-size: 11px;">
+                            VIEW PROFILE
+                        </button>
                     </div>
                 </div>`;
         });
+
+        console.log("%c✅ Day 32 Update: High-Contrast AI Cards & Symmetric Buttons Synced.", "color: #00FA9A; font-weight: bold;");
+
     } catch (err) {
-        dataOutput.innerHTML = `<p class="text-danger text-center w-100">Modern Sync Error: ${err.message}</p>`;
+        dataOutput.innerHTML = `
+            <div class="alert alert-danger w-100 py-3 text-center">
+                <i class="bi bi-exclamation-triangle-fill me-2"></i> Network Error: ${err.message}
+            </div>`;
     }
 }
 
