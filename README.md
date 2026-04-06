@@ -484,5 +484,23 @@ To transform the portfolio from a passive data display into an active, event-dri
 **Audit Result:** 100% Concept Coverage. System is fully responsive and interactive.
 
 
+
+## Day 28: Advanced Form Validation & RegEx Security
+
+### 🚀 Overview
+Implemented a professional Authentication Gateway for the portfolio using JavaScript Regular Expressions (RegEx) and advanced DOM manipulation.
+
+### 🔑 Key Learning Concepts
+- **Regular Expressions (RegEx):** Created robust patterns to validate professional email formats and high-security passwords.
+- **Unique DOM Selection:** Resolved ID conflict issues by implementing unique identifiers for form inputs.
+- **Visual State Management:** Developed logic to switch UI themes from "Restricted" (Red) to "Granted" (Green) upon successful validation.
+- **Debugging Workflow:** Used browser console logging to identify and fix data capture failures.
+
+### 🛠️ Technical Implementation
+- **Email RegEx:** `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
+- **Password RegEx:** `8+ characters, Uppercase, Lowercase, Number, Special Character.`
+- **Event Handling:** Integrated `submit` event listeners with `e.preventDefault()` to manage data flow without page reloads.
+
+
 ---
 *Consistency is the key! More updates coming soon...*
