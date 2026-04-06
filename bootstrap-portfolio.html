@@ -385,6 +385,10 @@
             background-color: rgba(39, 200, 245, 0.05) !important;
             border-left: 3px solid #27C8F5;
             padding-left: 20px;
+
+
+
+            
         }
     </style>
 </head>
@@ -1238,6 +1242,59 @@
                 </div>
             </div>
         </section>
+
+
+
+        <section id="api-evolution" class="mb-5 bg-panel p-4 shadow-lg border border-secondary hover-card">
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
+                <i class="bi bi-cpu-fill me-2"></i> Advanced Data & Voice Lab
+            </h2>
+
+            <div class="row g-3 mb-5 p-3 bg-dark rounded border border-info shadow-sm mx-1">
+                <div class="col-md-12">
+                    <h5 class="text-cyan h6 fw-bold mb-3"><i class="bi bi-mic-fill me-2"></i> AI Voice Query Assistant
+                    </h5>
+                    <div class="d-flex gap-2 mb-3">
+                        <button id="startBtn" class="btn btn-info btn-sm fw-bold resume-btn-effect px-3">Start
+                            Listening</button>
+
+                        <button id="stopBtn" class="btn btn-outline-danger fw-bold btn-sm px-4"
+                            style="min-width: 120px;">
+                            Stop
+                        </button>
+
+
+                    </div>
+                    <div id="output"
+                        class="p-3 border border-secondary rounded text-light small italic bg-black shadow-inner"
+                        style="min-height: 60px;">
+                        Ready for voice input... (Speak your query)
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 text-center mb-4">
+                <div class="col-md-6 border-end border-secondary">
+                    <p class="small text-secondary mb-2">Legacy Sync (.then)</p>
+
+                    <button id="btnThen" class="btn btn-outline-info fw-bold px-4" style="min-width: 140px;">
+                        Fetch Products
+                    </button>
+
+                </div>
+                <div class="col-md-6">
+                    <p class="small text-secondary mb-2">Modern Sync (Async/Await)</p>
+                    <button id="btnAsync" class="btn btn-info fw-bold px-4 resume-btn-effect">Fetch Users</button>
+                </div>
+            </div>
+
+            <div id="dataOutput" class="row g-3 p-3 bg-dark rounded border border-secondary mx-1"
+                style="min-height: 220px;">
+                <p class="text-center text-secondary my-auto italic small w-100">Synchronize external systems to view
+                    data stream...</p>
+            </div>
+        </section>
+
 
 
     </div>

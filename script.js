@@ -185,4 +185,99 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
+
+    // --- [DAY 31]: ADVANCED JS DATA & VOICE INTEGRATION ---
+
+// 1. Web Speech API Implementation
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+    const recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.interimResults = true;
+    recognition.lang = "en-US";
+
+    const output = document.getElementById("output");
+    const startBtn = document.getElementById("startBtn");
+    const stopBtn = document.getElementById("stopBtn");
+
+    startBtn.addEventListener("click", () => {
+        recognition.start();
+        output.innerHTML = `<span class="text-info animate-pulse">🎤 Listening... Speak now</span>`;
+    });
+
+    stopBtn.addEventListener("click", () => {
+        recognition.stop();
+        output.innerHTML += ` <span class="text-secondary">(Stopped)</span>`;
+    });
+
+    recognition.onresult = (e) => {
+        let transcript = "";
+        for (let i = e.resultIndex; i < e.results.length; i++) {
+            transcript += e.results[i][0].transcript;
+        }
+        output.textContent = transcript;
+        
+        // TPM Feature: Auto-fill the query textarea if it exists
+        const queryBox = document.querySelector('textarea');
+        if(queryBox) queryBox.value = transcript;
+    };
+}
+
+// 2. API Chaining vs Async/Await Implementation
+const dataOutput = document.getElementById("dataOutput");
+
+// Method A: Traditional .then() for Products
+function syncProductsLegacy() {
+    dataOutput.innerHTML = `<div class="text-center w-100 py-5"><div class="spinner-border text-info"></div><p>Streaming via .then()...</p></div>`;
+    
+    fetch("https://fakestoreapi.com/products?limit=3")
+        .then(res => res.json())
+        .then(data => {
+            dataOutput.innerHTML = "";
+            data.forEach(item => {
+                dataOutput.innerHTML += `
+                    <div class="col-md-4">
+                        <div class="card bg-black border-secondary p-2 text-center h-100 shadow-sm">
+                            <img src="${item.image}" class="bg-white p-1" style="height:60px; object-fit:contain; border-radius:4px;">
+                            <p class="small text-cyan mt-2 mb-0 fw-bold">${item.title.slice(0,10)}...</p>
+                            <p class="text-warning small mb-0">$${item.price}</p>
+                        </div>
+                    </div>`;
+            });
+        }).catch(err => console.error("Legacy Sync Error:", err));
+}
+
+// Method B: Modern Async/Await for User Directory
+async function syncUsersModern() {
+    dataOutput.innerHTML = `<div class="text-center w-100 py-5"><div class="spinner-border text-cyan"></div><p>Streaming via Async/Await...</p></div>`;
+    
+    try {
+        const res = await fetch("https://jsonplaceholder.typicode.com/users?_limit=3");
+        if(!res.ok) throw new Error("Sync Fail");
+        const users = await res.json();
+        
+        dataOutput.innerHTML = "";
+        users.forEach(user => {
+            dataOutput.innerHTML += `
+                <div class="col-md-4">
+                    <div class="card bg-black border-info p-2 text-center h-100 shadow-sm">
+                        <i class="bi bi-person-badge text-info h3 mb-1"></i>
+                        <p class="small text-white fw-bold mb-0">${user.username}</p>
+                        <p class="text-secondary" style="font-size:10px;">${user.email}</p>
+                    </div>
+                </div>`;
+        });
+    } catch (err) {
+        dataOutput.innerHTML = `<p class="text-danger text-center w-100">Modern Sync Error: ${err.message}</p>`;
+    }
+}
+
+// Attach Event Listeners
+document.getElementById("btnThen")?.addEventListener("click", syncProductsLegacy);
+document.getElementById("btnAsync")?.addEventListener("click", syncUsersModern);
+
+
+
+
 });

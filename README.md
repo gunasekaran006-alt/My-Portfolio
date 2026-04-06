@@ -536,6 +536,25 @@ Successfully bridged the portfolio with external global servers using Asynchrono
 - **Safety:** Implemented `response.ok` checks to prevent system crashes during network failures.
 
 
+🎙️ Day 31: AI Voice & Async Data Lab
+Integrated Web Speech API and compared modern vs. legacy data fetching methods.
+
+✅ Key Achievements:
+AI Voice Assistant: Implemented real-time Speech-to-Text using Web Speech API.
+
+Async Comparison: Successfully demonstrated Async/Await vs. .then() chaining for API data streams.
+
+UI Synchronization: Fixed button conflicts; Stop and Fetch buttons now follow pure Bootstrap logic for perfect symmetry.
+
+Interactive Hub: Voice input now auto-populates query fields for a seamless user experience.
+
+🛠️ Tech Stack:
+Voice: Web Speech Recognition Interface.
+
+Data: REST API Fetch (FakeStore & JSONPlaceholder).
+
+UI: Bootstrap 5.3 + Custom CSS Glow Effects.
+
 
 ---
 *Consistency is the key! More updates coming soon...*
