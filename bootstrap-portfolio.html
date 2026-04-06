@@ -346,23 +346,25 @@
 
 
 
-        /* Dynamic UI Styling: Professional Milestone Tracker */
+        /* Professional UI Enhancements for Interactive Hub */
+#interactive-hub .form-control:focus {
+    background-color: #1c2128;
+    border-color: #27C8F5;
+    box-shadow: 0 0 0 0.25rem rgba(39, 200, 245, 0.25);
+    color: white;
+}
+
 #taskList li {
     background-color: #161b22 !important;
     color: #e6edf3 !important;
     border-bottom: 1px solid #30363d !important;
-    transition: all 0.3s ease;
-    padding: 12px 15px;
+    transition: 0.3s ease;
 }
 
 #taskList li:hover {
-    border-left: 4px solid #27C8F5; /* Cyan Sidebar highlight */
-    padding-left: 25px;
-    background-color: rgba(39, 200, 245, 0.08) !important;
-}
-
-.course {
-    transition: color 0.5s ease, font-weight 0.3s ease;
+    background-color: rgba(39, 200, 245, 0.05) !important;
+    border-left: 3px solid #27C8F5;
+    padding-left: 20px;
 }
 
 
@@ -1112,31 +1114,69 @@
 
 
 
-        <section id="project-tracker" class="mb-5 bg-panel p-4 shadow-sm" style="border-left: 4px solid #27C8F5;">
+        <section id="interactive-hub" class="mb-5 bg-panel p-4 shadow-sm" style="border-left: 4px solid #27C8F5;">
     <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
-        <i class="bi bi-rocket-takeoff-fill"></i> Project Milestone Tracker
+        <i class="bi bi-shield-lock-fill"></i> Enterprise Security & Project Gateway
     </h2>
-    
-    <div class="mb-4">
-        <h3 id="greeting" class="h5 text-white">System Status: Restricted Access</h3>
-        <button class="btn btn-outline-info btn-sm fw-bold" onclick="authorizeUser()">Authorize System Access</button>
-    </div>
 
-    <div class="mb-4">
-        <p class="course mb-1">● AI-Enhanced MERN Stack Architecture</p>
-        <p class="course mb-1">● Platform & Infrastructure Engineering</p>
-        <button class="btn btn-outline-info btn-sm fw-bold" onclick="auditResources()">Audit Resource Availability</button>
-    </div>
-
-    <div class="p-3 bg-dark rounded border border-secondary">
-        <h4 class="h6 text-cyan mb-3"><i class="bi bi-list-check"></i> Live Milestone Logger</h4>
-        <div class="input-group mb-3">
-            <input type="text" id="taskInput" class="form-control bg-dark text-white border-secondary" placeholder="Enter new project milestone...">
-            <button class="btn btn-info fw-bold text-dark" onclick="logMilestone()">Log Milestone</button>
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="p-3 bg-dark rounded border border-secondary h-100">
+                <h4 class="h6 text-cyan mb-3">System Authorization</h4>
+                <h3 id="greeting" class="h5 text-white mb-3">Status: Restricted Access</h3>
+                
+                <div class="mb-3">
+                    <input type="password" id="passwordInput" class="form-control bg-dark text-white border-secondary mb-2" placeholder="Enter Security Key">
+                    <div class="form-check">
+                        <input type="checkbox" id="showPassword" class="form-check-input">
+                        <label class="form-check-label small text-secondary" for="showPassword">Show Security Key</label>
+                    </div>
+                </div>
+                
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-info btn-sm fw-bold" id="auth-btn">Authorize System</button>
+                    <button class="btn btn-outline-danger btn-sm fw-bold" id="terminate-btn">Terminate Session</button>
+                </div>
+            </div>
         </div>
-        <ul id="taskList" class="list-group list-group-flush">
-            <li class="list-group-item bg-dark text-secondary small italic border-0">No milestones logged in current session...</li>
-        </ul>
+
+        <div class="col-md-6">
+            <div class="p-3 bg-dark rounded border border-secondary h-100">
+                <h4 class="h6 text-cyan mb-3">Resource Integrity Audit</h4>
+                <p class="course mb-1 text-secondary">● AI-Enhanced MERN Stack</p>
+                <p class="course mb-1 text-secondary">● Platform Engineering Nodes</p>
+                <p class="course mb-1 text-secondary">● Cloud Infrastructure</p>
+                <button class="btn btn-info btn-sm fw-bold text-dark mt-3" id="audit-btn">Start Full Resource Audit</button>
+            </div>
+        </div>
+
+        <div class="col-12">
+            <div class="p-3 bg-dark rounded border border-secondary">
+                <h4 class="h6 text-cyan mb-3">Enterprise Milestone Logging</h4>
+                
+                <form id="paymentForm" class="row g-2">
+                    <div class="col-md-4">
+                        <input id="username" type="text" class="form-control bg-dark text-white border-secondary" placeholder="Project Lead Name">
+                    </div>
+                    <div class="col-md-4">
+                        <input id="cardnumber" type="number" class="form-control bg-dark text-white border-secondary" placeholder="Resource ID (16-digit)">
+                    </div>
+                    <div class="col-md-2">
+                        <input id="cvvnumber" type="number" class="form-control bg-dark text-white border-secondary" placeholder="Security CVV">
+                    </div>
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-info fw-bold w-100 text-dark">Log Milestone</button>
+                    </div>
+                    <p id="error" class="text-danger small mt-2 mb-0"></p>
+                </form>
+
+                <hr class="border-secondary my-3">
+                
+                <ul id="taskList" class="list-group list-group-flush">
+                    <li class="list-group-item bg-dark text-secondary small italic border-0">Awaiting secure data entry...</li>
+                </ul>
+            </div>
+        </div>
     </div>
 </section>
 

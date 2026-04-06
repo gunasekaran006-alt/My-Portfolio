@@ -457,5 +457,32 @@ To bridge the gap between core JavaScript logic and the Bootstrap 5 User Interfa
 * **User Experience:** Enhanced through real-time feedback and dynamic content loading.
 
 
+
+# 🚀 Phase 5: Event-Driven Interaction & Security Gateway (Day 27)
+
+## 🎯 Strategic Objective
+To transform the portfolio from a passive data display into an active, event-driven ecosystem that manages user interactions securely.
+
+## 🛠️ Technical Implementations
+
+### 1. Modern Event Architecture
+* **Logic:** Transitioned from inline HTML events to JS-based `addEventListener`.
+* **Benefit:** Decoupled UI from Logic, following Enterprise "Clean Code" standards.
+
+### 2. Browser Object Model (BOM) APIs
+* **Feature:** Integrated `alert()` and `confirm()` for critical system actions.
+* **Use Case:** Securing the "Terminate Session" and "Resource Audit" flows.
+
+### 3. Real-time Security Toggles
+* **Feature:** Credential Visibility Toggle via `change` event.
+* **Logic:** Dynamically manipulates DOM properties based on user input states.
+
+### 4. Legacy Logic Preservation
+* Successfully maintained all Day 20-26 concepts (Hoisting, Currying, Callbacks) within the new interactive framework.
+
+---
+**Audit Result:** 100% Concept Coverage. System is fully responsive and interactive.
+
+
 ---
 *Consistency is the key! More updates coming soon...*

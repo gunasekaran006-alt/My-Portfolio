@@ -1,92 +1,97 @@
 // ========================================================
-// 🚀 ENTERPRISE PORTFOLIO ENGINE: CORE LOGIC V4.0
-// Features: Hoisting, Security, Callbacks, & Dynamic DOM
+// 🚀 ENTERPRISE PORTFOLIO ENGINE: CORE LOGIC V5.0
 // ========================================================
 
 // [SYSTEM DIAGNOSTICS]: BOOTING ENGINE
 console.log("%c--- System Diagnostics: Initializing ---", "color: yellow; font-weight: bold;");
-console.log("Kernel Status: " + kernelStatus); // Output: undefined (Var Hoisting Check)
 var kernelStatus = "ONLINE"; 
-console.log("%c---------------------------------------", "color: yellow;");
 
-// [GLOBAL CONFIGURATIONS]: IDENTITY & CONSTANTS
+// [GLOBAL CONFIGURATIONS]
 const developerIdentity = "Gunasekaran S";
-const getEngineStatus = () => "🚀 Portfolio Logic Engine: SUCCESSFULLY CONNECTED";
-console.log(getEngineStatus());
+const securityKey = "admin@123";
 
-// [UI ENGINE]: DYNAMIC AUTHORIZATION (DOM ID Selection)
-function authorizeUser() {
-    const statusDisplay = document.getElementById("greeting");
-    if (statusDisplay) {
-        // Updates text and style only on user interaction
-        statusDisplay.innerText = `Authorized Access: Welcome, ${developerIdentity}`;
-        statusDisplay.style.color = "#27C8F5"; // Theme Cyan
-    }
-}
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("🚀 Engine Connected Successfully");
 
-// [UI ENGINE]: RESOURCE AUDIT (DOM Class Selection)
-function auditResources() {
-    const resourceNodes = document.getElementsByClassName("course");
-    // Loops through elements to apply batch style updates
-    for (let i = 0; i < resourceNodes.length; i++) {
-        resourceNodes[i].style.color = "#00FA9A"; // Success Green
-        resourceNodes[i].style.fontWeight = "bold";
-    }
-    console.log("Resource availability audit: COMPLETED.");
-}
-
-// [UI ENGINE]: MILESTONE LOGGING (Dynamic DOM Creation)
-function logMilestone() {
-    const inputNode = document.getElementById("taskInput");
-    const containerNode = document.getElementById("taskList");
-
-    // Validation: Ensures data integrity
-    if (inputNode.value.trim() === "") {
-        alert("Action Required: Please enter a valid milestone description.");
-        return;
+    // --- FEATURE 1: DYNAMIC AUTHORIZATION (Using ID) ---
+    const authBtn = document.getElementById("auth-btn");
+    if (authBtn) {
+        authBtn.addEventListener("click", () => {
+            const statusDisplay = document.getElementById("greeting");
+            statusDisplay.innerText = `Authorized Access: Welcome, ${developerIdentity}`;
+            statusDisplay.style.color = "#27C8F5";
+            console.log("System Authorization: SUCCESS ✅");
+        });
     }
 
-    // Creating & Mounting new DOM Element
-    const newEntry = document.createElement("li");
-    newEntry.innerText = `${inputNode.value}`;
-    newEntry.className = "list-group-item"; // UI consistency via Bootstrap
-
-    containerNode.appendChild(newEntry);
-    inputNode.value = ""; // Resetting input field
-}
-
-// [SECURITY LOGIC]: TRANSACTION CALLBACK SIMULATION
-const triggerAuditLog = (amount, status) => {
-    console.log(`%c💳 Transaction Audit: ${amount} ${status}`, "color: #27C8F5; font-weight: bold;");
-};
-
-const processSystemPayment = (amount, pin, callback) => {
-    const dbPin = 2222;
-    if (pin === dbPin) {
-        callback(amount, "Verified Successfully ✅");
-    } else {
-        callback(amount, "Verification Failed ❌");
+    // --- FEATURE 2: RESOURCE AUDIT (Using ID) ---
+    const auditBtn = document.getElementById("audit-btn");
+    if (auditBtn) {
+        auditBtn.addEventListener("click", () => {
+            const resourceNodes = document.getElementsByClassName("course");
+            for (let i = 0; i < resourceNodes.length; i++) {
+                resourceNodes[i].style.color = "#00FA9A";
+                resourceNodes[i].style.fontWeight = "bold";
+            }
+            alert("Audit Analysis: All core resources are verified.");
+        });
     }
-};
-processSystemPayment(2500, 2222, triggerAuditLog); // Execution via Callback
 
-// [SECURITY LOGIC]: GATEWAY AUTHENTICATION (Currying)
-function securityGateway(userKey) {
-    return function(passKey) {
-        if (userKey === "admin@mail.com" && passKey === "admin@123") {
-            console.log("%c✔ Security Gateway: ACCESS GRANTED", "color: #00FA9A; font-weight: bold;");
-        }
+    // --- FEATURE 3: MILESTONE LOGGING (Using Submit Event) ---
+    const gatewayForm = document.getElementById("paymentForm");
+    if (gatewayForm) {
+        gatewayForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // தடுக்கிறது: Refresh Bug Fix
+
+            const inputNode = document.getElementById("username"); // Using Card Holder field as input
+            const containerNode = document.getElementById("taskList");
+
+            if (inputNode.value.trim() === "") {
+                alert("Action Required: Please enter a valid milestone.");
+                return;
+            }
+
+            // Remove placeholders if any
+            if(containerNode.innerText.includes("Awaiting")) containerNode.innerHTML = "";
+
+            const newEntry = document.createElement("li");
+            newEntry.innerText = `${inputNode.value}`;
+            newEntry.className = "list-group-item bg-dark text-white border-secondary";
+            containerNode.appendChild(newEntry);
+            inputNode.value = ""; 
+        });
+    }
+
+    // --- FEATURE 4: CREDENTIAL TOGGLE (Using ID) ---
+    const passToggle = document.getElementById("showPassword");
+    const passInput = document.getElementById("passwordInput");
+    if(passToggle && passInput) {
+        passToggle.addEventListener("change", () => {
+            passInput.type = passToggle.checked ? "text" : "password";
+        });
+    }
+
+    // --- FEATURE 5: SESSION TERMINATION (Using ID) ---
+    const terminateBtn = document.getElementById("terminate-btn");
+    if(terminateBtn) {
+        terminateBtn.addEventListener("click", () => {
+            const isConfirmed = confirm("Security Protocol: Do you really want to terminate the session?");
+            if(isConfirmed) {
+                document.getElementById("greeting").innerText = "Session Terminated. Access Revoked.";
+                document.getElementById("greeting").style.color = "#FF4500";
+            }
+        });
+    }
+
+    // --- [PREVIOUS CORE LOGIC]: Callbacks & Currying ---
+    const triggerAuditLog = (amount, status) => {
+        console.log(`%c💳 Transaction Audit: ${amount} ${status}`, "color: #27C8F5; font-weight: bold;");
     };
-}
-securityGateway("admin@mail.com")("admin@123"); // Curried Call
+    const processSystemPayment = (amount, pin, callback) => {
+        if (pin === 2222) callback(amount, "Verified ✅");
+        else callback(amount, "Failed ❌");
+    };
+    processSystemPayment(2500, 2222, triggerAuditLog);
 
-// [CORE STACK SCANNER]: ARRAY & OBJECT AUDIT
-const coreStack = ["MERN", "GenAI", "Platform Engineering"];
-console.log("--- Scanning Professional Stack ---");
-coreStack.forEach((tech) => console.log(`Active Capability: ${tech}`));
-
-// [DIAGNOSTIC CHECKS]: TYPE COERCION & EQUALITY
-console.log("------------------------------------------");
-console.log(`💡 Diagnostic Coercion Check (5 + "5") : ${5 + "5"}`); 
-console.log(`💡 Diagnostic Strict Equality Check     : ${18 === "18"}`);
-console.log("%c==========================================", "color: #27C8F5; font-weight: bold;");
+    console.log("🚀 Portfolio Logic Engine: FULLY OPERATIONAL");
+});
