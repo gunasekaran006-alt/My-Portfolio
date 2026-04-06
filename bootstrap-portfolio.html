@@ -242,26 +242,44 @@
             font-weight: bold;
         }
 
+
+        .modern-file-input {
+            padding-left: 15px !important;
+            padding-top: 10px !important;
+            padding-bottom: 10px !important;
+            height: auto !important;
+            line-height: 2 !important;
+        }
+
+
         /* Modern Bootstrap Choose File Button Fix */
         .modern-file-input::file-selector-button {
             background-color: #27C8F5;
             color: #000000;
-            border: none;
+            border: 2px solid #27C8F5;
             padding: 8px 15px;
-            margin-right: 15px;
+            margin-right: 20px;
+            display: inline-block;
             border-radius: 5px;
             font-weight: bold;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease-in-out;
             cursor: pointer;
+            transform-origin: center;
         }
 
         .modern-file-input::file-selector-button:hover {
-            background-color: #27C8F5 !important;
-            color: #000000 !important;
-            box-shadow: none;
+            background-color: transparent !important;
+            color: #27C8F5 !important;
+            box-shadow: 0px 0px 12px 2px rgba(39, 200, 245, 0.5);
+            transform: scale(1.05);
+
         }
 
-
+        /* CLICK EFFECT (Active):  */
+        .modern-file-input::file-selector-button:active {
+            transform: scale(0.95) !important;
+            box-shadow: none !important;
+        }
 
         /* Placeholder Visibility Fix for Dark Mode */
         ::placeholder {
@@ -564,8 +582,6 @@
 
 
 
-
-
         <section id="grid-showcase" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
                 <i class="bi bi-display"></i> My Core Expertise & UI Showcase
@@ -589,7 +605,9 @@
                             <li class="nav-item"><a class="nav-link text-white text-hover-cyan" href="#">Help &
                                     Support</a></li>
                         </ul>
-                        <button class="btn btn-outline-info btn-sm fw-bold" style="width: auto;">Login</button>
+                        <button class="btn btn-info fw-bold px-4 resume-btn-effect" style="width: auto;">
+                            Login
+                        </button>
                     </div>
                 </nav>
 
@@ -1053,8 +1071,9 @@
                                 </div>
                             </div>
                             <div class="col-12 mt-4">
-                                <button type="submit" class="btn btn-info fw-bold px-4 me-2">Submit your Form
-                                    Data</button>
+                                <button type="submit" class="btn btn-info fw-bold px-4 me-2 resume-btn-effect">
+                                    Submit your Form Data
+                                </button>
                                 <button type="reset" class="btn btn-outline-info px-4 fw-bold">Reset your Form
                                     Data</button>
                             </div>
@@ -1083,7 +1102,9 @@
                                 placeholder="Enter your Queries" required></textarea>
                         </div>
                         <div class="col-12 mt-3">
-                            <button type="submit" class="btn btn-outline-info">Send Query</button>
+                            <button type="submit" class="btn btn-info fw-bold px-4 resume-btn-effect">
+                                Send Query
+                            </button>
                         </div>
                     </div>
                 </form>
@@ -1097,12 +1118,12 @@
 
             <div class="bg-panel p-5 text-center rounded hover-card" style="border: 1px dashed #444c56;">
 
-                <h3 class="text-center fw-bold mb-3" style="color: #87CEEB;">Ready to Contribute & Innovate</h3>
+                <h3 class="text-center fw-bold mb-3 text-cyan">Ready to Contribute & Innovate</h3>
                 <p class="text-light mb-4" style="font-size: 1.1rem;">Actively seeking opportunities as a Junior Full
                     Stack Developer / AI-Enhanced MERN Intern.</p>
 
                 <div class="d-flex justify-content-center gap-4 flex-wrap mt-4">
-                    <button class="btn btn-success btn-lg fw-bold shadow-sm px-4">
+                    <button class="btn btn-info btn-lg fw-bold shadow-sm px-4 resume-btn-effect">
                         <i class="bi bi-briefcase-fill me-2"></i> Available for Full-Time Roles
                     </button>
                     <button class="btn btn-outline-danger btn-lg fw-bold shadow-sm px-4">
@@ -1115,7 +1136,7 @@
 
 
 
-        <section id="secure-gateway" class="mb-5 bg-panel p-4 shadow-sm" style="border-left: 4px solid #27C8F5;">
+        <section id="secure-gateway" class="mb-5 bg-panel p-4 shadow-sm hover-card border border-secondary">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
                 <i class="bi bi-shield-lock-fill"></i> Enterprise Authentication Gateway
             </h2>
@@ -1146,7 +1167,8 @@
                             </div>
 
                             <div class="d-flex gap-2">
-                                <button class="btn btn-primary fw-bold w-100" type="submit">Verify & Login</button>
+                                <button class="btn btn-info fw-bold w-100 resume-btn-effect" type="submit">Verify &
+                                    Login</button>
                                 <button class="btn btn-outline-danger fw-bold w-100" type="button"
                                     id="terminate-btn">Terminate</button>
                             </div>
@@ -1187,13 +1209,10 @@
                 </div>
 
                 <div class="col-md-12 text-center mt-3">
-                    <button id="validateBtn" class="btn btn-success fw-bold px-4 me-2">
-                        <i class="bi bi-patch-check me-2"></i>Verify OTP
-                    </button>
+                    <button id="validateBtn" class="btn btn-info fw-bold px-4 me-2 resume-btn-effect">Verify
+                        OTP</button>
 
-                    <button id="generateBtn" class="btn btn-outline-info fw-bold px-4">
-                        <i class="bi bi-arrow-repeat me-2"></i>New OTP
-                    </button>
+                    <button id="generateBtn" class="btn btn-outline-info fw-bold px-4">New OTP</button>
                 </div>
             </div>
 
@@ -1202,14 +1221,14 @@
 
 
 
-        <section id="api-lab" class="mb-5 bg-panel p-4 shadow-lg" style="border-right: 4px solid #FFD700;">
+        <section id="api-lab" class="mb-5 my-5 bg-panel p-4 shadow-lg hover-card border border-secondary">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
                 <i class="bi bi-cloud-arrow-down-fill"></i> Live API Data Stream
             </h2>
             <div class="row g-3">
                 <div class="col-md-12 text-center mb-4">
                     <p class="text-light small">Testing asynchronous data fetching from public REST APIs.</p>
-                    <button id="fetchProducts" class="btn btn-warning fw-bold text-dark px-4 shadow-sm">
+                    <button id="fetchProducts" class="btn btn-info fw-bold text-dark px-4 shadow-sm resume-btn-effect">
                         <i class="bi bi-cart4 me-2"></i> Fetch Product Catalog
                     </button>
                 </div>
