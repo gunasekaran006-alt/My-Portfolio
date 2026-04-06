@@ -388,7 +388,7 @@
 
 
 
-            
+
         }
     </style>
 </head>
@@ -836,7 +836,7 @@
         </div>
 
 
-        
+
 
         <section id="services" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill"></i> My
@@ -1299,7 +1299,31 @@
         </section>
 
 
-        
+        <section id="weather-lab" class="mb-5 bg-panel p-4 shadow-lg border border-secondary hover-card">
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
+                <i class="bi bi-cloud-sun-fill me-2"></i> Global Weather Intelligence
+            </h2>
+            <p class="text-secondary small mb-4">Real-time weather data architecture using OpenWeather API &
+                Async/Await.</p>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="bg-dark p-4 rounded-4 border border-secondary shadow-sm">
+                        <div class="input-group mb-3">
+                            <input id="cityInput" type="text"
+                                class="form-control bg-black text-white border-secondary shadow-none"
+                                placeholder="Enter City (e.g. Coimbatore)">
+                            <button id="getweatherBtn"
+                                class="btn btn-info fw-bold px-4 resume-btn-effect">Search</button>
+                        </div>
+
+                        <div id="weatherResult" class="text-center mt-4">
+                            <p class="text-secondary italic small">Awaiting atmospheric data sync...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 

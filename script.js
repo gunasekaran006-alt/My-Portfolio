@@ -324,5 +324,64 @@ document.getElementById("btnAsync")?.addEventListener("click", syncUsersModern);
 
 
 
+// --- [DAY 32]: WEATHER API LOGIC ---
+const weatherBtn = document.getElementById("getweatherBtn");
+
+if (weatherBtn) {
+    weatherBtn.addEventListener("click", async () => {
+        const city = document.getElementById("cityInput").value.trim();
+        const resultDiv = document.getElementById("weatherResult");
+        const API_KEY = "f686f164217fd8fcb1ab695939c03549";
+
+        if (!city) {
+            resultDiv.innerHTML = `<div class="alert alert-warning py-2 small">Enter city name!</div>`;
+            return;
+        }
+
+        // Loading State: Professional UI
+        resultDiv.innerHTML = `<div class="spinner-border text-info spinner-border-sm"></div><p class="small text-info mt-2">Connecting to Satellite...</p>`;
+
+        try {
+            // Using &units=metric to get Celsius (Very Important!)
+            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+            if (!response.ok) throw new Error("City Signature Not Found");
+            const data = await response.json();
+
+            // High Contrast Result UI
+           resultDiv.innerHTML = `
+    <div class="p-4 bg-black rounded border border-info shadow-lg">
+        <h4 class="text-white fw-bold mb-1" style="letter-spacing: 1px;">
+            ${data.name.toUpperCase()}, ${data.sys.country}
+        </h4>
+        
+        <div class="display-5 text-cyan fw-bold mb-2">${Math.round(data.main.temp)}°C</div>
+        
+        <p class="text-white fw-bold text-uppercase mb-4" style="letter-spacing: 2px; font-size: 0.85rem;">
+            <i class="bi bi-cloud-sun-fill me-2 text-warning"></i>${data.weather[0].description}
+        </p>
+        
+        <div class="row g-2 border-top border-secondary pt-3 text-center">
+            <div class="col-4 border-end border-secondary">
+                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">HUMIDITY</div>
+                <div class="text-white fw-bold fs-6">${data.main.humidity}%</div>
+            </div>
+            <div class="col-4 border-end border-secondary">
+                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">WIND</div>
+                <div class="text-white fw-bold fs-6">${data.wind.speed} m/s</div>
+            </div>
+            <div class="col-4">
+                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">PRESSURE</div>
+                <div class="text-white fw-bold fs-6">${data.main.pressure}</div>
+            </div>
+        </div>
+    </div>`;
+        } catch (err) {
+            resultDiv.innerHTML = `<div class="alert alert-danger py-2 small">${err.message}</div>`;
+        }
+    });
+}
+
+
+
 
 });

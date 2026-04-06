@@ -579,5 +579,33 @@ Visuals: Bootstrap 5.3, Robohash API (Avatars), and Custom CSS Glow.
 Branding: Name Initials fallback logic for robust identity mapping.
 
 
+
+பாஸ், Day 32-க்கான செம கிரிஸ்பான Weather Intelligence README இதோ! ஒரு TPM-ஆ உங்க ப்ராஜெக்ட்ல ஒரு "Real-time Utility"-யை எப்படிச் சேர்த்திருக்கீங்கன்னு இது உலகத்துக்குச் சொல்லும்.
+
+☁️ Day 32: Global Weather Intelligence System
+Integrated a real-time weather monitoring widget using the OpenWeather API and Async/Await architecture to enhance portfolio interactivity.
+
+✅ Key Achievements:
+Real-time Data Fetching: Engineered a dynamic search system that connects to live global weather stations.
+
+Data Transformation: Implemented units=metric logic to convert raw Kelvin data into human-readable Celsius values.
+
+UI/UX Accessibility Fix: * Optimized for High-Contrast (WCAG Standards): Replaced blurry/light text with text-white and fw-bold for crystal clear readability on dark backgrounds.
+
+Added Branded Iconography: Integrated Bootstrap Icons for visual representation of Humidity, Wind, and Pressure.
+
+Error Management: Built a robust try-catch mechanism to handle invalid city inputs or network latency without breaking the UI.
+
+Symmetric Design: Synced the Search button with the global .resume-btn-effect for consistent hover animations.
+
+🛠️ Technical Stack:
+Logic: JavaScript (ES6+), Async/Await, Template Literals.
+
+API: OpenWeatherMap API (Current Weather Data).
+
+Styling: Bootstrap 5.3 + Custom High-Contrast CSS.
+
+
+
 ---
 *Consistency is the key! More updates coming soon...*
