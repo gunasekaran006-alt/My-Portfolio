@@ -136,4 +136,53 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log(`%c--- Engine Ready: ${kernelStatus} ---`, "color: yellow; font-weight: bold;");
+
+
+
+
+// --- [DAY 30]: ASYNCHRONOUS FETCH API IMPLEMENTATION ---
+    const productBtn = document.getElementById("fetchProducts");
+    const productDisplay = document.getElementById("productDisplay");
+
+    if (productBtn) {
+        productBtn.addEventListener("click", () => {
+            // 1. Visual Feedback during Loading
+            productDisplay.innerHTML = `
+                <div class="text-center w-100 py-5">
+                    <div class="spinner-border text-warning" role="status"></div>
+                    <p class="mt-2 text-warning">Connecting to Fakestore Server...</p>
+                </div>`;
+
+            // 2. Fetching Data from API
+            fetch("https://fakestoreapi.com/products?limit=4")
+                .then(response => {
+                    if (!response.ok) throw new Error("Network Response Failure");
+                    return response.json();
+                })
+                .then(data => {
+                    productDisplay.innerHTML = ""; // Clear loader
+                    
+                    // 3. Mapping data to UI Cards
+                    data.forEach(item => {
+                        productDisplay.innerHTML += `
+                            <div class="col-6 col-md-3">
+                                <div class="card bg-dark text-white border-secondary h-100 hover-card">
+                                    <img src="${item.image}" class="card-img-top p-3 bg-white" style="height: 140px; object-fit: contain;">
+                                    <div class="card-body p-2 text-center">
+                                        <h6 class="small fw-bold text-cyan">${item.title.slice(0, 15)}...</h6>
+                                        <p class="text-warning mb-0 small">$${item.price}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                    });
+                    console.log("%c📡 External API Synchronized", "color: #FFD700; font-weight: bold;");
+                })
+                .catch(error => {
+                    productDisplay.innerHTML = `<p class="text-danger text-center w-100">Sync Error: ${error.message}</p>`;
+                    console.error("Critical API Error:", error);
+                });
+        });
+    }
+
+
 });

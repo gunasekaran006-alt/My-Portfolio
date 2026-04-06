@@ -302,37 +302,39 @@
         }
 
 
-/* ========================================== */
-/* EVEN DOTTED BORDER FIX                     */
-/* ========================================== */
-.padding-example {
-    position: relative; 
-    background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1500&auto=format&fit=crop") center/cover no-repeat fixed;
-    
-    /* Border Fix: Using border-box and transparent background clip */
-    border: 3px dotted #27C8F5 !important; 
-    background-clip: padding-box; /* This keeps image inside border */
-    
-    padding: 60px 25px; 
-    border-radius: 10px;
-    margin-bottom: 3rem;
-    overflow: hidden;
-    text-align: center;
-}
+        /* ========================================== */
+        /* EVEN DOTTED BORDER FIX                     */
+        /* ========================================== */
+        .padding-example {
+            position: relative;
+            background: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1500&auto=format&fit=crop") center/cover no-repeat fixed;
 
-.collab-overlay {
-    position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: rgba(13, 17, 23, 0.92); /* Slightly darker for better contrast */
-}
+            /* Border Fix: Using border-box and transparent background clip */
+            border: 3px dotted #27C8F5 !important;
+            background-clip: padding-box;
+            /* This keeps image inside border */
 
-.collab-content {
-    position: relative;
-    z-index: 2; 
-}      
+            padding: 60px 25px;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .collab-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(13, 17, 23, 0.92);
+            /* Slightly darker for better contrast */
+        }
+
+        .collab-content {
+            position: relative;
+            z-index: 2;
+        }
 
 
         df-messenger {
@@ -347,27 +349,25 @@
 
 
         /* Professional UI Enhancements for Interactive Hub */
-#interactive-hub .form-control:focus {
-    background-color: #1c2128;
-    border-color: #27C8F5;
-    box-shadow: 0 0 0 0.25rem rgba(39, 200, 245, 0.25);
-    color: white;
-}
+        #interactive-hub .form-control:focus {
+            background-color: #1c2128;
+            border-color: #27C8F5;
+            box-shadow: 0 0 0 0.25rem rgba(39, 200, 245, 0.25);
+            color: white;
+        }
 
-#taskList li {
-    background-color: #161b22 !important;
-    color: #e6edf3 !important;
-    border-bottom: 1px solid #30363d !important;
-    transition: 0.3s ease;
-}
+        #taskList li {
+            background-color: #161b22 !important;
+            color: #e6edf3 !important;
+            border-bottom: 1px solid #30363d !important;
+            transition: 0.3s ease;
+        }
 
-#taskList li:hover {
-    background-color: rgba(39, 200, 245, 0.05) !important;
-    border-left: 3px solid #27C8F5;
-    padding-left: 20px;
-}
-
-
+        #taskList li:hover {
+            background-color: rgba(39, 200, 245, 0.05) !important;
+            border-left: 3px solid #27C8F5;
+            padding-left: 20px;
+        }
     </style>
 </head>
 
@@ -469,13 +469,15 @@
             <div class="bg-panel p-4 mb-4">
                 <ul class="native-bullets">
                     <li><b>Frontend Technologies:</b> Architecting responsive UIs with React.js, Redux, Tailwind CSS,
-                        and Voice UI (Web Speech API).Developing advanced client-side form validation using Regular Expressions (RegEx) for enhanced data integrity.</li>
+                        and Voice UI (Web Speech API).Developing advanced client-side form validation using Regular
+                        Expressions (RegEx) for enhanced data integrity.</li>
                     <li><b>Backend & Databases:</b> Engineering robust server-side logic with Node.js, Express.js, REST
                         APIs, MongoDB, and MySQL.</li>
                     <li><b>Programming & AI:</b> Developing AI solutions with Python, JavaScript, ML/DL, Gemini API, and
                         TensorFlow.js.</li>
                     <li><b>Data Science & Security:</b> Executing strategic insights via SQL, Power BI, and RapidMiner.
-                        Implementing secure authentication using JWT, RBAC, and Multi-Factor Authentication (OTP Logic) via Persistent LocalStorage.</li>
+                        Implementing secure authentication using JWT, RBAC, and Multi-Factor Authentication (OTP Logic)
+                        via Persistent LocalStorage.</li>
                     <li><b>Tools & Platforms:</b> Git, GitHub, Postman, Netlify, and CI/CD pipelines.</li>
                     <li><b>Soft Skills:</b> Advanced Problem Solving, Cross-Functional Team Leadership, Business
                         Analysis & Adaptability.</li>
@@ -562,7 +564,7 @@
 
 
 
-        
+
 
         <section id="grid-showcase" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
@@ -802,14 +804,14 @@
             </div>
         </section>
 
-       <div class="padding-example shadow-lg">
-    <div class="collab-overlay"></div> 
-    
-    <div class="collab-content"> 
-        <h4 class="text-white mb-2 fw-bold">Ready to build scalable web applications?</h4>
-        <h4 class="text-cyan m-0">Let's collaborate on your next project!</h4>
-    </div>
-</div>
+        <div class="padding-example shadow-lg">
+            <div class="collab-overlay"></div>
+
+            <div class="collab-content">
+                <h4 class="text-white mb-2 fw-bold">Ready to build scalable web applications?</h4>
+                <h4 class="text-cyan m-0">Let's collaborate on your next project!</h4>
+            </div>
+        </div>
 
         <section id="services" class="mb-5">
             <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4"><i class="bi bi-briefcase-fill"></i> My
@@ -1072,7 +1074,8 @@
                         </div>
                         <div class="col-md-6">
                             <label for="supportEmail" class="form-label text-light">Email:</label>
-                            <input id="loginEmail" class="form-control bg-dark text-white border-secondary" type="text" placeholder="user@domain.com">
+                            <input id="loginEmail" class="form-control bg-dark text-white border-secondary" type="text"
+                                placeholder="user@domain.com">
                         </div>
                         <div class="col-12">
                             <label for="queries" class="form-label text-light">Query:</label><br>
@@ -1113,87 +1116,109 @@
 
 
         <section id="secure-gateway" class="mb-5 bg-panel p-4 shadow-sm" style="border-left: 4px solid #27C8F5;">
-    <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
-        <i class="bi bi-shield-lock-fill"></i> Enterprise Authentication Gateway
-    </h2>
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
+                <i class="bi bi-shield-lock-fill"></i> Enterprise Authentication Gateway
+            </h2>
 
-    <div class="row g-4">
-        <div class="col-md-6">
-            <div class="p-4 bg-dark rounded border border-secondary h-100">
-                <h4 class="h6 text-cyan mb-3">System Access Portal</h4>
-                
-                <div id="alertBox"></div> 
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="p-4 bg-dark rounded border border-secondary h-100">
+                        <h4 class="h6 text-cyan mb-3">System Access Portal</h4>
 
-                <form id="loginForm">
-                    <div class="mb-3">
-                        <label class="form-label text-light small">Professional Email</label>
-                        <input id="uniqueLoginEmail" class="form-control bg-dark text-white border-secondary" type="text" placeholder="guna@gmail.com">
+                        <div id="alertBox"></div>
+
+                        <form id="loginForm">
+                            <div class="mb-3">
+                                <label class="form-label text-light small">Professional Email</label>
+                                <input id="uniqueLoginEmail" class="form-control bg-dark text-white border-secondary"
+                                    type="text" placeholder="guna@gmail.com">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label text-light small">Security Password</label>
+                                <input id="password" class="form-control bg-dark text-white border-secondary"
+                                    type="password" placeholder="••••••••">
+                                <div class="form-check mt-2">
+                                    <input type="checkbox" id="showPassword" class="form-check-input">
+                                    <label class="form-check-label small text-secondary" for="showPassword">Show
+                                        Credentials</label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex gap-2">
+                                <button class="btn btn-primary fw-bold w-100" type="submit">Verify & Login</button>
+                                <button class="btn btn-outline-danger fw-bold w-100" type="button"
+                                    id="terminate-btn">Terminate</button>
+                            </div>
+                        </form>
                     </div>
+                </div>
 
-                    <div class="mb-3">
-                        <label class="form-label text-light small">Security Password</label>
-                        <input id="password" class="form-control bg-dark text-white border-secondary" type="password" placeholder="••••••••">
-                        <div class="form-check mt-2">
-                            <input type="checkbox" id="showPassword" class="form-check-input">
-                            <label class="form-check-label small text-secondary" for="showPassword">Show Credentials</label>
-                        </div>
+                <div class="col-md-6">
+                    <div
+                        class="p-4 bg-dark rounded border border-secondary h-100 text-center d-flex flex-column justify-content-center">
+                        <h3 id="greeting" class="h5 text-white mb-3">Status: Awaiting Authentication</h3>
+                        <div id="statusIcon"><i class="bi bi-person-lock text-secondary display-4"></i></div>
+                        <hr class="border-secondary">
+                        <p class="small text-secondary italic">Note: Password must be 8+ characters with Uppercase,
+                            Lowercase, Number & Special Character.</p>
                     </div>
-
-                    <div class="d-flex gap-2">
-                        <button class="btn btn-primary fw-bold w-100" type="submit">Verify & Login</button>
-                        <button class="btn btn-outline-danger fw-bold w-100" type="button" id="terminate-btn">Terminate</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="col-md-6">
-            <div class="p-4 bg-dark rounded border border-secondary h-100 text-center d-flex flex-column justify-content-center">
-                <h3 id="greeting" class="h5 text-white mb-3">Status: Awaiting Authentication</h3>
-                <div id="statusIcon"><i class="bi bi-person-lock text-secondary display-4"></i></div>
-                <hr class="border-secondary">
-                <p class="small text-secondary italic">Note: Password must be 8+ characters with Uppercase, Lowercase, Number & Special Character.</p>
+
+
+        <section id="two-factor-auth" class="my-5 p-4 bg-dark rounded border border-info shadow-lg"
+            style="border-style: dashed !important;">
+            <h4 class="h6 text-cyan mb-4">
+                <i class="bi bi-shield-lock-fill me-2"></i> Double-Factor Authentication (2FA) Gateway
+            </h4>
+
+            <div class="row g-3 justify-content-center">
+                <div class="col-md-12">
+                    <div id="message" class="mb-3 text-center small"></div>
+                </div>
+
+                <div class="col-md-6">
+                    <input type="text" id="otpInput"
+                        class="form-control bg-dark text-white border-secondary text-center" placeholder="Enter OTP"
+                        maxlength="6">
+                </div>
+
+                <div class="col-md-12 text-center mt-3">
+                    <button id="validateBtn" class="btn btn-success fw-bold px-4 me-2">
+                        <i class="bi bi-patch-check me-2"></i>Verify OTP
+                    </button>
+
+                    <button id="generateBtn" class="btn btn-outline-info fw-bold px-4">
+                        <i class="bi bi-arrow-repeat me-2"></i>New OTP
+                    </button>
+                </div>
             </div>
-        </div>
-    </div>
-</section>
+
+        </section>
 
 
-<div class="mt-4 p-4 bg-dark rounded border border-info" style="border-style: dashed !important;">
-    <h4 class="h6 text-cyan mb-3"><i class="bi bi-shield-lock me-2"></i>Double-Factor Authentication (2FA)</h4>
-    
-    <div class="row g-3">
-        <div class="col-md-12">
-            <div id="message" class="mb-3 text-center small"></div> </div>
-        <div class="col-md-8">
-            <input type="text" id="otpInput" class="form-control bg-dark text-white border-secondary" placeholder="Enter 6-Digit OTP" maxlength="6">
-        </div>
-        <div class="col-md-4">
-            <button id="validateBtn" class="btn btn-success w-100 fw-bold">Verify OTP</button>
-        </div>
-        <div class="col-12 mt-2">
-            <button id="generateBtn" class="btn btn-outline-info w-100 fw-bold">Generate New Security OTP</button>
-        </div>
-    </div>
-</div>
 
-<div class="modal fade" id="successModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content bg-dark text-white border-success">
-            <div class="modal-header border-secondary">
-                <h5 class="modal-title">Identity Verified</h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+
+        <section id="api-lab" class="mb-5 bg-panel p-4 shadow-lg" style="border-right: 4px solid #FFD700;">
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
+                <i class="bi bi-cloud-arrow-down-fill"></i> Live API Data Stream
+            </h2>
+            <div class="row g-3">
+                <div class="col-md-12 text-center mb-4">
+                    <p class="text-light small">Testing asynchronous data fetching from public REST APIs.</p>
+                    <button id="fetchProducts" class="btn btn-warning fw-bold text-dark px-4 shadow-sm">
+                        <i class="bi bi-cart4 me-2"></i> Fetch Product Catalog
+                    </button>
+                </div>
+
+                <div id="productDisplay" class="row g-3">
+                    <p class="text-center text-secondary mt-3">Ready to receive external data stream...</p>
+                </div>
             </div>
-            <div class="modal-body text-center">
-                <i class="bi bi-check-circle-fill text-success display-1"></i>
-                <h4 class="mt-3">OTP Verified Successfully!</h4>
-                <p class="text-secondary">Security clearance level: ADMIN ACCESS GRANTED.</p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
+        </section>
 
 
     </div>
@@ -1204,12 +1229,8 @@
     </footer>
 
     <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger 
-        intent="WELCOME" 
-        chat-title="Guna_Portfolio_Assistant" 
-        agent-id="6e3e22f5-991d-4f95-b986-19273b8c476a" 
-        language-code="en"
-        chat-icon="https://cdn-icons-png.flaticon.com/512/8943/8943377.png">
+    <df-messenger intent="WELCOME" chat-title="Guna_Portfolio_Assistant" agent-id="6e3e22f5-991d-4f95-b986-19273b8c476a"
+        language-code="en" chat-icon="https://cdn-icons-png.flaticon.com/512/8943/8943377.png">
     </df-messenger>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
@@ -1217,7 +1238,7 @@
         crossorigin="anonymous"></script>
 
 
-        <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
