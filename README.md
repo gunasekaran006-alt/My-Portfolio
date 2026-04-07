@@ -626,5 +626,46 @@ String Methods: toUpperCase(), toLowerCase().
 Architecture: Global State Management with DOM Injection.
 
 
+
+# 🚀 Enterprise Portfolio Engine - V11.0 (Day 35 Update)
+
+## 📌 Overview
+Welcome to **Day 35** of the Enterprise Portfolio Engine! This update introduces the **Data Intelligence Engine**, leveraging modern JavaScript functional programming methods to intelligently manipulate, filter, and analyze the global user directory.
+
+## ✨ New Features: Data Intelligence Engine
+
+This update focuses on three core JavaScript array methods to handle global state dynamically:
+
+### 1. Data Transformation (`Array.prototype.map`)
+* **Feature:** Standardize User Names
+* **Description:** Iterates through the global user array, appends a "PRO - " prefix, and capitalizes the first name of every user using the spread operator (`...`) to preserve other object properties.
+* **Function:** `standardizeNames()`
+
+### 2. Data Selection (`Array.prototype.filter`)
+* **Feature:** Isolate High-Priority Nodes
+* **Description:** Scans the global directory and filters out non-essential data, keeping only core priority members (Users with ID 1 and 2) visible on the UI.
+* **Function:** `filterHighPriority()`
+
+### 3. Data Aggregation (`Array.prototype.reduce`)
+* **Feature:** Calculate System Health
+* **Description:** Computes a "System Integrity Sum" by mathematically aggregating the ID values of all active users in the directory into a single integer.
+* **Function:** `calculateSystemHealth()`
+
+## 🛠️ Technical Concepts Applied
+* **ES6+ Features:** Arrow functions, Spread/Rest Operators.
+* **Functional Programming:** Immutability concepts and pure functions (`map`, `filter`, `reduce`).
+* **DOM Manipulation:** Real-time UI updates reflecting global state changes.
+
+## 🚀 How to Test the Features
+1. Click the **"Fetch Users"** button to load the mock data from the cloud gateway.
+2. Click the **"Standardize (Map)"** button to see the names update visually on the cards.
+3. Click the **"Priority (Filter)"** button to instantly hide user cards that do not meet the priority condition.
+4. Click the **"Health Check (Reduce)"** button to trigger the calculation and view the result in an alert prompt.
+
+---
+*Developed as part of the Full-Stack Enterprise Training Module.*
+
+
+
 ---
 *Consistency is the key! More updates coming soon...*

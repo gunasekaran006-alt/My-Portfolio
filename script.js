@@ -4,7 +4,7 @@
 // ========================================================
 
 // [DAY 34]: Global Array to hold team data for CRUD operations
-let globalTeam = []; 
+let globalTeam = [];
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -58,13 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (terminateBtn) {
         terminateBtn.addEventListener("click", () => {
             if (confirm("Security Protocol: Terminate all active sessions?")) {
-                // Update UI to Restricted State
                 statusDisplay.innerText = "Session Terminated. Access Restricted.";
                 statusDisplay.style.color = "#FF4500";
                 statusIcon.innerHTML = `<i class="bi bi-person-lock text-secondary display-4"></i>`;
-                
-                // Clear Security Tokens
-                localStorage.clear(); 
+
+                localStorage.clear();
                 console.log("%c⚠️ System: Session Wiped", "color: orange; font-weight: bold;");
             }
         });
@@ -121,7 +119,6 @@ document.addEventListener("DOMContentLoaded", () => {
             output.innerHTML = `<span class="text-info animate-pulse">🎤 Listening... Speak now</span>`;
         });
 
-        // The Fix: Binding the stop function correctly
         document.getElementById("stopBtn")?.addEventListener("click", () => {
             recognition.stop();
             output.innerHTML += ` <span class="text-secondary">(Voice Sync Stopped)</span>`;
@@ -143,8 +140,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (!res.ok) throw new Error("Cloud Gateway Offline");
             const users = await res.json();
 
-            globalTeam = users; 
-            renderTeamUI_Global(); 
+            globalTeam = users;
+            renderTeamUI_Global();
         } catch (err) {
             dataOutput.innerHTML = `<div class="alert alert-danger w-100 text-center">${err.message}</div>`;
         }
@@ -191,30 +188,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log(`%c--- Engine Ready: ${kernelStatus} ---`, "color: yellow; font-weight: bold;");
-});
+}); // <--- DOMContentLoaded correctly closed here
 
 // ========================================================
 // 🛠️ GLOBAL FUNCTIONS (Outside DOM Content Loaded)
 // ========================================================
 
-window.removeMember = (index) => { 
-    if(globalTeam.length > 0) {
-        globalTeam.splice(index, 1); 
-        renderTeamUI_Global(); 
+window.removeMember = (index) => {
+    if (globalTeam.length > 0) {
+        globalTeam.splice(index, 1);
+        renderTeamUI_Global();
     }
 };
 
-window.popMember = () => { 
-    if(globalTeam.length > 0) {
-        globalTeam.pop(); 
-        renderTeamUI_Global(); 
+window.popMember = () => {
+    if (globalTeam.length > 0) {
+        globalTeam.pop();
+        renderTeamUI_Global();
     }
 };
 
-window.shiftMember = () => { 
-    if(globalTeam.length > 0) {
-        globalTeam.shift(); 
-        renderTeamUI_Global(); 
+window.shiftMember = () => {
+    if (globalTeam.length > 0) {
+        globalTeam.shift();
+        renderTeamUI_Global();
     }
 };
 
@@ -222,7 +219,7 @@ window.shiftMember = () => {
 function renderTeamUI_Global() {
     const dataOutput = document.getElementById("dataOutput");
     if (!dataOutput) return;
-    dataOutput.innerHTML = ""; 
+    dataOutput.innerHTML = "";
 
     if (globalTeam.length === 0) {
         dataOutput.innerHTML = `<p class="text-center text-secondary my-auto italic small w-100 py-4 text-white fw-bold">User Directory is empty. Click 'Fetch Users' to reload.</p>`;
@@ -252,5 +249,53 @@ function renderTeamUI_Global() {
                     </button>
                 </div>
             </div>`;
-    });
-}
+    }); // <--- forEach closed here
+} // <--- renderTeamUI_Global correctly closed here
+
+// ========================================================
+// 🚀 DAY 35: DATA INTELLIGENCE ENGINE (Map, Filter, Reduce)
+// ========================================================
+
+// [LOGIC 1]: MAP METHOD
+window.standardizeNames = () => {
+    if (globalTeam.length === 0) return alert("System: Please Sync User Directory first.");
+
+    globalTeam = globalTeam.map(user => ({
+        ...user,
+        name: { ...user.name, firstname: "PRO - " + user.name.firstname.toUpperCase() }
+    }));
+
+    renderTeamUI_Global();
+    alert("✅ MAP worked: 'PRO - ' added to all names!");
+};
+
+// [LOGIC 2]: FILTER METHOD
+window.filterHighPriority = () => {
+    if (globalTeam.length === 0) return alert("System: Directory Offline.");
+
+    const originalCount = globalTeam.length;
+    globalTeam = globalTeam.filter(user => user.id <= 2);
+
+    renderTeamUI_Global();
+    alert("✅ FILTER worked: User 3 has been removed!");
+};
+
+// [LOGIC 3]: REDUCE METHOD
+window.calculateSystemHealth = () => {
+    if (globalTeam.length === 0) return alert("System: No Data available.");
+
+    const integritySum = globalTeam.reduce((total, user) => total + user.id, 0);
+
+    // Showing the result in a popup alert for immediate visibility
+    alert(`✅ REDUCE worked: System Integrity Sum is ${integritySum}\n(Calculated by adding User IDs)`);
+};
+
+// [LOGIC 4]: REST & SPREAD
+window.logEnterpriseDev = (devName, ...capabilities) => {
+    const devProfile = {
+        name: devName,
+        stack: [...capabilities],
+        active: true
+    };
+    console.log("Enterprise Developer Registered:", devProfile);
+};

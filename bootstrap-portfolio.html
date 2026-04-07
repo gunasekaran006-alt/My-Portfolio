@@ -1281,6 +1281,7 @@
 
                         <button id="btnAsync" class="btn btn-info fw-bold px-4 resume-btn-effect">Fetch Users</button>
 
+
                         <button class="btn btn-outline-danger btn-sm fw-bold px-3" onclick="popMember()">
                             <i class="bi bi-arrow-down-square me-1"></i>Pop Last
                         </button>
@@ -1288,6 +1289,24 @@
                         <button class="btn btn-outline-warning btn-sm fw-bold px-3 text-white" onclick="shiftMember()">
                             <i class="bi bi-arrow-up-square me-1"></i>Shift First
                         </button>
+
+                        <div
+                            class="d-flex flex-wrap gap-2 justify-content-center mt-3 border-top border-secondary pt-3">
+                            <button class="btn btn-outline-info btn-sm fw-bold" onclick="standardizeNames()">
+                                <i class="bi bi-person-up me-1"></i>Standardize Names (Map)
+                            </button>
+
+                            <button class="btn btn-outline-warning btn-sm fw-bold text-white"
+                                onclick="filterHighPriority()">
+                                <i class="bi bi-funnel-fill me-1"></i>Priority Core (Filter)
+                            </button>
+
+                            <button class="btn btn-outline-success btn-sm fw-bold" onclick="calculateSystemHealth()">
+                                <i class="bi bi-activity me-1"></i>Compute Health (Reduce)
+                            </button>
+                        </div>
+
+                        <div id="dataStats" class="mt-3 text-cyan small fw-bold text-center"></div>
 
                     </div>
                 </div>
