@@ -1,12 +1,12 @@
 // ========================================================
-// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V12.0
-// Features: Day 34 CRUD + Day 35 Methods + Day 36 Cart & Checkout
+// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V13.0
+// Features: Day 34 CRUD + Day 35 Methods + Day 36 Cart + Day 37 AI
 // ========================================================
 
 // [GLOBAL ARRAYS]
 let globalTeam = [];
-let squadCart = JSON.parse(localStorage.getItem("squadCart")) || []; 
-let showingSquad = false; 
+let squadCart = JSON.parse(localStorage.getItem("squadCart")) || [];
+let showingSquad = false;
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -186,37 +186,117 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // ========================================================
+    // 🤖 FEATURE 7: GEMINI AI INTEGRATION (Day 37 Logic)
+    // ========================================================
+    const askGeminiBtn = document.getElementById("askGeminiBtn");
+
+    if (askGeminiBtn) {
+        askGeminiBtn.addEventListener("click", async (e) => {
+            e.preventDefault(); // Prevents page reload
+
+            const userInput = document.getElementById("aiPromptInput").value.trim();
+            const resultBox = document.getElementById("aiResponseOutput");
+
+            // Safely get the API key from LocalStorage
+            const geminiApiKey = localStorage.getItem("user_gemini_key");
+
+            if (!geminiApiKey) {
+                alert("Security Protocol: Please set your Gemini API Key first.");
+                return;
+            }
+
+            if (!userInput) {
+                resultBox.innerHTML = `<span class="text-warning fw-bold">System: Please enter a technical topic.</span>`;
+                return;
+            }
+
+            resultBox.innerHTML = `<div class="spinner-border spinner-border-sm text-cyan me-2"></div><span class="text-cyan">Consulting AI Knowledge Base...</span>`;
+
+            // 🚀 DETAILED PROMPT:
+            const detailedPrompt = `Provide a comprehensive explanation of ${userInput}.
+Include:
+- Clear definition
+- Background context
+- Key facts or example
+- Give Some web reference link
+- Why it matters or where it's used
+
+Write at least 100 words.`;
+
+
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiApiKey}`, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        contents: [{ role: "user", parts: [{ text: detailedPrompt }] }]
+                    })
+                });
+
+                const data = await response.json();
+
+                if (data.error) throw new Error(data.error.message);
+
+                const aiOutput = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+                if (aiOutput) {
+                    resultBox.innerText = aiOutput;
+                    resultBox.style.borderColor = "#27C8F5";
+                } else {
+                    throw new Error("Invalid API Response");
+                }
+            } catch (err) {
+                resultBox.innerHTML = `<span class="text-danger fw-bold"><i class="bi bi-exclamation-triangle-fill me-2"></i> Error: ${err.message}</span>`;
+                console.error("AI Error:", err);
+            }
+        });
+    }
+
     updateSquadBadge(); // Initialize badge count
     console.log(`%c--- Engine Ready: ${kernelStatus} ---`, "color: yellow; font-weight: bold;");
-});
+}); // <-- End of DOMContentLoaded
+
+// ========================================================
+// 🤖 AI KEY MANAGEMENT (Save Key from Input)
+// ========================================================
+window.saveUserKey = () => {
+    const keyInput = document.getElementById("userApiKey").value.trim();
+    if (keyInput && keyInput.startsWith("AIza")) {
+        localStorage.setItem("user_gemini_key", keyInput);
+        document.getElementById("aiResponseOutput").innerHTML = `<div class="alert alert-success py-2 small fw-bold"><i class="bi bi-check-circle-fill me-2"></i> AI Key Activated! Ready for consultation.</div>`;
+        alert("System: AI Key linked successfully.");
+    } else {
+        alert("Invalid Key! Please enter a valid Gemini API Key starting with 'AIza'.");
+    }
+};
 
 // ========================================================
 // 🛠️ REUSABLE GLOBAL RENDER ENGINE (Handles Global & Squad)
 // ========================================================
-
 function renderTeamUI_Global() {
     const dataOutput = document.getElementById("dataOutput");
     const dataStats = document.getElementById("dataStats");
     if (!dataOutput) return;
-    
+
     dataOutput.innerHTML = "";
 
     const currentArray = showingSquad ? squadCart : globalTeam;
 
     if (currentArray.length === 0) {
         dataOutput.innerHTML = `<p class="text-center text-secondary my-auto italic small w-100 py-4 text-white fw-bold">${showingSquad ? "Squad is empty." : "User Directory is empty. Click 'Fetch Users'."}</p>`;
-        if(dataStats) dataStats.innerHTML = "";
+        if (dataStats) dataStats.innerHTML = "";
         return;
     }
 
     currentArray.forEach((user) => {
         const avatarUrl = `https://robohash.org/${user.id}?set=set4`;
 
-        const actionButton = showingSquad 
+        const actionButton = showingSquad
             ? `<button class="btn btn-outline-danger btn-sm fw-bold w-100 mb-2 shadow-none" onclick="removeFromSquad(${user.id})" style="font-size: 10px;">REMOVE FROM SQUAD</button>`
             : `<button class="btn btn-warning btn-sm fw-bold w-100 mb-2 text-dark shadow-none" onclick="addToSquad(${user.id})" style="font-size: 10px;">SHORTLIST</button>`;
 
-        const specificDetails = showingSquad 
+        const specificDetails = showingSquad
             ? `<div class="mb-2"><span class="text-warning">Hrs: ${user.allocatedHours} | Rate: $${user.hourlyRate}/hr</span></div>`
             : `<div class="mb-2"><i class="bi bi-envelope-at text-cyan me-2"></i>${user.email}</div>
                <div><i class="bi bi-geo-alt-fill text-warning me-2"></i>${user.address.city.toUpperCase()}</div>`;
@@ -241,10 +321,9 @@ function renderTeamUI_Global() {
             </div>`;
     });
 
-    // REDUCE LOGIC: Calculate Total Squad Cost & Show Checkout Button
     if (showingSquad && dataStats) {
         const totalCost = squadCart.reduce((sum, user) => sum + (user.hourlyRate * user.allocatedHours), 0);
-        
+
         dataStats.innerHTML = `
             <div class="alert alert-warning bg-dark border-warning text-warning fw-bold py-2 mt-3 text-center">
                 <i class="bi bi-calculator"></i> Total Squad Resource Cost: $${totalCost}
@@ -261,24 +340,23 @@ function renderTeamUI_Global() {
 // ========================================================
 // 🚀 FEATURE 6: PROJECT SQUAD BUILDER (Day 36 Integration)
 // ========================================================
-
 window.toggleSquadView = () => {
     showingSquad = !showingSquad;
     renderTeamUI_Global();
 };
 
 window.addToSquad = (id) => {
-    const member = globalTeam.find(user => user.id === id); 
+    const member = globalTeam.find(user => user.id === id);
     let existingMember = squadCart.find(user => user.id === id);
 
     if (existingMember) {
-        existingMember.allocatedHours += 10; 
+        existingMember.allocatedHours += 10;
         alert(`System: Added 10 more hours to ${member.name.firstname.toUpperCase()}`);
     } else {
         squadCart.push({
-            ...member, 
-            hourlyRate: 20 + (member.id * 5), 
-            allocatedHours: 10 
+            ...member,
+            hourlyRate: 20 + (member.id * 5),
+            allocatedHours: 10
         });
         alert(`✅ ${member.name.firstname.toUpperCase()} added to Shortlist!`);
     }
@@ -297,7 +375,7 @@ window.removeFromSquad = (id) => {
 
 window.clearSquad = () => {
     if (squadCart.length === 0) return alert("System: Squad is already empty.");
-    
+
     if (confirm("System Protocol: Clear the entire shortlisted squad?")) {
         squadCart = [];
         localStorage.removeItem("squadCart");
@@ -309,42 +387,39 @@ window.clearSquad = () => {
 
 window.updateSquadBadge = () => {
     const badge = document.getElementById("squad-count");
-    if(badge) badge.innerText = squadCart.length;
+    if (badge) badge.innerText = squadCart.length;
 };
 
-// Auto-fill Booking Form
 window.checkoutSquad = () => {
     if (squadCart.length === 0) return alert("System: Please shortlist members before booking.");
-    
+
     let bookingMessage = "Hello Gunasekaran,\n\nI would like to book the following Project Squad:\n\n";
     let totalCost = 0;
-    
+
     squadCart.forEach(member => {
         bookingMessage += `👉 ${member.name.firstname.toUpperCase()} (${member.allocatedHours} Hrs @ $${member.hourlyRate}/hr)\n`;
         totalCost += (member.hourlyRate * member.allocatedHours);
     });
-    
+
     bookingMessage += `\nEstimated Total Cost: $${totalCost}\n\nPlease contact me to finalize this.`;
-    
+
     const projectDetailsInput = document.getElementById("address");
     if (projectDetailsInput) {
         projectDetailsInput.value = bookingMessage;
         document.getElementById("contact").scrollIntoView({ behavior: 'smooth' });
-        
+
         projectDetailsInput.style.transition = "box-shadow 0.3s ease";
         projectDetailsInput.style.boxShadow = "0px 0px 15px 3px #00FA9A";
         setTimeout(() => { projectDetailsInput.style.boxShadow = "none"; }, 2000);
     }
 };
 
-// Legacy Operations
-window.popMember = () => { if (globalTeam.length > 0) { globalTeam.pop(); renderTeamUI_Global(); }};
-window.shiftMember = () => { if (globalTeam.length > 0) { globalTeam.shift(); renderTeamUI_Global(); }};
+window.popMember = () => { if (globalTeam.length > 0) { globalTeam.pop(); renderTeamUI_Global(); } };
+window.shiftMember = () => { if (globalTeam.length > 0) { globalTeam.shift(); renderTeamUI_Global(); } };
 
 // ========================================================
 // 🚀 DAY 35: DATA INTELLIGENCE ENGINE (Map, Filter, Reduce)
 // ========================================================
-
 window.standardizeNames = () => {
     if (globalTeam.length === 0) return alert("System: Sync User Directory first.");
     globalTeam = globalTeam.map(user => ({

@@ -1250,6 +1250,43 @@
                 </div>
             </div>
 
+
+
+
+
+            <div class="bg-panel p-4 mt-4 border border-info shadow-lg hover-card">
+                <h3 class="h4 text-cyan mb-3"><i class="bi bi-robot me-2"></i> AI Technical Consultant (Gemini 2.5)</h3>
+                <p class="text-secondary small">Ask about architectural concepts, MERN stacks, or system designs.</p>
+
+                <div class="input-group mb-3">
+                    <input id="aiPromptInput" type="text"
+                        class="form-control bg-black text-white border-secondary shadow-none"
+                        placeholder="Ask Gemini (e.g. What is Microservices?)">
+                    <button id="askGeminiBtn" type="button"
+                        class="btn btn-info text-dark fw-bold px-4 resume-btn-effect shadow-none">Consult AI</button>
+                </div>
+
+                <div id="aiResponseOutput"
+                    class="p-3 bg-dark rounded border border-secondary text-light small shadow-inner"
+                    style="min-height: 100px; max-height: 300px; overflow-y: auto; white-space: pre-wrap;">
+                    <span class="text-secondary italic italic">Awaiting AI Consultation...</span>
+                </div>
+                <div id="keyNotice" class="text-center py-2">
+                    <p class="text-warning small mb-2"><i class="bi bi-shield-lock"></i> API Key Required to activate AI
+                        Consultation.</p>
+                    <div class="input-group input-group-sm w-75 mx-auto">
+                        <input id="userApiKey" type="password" class="form-control bg-black text-cyan border-secondary"
+                            placeholder="Paste your Gemini API Key here">
+                        <button class="btn btn-outline-info fw-bold" type="button" onclick="saveUserKey()">Set Key</button>
+                    </div>
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank"
+                        class="text-info xx-small mt-2 d-block">Get a free key here ↗</a>
+                </div>
+            </div>
+
+
+
+
             <div class="row g-3 text-center mb-4">
                 <div class="col-md-4 border-end border-secondary">
                     <p class="small text-secondary mb-2">Legacy Sync (.then)</p>
@@ -1338,9 +1375,6 @@
                 </div>
             </div>
         </section>
-
-
-
 
 
 

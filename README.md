@@ -679,6 +679,31 @@ This update focuses on three core JavaScript array methods to handle global stat
 *Status: Successfully integrated E-commerce state management into a B2B Portfolio context.*
 
 
+# 🚀 Day 37: AI Technical Consultant (Gemini API Integration)
+
+## 📌 Overview
+Day 37 marks the transformation of this portfolio from a static showcase into an **Interactive AI-Powered Hub**. Integrated Google's state-of-the-art **Gemini API (`gemini-pro`)** to act as a live Technical Consultant, capable of explaining complex MERN stack architectures and system designs directly within the portfolio.
+
+## ✨ Key Features Implemented
+
+* 🤖 **Live AI Consultant:** Users can ask technical questions (e.g., "What is Microservices?") and receive real-time, comprehensive explanations.
+* 🔒 **Enterprise-Grade Security (Zero Leaks):** To prevent API key leaks on public GitHub repositories, implemented a dynamic API key injection system. Users must input their own API key, which is securely stored in their browser's `localStorage`.
+* 🧠 **Prompt Engineering:** Engineered the backend prompt to force the AI to respond specifically in the context of a **MERN Stack Developer**, including definitions, background context, and bulleted structures.
+* ⚡ **Asynchronous JavaScript:** Utilized modern `async/await` and robust `try...catch` error handling to manage external API requests gracefully.
+* 🎨 **Seamless UI/UX:** Added custom loading spinners, smooth "Neon Glow" button effects, and form-reload prevention (`e.preventDefault()`).
+
+## 🛠️ Technical Concepts Explored
+1.  **RESTful API Integration:** Making `POST` requests to Google Generative AI endpoints.
+2.  **Client-Side Storage:** Using Web Storage API (`localStorage`) for session persistence without a backend database.
+3.  **JSON Parsing:** Navigating complex, deeply nested JSON response trees (`data.candidates[0].content.parts[0].text`).
+4.  **DOM Manipulation:** Dynamically updating UI states (Loading -> Success -> Error).
+
+## 🚀 How to Use This Feature (For Visitors/Recruiters)
+Since this repository is public, the API key is **not** hardcoded. To test the AI feature:
+1. Get a free Gemini API Key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+2. Scroll to the **Advanced Data & Voice Lab** section in the portfolio.
+3. Paste your key in the secure input box and click **"Set Key"**.
+4. Ask any technical question and hit **"Consult AI"**!
 
 
 
