@@ -707,5 +707,30 @@ Since this repository is public, the API key is **not** hardcoded. To test the A
 
 
 
+# 🚀 Day 38: Core JS Revision & "Developer Easter Egg"
+
+## 📌 Overview
+Day 38 was dedicated to revising fundamental JavaScript concepts (Loops, Nested Loops, Array Methods `filter`/`find`, DOM Manipulation, and Local Storage). 
+
+However, adhering to **Enterprise UI/UX Standards**, I made a strategic architectural decision: **Practice code should not clutter a production-level portfolio.** Instead of dumping basic UI elements onto the screen, I engineered a hidden **Developer Easter Egg** to showcase this revision code purely in the console.
+
+## ✨ Key Features Implemented
+
+* 🥚 **Hidden Developer Mode:** Engineered a rapid triple-click event listener attached to the footer copyright text to unlock a secret mode.
+* 🛡️ **Timeout Security:** Implemented a `setTimeout` function to reset the click counter, ensuring the Easter egg is only triggered by deliberate, fast interactions within a 2-second window.
+* 🖥️ **Colorful Console Outputs:** Utilized advanced `console.log` styling (CSS inside the console) to neatly present the revision tasks (Star Patterns and Array Filtering) directly to developers inspecting the site.
+
+## 🧠 The "TPM" Mindset (Why I did this):
+As a developer transitioning into a Technical Program Manager (TPM) role, I prioritize **Clean Architecture**. While `for` loops and basic DOM manipulations are essential building blocks, they belong under the hood. This Easter egg proves my grasp of the fundamentals while maintaining a 100% professional, clutter-free user interface.
+
+## 🚀 How to Find the Easter Egg (For Recruiters/Devs)
+1. Scroll to the absolute bottom of the portfolio page.
+2. Find the footer text: *"© 2026 Gunasekaran. All Rights Reserved"*
+3. **Click the text 3 times rapidly.**
+4. You will receive a System Alert.
+5. Press **F12** to open your browser's Developer Console and view the styled revision logs!
+
+---
+*Built with ❤️ focusing on Clean UI, Logic, and a bit of Developer Fun.*
 ---
 *Consistency is the key! More updates coming soon...*

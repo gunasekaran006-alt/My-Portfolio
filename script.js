@@ -447,3 +447,63 @@ window.logEnterpriseDev = (devName, ...capabilities) => {
     const devProfile = { name: devName, stack: [...capabilities], active: true };
     console.log("Enterprise Developer Registered:", devProfile);
 };
+
+
+
+
+
+
+
+// ========================================================
+// 🥚 DAY 38 REVISION: DEVELOPER EASTER EGG (Hidden Feature) -> How to test - > ("© 2026 Gunasekaran. All Rights Reserved - click 3 time - seen in console f12 ) 
+// ========================================================
+let secretClickCount = 0;
+const footerCopyright = document.querySelector("footer p"); 
+
+if (footerCopyright) {
+    // Shows pointer cursor on hover to hint at interactivity
+    footerCopyright.style.cursor = "pointer"; 
+    
+    footerCopyright.addEventListener("click", () => {
+        secretClickCount++;
+        
+        // Trigger action after 3 rapid clicks
+        if (secretClickCount === 3) {
+            // Styled console log for Developer Mode activation
+            console.log("%c🚀 DEV MODE ACTIVATED: DAY 38 REVISION LOGS", "color: #00FA9A; font-size: 16px; font-weight: bold;");
+
+            // 1. Revision: Loops & Star Pattern Simulation
+            console.log("%c--- 1. Loop Revision (Star Pattern) ---", "color: #27C8F5; font-weight:bold;");
+            for(let i = 1; i <= 5; i++) {
+                let stars = "";
+                for(let j = 1; j <= i; j++){
+                    stars += "⭐"; // Star emoji representation
+                };
+                console.log(stars);
+            }
+
+            // 2. Revision: Array Methods (Filter & Find) Execution
+            console.log("%c--- 2. Array Methods Revision ---", "color: #27C8F5; font-weight:bold;");
+            const foods = [
+              { id: 1, name: "Pizza", price: 12.99, category: "Italian" },
+              { id: 2, name: "Burger", price: 8.99, category: "American" },
+              { id: 3, name: "Tikka", price: 14.50, category: "Indian" }
+            ];
+            
+            const cheapFoods = foods.filter(data => data.price < 10);
+            const indianFood = foods.find(data => data.category === "Indian");
+            
+            console.log("Filtered Foods (Price < $10):", cheapFoods);
+            console.log("Found Food (Indian Category):", indianFood);
+
+            // Alert user about the hidden feature activation
+            alert("System: Developer Revision Mode Activated! Check your Browser Console (F12).");
+            
+            // Reset counter after successful execution
+            secretClickCount = 0; 
+        }
+        
+        // Reset counter if clicks are not fast enough (2 seconds window)
+        setTimeout(() => { secretClickCount = 0; }, 2000); 
+    });
+}
