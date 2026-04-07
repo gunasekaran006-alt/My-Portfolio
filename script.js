@@ -1,10 +1,12 @@
 // ========================================================
-// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V11.0
-// Features: Voice AI, OTP, Weather, Array CRUD & Security Fixes
+// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V12.0
+// Features: Day 34 CRUD + Day 35 Methods + Day 36 Cart & Checkout
 // ========================================================
 
-// [DAY 34]: Global Array to hold team data for CRUD operations
+// [GLOBAL ARRAYS]
 let globalTeam = [];
+let squadCart = JSON.parse(localStorage.getItem("squadCart")) || []; 
+let showingSquad = false; 
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -17,14 +19,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const alertBox = document.getElementById("alertBox");
     const statusDisplay = document.getElementById("greeting");
     const statusIcon = document.getElementById("statusIcon");
-
-    // [OTP ENGINE ELEMENTS]
     const generateOtpBtn = document.getElementById("generateBtn");
     const validateOtpBtn = document.getElementById("validateBtn");
     const otpInput = document.getElementById("otpInput");
     const otpMessageDisplay = document.getElementById("message");
 
-    // --- FEATURE 1: SECURE AUTHENTICATION GATEWAY (RegEx) ---
+    // --- FEATURE 1: SECURE AUTHENTICATION GATEWAY ---
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
@@ -61,9 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 statusDisplay.innerText = "Session Terminated. Access Restricted.";
                 statusDisplay.style.color = "#FF4500";
                 statusIcon.innerHTML = `<i class="bi bi-person-lock text-secondary display-4"></i>`;
-
                 localStorage.clear();
                 console.log("%c⚠️ System: Session Wiped", "color: orange; font-weight: bold;");
+                updateSquadBadge();
             }
         });
     }
@@ -97,7 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- FEATURE 3: SESSION CONTROLS (Day 27 BOM) ---
+    // --- FEATURE 3: SESSION CONTROLS ---
     const passToggle = document.getElementById("showPassword");
     if (passToggle) {
         passToggle.addEventListener("change", () => {
@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- [FIX 2]: WEB SPEECH API (START & STOP LOGIC) ---
+    // --- [FIX 2]: WEB SPEECH API ---
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     if (SpeechRecognition) {
         const recognition = new SpeechRecognition();
@@ -139,7 +139,6 @@ document.addEventListener("DOMContentLoaded", () => {
             const res = await fetch("https://fakestoreapi.com/users?limit=3");
             if (!res.ok) throw new Error("Cloud Gateway Offline");
             const users = await res.json();
-
             globalTeam = users;
             renderTeamUI_Global();
         } catch (err) {
@@ -187,47 +186,41 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    updateSquadBadge(); // Initialize badge count
     console.log(`%c--- Engine Ready: ${kernelStatus} ---`, "color: yellow; font-weight: bold;");
-}); // <--- DOMContentLoaded correctly closed here
+});
 
 // ========================================================
-// 🛠️ GLOBAL FUNCTIONS (Outside DOM Content Loaded)
+// 🛠️ REUSABLE GLOBAL RENDER ENGINE (Handles Global & Squad)
 // ========================================================
 
-window.removeMember = (index) => {
-    if (globalTeam.length > 0) {
-        globalTeam.splice(index, 1);
-        renderTeamUI_Global();
-    }
-};
-
-window.popMember = () => {
-    if (globalTeam.length > 0) {
-        globalTeam.pop();
-        renderTeamUI_Global();
-    }
-};
-
-window.shiftMember = () => {
-    if (globalTeam.length > 0) {
-        globalTeam.shift();
-        renderTeamUI_Global();
-    }
-};
-
-// GLOBAL RENDER ENGINE
 function renderTeamUI_Global() {
     const dataOutput = document.getElementById("dataOutput");
+    const dataStats = document.getElementById("dataStats");
     if (!dataOutput) return;
+    
     dataOutput.innerHTML = "";
 
-    if (globalTeam.length === 0) {
-        dataOutput.innerHTML = `<p class="text-center text-secondary my-auto italic small w-100 py-4 text-white fw-bold">User Directory is empty. Click 'Fetch Users' to reload.</p>`;
+    const currentArray = showingSquad ? squadCart : globalTeam;
+
+    if (currentArray.length === 0) {
+        dataOutput.innerHTML = `<p class="text-center text-secondary my-auto italic small w-100 py-4 text-white fw-bold">${showingSquad ? "Squad is empty." : "User Directory is empty. Click 'Fetch Users'."}</p>`;
+        if(dataStats) dataStats.innerHTML = "";
         return;
     }
 
-    globalTeam.forEach((user, index) => {
+    currentArray.forEach((user) => {
         const avatarUrl = `https://robohash.org/${user.id}?set=set4`;
+
+        const actionButton = showingSquad 
+            ? `<button class="btn btn-outline-danger btn-sm fw-bold w-100 mb-2 shadow-none" onclick="removeFromSquad(${user.id})" style="font-size: 10px;">REMOVE FROM SQUAD</button>`
+            : `<button class="btn btn-warning btn-sm fw-bold w-100 mb-2 text-dark shadow-none" onclick="addToSquad(${user.id})" style="font-size: 10px;">SHORTLIST</button>`;
+
+        const specificDetails = showingSquad 
+            ? `<div class="mb-2"><span class="text-warning">Hrs: ${user.allocatedHours} | Rate: $${user.hourlyRate}/hr</span></div>`
+            : `<div class="mb-2"><i class="bi bi-envelope-at text-cyan me-2"></i>${user.email}</div>
+               <div><i class="bi bi-geo-alt-fill text-warning me-2"></i>${user.address.city.toUpperCase()}</div>`;
+
         dataOutput.innerHTML += `
             <div class="col-md-4 mb-3">
                 <div class="card bg-black border-info p-3 text-center h-100 shadow-lg hover-card" style="border-width: 2px !important;">
@@ -238,64 +231,144 @@ function renderTeamUI_Global() {
                     <h6 class="text-white fw-bold mb-1" style="font-size: 14px;">${user.name.firstname.toUpperCase()} ${user.name.lastname.toUpperCase()}</h6>
                     <p class="text-cyan small mb-3">@${user.username.toLowerCase()}</p>
                     <div class="text-start border-top border-secondary pt-3 mt-auto mb-3 text-white fw-bold" style="font-size: 11px;">
-                        <div class="mb-2"><i class="bi bi-envelope-at text-cyan me-2"></i>${user.email}</div>
-                        <div><i class="bi bi-geo-alt-fill text-warning me-2"></i>${user.address.city.toUpperCase()}</div>
+                        ${specificDetails}
                     </div>
-                    <button class="btn btn-outline-danger btn-sm fw-bold w-100 mb-2 shadow-none" onclick="removeMember(${index})" style="font-size: 10px;">
-                        <i class="bi bi-trash3-fill me-2"></i>SPLICE REMOVE
-                    </button>
+                    ${actionButton}
                     <button class="btn btn-info btn-sm fw-bold w-100 py-1 resume-btn-effect shadow-none" style="font-size: 11px;" onclick="alert('Viewing profile of ${user.name.firstname}')">
                         VIEW PROFILE
                     </button>
                 </div>
             </div>`;
-    }); // <--- forEach closed here
-} // <--- renderTeamUI_Global correctly closed here
+    });
+
+    // REDUCE LOGIC: Calculate Total Squad Cost & Show Checkout Button
+    if (showingSquad && dataStats) {
+        const totalCost = squadCart.reduce((sum, user) => sum + (user.hourlyRate * user.allocatedHours), 0);
+        
+        dataStats.innerHTML = `
+            <div class="alert alert-warning bg-dark border-warning text-warning fw-bold py-2 mt-3 text-center">
+                <i class="bi bi-calculator"></i> Total Squad Resource Cost: $${totalCost}
+            </div>
+            <button class="btn btn-success fw-bold w-100 mt-2 shadow-lg resume-btn-effect" onclick="checkoutSquad()">
+                <i class="bi bi-check-circle-fill me-1"></i> CONFIRM & BOOK SQUAD
+            </button>
+        `;
+    } else if (dataStats) {
+        dataStats.innerHTML = "";
+    }
+}
+
+// ========================================================
+// 🚀 FEATURE 6: PROJECT SQUAD BUILDER (Day 36 Integration)
+// ========================================================
+
+window.toggleSquadView = () => {
+    showingSquad = !showingSquad;
+    renderTeamUI_Global();
+};
+
+window.addToSquad = (id) => {
+    const member = globalTeam.find(user => user.id === id); 
+    let existingMember = squadCart.find(user => user.id === id);
+
+    if (existingMember) {
+        existingMember.allocatedHours += 10; 
+        alert(`System: Added 10 more hours to ${member.name.firstname.toUpperCase()}`);
+    } else {
+        squadCart.push({
+            ...member, 
+            hourlyRate: 20 + (member.id * 5), 
+            allocatedHours: 10 
+        });
+        alert(`✅ ${member.name.firstname.toUpperCase()} added to Shortlist!`);
+    }
+
+    localStorage.setItem("squadCart", JSON.stringify(squadCart));
+    renderTeamUI_Global();
+    updateSquadBadge();
+};
+
+window.removeFromSquad = (id) => {
+    squadCart = squadCart.filter(user => user.id !== id);
+    localStorage.setItem("squadCart", JSON.stringify(squadCart));
+    renderTeamUI_Global();
+    updateSquadBadge();
+};
+
+window.clearSquad = () => {
+    if (squadCart.length === 0) return alert("System: Squad is already empty.");
+    
+    if (confirm("System Protocol: Clear the entire shortlisted squad?")) {
+        squadCart = [];
+        localStorage.removeItem("squadCart");
+        renderTeamUI_Global();
+        updateSquadBadge();
+        alert("🗑️ Entire Squad has been cleared!");
+    }
+};
+
+window.updateSquadBadge = () => {
+    const badge = document.getElementById("squad-count");
+    if(badge) badge.innerText = squadCart.length;
+};
+
+// Auto-fill Booking Form
+window.checkoutSquad = () => {
+    if (squadCart.length === 0) return alert("System: Please shortlist members before booking.");
+    
+    let bookingMessage = "Hello Gunasekaran,\n\nI would like to book the following Project Squad:\n\n";
+    let totalCost = 0;
+    
+    squadCart.forEach(member => {
+        bookingMessage += `👉 ${member.name.firstname.toUpperCase()} (${member.allocatedHours} Hrs @ $${member.hourlyRate}/hr)\n`;
+        totalCost += (member.hourlyRate * member.allocatedHours);
+    });
+    
+    bookingMessage += `\nEstimated Total Cost: $${totalCost}\n\nPlease contact me to finalize this.`;
+    
+    const projectDetailsInput = document.getElementById("address");
+    if (projectDetailsInput) {
+        projectDetailsInput.value = bookingMessage;
+        document.getElementById("contact").scrollIntoView({ behavior: 'smooth' });
+        
+        projectDetailsInput.style.transition = "box-shadow 0.3s ease";
+        projectDetailsInput.style.boxShadow = "0px 0px 15px 3px #00FA9A";
+        setTimeout(() => { projectDetailsInput.style.boxShadow = "none"; }, 2000);
+    }
+};
+
+// Legacy Operations
+window.popMember = () => { if (globalTeam.length > 0) { globalTeam.pop(); renderTeamUI_Global(); }};
+window.shiftMember = () => { if (globalTeam.length > 0) { globalTeam.shift(); renderTeamUI_Global(); }};
 
 // ========================================================
 // 🚀 DAY 35: DATA INTELLIGENCE ENGINE (Map, Filter, Reduce)
 // ========================================================
 
-// [LOGIC 1]: MAP METHOD
 window.standardizeNames = () => {
-    if (globalTeam.length === 0) return alert("System: Please Sync User Directory first.");
-
+    if (globalTeam.length === 0) return alert("System: Sync User Directory first.");
     globalTeam = globalTeam.map(user => ({
         ...user,
         name: { ...user.name, firstname: "PRO - " + user.name.firstname.toUpperCase() }
     }));
-
     renderTeamUI_Global();
-    alert("✅ MAP worked: 'PRO - ' added to all names!");
+    alert("✅ MAP worked!");
 };
 
-// [LOGIC 2]: FILTER METHOD
 window.filterHighPriority = () => {
     if (globalTeam.length === 0) return alert("System: Directory Offline.");
-
-    const originalCount = globalTeam.length;
     globalTeam = globalTeam.filter(user => user.id <= 2);
-
     renderTeamUI_Global();
-    alert("✅ FILTER worked: User 3 has been removed!");
+    alert("✅ FILTER worked!");
 };
 
-// [LOGIC 3]: REDUCE METHOD
 window.calculateSystemHealth = () => {
     if (globalTeam.length === 0) return alert("System: No Data available.");
-
     const integritySum = globalTeam.reduce((total, user) => total + user.id, 0);
-
-    // Showing the result in a popup alert for immediate visibility
-    alert(`✅ REDUCE worked: System Integrity Sum is ${integritySum}\n(Calculated by adding User IDs)`);
+    alert(`✅ REDUCE worked: System Integrity Sum is ${integritySum}`);
 };
 
-// [LOGIC 4]: REST & SPREAD
 window.logEnterpriseDev = (devName, ...capabilities) => {
-    const devProfile = {
-        name: devName,
-        stack: [...capabilities],
-        active: true
-    };
+    const devProfile = { name: devName, stack: [...capabilities], active: true };
     console.log("Enterprise Developer Registered:", devProfile);
 };

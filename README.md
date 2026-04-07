@@ -662,8 +662,23 @@ This update focuses on three core JavaScript array methods to handle global stat
 3. Click the **"Priority (Filter)"** button to instantly hide user cards that do not meet the priority condition.
 4. Click the **"Health Check (Reduce)"** button to trigger the calculation and view the result in an alert prompt.
 
----
-*Developed as part of the Full-Stack Enterprise Training Module.*
+
+
+# 🚀 Portfolio Integration: Project Squad Builder (Day 36)
+
+## 🧠 What we implemented in the Portfolio:
+
+1. **Contextual Adaptation:** Transformed the "Shopping Cart" logic into a **"Project Squad Builder"** where users shortlist developers instead of products.
+2. **Smart Allocation Logic:** - Reused the `qty++` concept to increase **Allocated Project Hours** (10 hours per click) if a developer is already shortlisted.
+   - Used `Array.find()` to prevent duplicate entries while scaling project scope.
+3. **Persistent Shortlist:** Integrated `localStorage` to ensure the shortlisted squad remains saved even after a page reload.
+4. **Dynamic Cost Engine:** Applied `Array.reduce()` to calculate the **Estimated Resource Cost** in real-time based on `Rate * Hours`.
+5. **Lead Generation (Checkout):** Adapted the "Checkout" button to **Auto-fill the Contact Form** with squad details and total cost, then trigger a smooth scroll to the booking section.
+6. **Live Badge Sync:** Implemented a real-time badge count on the squad button to reflect the number of unique developers selected.
+
+*Status: Successfully integrated E-commerce state management into a B2B Portfolio context.*
+
+
 
 
 
