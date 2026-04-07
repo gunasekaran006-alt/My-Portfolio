@@ -1,12 +1,15 @@
 // ========================================================
-// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V8.0
-// Features: Hoisting, Callbacks, RegEx, OTP System & Storage
+// 🚀 ENTERPRISE PORTFOLIO ENGINE: MASTER LOGIC V11.0
+// Features: Voice AI, OTP, Weather, Array CRUD & Security Fixes
 // ========================================================
 
+// [DAY 34]: Global Array to hold team data for CRUD operations
+let globalTeam = []; 
+
 document.addEventListener("DOMContentLoaded", () => {
-    
-    // [DAY 20]: SYSTEM DIAGNOSTICS (Hoisting Check)
-    var kernelStatus = "ONLINE"; 
+
+    // [SYSTEM DIAGNOSTICS]
+    var kernelStatus = "ONLINE";
     const developerIdentity = "Gunasekaran S";
 
     // GLOBAL ELEMENT SELECTION
@@ -15,39 +18,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const statusDisplay = document.getElementById("greeting");
     const statusIcon = document.getElementById("statusIcon");
 
-    // [DAY 29]: OTP ENGINE ELEMENTS
-    const generateOtpBtn = document.getElementById("generateBtn"); // Add this ID to your HTML button
-    const validateOtpBtn = document.getElementById("validateBtn"); // Add this ID to your HTML button
+    // [OTP ENGINE ELEMENTS]
+    const generateOtpBtn = document.getElementById("generateBtn");
+    const validateOtpBtn = document.getElementById("validateBtn");
     const otpInput = document.getElementById("otpInput");
     const otpMessageDisplay = document.getElementById("message");
 
-    // --- FEATURE 1: SECURE AUTHENTICATION GATEWAY (RegEx - Day 28) ---
+    // --- FEATURE 1: SECURE AUTHENTICATION GATEWAY (RegEx) ---
     if (loginForm) {
         loginForm.addEventListener("submit", (e) => {
             e.preventDefault();
-
-            const emailField = document.getElementById("uniqueLoginEmail"); 
+            const emailField = document.getElementById("uniqueLoginEmail");
             const passwordField = document.getElementById("password");
-
             const emailValue = emailField.value.trim();
             const passwordValue = passwordField.value.trim();
 
             const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             const passwordPattern = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?#]).{8,}$/;
 
-            console.log("Gateway: Authenticating " + emailValue);
-
             if (!emailPattern.test(emailValue)) {
                 triggerGatewayAlert("Invalid Architecture. Use: name@domain.com");
                 return;
             }
-
             if (!passwordPattern.test(passwordValue)) {
                 triggerGatewayAlert("Security Protocol: 8+ chars (A, a, 1, #) required.");
                 return;
             }
 
-            // SUCCESS logic
             if (alertBox) alertBox.innerHTML = "";
             statusDisplay.innerText = `Access Granted: Welcome, ${developerIdentity}`;
             statusDisplay.style.color = "#00FA9A";
@@ -56,39 +53,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- FEATURE 2: SMART OTP SYSTEM (Day 29 - Storage & Logic) ---
+    // --- [FIX 1]: TERMINATE SESSION LOGIC ---
+    const terminateBtn = document.getElementById("terminate-btn");
+    if (terminateBtn) {
+        terminateBtn.addEventListener("click", () => {
+            if (confirm("Security Protocol: Terminate all active sessions?")) {
+                // Update UI to Restricted State
+                statusDisplay.innerText = "Session Terminated. Access Restricted.";
+                statusDisplay.style.color = "#FF4500";
+                statusIcon.innerHTML = `<i class="bi bi-person-lock text-secondary display-4"></i>`;
+                
+                // Clear Security Tokens
+                localStorage.clear(); 
+                console.log("%c⚠️ System: Session Wiped", "color: orange; font-weight: bold;");
+            }
+        });
+    }
+
+    // --- FEATURE 2: SMART OTP SYSTEM ---
     if (generateOtpBtn) {
         generateOtpBtn.addEventListener("click", () => {
-            // Generate a 6-digit random OTP
             const generatedOtp = Math.floor(100000 + Math.random() * 900000);
-            localStorage.setItem("sessionOtp", generatedOtp); // Store in LocalStorage
-
-            if(otpMessageDisplay) {
+            localStorage.setItem("sessionOtp", generatedOtp);
+            if (otpMessageDisplay) {
                 otpMessageDisplay.innerHTML = `<div class="alert alert-info py-2">System OTP Generated: <strong>${generatedOtp}</strong></div>`;
             }
-            console.log("OTP Security: New Token Created.");
         });
     }
 
     if (validateOtpBtn) {
         validateOtpBtn.addEventListener("click", () => {
-            const userEnteredOtp = otpInput.value;
-            const storedOtp = localStorage.getItem("sessionOtp");
-
-            if (!storedOtp) {
-                otpMessageDisplay.innerHTML = `<span class="text-warning">Error: Generate OTP first!</span>`;
-                return;
-            }
-
+            const userEnteredOtp = Number(otpInput.value);
+            const storedOtp = Number(localStorage.getItem("sessionOtp"));
             if (userEnteredOtp === storedOtp) {
-                // Success: Using Bootstrap Modal (BOM/DOM Day 27)
                 const successModalElement = document.getElementById("successModal");
-                if(successModalElement) {
+                if (successModalElement) {
                     const successModal = new bootstrap.Modal(successModalElement);
                     successModal.show();
                 }
-                localStorage.removeItem("sessionOtp"); // Security: Clear after use
-                console.log("OTP Status: VERIFIED ✅");
+                localStorage.removeItem("sessionOtp");
+                otpMessageDisplay.innerHTML = `<span class="text-success fw-bold">Verification Successful! ✅</span>`;
             } else {
                 otpMessageDisplay.innerHTML = `<span class="text-danger">Access Denied: Invalid OTP Token!</span>`;
             }
@@ -104,31 +108,82 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    const terminateBtn = document.getElementById("terminate-btn");
-    if (terminateBtn) {
-        terminateBtn.addEventListener("click", () => {
-            if (confirm("Security Protocol: Terminate all active sessions?")) {
-                statusDisplay.innerText = "Session Terminated. Restricted Access.";
-                statusDisplay.style.color = "#FF4500";
-                if(statusIcon) statusIcon.innerHTML = `<i class="bi bi-person-lock text-secondary display-4"></i>`;
-                localStorage.clear(); // Wipe all session data
-            }
+    // --- [FIX 2]: WEB SPEECH API (START & STOP LOGIC) ---
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (SpeechRecognition) {
+        const recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        const output = document.getElementById("output");
+
+        document.getElementById("startBtn")?.addEventListener("click", () => {
+            recognition.start();
+            output.innerHTML = `<span class="text-info animate-pulse">🎤 Listening... Speak now</span>`;
+        });
+
+        // The Fix: Binding the stop function correctly
+        document.getElementById("stopBtn")?.addEventListener("click", () => {
+            recognition.stop();
+            output.innerHTML += ` <span class="text-secondary">(Voice Sync Stopped)</span>`;
+            console.log("%c🎤 Status: Mic Disconnected", "color: red; font-weight: bold;");
+        });
+
+        recognition.onresult = (e) => {
+            output.textContent = e.results[e.results.length - 1][0].transcript;
+        };
+    }
+
+    // --- FEATURE 4: MODERN SYNC ENGINE (Async/Await) ---
+    async function syncUsersModern() {
+        const dataOutput = document.getElementById("dataOutput");
+        dataOutput.innerHTML = `<div class="text-center w-100 py-5"><div class="spinner-border text-cyan"></div><p class="mt-2 text-cyan fw-bold">Syncing Enterprise User Directory...</p></div>`;
+
+        try {
+            const res = await fetch("https://fakestoreapi.com/users?limit=3");
+            if (!res.ok) throw new Error("Cloud Gateway Offline");
+            const users = await res.json();
+
+            globalTeam = users; 
+            renderTeamUI_Global(); 
+        } catch (err) {
+            dataOutput.innerHTML = `<div class="alert alert-danger w-100 text-center">${err.message}</div>`;
+        }
+    }
+
+    // --- FEATURE 5: WEATHER API ---
+    const weatherBtn = document.getElementById("getweatherBtn");
+    if (weatherBtn) {
+        weatherBtn.addEventListener("click", async () => {
+            const city = document.getElementById("cityInput").value.trim();
+            const resultDiv = document.getElementById("weatherResult");
+            const API_KEY = "f686f164217fd8fcb1ab695939c03549";
+            if (!city) return;
+            try {
+                const res = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+                const data = await res.json();
+                resultDiv.innerHTML = `<div class="p-3 bg-black rounded border border-info text-center text-white shadow-lg">
+                    <h5 class="text-cyan fw-bold">${data.name.toUpperCase()}</h5>
+                    <div class="display-6 fw-bold text-cyan">${Math.round(data.main.temp)}°C</div>
+                    <p class="small fw-bold text-uppercase">${data.weather[0].description}</p>
+                </div>`;
+            } catch (e) { resultDiv.innerHTML = `<span class="text-danger small">City Not Found</span>`; }
         });
     }
 
-    // --- FEATURE 4: LEGACY LOGIC (Callbacks & Currying Day 24-25) ---
-    const auditLog = (val, stat) => console.log(`%c💳 Audit: ${val} ${stat}`, "color: #27C8F5; font-weight: bold;");
-    const processAudit = (val, pin, cb) => (pin === 2222 ? cb(val, "Verified ✅") : cb(val, "Failed ❌"));
-    processAudit(5000, 2222, auditLog);
+    // --- EVENT LISTENERS ATTACHMENT ---
+    document.getElementById("btnAsync")?.addEventListener("click", syncUsersModern);
+    document.getElementById("btnThen")?.addEventListener("click", () => {
+        const dataOutput = document.getElementById("dataOutput");
+        fetch("https://fakestoreapi.com/products?limit=3")
+            .then(res => res.json())
+            .then(data => {
+                dataOutput.innerHTML = "";
+                data.forEach(item => {
+                    dataOutput.innerHTML += `<div class="col-md-4 mb-3"><div class="card bg-black border-secondary p-2 text-center h-100"><img src="${item.image}" class="bg-white p-1" style="height:60px; object-fit:contain;"><p class="small text-cyan mt-2 mb-0 fw-bold">${item.title.slice(0, 10)}...</p></div></div>`;
+                });
+            });
+    });
 
-    const securityGateway = (user) => (pass) => {
-        if (user === "admin@mail.com" && pass === "admin@123") {
-            console.log("%c✔ Security Gateway: ACTIVE", "color: #00FA9A; font-weight: bold;");
-        }
-    };
-    securityGateway("admin@mail.com")("admin@123");
-
-    // Function for Alert Messages
     function triggerGatewayAlert(msg) {
         if (alertBox) {
             alertBox.innerHTML = `<div class="alert alert-danger py-2 small shadow-sm"><i class="bi bi-shield-slash me-2"></i>${msg}</div>`;
@@ -136,252 +191,66 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     console.log(`%c--- Engine Ready: ${kernelStatus} ---`, "color: yellow; font-weight: bold;");
-
-
-
-
-// --- [DAY 30]: ASYNCHRONOUS FETCH API IMPLEMENTATION ---
-    const productBtn = document.getElementById("fetchProducts");
-    const productDisplay = document.getElementById("productDisplay");
-
-    if (productBtn) {
-        productBtn.addEventListener("click", () => {
-            // 1. Visual Feedback during Loading
-            productDisplay.innerHTML = `
-                <div class="text-center w-100 py-5">
-                    <div class="spinner-border text-warning" role="status"></div>
-                    <p class="mt-2 text-warning">Connecting to Fakestore Server...</p>
-                </div>`;
-
-            // 2. Fetching Data from API
-            fetch("https://fakestoreapi.com/products?limit=4")
-                .then(response => {
-                    if (!response.ok) throw new Error("Network Response Failure");
-                    return response.json();
-                })
-                .then(data => {
-                    productDisplay.innerHTML = ""; // Clear loader
-                    
-                    // 3. Mapping data to UI Cards
-                    data.forEach(item => {
-                        productDisplay.innerHTML += `
-                            <div class="col-6 col-md-3">
-                                <div class="card bg-dark text-white border-secondary h-100 hover-card">
-                                    <img src="${item.image}" class="card-img-top p-3 bg-white" style="height: 140px; object-fit: contain;">
-                                    <div class="card-body p-2 text-center">
-                                        <h6 class="small fw-bold text-cyan">${item.title.slice(0, 15)}...</h6>
-                                        <p class="text-warning mb-0 small">$${item.price}</p>
-                                    </div>
-                                </div>
-                            </div>`;
-                    });
-                    console.log("%c📡 External API Synchronized", "color: #FFD700; font-weight: bold;");
-                })
-                .catch(error => {
-                    productDisplay.innerHTML = `<p class="text-danger text-center w-100">Sync Error: ${error.message}</p>`;
-                    console.error("Critical API Error:", error);
-                });
-        });
-    }
-
-
-
-    // --- [DAY 31]: ADVANCED JS DATA & VOICE INTEGRATION ---
-
-// 1. Web Speech API Implementation
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-if (SpeechRecognition) {
-    const recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.interimResults = true;
-    recognition.lang = "en-US";
-
-    const output = document.getElementById("output");
-    const startBtn = document.getElementById("startBtn");
-    const stopBtn = document.getElementById("stopBtn");
-
-    startBtn.addEventListener("click", () => {
-        recognition.start();
-        output.innerHTML = `<span class="text-info animate-pulse">🎤 Listening... Speak now</span>`;
-    });
-
-    stopBtn.addEventListener("click", () => {
-        recognition.stop();
-        output.innerHTML += ` <span class="text-secondary">(Stopped)</span>`;
-    });
-
-    recognition.onresult = (e) => {
-        let transcript = "";
-        for (let i = e.resultIndex; i < e.results.length; i++) {
-            transcript += e.results[i][0].transcript;
-        }
-        output.textContent = transcript;
-        
-        // TPM Feature: Auto-fill the query textarea if it exists
-        const queryBox = document.querySelector('textarea');
-        if(queryBox) queryBox.value = transcript;
-    };
-}
-
-// 2. API Chaining vs Async/Await Implementation
-const dataOutput = document.getElementById("dataOutput");
-
-// Method A: Traditional .then() for Products
-function syncProductsLegacy() {
-    dataOutput.innerHTML = `<div class="text-center w-100 py-5"><div class="spinner-border text-info"></div><p>Streaming via .then()...</p></div>`;
-    
-    fetch("https://fakestoreapi.com/products?limit=3")
-        .then(res => res.json())
-        .then(data => {
-            dataOutput.innerHTML = "";
-            data.forEach(item => {
-                dataOutput.innerHTML += `
-                    <div class="col-md-4">
-                        <div class="card bg-black border-secondary p-2 text-center h-100 shadow-sm">
-                            <img src="${item.image}" class="bg-white p-1" style="height:60px; object-fit:contain; border-radius:4px;">
-                            <p class="small text-cyan mt-2 mb-0 fw-bold">${item.title.slice(0,10)}...</p>
-                            <p class="text-warning small mb-0">$${item.price}</p>
-                        </div>
-                    </div>`;
-            });
-        }).catch(err => console.error("Legacy Sync Error:", err));
-}
-
-// --- [DAY 31 + 32 FINAL INTEGRATED LOGIC]: AI AVATARS & PORTFOLIO SYMMETRY ---
-async function syncUsersModern() {
-    const dataOutput = document.getElementById("dataOutput");
-    
-    // 1. Professional Loading UI
-    dataOutput.innerHTML = `
-        <div class="text-center w-100 py-5">
-            <div class="spinner-border text-cyan" role="status"></div>
-            <p class="mt-2 text-cyan fw-bold">Syncing Enterprise User Directory...</p>
-        </div>`;
-    
-    try {
-        // 2. Fetching Data using Modern Async/Await
-        const res = await fetch("https://fakestoreapi.com/users?limit=3");
-        if(!res.ok) throw new Error("Cloud Gateway Offline");
-        const users = await res.json();
-        
-        dataOutput.innerHTML = ""; // Clear the loader
-
-        users.forEach(user => {
-            // 3. Extracting Initials for Fallback Logic
-            const initials = user.name.firstname[0].toUpperCase() + user.name.lastname[0].toUpperCase();
-            
-            // 4. Generating Unique AI Avatar based on User ID
-            const avatarUrl = `https://robohash.org/${user.id}?set=set4`; 
-
-            // 5. Injecting High-Contrast Card Architecture into UI
-            dataOutput.innerHTML += `
-                <div class="col-md-4 mb-3">
-                    <div class="card bg-black border-info p-3 text-center h-100 shadow-lg hover-card" style="border-width: 2px !important;">
-                        
-                        <div class="position-relative mx-auto mb-3" style="width: 70px; height: 70px;">
-                            <img src="${avatarUrl}" class="rounded-circle border border-cyan p-1 bg-dark shadow" 
-                                 style="width: 100%; height: 100%; object-fit: cover;" alt="User Avatar">
-                            <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-1" style="width:12px; height:12px;"></span>
-                        </div>
-                        
-                        <h6 class="text-white fw-bold mb-1" style="font-size: 14px;">
-                            ${user.name.firstname.toUpperCase()} ${user.name.lastname.toUpperCase()}
-                        </h6>
-                        <p class="text-cyan small mb-3">@${user.username}</p>
-                        
-                        <div class="text-start border-top border-secondary pt-3 mt-auto">
-                            <div class="d-flex align-items-center mb-2">
-                                <i class="bi bi-envelope-at text-cyan me-2"></i>
-                                <span class="text-white fw-bold" style="font-size: 11px;">${user.email}</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="bi bi-geo-alt-fill text-warning me-2"></i>
-                                <span class="text-white fw-bold" style="font-size: 11px;">${user.address.city.toUpperCase()}</span>
-                            </div>
-                        </div>
-                        
-                        <button class="btn btn-info btn-sm fw-bold mt-3 w-100 py-1 resume-btn-effect" style="font-size: 11px;">
-                            VIEW PROFILE
-                        </button>
-                    </div>
-                </div>`;
-        });
-
-        console.log("%c✅ Day 32 Update: High-Contrast AI Cards & Symmetric Buttons Synced.", "color: #00FA9A; font-weight: bold;");
-
-    } catch (err) {
-        dataOutput.innerHTML = `
-            <div class="alert alert-danger w-100 py-3 text-center">
-                <i class="bi bi-exclamation-triangle-fill me-2"></i> Network Error: ${err.message}
-            </div>`;
-    }
-}
-
-// Attach Event Listeners
-document.getElementById("btnThen")?.addEventListener("click", syncProductsLegacy);
-document.getElementById("btnAsync")?.addEventListener("click", syncUsersModern);
-
-
-
-// --- [DAY 32]: WEATHER API LOGIC ---
-const weatherBtn = document.getElementById("getweatherBtn");
-
-if (weatherBtn) {
-    weatherBtn.addEventListener("click", async () => {
-        const city = document.getElementById("cityInput").value.trim();
-        const resultDiv = document.getElementById("weatherResult");
-        const API_KEY = "f686f164217fd8fcb1ab695939c03549";
-
-        if (!city) {
-            resultDiv.innerHTML = `<div class="alert alert-warning py-2 small">Enter city name!</div>`;
-            return;
-        }
-
-        // Loading State: Professional UI
-        resultDiv.innerHTML = `<div class="spinner-border text-info spinner-border-sm"></div><p class="small text-info mt-2">Connecting to Satellite...</p>`;
-
-        try {
-            // Using &units=metric to get Celsius (Very Important!)
-            const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-            if (!response.ok) throw new Error("City Signature Not Found");
-            const data = await response.json();
-
-            // High Contrast Result UI
-           resultDiv.innerHTML = `
-    <div class="p-4 bg-black rounded border border-info shadow-lg">
-        <h4 class="text-white fw-bold mb-1" style="letter-spacing: 1px;">
-            ${data.name.toUpperCase()}, ${data.sys.country}
-        </h4>
-        
-        <div class="display-5 text-cyan fw-bold mb-2">${Math.round(data.main.temp)}°C</div>
-        
-        <p class="text-white fw-bold text-uppercase mb-4" style="letter-spacing: 2px; font-size: 0.85rem;">
-            <i class="bi bi-cloud-sun-fill me-2 text-warning"></i>${data.weather[0].description}
-        </p>
-        
-        <div class="row g-2 border-top border-secondary pt-3 text-center">
-            <div class="col-4 border-end border-secondary">
-                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">HUMIDITY</div>
-                <div class="text-white fw-bold fs-6">${data.main.humidity}%</div>
-            </div>
-            <div class="col-4 border-end border-secondary">
-                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">WIND</div>
-                <div class="text-white fw-bold fs-6">${data.wind.speed} m/s</div>
-            </div>
-            <div class="col-4">
-                <div class="text-cyan fw-bold mb-1" style="font-size: 0.65rem;">PRESSURE</div>
-                <div class="text-white fw-bold fs-6">${data.main.pressure}</div>
-            </div>
-        </div>
-    </div>`;
-        } catch (err) {
-            resultDiv.innerHTML = `<div class="alert alert-danger py-2 small">${err.message}</div>`;
-        }
-    });
-}
-
-
-
-
 });
+
+// ========================================================
+// 🛠️ GLOBAL FUNCTIONS (Outside DOM Content Loaded)
+// ========================================================
+
+window.removeMember = (index) => { 
+    if(globalTeam.length > 0) {
+        globalTeam.splice(index, 1); 
+        renderTeamUI_Global(); 
+    }
+};
+
+window.popMember = () => { 
+    if(globalTeam.length > 0) {
+        globalTeam.pop(); 
+        renderTeamUI_Global(); 
+    }
+};
+
+window.shiftMember = () => { 
+    if(globalTeam.length > 0) {
+        globalTeam.shift(); 
+        renderTeamUI_Global(); 
+    }
+};
+
+// GLOBAL RENDER ENGINE
+function renderTeamUI_Global() {
+    const dataOutput = document.getElementById("dataOutput");
+    if (!dataOutput) return;
+    dataOutput.innerHTML = ""; 
+
+    if (globalTeam.length === 0) {
+        dataOutput.innerHTML = `<p class="text-center text-secondary my-auto italic small w-100 py-4 text-white fw-bold">User Directory is empty. Click 'Fetch Users' to reload.</p>`;
+        return;
+    }
+
+    globalTeam.forEach((user, index) => {
+        const avatarUrl = `https://robohash.org/${user.id}?set=set4`;
+        dataOutput.innerHTML += `
+            <div class="col-md-4 mb-3">
+                <div class="card bg-black border-info p-3 text-center h-100 shadow-lg hover-card" style="border-width: 2px !important;">
+                    <div class="position-relative mx-auto mb-3" style="width: 70px; height: 70px;">
+                        <img src="${avatarUrl}" class="rounded-circle border border-cyan p-1 bg-dark shadow" style="width: 100%; height: 100%; object-fit: cover;">
+                        <span class="position-absolute bottom-0 end-0 bg-success border border-white rounded-circle p-1" style="width:12px; height:12px;"></span>
+                    </div>
+                    <h6 class="text-white fw-bold mb-1" style="font-size: 14px;">${user.name.firstname.toUpperCase()} ${user.name.lastname.toUpperCase()}</h6>
+                    <p class="text-cyan small mb-3">@${user.username.toLowerCase()}</p>
+                    <div class="text-start border-top border-secondary pt-3 mt-auto mb-3 text-white fw-bold" style="font-size: 11px;">
+                        <div class="mb-2"><i class="bi bi-envelope-at text-cyan me-2"></i>${user.email}</div>
+                        <div><i class="bi bi-geo-alt-fill text-warning me-2"></i>${user.address.city.toUpperCase()}</div>
+                    </div>
+                    <button class="btn btn-outline-danger btn-sm fw-bold w-100 mb-2 shadow-none" onclick="removeMember(${index})" style="font-size: 10px;">
+                        <i class="bi bi-trash3-fill me-2"></i>SPLICE REMOVE
+                    </button>
+                    <button class="btn btn-info btn-sm fw-bold w-100 py-1 resume-btn-effect shadow-none" style="font-size: 11px;" onclick="alert('Viewing profile of ${user.name.firstname}')">
+                        VIEW PROFILE
+                    </button>
+                </div>
+            </div>`;
+    });
+}
