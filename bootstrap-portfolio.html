@@ -1225,129 +1225,139 @@
 
 
 
+        <section id="api-evolution"
+            class="mb-5 bg-panel p-4 p-md-5 shadow-lg border border-secondary hover-card rounded-4">
 
-
-        <section id="api-evolution" class="mb-5 bg-panel p-4 shadow-lg border border-secondary hover-card">
-            <h2 class="h3 text-cyan border-bottom border-secondary pb-2 mb-4">
+            <h2 class="h3 text-cyan border-bottom border-secondary pb-3 mb-5">
                 <i class="bi bi-cpu-fill me-2"></i> Advanced Data & Voice Lab
             </h2>
 
-            <div class="row g-3 mb-5 p-3 bg-dark rounded border border-info shadow-sm mx-1">
-                <div class="col-md-12">
-                    <h5 class="text-cyan h6 fw-bold mb-3"><i class="bi bi-mic-fill me-2"></i> AI Voice Query Assistant
-                    </h5>
-                    <div class="d-flex gap-2 mb-3">
-                        <button id="startBtn" class="btn btn-info btn-sm fw-bold resume-btn-effect px-3">Start
-                            Listening</button>
-                        <button id="stopBtn" class="btn btn-outline-danger fw-bold btn-sm px-4"
-                            style="min-width: 120px;">Stop</button>
-                    </div>
-                    <div id="output"
-                        class="p-3 border border-secondary rounded text-light small italic bg-black shadow-inner"
-                        style="min-height: 60px;">
-                        Ready for voice input... (Speak your query)
+            <div class="row g-4 mb-5">
+                <div class="col-12">
+                    <div class="p-4 bg-dark rounded border border-info shadow-sm">
+                        <h5 class="text-cyan h6 fw-bold mb-4"><i class="bi bi-mic-fill me-2"></i> AI Voice Query
+                            Assistant</h5>
+
+                        <div class="d-flex flex-wrap gap-3 mb-4">
+                            <button id="startBtn" class="btn btn-info btn-sm fw-bold resume-btn-effect px-4 py-2">Start
+                                Listening</button>
+                            <button id="stopBtn" class="btn btn-outline-danger fw-bold btn-sm px-4 py-2"
+                                style="min-width: 120px;">Stop</button>
+                        </div>
+
+                        <div id="output"
+                            class="p-4 border border-secondary rounded text-light small fst-italic bg-black shadow-inner"
+                            style="min-height: 80px;">
+                            Ready for voice input... (Speak your query)
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <div class="row g-4 mb-5">
+                <div class="col-12">
+                    <div class="p-4 bg-dark rounded border border-info shadow-lg">
+                        <h5 class="text-cyan h6 fw-bold mb-4"><i class="bi bi-robot me-2"></i> AI Technical Consultant
+                            (Gemini 2.5)</h5>
+                        <p class="text-secondary small mb-4">Ask about architectural concepts, MERN stacks, or system
+                            designs.</p>
 
+                        <div class="input-group mb-4">
+                            <input id="aiPromptInput" type="text"
+                                class="form-control bg-black text-white border-secondary shadow-none py-2"
+                                placeholder="Ask Gemini (e.g. What is Microservices?)">
+                            <button id="askGeminiBtn" type="button"
+                                class="btn btn-info text-dark fw-bold px-4 resume-btn-effect shadow-none">Consult
+                                AI</button>
+                        </div>
 
+                        <div id="aiResponseOutput"
+                            class="p-4 bg-black rounded border border-secondary text-light small shadow-inner mb-4"
+                            style="min-height: 120px; max-height: 300px; overflow-y: auto; white-space: pre-wrap;"><span
+                                class="text-secondary fst-italic">Awaiting AI Consultation...</span></div>
 
-
-            <div class="bg-panel p-4 mt-4 border border-info shadow-lg hover-card">
-                <h3 class="h4 text-cyan mb-3"><i class="bi bi-robot me-2"></i> AI Technical Consultant (Gemini 2.5)</h3>
-                <p class="text-secondary small">Ask about architectural concepts, MERN stacks, or system designs.</p>
-
-                <div class="input-group mb-3">
-                    <input id="aiPromptInput" type="text"
-                        class="form-control bg-black text-white border-secondary shadow-none"
-                        placeholder="Ask Gemini (e.g. What is Microservices?)">
-                    <button id="askGeminiBtn" type="button"
-                        class="btn btn-info text-dark fw-bold px-4 resume-btn-effect shadow-none">Consult AI</button>
-                </div>
-
-                <div id="aiResponseOutput"
-                    class="p-3 bg-dark rounded border border-secondary text-light small shadow-inner"
-                    style="min-height: 100px; max-height: 300px; overflow-y: auto; white-space: pre-wrap;">
-                    <span class="text-secondary italic italic">Awaiting AI Consultation...</span>
-                </div>
-                <div id="keyNotice" class="text-center py-2">
-                    <p class="text-warning small mb-2"><i class="bi bi-shield-lock"></i> API Key Required to activate AI
-                        Consultation.</p>
-                    <div class="input-group input-group-sm w-75 mx-auto">
-                        <input id="userApiKey" type="password" class="form-control bg-black text-cyan border-secondary"
-                            placeholder="Paste your Gemini API Key here">
-                        <button class="btn btn-outline-info fw-bold" type="button" onclick="saveUserKey()">Set Key</button>
+                        <div id="keyNotice" class="text-center pt-3 border-top border-secondary">
+                            <p class="text-warning small mb-3"><i class="bi bi-shield-lock me-1"></i> API Key Required
+                                to activate AI Consultation.</p>
+                            <div class="input-group input-group-sm mx-auto" style="max-width: 400px;">
+                                <input id="userApiKey" type="password"
+                                    class="form-control bg-black text-cyan border-secondary"
+                                    placeholder="Paste your Gemini API Key here">
+                                <button class="btn btn-outline-info fw-bold px-3" type="button"
+                                    onclick="saveUserKey()">Set Key</button>
+                            </div>
+                            <a href="https://aistudio.google.com/app/apikey" target="_blank"
+                                class="text-info small mt-3 d-block text-decoration-none">Get a free key here <i
+                                    class="bi bi-box-arrow-up-right ms-1"></i></a>
+                        </div>
                     </div>
-                    <a href="https://aistudio.google.com/app/apikey" target="_blank"
-                        class="text-info xx-small mt-2 d-block">Get a free key here ↗</a>
                 </div>
             </div>
+            <div class="row g-4 text-center mb-5">
 
-
-
-
-            <div class="row g-3 text-center mb-4">
-                <div class="col-md-4 border-end border-secondary">
-                    <p class="small text-secondary mb-2">Legacy Sync (.then)</p>
-                    <button id="btnThen" class="btn btn-outline-info fw-bold px-4 w-100">Fetch Products</button>
+                <div class="col-md-4">
+                    <div
+                        class="p-4 bg-dark rounded border border-secondary h-100 d-flex flex-column justify-content-center">
+                        <h5 class="text-info h6 fw-bold mb-4"><i class="bi bi-clock-history me-2"></i> Legacy Data Sync
+                        </h5>
+                        <button id="btnThen" class="btn btn-outline-info fw-bold px-4 py-2 w-100">Fetch Products
+                            (.then)</button>
+                    </div>
                 </div>
 
-                <div class="col-md-6">
-                    <p class="small text-secondary mb-2">Modern Sync (Async/Await) & Team Manager</p>
-                    <div class="d-flex flex-wrap gap-2 justify-content-center">
+                <div class="col-md-8">
+                    <div class="p-4 bg-dark rounded border border-secondary h-100">
+                        <h5 class="text-info h6 fw-bold mb-4"><i class="bi bi-database-fill-gear me-2"></i> Modern Sync
+                            & Squad Manager</h5>
 
-                        <button id="btnAsync" class="btn btn-info fw-bold px-4 resume-btn-effect">Fetch Users</button>
-
-
-                        <button class="btn btn-outline-warning btn-sm fw-bold px-3 ms-2" onclick="toggleSquadView()">
-                            <i class="bi bi-people-fill me-1"></i> View Squad <span id="squad-count"
-                                class="badge bg-danger ms-1">0</span>
-                        </button>
-
-                        <button class="btn btn-outline-danger btn-sm fw-bold px-3 ms-2 shadow-none"
-                            onclick="clearSquad()">
-                            <i class="bi bi-trash3-fill me-1"></i> Clear Squad
-                        </button>
-
-
-                        <button class="btn btn-outline-danger btn-sm fw-bold px-3" onclick="popMember()">
-                            <i class="bi bi-arrow-down-square me-1"></i>Pop Last
-                        </button>
-
-                        <button class="btn btn-outline-warning btn-sm fw-bold px-3 text-white" onclick="shiftMember()">
-                            <i class="bi bi-arrow-up-square me-1"></i>Shift First
-                        </button>
-
-                        <div
-                            class="d-flex flex-wrap gap-2 justify-content-center mt-3 border-top border-secondary pt-3">
-                            <button class="btn btn-outline-info btn-sm fw-bold" onclick="standardizeNames()">
-                                <i class="bi bi-person-up me-1"></i>Standardize Names (Map)
+                        <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+                            <button id="btnAsync" class="btn btn-info fw-bold px-4 resume-btn-effect">Fetch Users
+                                (Async)</button>
+                            <button class="btn btn-outline-warning fw-bold px-3" onclick="toggleSquadView()">
+                                <i class="bi bi-people-fill me-1"></i> View Squad <span id="squad-count"
+                                    class="badge bg-danger ms-1">0</span>
                             </button>
-
-                            <button class="btn btn-outline-warning btn-sm fw-bold text-white"
-                                onclick="filterHighPriority()">
-                                <i class="bi bi-funnel-fill me-1"></i>Priority Core (Filter)
-                            </button>
-
-                            <button class="btn btn-outline-success btn-sm fw-bold" onclick="calculateSystemHealth()">
-                                <i class="bi bi-activity me-1"></i>Compute Health (Reduce)
+                            <button class="btn btn-outline-danger fw-bold px-3 shadow-none" onclick="clearSquad()">
+                                <i class="bi bi-trash3-fill me-1"></i> Clear Squad
                             </button>
                         </div>
 
-                        <div id="dataStats" class="mt-3 text-cyan small fw-bold text-center"></div>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+                            <button class="btn btn-outline-danger btn-sm fw-bold px-3" onclick="popMember()">
+                                <i class="bi bi-arrow-down-square me-1"></i> Pop Last
+                            </button>
+                            <button class="btn btn-outline-warning btn-sm fw-bold px-3 text-white"
+                                onclick="shiftMember()">
+                                <i class="bi bi-arrow-up-square me-1"></i> Shift First
+                            </button>
+                        </div>
 
+                        <div class="d-flex flex-wrap gap-3 justify-content-center pt-4 border-top border-secondary">
+                            <button class="btn btn-outline-info btn-sm fw-bold" onclick="standardizeNames()">
+                                <i class="bi bi-person-up me-1"></i> Standardize Names
+                            </button>
+                            <button class="btn btn-outline-warning btn-sm fw-bold text-white"
+                                onclick="filterHighPriority()">
+                                <i class="bi bi-funnel-fill me-1"></i> Priority Core
+                            </button>
+                            <button class="btn btn-outline-success btn-sm fw-bold" onclick="calculateSystemHealth()">
+                                <i class="bi bi-activity me-1"></i> Compute Health
+                            </button>
+                        </div>
+
+                        <div id="dataStats" class="mt-4 text-cyan small fw-bold text-center"></div>
                     </div>
                 </div>
-
             </div>
 
-            <div id="dataOutput" class="row g-3 p-3 bg-dark rounded border border-secondary mx-1"
+            <div id="dataOutput" class="row g-4 p-4 bg-dark rounded border border-secondary mx-0 align-items-center"
                 style="min-height: 220px;">
-                <p class="text-center text-secondary my-auto italic small w-100">Synchronize external systems to view
+                <p class="text-center text-secondary my-0 fst-italic small w-100">Synchronize external systems to view
                     data stream...</p>
             </div>
+
         </section>
+
 
 
         <section id="weather-lab" class="mb-5 bg-panel p-4 shadow-lg border border-secondary hover-card">

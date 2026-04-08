@@ -55,10 +55,42 @@
 
         .path-card:hover {
             transform: translateY(-8px);
-            border-color: #27C8F5;
+            border-color: #27C8F5 !important;
+            /* MAGIC FIX: Cyan border */
             box-shadow: 0 10px 25px rgba(39, 200, 245, 0.15);
+            /* MAGIC FIX: */
             color: white;
         }
+
+        /* Unified Button Style for All Cards */
+        .hub-action-btn {
+            background-color: #27C8F5;
+            color: #000000;
+            border: 2px solid #27C8F5;
+            padding: 6px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            font-size: 14px;
+            display: inline-block;
+        }
+
+        /* Hover Effect: Transparent with Neon Glow */
+        .path-card:hover .hub-action-btn {
+            background-color: transparent;
+            color: #27C8F5;
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8);
+            transform: scale(1.05);
+        }
+
+        /* Click (Active) Effect: Shrink */
+        .path-card:active .hub-action-btn {
+            transform: scale(0.95);
+            box-shadow: none;
+        }
+
+
 
         .icon-box {
             font-size: 40px;
@@ -112,6 +144,24 @@
                 --df-messenger-user-message: #27C8F5;
             }
         }
+
+
+/* Custom T-Shape Badge: Cyan Border with Multi-Color Icons */
+        .t-shape-badge {
+            background-color: transparent !important;
+            color: #e6edf3 !important; 
+            border: 1px solid #27C8F5 !important; 
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .t-shape-badge:hover {
+            background-color: rgba(39, 200, 245, 0.1) !important;
+            box-shadow: 0px 0px 12px rgba(39, 200, 245, 0.6); /* Cyan Glow */
+            transform: scale(1.05);
+        }
+
+        
     </style>
 
 </head>
@@ -131,16 +181,15 @@
                     <div class="path-title">Vanilla CSS Architecture</div>
                     <div class="path-desc">100% Custom built from scratch. Flexbox, CSS Grid, Advanced Animations, and
                         Media Queries without any frameworks.</div>
-                    <div class="mt-3 badge bg-success">Complete Scratch Portfolio ➔</div>
+                    <div class="hub-action-btn">Complete Scratch Portfolio</div>
                 </a>
             </div>
             <div class="col-md-6">
-                <a href="bootstrap-portfolio.html" class="path-card border-primary">
+                <a href="bootstrap-portfolio.html" class="path-card">
                     <div class="icon-box" style="color: #7952B3;">⚡</div>
-                    <div class="path-title">Bootstrap 5 Framework</div>
-                    <div class="path-desc">Rapid UI development utilizing Bootstrap's grid system, utility classes, and
-                        pre-built components.</div>
-                    <div class="mt-3 badge bg-primary">Framework Driven Portfolio ➔</div>
+                    <div class="path-title">Bootstrap 5 + AI Integrations</div>
+                    <div class="path-desc">Rapid UI development utilizing Bootstrap's grid system and components, powerfully integrated with <b>Dialogflow, Web Speech API, and Gemini AI</b>.</div>
+                    <div class="hub-action-btn">AI-Enhanced Portfolio ➔</div>
                 </a>
             </div>
         </div>
@@ -149,15 +198,15 @@
             & 3: Advanced Full Stack</h4>
         <div class="row g-4 mb-5">
             <div class="col-md-6">
-                <div class="path-card locked-card" style="border-color: #61DAFB;">
-                    <div class="locked-badge">LOCKED</div>
+                <a href="#" class="path-card" style="text-decoration: none;" onclick="alert('React Environment is currently under development locally. Will be deployed soon!')">
                     <div class="icon-box" style="color: #61DAFB;">⚛️</div>
                     <div class="path-title">React.js Ecosystem</div>
                     <div class="path-desc">Component-based UI, State Management (Redux), and SPA development.</div>
-                </div>
+                    <div class="hub-action-btn">In Progress</div>
+                </a>
             </div>
             <div class="col-md-6">
-                <div class="path-card locked-card" style="border-color: #61DAFB;">
+                <div class="path-card locked-card">
                     <div class="locked-badge">LOCKED</div>
                     <div class="icon-box" style="color: #61DAFB;">🧠</div>
                     <div class="path-title">Node.js + MERN + <span style="color: #ffc107;">AI APIs</span></div>
@@ -180,19 +229,13 @@
                     <p class="path-desc text-start mb-3">Building foundational knowledge across multiple domains to
                         architect secure, data-driven, and intelligent Full Stack applications.</p>
 
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-robot text-info"></i> AI / ML / DL</span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-filetype-py text-warning"></i> Python & SQL</span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-bar-chart-fill text-success"></i> Data Analytics & PowerBI</span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-shield-lock-fill text-danger"></i> Cyber Security & Ethical Hacking</span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-link-45deg text-primary"></i> Blockchain & IoT</span>
-                        <span class="badge bg-dark border border-secondary text-light px-2 py-2"><i
-                                class="bi bi-palette text-info"></i> UI / UX</span>
+                    <div class="d-flex flex-wrap gap-2 mt-2">
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-robot text-info me-1"></i> AI / ML / DL</span>
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-filetype-py text-warning me-1"></i> Python & SQL</span>
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-bar-chart-fill text-success me-1"></i> Data Analytics & PowerBI</span>
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-shield-lock-fill text-danger me-1"></i> Cyber Security & Ethical Hacking</span>
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-link-45deg text-primary me-1"></i> Blockchain & IoT</span>
+                        <span class="badge t-shape-badge px-3 py-2"><i class="bi bi-palette text-info me-1"></i> UI / UX</span>
                     </div>
                 </div>
             </div>
