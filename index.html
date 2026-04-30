@@ -56,9 +56,7 @@
         .path-card:hover {
             transform: translateY(-8px);
             border-color: #27C8F5 !important;
-            /* MAGIC FIX: Cyan border */
             box-shadow: 0 10px 25px rgba(39, 200, 245, 0.15);
-            /* MAGIC FIX: */
             color: white;
         }
 
@@ -132,19 +130,17 @@
         .badge:hover {
             padding-right: 15px;
             transition: 0.3s;
-
-
-            /* Styling the Hub Assistant to match Cyan Theme */
-            df-messenger {
-                --df-messenger-bot-message: #161b22;
-                --df-messenger-button-titlebar-color: #27C8F5;
-                --df-messenger-chat-background-color: #0d1117;
-                --df-messenger-font-color: #ffffff;
-                --df-messenger-send-icon: #27C8F5;
-                --df-messenger-user-message: #27C8F5;
-            }
         }
 
+        /* Styling the Hub Assistant to match Cyan Theme */
+        df-messenger {
+            --df-messenger-bot-message: #161b22;
+            --df-messenger-button-titlebar-color: #27C8F5;
+            --df-messenger-chat-background-color: #0d1117;
+            --df-messenger-font-color: #ffffff;
+            --df-messenger-send-icon: #27C8F5;
+            --df-messenger-user-message: #27C8F5;
+        }
 
         /* Custom T-Shape Badge: Cyan Border with Multi-Color Icons */
         .t-shape-badge {
@@ -194,32 +190,6 @@
             </div>
         </div>
 
-        <!-- <h4 class="text-start mb-3" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">Phase 2
-            & 3: Advanced Full Stack</h4>
-        <div class="row g-4 mb-5">
-            <div class="col-md-6">
-                <a href="https://portfolio-2-0-gunasekaran006-alts-projects.vercel.app" target="_blank"
-                    class="path-card" style="text-decoration: none;">
-                    <div class="icon-box" style="color: #61DAFB;">⚛️</div>
-                    <div class="path-title">React.js Ecosystem</div>
-                    <div class="path-desc">Component-based UI, State Management (Redux), and SPA development.</div>
-
-                    <div class="hub-action-btn">Explore Module ➔</div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <div class="path-card locked-card">
-                    <div class="locked-badge">LOCKED</div>
-                    <div class="icon-box" style="color: #61DAFB;">🧠</div>
-                    <div class="path-title">Node.js + MERN + <span style="color: #ffc107;">AI APIs</span></div>
-                    <div class="path-desc">Robust backend servers & databases, seamlessly integrated with <b>Web Speech,
-                            Gemini, TensorFlow.js & RapidMiner</b>.</div>
-                </div>
-            </div>
-        </div> -->
-
-
-
         <h4 class="text-start mb-3" style="color: #27C8F5; border-bottom: 1px solid #333; padding-bottom: 10px;">
             Phase 2: Advanced React Architecture & MERN Integration
         </h4>
@@ -229,18 +199,48 @@
                 <a href="https://portfolio-2-0-gunasekaran006-alts-projects.vercel.app" target="_blank"
                     class="path-card hover-zoom-effect" style="text-decoration: none;">
                     <div class="icon-box" style="color: #61DAFB; filter: drop-shadow(0 0 8px rgba(97,218,251,0.4));">⚛️</div>
-                    <div class="path-title">React.js Ecosystem & Hybrid UI</div>
-                    <div class="path-desc mb-3">Component-based UI, React Router (SPA), State Management, and Data Fetching via Axios.</div>
+                    <div class="path-title">React 19 Ecosystem & AI Engines</div>
                     
-                    <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
-                        <span class="badge border border-info text-info"><i class="bi bi-wind"></i> Tailwind CSS</span>
+                    <div class="path-desc mb-4 text-center">
+                        Engineered a highly scalable, component-driven frontend architecture. Showcases advanced global data flow, dynamic client-side machine learning integration, secure routing, lifecycle management, and modular layout structuring for seamless user experiences.
+                    </div>
+                    
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mb-3 border-bottom border-secondary pb-3 w-100">
+                        <span class="badge border border-info text-info"><i class="bi bi-wind"></i> Tailwind CSS v4</span>
                         <span class="badge border border-primary text-primary"><i class="bi bi-bootstrap-fill"></i> Bootstrap 5</span>
                         <span class="badge border border-warning text-warning"><i class="bi bi-code-slash"></i> Custom CSS</span>
                     </div>
 
-                    <div class="hub-action-btn">Explore Module ➔</div>
+                    <div class="d-flex flex-wrap gap-2 justify-content-center mb-3">
+                        <span class="badge border border-light text-light"><i class="bi bi-braces"></i> Hooks (State/Effect/Ref)</span>
+                        <span class="badge border border-primary text-primary"><i class="bi bi-cpu"></i> Props & Component Lifecycle</span>
+                        <span class="badge border border-info text-info"><i class="bi bi-check2-circle"></i> Conditional Rendering</span>
+                        <span class="badge border border-warning text-warning"><i class="bi bi-shield-x"></i> Event Propagation</span>
+                        
+                        <span class="badge border border-secondary text-secondary"><i class="bi bi-signpost-split"></i> React Router DOM</span>
+                        <span class="badge border border-light text-light"><i class="bi bi-link-45deg"></i> Dynamic URL Params</span>
+                        <span class="badge border border-danger text-danger"><i class="bi bi-diagram-3"></i> Redux Toolkit (Slices/Store)</span>
+                        <span class="badge border border-warning text-warning"><i class="bi bi-shield-lock"></i> Global Auth System</span>
+                        
+                        <span class="badge border border-success text-success"><i class="bi bi-cloud-arrow-down"></i> Axios & Fetch APIs</span>
+                        <span class="badge border border-success text-success"><i class="bi bi-database-check"></i> Full CRUD Operations</span>
+                        <span class="badge border border-light text-light"><i class="bi bi-clock-history"></i> Async/Await & Promises</span>
+                        <span class="badge border border-primary text-primary"><i class="bi bi-braces-asterisk"></i> Dynamic JSON Mapping</span>
+                        <span class="badge border border-secondary text-secondary"><i class="bi bi-bug"></i> Error Handling (Try/Catch)</span>
+                        
+                        <span class="badge border border-danger text-danger"><i class="bi bi-robot"></i> TensorFlow.js (Face-API)</span>
+                        <span class="badge border border-info text-info"><i class="bi bi-camera-video"></i> WebRTC (Video Stream)</span>
+                        <span class="badge border border-info text-info"><i class="bi bi-input-cursor-text"></i> Form Handling & Regex</span>
+
+                        <span class="badge border border-primary text-primary"><i class="bi bi-layers"></i> Atomic Architecture</span>
+                        <span class="badge border border-secondary text-secondary"><i class="bi bi-grid-1x2"></i> Bento & Masonry UI</span>
+                        <span class="badge border border-light text-light"><i class="bi bi-aspect-ratio"></i> Fluid Responsive (320px to Max)</span>
+                    </div>
+
+                    <div class="hub-action-btn">Explore React Engines ➔</div>
                 </a>
             </div>
+            
             <div class="col-md-6">
                 <div class="path-card locked-card">
                     <div class="locked-badge">LOCKED</div>
@@ -293,8 +293,6 @@
         agent-id="6e3e22f5-991d-4f95-b986-19273b8c476a" language-code="en"
         chat-icon="https://cdn-icons-png.flaticon.com/512/8943/8943377.png">
     </df-messenger>
-
-
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </body>
