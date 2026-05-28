@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Enterprise Capstone Vault">
+    <title>Enterprise Vault | Gunasekaran S</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        body {
+            background-color: #0a0a0c;
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            padding: 40px 20px;
+            overflow-x: hidden;
+        }
+
+        .vault-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .back-btn {
+            color: #a0a0a0;
+            text-decoration: none;
+            font-size: 16px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .back-btn:hover {
+            color: #27C8F5;
+            transform: translateX(-5px);
+        }
+
+        .vault-title {
+            color: #FFD700;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 32px;
+            border-bottom: 2px solid #333;
+            padding-bottom: 15px;
+            margin-bottom: 40px;
+        }
+
+        .project-card {
+            background-color: #15151a;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-container {
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.15);
+        }
+
+        .project-heading {
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .tech-badge {
+            background-color: transparent;
+            border: 1px solid;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .status-badge {
+            background-color: rgba(255, 193, 7, 0.1);
+            color: #ffc107;
+            border: 1px dashed #ffc107;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .github-btn {
+            background-color: #ffffff;
+            color: #000000;
+            font-weight: bold;
+            padding: 10px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            border: 2px solid #ffffff;
+        }
+
+        .github-btn:hover {
+            background-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="vault-container">
+        <!-- Back Button -->
+        <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Main Hub</a>
+
+        <!-- Title -->
+        <h1 class="vault-title"><i class="bi bi-safe2"></i> Enterprise Capstone Vault</h1>
+
+        <!-- First Project Showcase -->
+        <div class="project-card mb-5">
+            <div class="row g-4 align-items-center">
+                
+                <!-- Video / Demo Section -->
+                <div class="col-lg-7">
+                    <div class="video-container">
+                        <!-- REPLACE "your_video_name.mp4" WITH YOUR ACTUAL VIDEO FILE NAME -->
+                        <video width="100%" controls autoplay loop muted>
+                            <source src="your_video_name.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Details Section -->
+                <div class="col-lg-5">
+                    <h2 class="project-heading">Interactive Recipe Sharing Platform</h2>
+                    <p style="color: #a0a0a0; line-height: 1.6;">
+                        A highly modular, component-driven React application featuring dynamic live search, real-time dataset filtering, and secure localized session logic. Engineered with advanced state management and AI-powered UI components.
+                    </p>
+
+                    <!-- Technical Specs -->
+                    <div class="mt-4 mb-4">
+                        <span class="tech-badge text-info border-info"><i class="bi bi-braces"></i> React 19</span>
+                        <span class="tech-badge text-primary border-primary"><i class="bi bi-bootstrap"></i> Bootstrap 5</span>
+                        <span class="tech-badge text-danger border-danger"><i class="bi bi-robot"></i> Gemini AI Integrated</span>
+                        <span class="tech-badge text-success border-success"><i class="bi bi-server"></i> JSON-Server (Mock DB)</span>
+                        <span class="tech-badge text-warning border-warning"><i class="bi bi-search"></i> Live Search Logic</span>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="d-flex flex-column gap-3 mt-4">
+                        <!-- REPLACE "YOUR_GITHUB_LINK" WITH YOUR ACTUAL REPO LINK -->
+                        <a href="YOUR_GITHUB_LINK" target="_blank" class="github-btn" style="width: fit-content;">
+                            <i class="bi bi-github fs-5"></i> View Source Code
+                        </a>
+                        
+                        <div class="status-badge">
+                            <i class="bi bi-hourglass-split"></i> Phase 3: Backend Node.js & MongoDB Integration in Progress...
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+</html>
