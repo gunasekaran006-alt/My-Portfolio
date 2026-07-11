@@ -411,23 +411,28 @@
                                             class="bi bi-terminal-fill me-1"></i> Module A: Initialization</span>
                                     <span class="text-secondary small">Local to Cloud</span>
                                 </div>
-                                <p class="text-slate-400 text-xs mb-3">// Step 1: Create and Enter Project Workspace</p>
+                                <p class="text-slate-400 text-xs mb-3">// Step 1: <br>Create and Enter Project Workspace</p>
                                 <p class="text-white text-sm fw-bold">mkdir <span
-                                        class="text-light">[newfolder_name]</span> && cd <span
-                                        class="text-light">[newfolder_name]</span></p>
+                                        class="text-light">[folder_name]</span> && cd <span
+                                        class="text-light">[folder_name]</span></p>
 
-                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 2: Initialize Git & Stage Assets</p>
+                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 2: <br>Initialize Git & Stage Assets</p>
                                 <p class="text-info text-sm mb-1">git init</p>
                                 <p class="text-info text-sm mb-1">git add .</p>
                                 <p class="text-info text-sm mb-3">git commit -m "initial"</p>
 
-                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 3: Branch Generation & Remote
+                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 3: <br>Branch Generation & Remote
                                     Linking</p>
                                 <p class="text-info text-sm mb-1">git branch development</p>
                                 <p class="text-info text-sm mb-1">git branch deployment</p>
                                 <p class="text-info text-sm mb-1">git remote add origin <span
                                         class="text-warning">[GitHub_Repository_URL]</span></p>
                                 <p class="text-info text-sm">git push -u origin --all</p>
+
+                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 4: <br>Remote Download & Sync</p>
+                                <p class="text-info text-sm mb-1">git clone https://github.com/[user_name]/[f_name].git</p>
+                                <p class="text-info text-sm mb-1">git pull origin master</p>
+
                             </div>
                         </div>
 
@@ -443,7 +448,7 @@
 
                                 <div class="space-y-4">
                                     <div class="mb-4">
-                                        <p class="text-slate-400 text-xs mb-2">// 1. Active Feature Engineering
+                                        <p class="text-slate-400 text-xs mb-2">// Step 1: <br>Active Feature Engineering
                                             (Development)</p>
                                         <p class="text-white text-sm mb-1"><span class="text-danger">git checkout</span>
                                             development</p>
@@ -455,9 +460,9 @@
                                             "updates" && <span class="text-danger">git push</span> origin development
                                         </p>
                                     </div>
-
+<br>
                                     <div class="mb-4">
-                                        <p class="text-slate-400 text-xs mb-2">// 2. Stability & Code Review (Merge to
+                                        <p class="text-slate-400 text-xs mb-2">// Step 2: <br> Stability & Code Review (Merge to
                                             Master)</p>
                                         <p class="text-white text-sm mb-1"><span class="text-danger">git checkout</span>
                                             master</p>
@@ -466,9 +471,9 @@
                                         <p class="text-white text-sm"><span class="text-danger">git push</span> origin
                                             master</p>
                                     </div>
-
+<br>
                                     <div>
-                                        <p class="text-slate-400 text-xs mb-2">// 3. Production Release Pipeline
+                                        <p class="text-slate-400 text-xs mb-2">// Step 3: <br> Production Release Pipeline
                                             (Deployment)</p>
                                         <p class="text-white text-sm mb-1"><span class="text-danger">git checkout</span>
                                             deployment</p>
