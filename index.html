@@ -288,14 +288,48 @@
             </div>
 
             <div class="col-md-6">
-                <div class="path-card locked-card">
-                    <div class="locked-badge">LOCKED</div>
-                    <div class="icon-box" style="color: #61DAFB;">🧠</div>
-                    <div class="path-title">Node.js + Express.js + MongoDB</div>
-                    <div class="path-desc">Robust backend servers & databases, seamlessly integrated with <b>Web Speech,
-                            Gemini, TensorFlow.js & </b> <br><span style="color: #ffc107;">AI APIs</span>.</div>
-                </div>
+                <a href="backend-lab.html" class="path-card"
+                    style="text-decoration: none; display: flex; flex-direction: column; height: 100%;">
+
+                    <!-- Layer 1: Title & Description -->
+                    <div class="text-center">
+                        <div class="icon-box" style="color: #61DAFB;">🧠</div>
+                        <div class="path-title">Node.js + Express.js + MongoDB</div>
+                        <div class="path-desc mt-2">
+                            Robust backend servers & databases, seamlessly integrated with <b>Web Speech, Gemini,
+                                TensorFlow.js & </b>
+                            <br><span style="color: #ffc107;">AI APIs</span>.
+                        </div>
+                    </div>
+
+                    <!-- Layer 2: Darker/Thicker Divider & Badges -->
+                    <div class="text-center mt-4">
+                        <!-- Darker and wider grey line -->
+                        <hr
+                            style="border: 0; height: 2px; background-color: #c6cbd5; margin: 0 auto 30px auto; width: 90%;">
+
+                        <!-- Badges with spacing -->
+                        <div class="d-flex flex-wrap justify-content-center gap-2 mb-4">
+                            <span class="badge border border-info text-info">OS/FS/Events</span>
+                            <span class="badge border border-success text-success">MongoDB</span>
+                            <span class="badge border border-warning text-warning">AI APIs</span>
+                        </div>
+                    </div>
+
+                    <!-- Layer 3: Backend Skills list (Add new ones here) -->
+                    <div class="mt-2 mb-4" style="flex: 1;">
+                        
+                    </div>
+
+                    <!-- Layer 4: Button -->
+                    <div class="mt-auto text-center">
+                        <div class="hub-action-btn">Launch Backend Lab ➔</div>
+                    </div>
+
+                </a>
             </div>
+
+
         </div>
 
 
@@ -411,12 +445,14 @@
                                             class="bi bi-terminal-fill me-1"></i> Module A: Initialization</span>
                                     <span class="text-secondary small">Local to Cloud</span>
                                 </div>
-                                <p class="text-slate-400 text-xs mb-3">// Step 1: <br>Create and Enter Project Workspace</p>
+                                <p class="text-slate-400 text-xs mb-3">// Step 1: <br>Create and Enter Project Workspace
+                                </p>
                                 <p class="text-white text-sm fw-bold">mkdir <span
                                         class="text-light">[folder_name]</span> && cd <span
                                         class="text-light">[folder_name]</span></p>
 
-                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 2: <br>Initialize Git & Stage Assets</p>
+                                <p class="text-slate-400 text-xs mb-2 mt-4">// Step 2: <br>Initialize Git & Stage Assets
+                                </p>
                                 <p class="text-info text-sm mb-1">git init</p>
                                 <p class="text-info text-sm mb-1">git add .</p>
                                 <p class="text-info text-sm mb-3">git commit -m "initial"</p>
@@ -430,7 +466,8 @@
                                 <p class="text-info text-sm">git push -u origin --all</p>
 
                                 <p class="text-slate-400 text-xs mb-2 mt-4">// Step 4: <br>Remote Download & Sync</p>
-                                <p class="text-info text-sm mb-1">git clone https://github.com/[user_name]/[f_name].git</p>
+                                <p class="text-info text-sm mb-1">git clone https://github.com/[user_name]/[f_name].git
+                                </p>
                                 <p class="text-info text-sm mb-1">git pull origin master</p>
 
                             </div>
@@ -460,9 +497,10 @@
                                             "updates" && <span class="text-danger">git push</span> origin development
                                         </p>
                                     </div>
-<br>
+                                    <br>
                                     <div class="mb-4">
-                                        <p class="text-slate-400 text-xs mb-2">// Step 2: <br> Stability & Code Review (Merge to
+                                        <p class="text-slate-400 text-xs mb-2">// Step 2: <br> Stability & Code Review
+                                            (Merge to
                                             Master)</p>
                                         <p class="text-white text-sm mb-1"><span class="text-danger">git checkout</span>
                                             master</p>
@@ -471,9 +509,10 @@
                                         <p class="text-white text-sm"><span class="text-danger">git push</span> origin
                                             master</p>
                                     </div>
-<br>
+                                    <br>
                                     <div>
-                                        <p class="text-slate-400 text-xs mb-2">// Step 3: <br> Production Release Pipeline
+                                        <p class="text-slate-400 text-xs mb-2">// Step 3: <br> Production Release
+                                            Pipeline
                                             (Deployment)</p>
                                         <p class="text-white text-sm mb-1"><span class="text-danger">git checkout</span>
                                             deployment</p>
