@@ -63,6 +63,10 @@
 
         <div class="lab-card">
             <h4>OS Diagnostics (System Info)</h4>
+            <p class="text-secondary small">
+                <strong>System Diagnostics:</strong> Leveraging Node.js OS module to perform real-time hardware
+                monitoring, ensuring high-availability and performance tracking in cloud environments.
+            </p>
             <pre id="os-data">Fetching server data...</pre>
             <button class="btn btn-outline-info" onclick="fetchOS()">Refresh OS Status</button>
         </div>
@@ -84,17 +88,97 @@
 
         <div class="lab-card">
             <h4>Chat System</h4>
+            <p class="text-secondary small">
+                <strong>Event-Driven Architecture:</strong> Implementing EventEmitter to handle asynchronous
+                inter-module communication, mimicking robust messaging patterns found in enterprise-level chat systems.
+            </p>
             <button class="btn btn-info" onclick="loadChat()">Load Chat</button>
             <div id="chat-box" class="mt-2 text-info"></div>
         </div>
 
         <div class="lab-card">
             <h4>Payment Gateway</h4>
+            <p class="text-secondary small">
+                <strong>Transaction Integrity:</strong> Utilizing the 'once' pattern to ensure atomic payment
+                processing, preventing double-spending and ensuring secure financial transaction cycles.
+            </p>
             <button id="pay-btn" class="btn btn-success" onclick="processPayment()">Pay Now</button>
             <div id="payment-box" class="mt-2 text-warning"></div>
         </div>
 
+
+        <div class="lab-card">
+            <h4>MVC Architecture (Product API)</h4>
+            <p class="text-secondary small"><strong>Decoupled Enterprise Routing:</strong> Model-View-Controller -
+                Demonstrating clean separation of concerns using
+                Express Router & Controllers.
+            </p>
+            <button class="btn btn-outline-info" onclick="fetchProducts()">Fetch Products (MVC)</button>
+            <div id="product-list" class="mt-3 text-info small"></div>
+        </div>
+
+        <div class="lab-card">
+            <h4>Product Management (In-Memory DB)</h4>
+            <p class="text-secondary small">
+                <strong>In-Memory Persistence Layer:</strong> Implementing a decoupled MVC architecture with an
+                in-memory data store,
+                demonstrating state-managed API operations and robust request-payload serialization.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="p-title" class="form-control mb-2" placeholder="Product Title">
+                    <input type="number" id="p-price" class="form-control mb-2" placeholder="Price">
+                    <input type="text" id="p-cat" class="form-control mb-2" placeholder="Category">
+                    <button class="btn btn-info" onclick="addProduct()">Add Product</button>
+                </div>
+                <div class="col-md-6">
+                    <button class="btn btn-outline-info w-100" onclick="fetchProducts()">Load All Products</button>
+                    <div id="product-list" class="mt-3 text-info small"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="lab-card">
+            <h4>Employee Directory (CRUD System)</h4>
+            <p class="text-secondary small">
+                <strong>Atomic Resource Lifecycle Management:</strong> Implementing full-stack CRUD operations with
+                strict RESTful adherence,
+                ensuring robust state transitions for enterprise-grade human capital data management.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Role</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="emp-table-body"></tbody>
+                </table>
+            </div>
+            <button class="btn btn-outline-info" onclick="fetchEmployees()">Refresh Directory</button>
+
+            <div class="lab-card">
+                <h4>Add New Employee</h4>
+                <div class="row">
+                    <div class="col-md-4">
+                        <input type="text" id="e-name" class="form-control mb-2" placeholder="Name">
+                        <input type="email" id="e-email" class="form-control mb-2" placeholder="Email">
+                        <input type="text" id="e-role" class="form-control mb-2" placeholder="Role">
+                        <button class="btn btn-info" onclick="addEmployee()">Add Employee</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
     </div>
+
+
 
     <!-- <script>
         const API_URL = "http://localhost:8080";
@@ -171,6 +255,81 @@
                 payBtn.classList.add('btn-danger');
             }
         }
+
+
+        async function fetchProducts() {
+            const res = await fetch(`${API_URL}/api/products/all-products`);
+            const data = await res.json();
+            document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
+        }
+
+
+        async function addProduct() {
+            const product = {
+                title: document.getElementById('p-title').value,
+                price: document.getElementById('p-price').value,
+                category: document.getElementById('p-cat').value
+            };
+
+            const res = await fetch(`${API_URL}/api/products/create`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(product)
+            });
+            const data = await res.json();
+            alert(data.message);
+        }
+
+        async function fetchProducts() {
+            const res = await fetch(`${API_URL}/api/products/products`);
+            const data = await res.json();
+            document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
+        }
+
+        async function fetchEmployees() {
+            const res = await fetch(`${API_URL}/employees`);
+            const data = await res.json();
+            const tbody = document.getElementById('emp-table-body');
+
+            if (Array.isArray(data)) {
+                tbody.innerHTML = data.map(emp => `
+            <tr>
+                <td>${emp.name}</td>
+                <td>${emp.role}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="deleteEmp('${emp.id}')">Delete</button></td>
+            </tr>
+        `).join('');
+            } else {
+                tbody.innerHTML = `<tr><td colspan="3">${data.message || "No Data"}</td></tr>`;
+            }
+        }
+
+        async function deleteEmp(id) {
+            const res = await fetch(`${API_URL}/employees/${id}`, {
+                method: 'DELETE'
+            });
+            const data = await res.json();
+            alert(data.message);
+            fetchEmployees(); // Refreshes the UI after deleting the data.
+        }
+
+        async function addEmployee() {
+        const emp = {
+            name: document.getElementById('e-name').value,
+            email: document.getElementById('e-email').value,
+            role: document.getElementById('e-role').value
+        };
+
+        const res = await fetch(`${API_URL}/employees`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(emp)
+        });
+        
+        const data = await res.json();
+        alert(data.message);
+        fetchEmployees(); // Refresh immediately after adding
+    }
 
         // window.onload = fetchOS;
     </script>
