@@ -187,7 +187,8 @@
                     <form onsubmit="event.preventDefault(); registerUser();">
                         <input type="text" id="reg-name" class="form-control mb-2" placeholder="Username" required>
                         <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required>
-                        <input type="password" id="reg-pass" class="form-control mb-2" placeholder="Password" required>
+                        <input type="password" id="reg-pass" class="form-control mb-2" placeholder="Password" required
+                            autocomplete="current-password">
                         <button type="submit" class="btn btn-info">Register</button>
                     </form>
                 </div>
@@ -208,6 +209,17 @@
                     <button class="btn btn-info" onclick="saveTask()">Save Task to DB</button>
                 </div>
             </div>
+        </div>
+
+
+        <div class="lab-card">
+            <h4>User-Task Relationship Management</h4>
+            <p class="text-secondary small">
+                <strong>One-to-Many Architecture:</strong> Demonstrating relational data modeling where each user
+                maintains multiple task records using <code>ObjectId</code> references.
+            </p>
+            <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
+            <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
         </div>
 
 
@@ -410,6 +422,29 @@
             const data = await res.json();
             alert("Task saved to MongoDB: " + data.message);
         }
+
+        async function setupDatabasePractice() {
+            try{
+            // Step 1: Create a User
+            const userRes = await fetch(`${API_URL}/api/tasks/setup-user`, { method: 'POST' });
+            const userData = await userRes.json();
+
+            // Step 2: Create Tasks
+            const taskRes = await fetch(`${API_URL}/api/tasks/init-tasks`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId: userData.userId })
+            });
+            const taskData = await taskRes.json();
+
+            const output = document.getElementById('db-practice-output');
+            output.style.display = 'block'; // This changes it from 'none' to 'block'.
+            output.innerText = `Success: ${userData.message} | ${taskData.message}`;
+
+        } catch (error) {
+            console.error("Error:", error);
+        }
+    }
 
         // window.onload = fetchOS;
     </script>
