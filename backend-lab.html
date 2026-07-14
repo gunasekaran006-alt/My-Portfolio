@@ -186,7 +186,7 @@
                 <div class="col-md-6">
                     <form onsubmit="event.preventDefault(); registerUser();">
                         <input type="text" id="reg-name" class="form-control mb-2" placeholder="Username" required>
-                        <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required>
+                        <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required autocomplete="email">
                         <input type="password" id="reg-pass" class="form-control mb-2" placeholder="Password" required
                             autocomplete="current-password">
                         <button type="submit" class="btn btn-info">Register</button>
@@ -220,6 +220,19 @@
             </p>
             <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
             <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
+        </div>
+
+        <div class="lab-card">
+            <h4>RESTful Task Management API</h4>
+            <p class="text-secondary small">
+                <strong>CRUD Operations:</strong> Implemented complete lifecycle management for tasks including
+                filtering, updates, and deletion.
+            </p>
+            <div class="d-flex gap-2">
+                <button class="btn btn-info" onclick="fetchTasks()">Load All Tasks</button>
+                <button class="btn btn-info" onclick="addNewTask()">Add New Task</button>
+            </div>
+            <div id="api-output" class="mt-2 text-info small"></div>
         </div>
 
 
@@ -424,27 +437,86 @@
         }
 
         async function setupDatabasePractice() {
-            try{
-            // Step 1: Create a User
-            const userRes = await fetch(`${API_URL}/api/tasks/setup-user`, { method: 'POST' });
-            const userData = await userRes.json();
+            try {
+                // Step 1: Create a User
+                const userRes = await fetch(`${API_URL}/api/tasks/setup-user`, { method: 'POST' });
+                const userData = await userRes.json();
 
-            // Step 2: Create Tasks
-            const taskRes = await fetch(`${API_URL}/api/tasks/init-tasks`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ userId: userData.userId })
-            });
-            const taskData = await taskRes.json();
+                // Step 2: Create Tasks
+                const taskRes = await fetch(`${API_URL}/api/tasks/init-tasks`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId: userData.userId })
+                });
+                const taskData = await taskRes.json();
 
-            const output = document.getElementById('db-practice-output');
-            output.style.display = 'block'; // This changes it from 'none' to 'block'.
-            output.innerText = `Success: ${userData.message} | ${taskData.message}`;
+                const output = document.getElementById('db-practice-output');
+                output.style.display = 'block'; // This changes it from 'none' to 'block'.
+                output.innerText = `Success: ${userData.message} | ${taskData.message}`;
 
-        } catch (error) {
-            console.error("Error:", error);
+            } catch (error) {
+                console.error("Error:", error);
+            }
         }
-    }
+
+
+
+
+        // Function to fetch all tasks from MongoDB and display them
+        async function fetchTasks() {
+            const output = document.getElementById('api-output');
+            // const API_URL = "http://localhost:8080/api/tasks";
+
+            try {
+                const response = await fetch(`${API_URL}/api/tasks/`);
+                if (!response.ok) throw new Error("Network response was not ok");
+                const tasks = await response.json();
+
+                // Check if data exists
+                if (tasks.length === 0) {
+                    output.innerHTML = "No tasks found in Database.";
+                    return;
+                }
+
+                // Display tasks in a clean format
+                let html = '<ul class="list-group mt-2">';
+                tasks.forEach(task => {
+                    html += `<li class="list-group-item d-flex justify-content-between align-items-center">
+                        ${task.title} <span class="badge bg-info">${task.status}</span>
+                     </li>`;
+                });
+                html += '</ul>';
+                output.innerHTML = html;
+
+            } catch (error) {
+                output.innerText = "Error: Could not connect to Database.";
+                console.error("Fetch Error:", error);
+            }
+        }
+
+
+        async function addNewTask() {
+            const taskData = {
+                title: "New Task from UI",
+                description: "Testing API integration",
+                status: "not-started"
+            };
+
+            try {
+                const response = await fetch(`${API_URL}/api/tasks/create`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(taskData)
+                });
+                const result = await response.json();
+                alert("Task Added Successfully!");
+                fetchTasks(); 
+            } catch (error) {
+                console.error("Add Error:", error);
+            }
+        }
+
+
 
         // window.onload = fetchOS;
     </script>
