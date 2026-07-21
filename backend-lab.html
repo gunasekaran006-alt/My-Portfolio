@@ -186,7 +186,8 @@
                 <div class="col-md-6">
                     <form onsubmit="event.preventDefault(); registerUser();">
                         <input type="text" id="reg-name" class="form-control mb-2" placeholder="Username" required>
-                        <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required autocomplete="email">
+                        <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required
+                            autocomplete="email">
                         <input type="password" id="reg-pass" class="form-control mb-2" placeholder="Password" required
                             autocomplete="current-password">
                         <button type="submit" class="btn btn-info">Register</button>
@@ -234,6 +235,37 @@
             </div>
             <div id="api-output" class="mt-2 text-info small"></div>
         </div>
+
+
+        <div class="lab-card">
+            <h4>MongoDB Aggregation & Analytics</h4>
+            <p class="text-secondary small">
+                <strong>Data Pipeline Execution:</strong> Leveraging MongoDB Aggregation Framework ($count, $group,
+                $sort) to analyze task distribution and optimize database performance.
+            </p>
+            <div class="d-flex gap-2 mb-3">
+                <button class="btn btn-info" onclick="fetchTaskStats()">Fetch Task Analytics</button>
+                <button class="btn btn-outline-info" onclick="checkTaskIndexPerformance()">Check Index
+                    Performance</button>
+            </div>
+            <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
+        
+        
+        <div class="lab-card">
+            <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
+            <p class="text-secondary small">
+                <strong>Query Optimization Proof:</strong> Compare the performance metrics between an unoptimized full
+                collection scan and an indexed lookup in real-time.
+            </p>
+            <div class="d-flex gap-2 mb-3">
+                <button class="btn btn-danger" onclick="runCollScanTest()">1. Test COLLSCAN (Slow)</button>
+                <button class="btn btn-success" onclick="runIxScanTest()">2. Test IXSCAN (Fast)</button>
+            </div>
+            <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...</div>
+        </div>
+        </div>
+
+        
 
 
     </div>
@@ -510,12 +542,91 @@
                 });
                 const result = await response.json();
                 alert("Task Added Successfully!");
-                fetchTasks(); 
+                fetchTasks();
             } catch (error) {
                 console.error("Add Error:", error);
             }
         }
 
+
+
+
+        // 1. Fetch Task Analytics using Aggregation
+        async function fetchTaskStats() {
+            const output = document.getElementById('agg-output');
+            output.innerText = "Analyzing pipeline data...";
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks/analytics`); // You can set this according to your root path 
+                const data = await res.json();
+                output.innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.innerText = "Error: Could not fetch aggregation stats.";
+                console.error("Aggregation Error:", error);
+            }
+        }
+
+        // 2. Check Index Performance Simulation
+        async function checkTaskIndexPerformance() {
+            const output = document.getElementById('agg-output');
+            output.innerText = "Running query execution stats (.explain())...";
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks/explain-query`);
+                const data = await res.json();
+                output.innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.innerText = "Error: Could not fetch execution stats.";
+                console.error("Explain Error:", error);
+            }
+        }
+
+
+
+
+
+        async function runCollScanTest() {
+            const output = document.getElementById('comparison-output');
+            output.innerHTML = "Running COLLSCAN test...";
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks/test-collscan`);
+                const data = await res.json();
+
+                output.innerHTML = `
+            <div class="p-3 mb-2 rounded bg-black border border-danger">
+                <span class="badge bg-danger fs-6 mb-2">${data.scanType}</span>
+                <div><strong>Execution Stage:</strong> ${data.stage}</div>
+                <div><strong>Execution Time:</strong> ${data.executionTimeMillis} ms</div>
+                <div><strong>Documents Examined:</strong> ${data.totalDocsExamined}</div>
+            </div>
+        `;
+            } catch (error) {
+                output.innerHTML = "Error running COLLSCAN test.";
+            }
+        }
+
+        async function runIxScanTest() {
+            const output = document.getElementById('comparison-output');
+            output.innerHTML = "Running IXSCAN test...";
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks/test-ixscan`);
+                const data = await res.json();
+
+                output.innerHTML = `
+            <div class="p-3 mb-2 rounded bg-black border border-success">
+                <span class="badge bg-success fs-6 mb-2">${data.scanType}</span>
+                <div><strong>Execution Stage:</strong> ${data.stage}</div>
+                <div><strong>Index Name:</strong> ${data.indexUsed}</div>
+                <div><strong>Execution Time:</strong> ${data.executionTimeMillis} ms</div>
+                <div><strong>Documents Examined:</strong> ${data.totalDocsExamined}</div>
+            </div>
+        `;
+            } catch (error) {
+                output.innerHTML = "Error running IXSCAN test.";
+            }
+        }
 
 
         // window.onload = fetchOS;
