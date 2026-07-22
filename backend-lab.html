@@ -61,6 +61,7 @@
     <div class="container mt-5">
         <h2 class="text-center text-info">Backend Lab: Node.js Core Modules</h2>
 
+        <!-- OS Diagnostics -->
         <div class="lab-card">
             <h4>OS Diagnostics (System Info)</h4>
             <p class="text-secondary small">
@@ -86,6 +87,7 @@
 
         </div> -->
 
+        <!-- Chat System -->
         <div class="lab-card">
             <h4>Chat System</h4>
             <p class="text-secondary small">
@@ -96,6 +98,7 @@
             <div id="chat-box" class="mt-2 text-info"></div>
         </div>
 
+        <!-- Payment Gateway -->
         <div class="lab-card">
             <h4>Payment Gateway</h4>
             <p class="text-secondary small">
@@ -107,6 +110,7 @@
         </div>
 
 
+        <!-- MVC Architecture -->
         <div class="lab-card">
             <h4>MVC Architecture (Product API)</h4>
             <p class="text-secondary small"><strong>Decoupled Enterprise Routing:</strong> Model-View-Controller -
@@ -117,6 +121,7 @@
             <div id="product-list" class="mt-3 text-info small"></div>
         </div>
 
+        <!-- Product Management -->
         <div class="lab-card">
             <h4>Product Management (In-Memory DB)</h4>
             <p class="text-secondary small">
@@ -139,6 +144,7 @@
         </div>
 
 
+        <!-- Employee Directory -->
         <div class="lab-card">
             <h4>Employee Directory (CRUD System)</h4>
             <p class="text-secondary small">
@@ -176,6 +182,7 @@
 
 
 
+        <!-- Authentication & Security -->
         <div class="lab-card">
             <h4>Authentication & Security</h4>
             <p class="text-secondary small">
@@ -225,67 +232,66 @@
             </div>
         </div>
 
-    </div>
 
 
-
-
-
-
-
-    <div class="lab-card">
-        <h4>Database Management (MongoDB)</h4>
-        <p class="text-secondary small">
-            <strong>Persistent Data Layer:</strong> Leveraging MongoDB and Mongoose ODM to manage task states.
-            Data persists across server restarts, ensuring enterprise-grade data integrity.
-        </p>
-        <div class="row">
-            <div class="col-md-6">
-                <input type="text" id="t-title" class="form-control mb-2" placeholder="Task Title">
-                <input type="text" id="t-desc" class="form-control mb-2" placeholder="Description">
-                <button class="btn btn-info" onclick="saveTask()">Save Task to DB</button>
+        <!-- Database Management -->
+        <div class="lab-card">
+            <h4>Database Management (MongoDB)</h4>
+            <p class="text-secondary small">
+                <strong>Persistent Data Layer:</strong> Leveraging MongoDB and Mongoose ODM to manage task states.
+                Data persists across server restarts, ensuring enterprise-grade data integrity.
+            </p>
+            <div class="row">
+                <div class="col-md-6">
+                    <input type="text" id="t-title" class="form-control mb-2" placeholder="Task Title">
+                    <input type="text" id="t-desc" class="form-control mb-2" placeholder="Description">
+                    <button class="btn btn-info" onclick="saveTask()">Save Task to DB</button>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div class="lab-card">
-        <h4>User-Task Relationship Management</h4>
-        <p class="text-secondary small">
-            <strong>One-to-Many Architecture:</strong> Demonstrating relational data modeling where each user
-            maintains multiple task records using <code>ObjectId</code> references.
-        </p>
-        <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
-        <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
-    </div>
-
-    <div class="lab-card">
-        <h4>RESTful Task Management API</h4>
-        <p class="text-secondary small">
-            <strong>CRUD Operations:</strong> Implemented complete lifecycle management for tasks including
-            filtering, updates, and deletion.
-        </p>
-        <div class="d-flex gap-2">
-            <button class="btn btn-info" onclick="fetchTasks()">Load All Tasks</button>
-            <button class="btn btn-info" onclick="addNewTask()">Add New Task</button>
+        <!-- User-Task Relationship Management -->
+        <div class="lab-card">
+            <h4>User-Task Relationship Management</h4>
+            <p class="text-secondary small">
+                <strong>One-to-Many Architecture:</strong> Demonstrating relational data modeling where each user
+                maintains multiple task records using <code>ObjectId</code> references.
+            </p>
+            <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
+            <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
         </div>
-        <div id="api-output" class="mt-2 text-info small"></div>
-    </div>
 
 
-    <div class="lab-card">
-        <h4>MongoDB Aggregation & Analytics</h4>
-        <p class="text-secondary small">
-            <strong>Data Pipeline Execution:</strong> Leveraging MongoDB Aggregation Framework ($count, $group,
-            $sort) to analyze task distribution and optimize database performance.
-        </p>
-        <div class="d-flex gap-2 mb-3">
-            <button class="btn btn-info" onclick="fetchTaskStats()">Fetch Task Analytics</button>
-            <button class="btn btn-outline-info" onclick="checkTaskIndexPerformance()">Check Index
-                Performance</button>
+        <!-- RESTful Task Management API -->
+        <div class="lab-card">
+            <h4>RESTful Task Management API</h4>
+            <p class="text-secondary small">
+                <strong>CRUD Operations:</strong> Implemented complete lifecycle management for tasks including
+                filtering, updates, and deletion.
+            </p>
+            <div class="d-flex gap-2">
+                <button class="btn btn-info" onclick="fetchTasks()">Load All Tasks</button>
+                <button class="btn btn-info" onclick="addNewTask()">Add New Task</button>
+            </div>
+            <div id="api-output" class="mt-2 text-info small"></div>
         </div>
-        <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
 
+
+        <!-- MongoDB Aggregation & Analytics -->
+        <div class="lab-card">
+            <h4>MongoDB Aggregation & Analytics</h4>
+            <p class="text-secondary small">
+                <strong>Data Pipeline Execution:</strong> Leveraging MongoDB Aggregation Framework ($count, $group,
+                $sort) to analyze task distribution and optimize database performance.
+            </p>
+            <div class="d-flex gap-2 mb-3">
+                <button class="btn btn-info" onclick="fetchTaskStats()">Fetch Task Analytics</button>
+                <button class="btn btn-outline-info" onclick="checkTaskIndexPerformance()">Check Index
+                    Performance</button>
+            </div>
+            <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
+        </div>
 
         <div class="lab-card">
             <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
@@ -301,17 +307,21 @@
             <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...
             </div>
         </div>
-    </div>
 
 
 
 
 
-    </div>
 
 
 
-    <!-- <script>
+
+
+
+
+
+
+        <!-- <script>
         const API_URL = "http://localhost:8080";
 
         async function fetchOS() {
@@ -346,310 +356,310 @@
     </script> -->
 
 
-    <script>
+        <script>
 
-        const API_URL = "http://localhost:8080";
+            const API_URL = "http://localhost:8080";
 
-        // 1. Fetch OS
-        async function fetchOS() {
-            try {
-                document.getElementById('os-data').innerText = "Fetching server data...";
-                const res = await fetch(`${API_URL}/os-status`);
+            // 1. Fetch OS
+            async function fetchOS() {
+                try {
+                    document.getElementById('os-data').innerText = "Fetching server data...";
+                    const res = await fetch(`${API_URL}/os-status`);
+                    const data = await res.json();
+                    document.getElementById('os-data').innerText = JSON.stringify(data, null, 2);
+                } catch (error) {
+                    document.getElementById('os-data').innerText = "Server not reachable!";
+                }
+            }
+
+            // 2. Load Chat
+            async function loadChat() {
+                const res = await fetch(`${API_URL}/send-chat`);
                 const data = await res.json();
-                document.getElementById('os-data').innerText = JSON.stringify(data, null, 2);
-            } catch (error) {
-                document.getElementById('os-data').innerText = "Server not reachable!";
+                document.getElementById('chat-box').innerHTML = data.logs.map(m => `<div>${m.user}: ${m.message}</div>`).join('');
             }
-        }
 
-        // 2. Load Chat
-        async function loadChat() {
-            const res = await fetch(`${API_URL}/send-chat`);
-            const data = await res.json();
-            document.getElementById('chat-box').innerHTML = data.logs.map(m => `<div>${m.user}: ${m.message}</div>`).join('');
-        }
+            // 3. Process Payment
+            async function processPayment() {
+                const res = await fetch(`${API_URL}/process-payment`);
+                const data = await res.json();
 
-        // 3. Process Payment
-        async function processPayment() {
-            const res = await fetch(`${API_URL}/process-payment`);
-            const data = await res.json();
+                // document.getElementById('payment-box').innerText = data.message;
+                // Disable the button once the payment is complete.
 
-            // document.getElementById('payment-box').innerText = data.message;
-            // Disable the button once the payment is complete.
-
-            const payBtn = document.getElementById('pay-btn');
-            document.getElementById('payment-box').innerText = data.message;
+                const payBtn = document.getElementById('pay-btn');
+                document.getElementById('payment-box').innerText = data.message;
 
 
-            if (data.message.includes("Already Paid")) {
-                payBtn.classList.remove('btn-success');
-                payBtn.classList.add('btn-danger');
+                if (data.message.includes("Already Paid")) {
+                    payBtn.classList.remove('btn-success');
+                    payBtn.classList.add('btn-danger');
+                }
             }
-        }
 
 
-        async function fetchProducts() {
-            const res = await fetch(`${API_URL}/api/products/all-products`);
-            const data = await res.json();
-            document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
-        }
+            async function fetchProducts() {
+                const res = await fetch(`${API_URL}/api/products/all-products`);
+                const data = await res.json();
+                document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
+            }
 
 
-        async function addProduct() {
-            const product = {
-                title: document.getElementById('p-title').value,
-                price: document.getElementById('p-price').value,
-                category: document.getElementById('p-cat').value
-            };
+            async function addProduct() {
+                const product = {
+                    title: document.getElementById('p-title').value,
+                    price: document.getElementById('p-price').value,
+                    category: document.getElementById('p-cat').value
+                };
 
-            const res = await fetch(`${API_URL}/api/products/create`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(product)
-            });
-            const data = await res.json();
-            alert(data.message);
-        }
+                const res = await fetch(`${API_URL}/api/products/create`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(product)
+                });
+                const data = await res.json();
+                alert(data.message);
+            }
 
-        async function fetchProducts() {
-            const res = await fetch(`${API_URL}/api/products/products`);
-            const data = await res.json();
-            document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
-        }
+            async function fetchProducts() {
+                const res = await fetch(`${API_URL}/api/products/products`);
+                const data = await res.json();
+                document.getElementById('product-list').innerText = JSON.stringify(data, null, 2);
+            }
 
-        async function fetchEmployees() {
-            const res = await fetch(`${API_URL}/employees`);
-            const data = await res.json();
-            const tbody = document.getElementById('emp-table-body');
+            async function fetchEmployees() {
+                const res = await fetch(`${API_URL}/employees`);
+                const data = await res.json();
+                const tbody = document.getElementById('emp-table-body');
 
-            if (Array.isArray(data)) {
-                tbody.innerHTML = data.map(emp => `
+                if (Array.isArray(data)) {
+                    tbody.innerHTML = data.map(emp => `
             <tr>
                 <td>${emp.name}</td>
                 <td>${emp.role}</td>
                 <td><button class="btn btn-danger btn-sm" onclick="deleteEmp('${emp.id}')">Delete</button></td>
             </tr>
         `).join('');
-            } else {
-                tbody.innerHTML = `<tr><td colspan="3">${data.message || "No Data"}</td></tr>`;
+                } else {
+                    tbody.innerHTML = `<tr><td colspan="3">${data.message || "No Data"}</td></tr>`;
+                }
             }
-        }
 
-        async function deleteEmp(id) {
-            const res = await fetch(`${API_URL}/employees/${id}`, {
-                method: 'DELETE'
-            });
-            const data = await res.json();
-            alert(data.message);
-            fetchEmployees(); // Refreshes the UI after deleting the data.
-        }
+            async function deleteEmp(id) {
+                const res = await fetch(`${API_URL}/employees/${id}`, {
+                    method: 'DELETE'
+                });
+                const data = await res.json();
+                alert(data.message);
+                fetchEmployees(); // Refreshes the UI after deleting the data.
+            }
 
-        async function addEmployee() {
-            const emp = {
-                name: document.getElementById('e-name').value,
-                email: document.getElementById('e-email').value,
-                role: document.getElementById('e-role').value
-            };
+            async function addEmployee() {
+                const emp = {
+                    name: document.getElementById('e-name').value,
+                    email: document.getElementById('e-email').value,
+                    role: document.getElementById('e-role').value
+                };
 
-            const res = await fetch(`${API_URL}/employees`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(emp)
-            });
-
-            const data = await res.json();
-            alert(data.message);
-            fetchEmployees(); // Refresh immediately after adding
-        }
-
-
-        async function registerUser() {
-            const user = {
-                username: document.getElementById('reg-name').value,
-                email: document.getElementById('reg-email').value,
-                password: document.getElementById('reg-pass').value
-            };
-
-            try {
-                // const res = await fetch(`${API_URL}/auth/register`, {
-                const res = await fetch(`${API_URL}/user/register`, {
+                const res = await fetch(`${API_URL}/employees`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(user)
+                    body: JSON.stringify(emp)
                 });
 
                 const data = await res.json();
-
-                if (res.status === 201) {
-
-                    // alert(data.message + "\n\nLogin PIN: " + data.loginPin);
-                    // Here, we will display the new username instead of loginPin
-                    alert(data.message + "\nRegistered User: " + data.user.username);
-
-                } else {
-                    alert(data.message);
-                }
-
-            } catch (error) {
-                console.error("Registration failed:", error);
+                alert(data.message);
+                fetchEmployees(); // Refresh immediately after adding
             }
-        }
 
 
-        async function saveTask() {
-            const task = {
-                title: document.getElementById('t-title').value,
-                description: document.getElementById('t-desc').value,
-                status: "not-started"
-            };
+            async function registerUser() {
+                const user = {
+                    username: document.getElementById('reg-name').value,
+                    email: document.getElementById('reg-email').value,
+                    password: document.getElementById('reg-pass').value
+                };
 
-            const res = await fetch(`${API_URL}/api/tasks/create`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(task)
-            });
-            const data = await res.json();
-            alert("Task saved to MongoDB: " + data.message);
-        }
+                try {
+                    // const res = await fetch(`${API_URL}/auth/register`, {
+                    const res = await fetch(`${API_URL}/user/register`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(user)
+                    });
 
-        async function setupDatabasePractice() {
-            try {
-                // Step 1: Create a User
-                const userRes = await fetch(`${API_URL}/api/tasks/setup-user`, { method: 'POST' });
-                const userData = await userRes.json();
+                    const data = await res.json();
 
-                // Step 2: Create Tasks
-                const taskRes = await fetch(`${API_URL}/api/tasks/init-tasks`, {
+                    if (res.status === 201) {
+
+                        // alert(data.message + "\n\nLogin PIN: " + data.loginPin);
+                        // Here, we will display the new username instead of loginPin
+                        alert(data.message + "\nRegistered User: " + data.user.username);
+
+                    } else {
+                        alert(data.message);
+                    }
+
+                } catch (error) {
+                    console.error("Registration failed:", error);
+                }
+            }
+
+
+            async function saveTask() {
+                const task = {
+                    title: document.getElementById('t-title').value,
+                    description: document.getElementById('t-desc').value,
+                    status: "not-started"
+                };
+
+                const res = await fetch(`${API_URL}/api/tasks/create`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ userId: userData.userId })
+                    body: JSON.stringify(task)
                 });
-                const taskData = await taskRes.json();
-
-                const output = document.getElementById('db-practice-output');
-                output.style.display = 'block'; // This changes it from 'none' to 'block'.
-                output.innerText = `Success: ${userData.message} | ${taskData.message}`;
-
-            } catch (error) {
-                console.error("Error:", error);
+                const data = await res.json();
+                alert("Task saved to MongoDB: " + data.message);
             }
-        }
 
+            async function setupDatabasePractice() {
+                try {
+                    // Step 1: Create a User
+                    const userRes = await fetch(`${API_URL}/api/tasks/setup-user`, { method: 'POST' });
+                    const userData = await userRes.json();
 
+                    // Step 2: Create Tasks
+                    const taskRes = await fetch(`${API_URL}/api/tasks/init-tasks`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ userId: userData.userId })
+                    });
+                    const taskData = await taskRes.json();
 
+                    const output = document.getElementById('db-practice-output');
+                    output.style.display = 'block'; // This changes it from 'none' to 'block'.
+                    output.innerText = `Success: ${userData.message} | ${taskData.message}`;
 
-        // Function to fetch all tasks from MongoDB and display them
-        async function fetchTasks() {
-            const output = document.getElementById('api-output');
-            const token = localStorage.getItem("authToken");
-            // const API_URL = "http://localhost:8080/api/tasks";
-
-            try {
-                const response = await fetch(`${API_URL}/api/tasks/`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                if (!response.ok) throw new Error("Network response was not ok");
-                const tasks = await response.json();
-
-                // Check if data exists
-                if (tasks.length === 0) {
-                    output.innerHTML = "No tasks found in Database.";
-                    return;
+                } catch (error) {
+                    console.error("Error:", error);
                 }
+            }
 
-                // Display tasks in a clean format
-                let html = '<ul class="list-group mt-2">';
-                tasks.forEach(task => {
-                    html += `<li class="list-group-item d-flex justify-content-between align-items-center">
+
+
+
+            // Function to fetch all tasks from MongoDB and display them
+            async function fetchTasks() {
+                const output = document.getElementById('api-output');
+                const token = localStorage.getItem("authToken");
+                // const API_URL = "http://localhost:8080/api/tasks";
+
+                try {
+                    const response = await fetch(`${API_URL}/api/tasks/`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
+                    if (!response.ok) throw new Error("Network response was not ok");
+                    const tasks = await response.json();
+
+                    // Check if data exists
+                    if (tasks.length === 0) {
+                        output.innerHTML = "No tasks found in Database.";
+                        return;
+                    }
+
+                    // Display tasks in a clean format
+                    let html = '<ul class="list-group mt-2">';
+                    tasks.forEach(task => {
+                        html += `<li class="list-group-item d-flex justify-content-between align-items-center">
                         ${task.title} <span class="badge bg-info">${task.status}</span>
                      </li>`;
-                });
-                html += '</ul>';
-                output.innerHTML = html;
+                    });
+                    html += '</ul>';
+                    output.innerHTML = html;
 
-            } catch (error) {
-                output.innerText = "Error: Could not connect to Database or Unauthorized.";
-                console.error("Fetch Error:", error);
+                } catch (error) {
+                    output.innerText = "Error: Could not connect to Database or Unauthorized.";
+                    console.error("Fetch Error:", error);
+                }
             }
-        }
 
 
-        async function addNewTask() {
-            const token = localStorage.getItem("authToken"); // Adding the token for security
-           
-            const taskData = {
-                title: "New Task from UI",
-                description: "Testing API integration",
-                status: "not-started"
-            };
+            async function addNewTask() {
+                const token = localStorage.getItem("authToken"); // Adding the token for security
 
-            try {
-                const response = await fetch(`${API_URL}/api/tasks/create`, {
-                    method: 'POST',
-                    headers: { 
-                        'Content-Type': 'application/json', 
-                        'Authorization': `Bearer ${token}` // Attaching the JWT token
-                },
-                    body: JSON.stringify(taskData)
-                });
+                const taskData = {
+                    title: "New Task from UI",
+                    description: "Testing API integration",
+                    status: "not-started"
+                };
 
-                const result = await response.json();
-                alert("Task Added Successfully!");
-                fetchTasks(); // To refresh the data and display it in the UI
-            } catch (error) {
-                console.error("Add Error:", error);
+                try {
+                    const response = await fetch(`${API_URL}/api/tasks/create`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}` // Attaching the JWT token
+                        },
+                        body: JSON.stringify(taskData)
+                    });
+
+                    const result = await response.json();
+                    alert("Task Added Successfully!");
+                    fetchTasks(); // To refresh the data and display it in the UI
+                } catch (error) {
+                    console.error("Add Error:", error);
+                }
             }
-        }
 
 
 
-        // MongoDB Aggregation & Analytics
-        // 1. Fetch Task Analytics using Aggregation
-        async function fetchTaskStats() {
-            const output = document.getElementById('agg-output');
-            output.innerText = "Analyzing pipeline data...";
+            // MongoDB Aggregation & Analytics
+            // 1. Fetch Task Analytics using Aggregation
+            async function fetchTaskStats() {
+                const output = document.getElementById('agg-output');
+                output.innerText = "Analyzing pipeline data...";
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks/analytics`); // You can set this according to your root path 
-                const data = await res.json();
-                output.innerText = JSON.stringify(data, null, 2);
-            } catch (error) {
-                output.innerText = "Error: Could not fetch aggregation stats.";
-                console.error("Aggregation Error:", error);
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks/analytics`); // You can set this according to your root path 
+                    const data = await res.json();
+                    output.innerText = JSON.stringify(data, null, 2);
+                } catch (error) {
+                    output.innerText = "Error: Could not fetch aggregation stats.";
+                    console.error("Aggregation Error:", error);
+                }
             }
-        }
 
-        // 2. Check Index Performance Simulation
-        async function checkTaskIndexPerformance() {
-            const output = document.getElementById('agg-output');
-            output.innerText = "Running query execution stats (.explain())...";
+            // 2. Check Index Performance Simulation
+            async function checkTaskIndexPerformance() {
+                const output = document.getElementById('agg-output');
+                output.innerText = "Running query execution stats (.explain())...";
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks/explain-query`);
-                const data = await res.json();
-                output.innerText = JSON.stringify(data, null, 2);
-            } catch (error) {
-                output.innerText = "Error: Could not fetch execution stats.";
-                console.error("Explain Error:", error);
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks/explain-query`);
+                    const data = await res.json();
+                    output.innerText = JSON.stringify(data, null, 2);
+                } catch (error) {
+                    output.innerText = "Error: Could not fetch execution stats.";
+                    console.error("Explain Error:", error);
+                }
             }
-        }
 
 
 
 
-        // MongoDB Performance Comparison (COLLSCAN vs IXSCAN)
-        async function runCollScanTest() {
-            const output = document.getElementById('comparison-output');
-            output.innerHTML = "Running COLLSCAN test...";
+            // MongoDB Performance Comparison (COLLSCAN vs IXSCAN)
+            async function runCollScanTest() {
+                const output = document.getElementById('comparison-output');
+                output.innerHTML = "Running COLLSCAN test...";
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks/test-collscan`);
-                const data = await res.json();
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks/test-collscan`);
+                    const data = await res.json();
 
-                output.innerHTML = `
+                    output.innerHTML = `
             <div class="p-3 mb-2 rounded bg-black border border-danger">
                 <span class="badge bg-danger fs-6 mb-2">${data.scanType}</span>
                 <div><strong>Execution Stage:</strong> ${data.stage}</div>
@@ -657,20 +667,20 @@
                 <div><strong>Documents Examined:</strong> ${data.totalDocsExamined}</div>
             </div>
         `;
-            } catch (error) {
-                output.innerHTML = "Error running COLLSCAN test.";
+                } catch (error) {
+                    output.innerHTML = "Error running COLLSCAN test.";
+                }
             }
-        }
 
-        async function runIxScanTest() {
-            const output = document.getElementById('comparison-output');
-            output.innerHTML = "Running IXSCAN test...";
+            async function runIxScanTest() {
+                const output = document.getElementById('comparison-output');
+                output.innerHTML = "Running IXSCAN test...";
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks/test-ixscan`);
-                const data = await res.json();
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks/test-ixscan`);
+                    const data = await res.json();
 
-                output.innerHTML = `
+                    output.innerHTML = `
             <div class="p-3 mb-2 rounded bg-black border border-success">
                 <span class="badge bg-success fs-6 mb-2">${data.scanType}</span>
                 <div><strong>Execution Stage:</strong> ${data.stage}</div>
@@ -679,102 +689,102 @@
                 <div><strong>Documents Examined:</strong> ${data.totalDocsExamined}</div>
             </div>
         `;
-            } catch (error) {
-                output.innerHTML = "Error running IXSCAN test.";
-            }
-        }
-
-
-
-
-        // Login User & Get JWT Token (Authentication & Security)
-        async function loginUser() {
-            const credentials = {
-                email: document.getElementById('log-email').value,
-                password: document.getElementById('log-pass').value
-            };
-
-            try {
-                const res = await fetch(`${API_URL}/user/login`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(credentials)
-                });
-
-                const data = await res.json();
-
-                if (res.status === 200) {
-                    alert(data.message + "\n\nJWT Token Generated Successfully!");
-                    // Store the token in local storage 
-                    localStorage.setItem("authToken", data.token);
-                } else {
-                    alert(data.message);
+                } catch (error) {
+                    output.innerHTML = "Error running IXSCAN test.";
                 }
-            } catch (error) {
-                console.error("Login failed:", error);
-            }
-        }
-
-        // Protected Routes & User Ownership (JWT Authz)
-        // Fetch Tasks belonging only to the logged-in user using JWT Token
-        async function fetchProtectedTasks() {
-            const output = document.getElementById('protected-task-output');
-            const token = localStorage.getItem("authToken");
-
-            if (!token) {
-                output.innerHTML = "<span class='text-danger'>Error: No Auth Token found! Please login first.</span>";
-                return;
             }
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks`, {
-                    method: 'GET',
-                    headers: {
-                        'Authorization': `Bearer ${token}` // Passing JWT in headers
+
+
+
+            // Login User & Get JWT Token (Authentication & Security)
+            async function loginUser() {
+                const credentials = {
+                    email: document.getElementById('log-email').value,
+                    password: document.getElementById('log-pass').value
+                };
+
+                try {
+                    const res = await fetch(`${API_URL}/user/login`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(credentials)
+                    });
+
+                    const data = await res.json();
+
+                    if (res.status === 200) {
+                        alert(data.message + "\n\nJWT Token Generated Successfully!");
+                        // Store the token in local storage 
+                        localStorage.setItem("authToken", data.token);
+                    } else {
+                        alert(data.message);
                     }
-                });
-                const data = await res.json();
-                output.innerText = JSON.stringify(data, null, 2);
-            } catch (error) {
-                output.innerText = "Error fetching protected tasks.";
-            }
-        }
-
-        // Create a Task linked to the authenticated user
-        async function createProtectedTask() {
-            const token = localStorage.getItem("authToken");
-            const output = document.getElementById('protected-task-output');
-
-            if (!token) {
-                output.innerHTML = "<span class='text-danger'>Error: Please login first to create a task!</span>";
-                return;
+                } catch (error) {
+                    console.error("Login failed:", error);
+                }
             }
 
-            const taskData = {
-                title: "Secure Task via JWT",
-                description: "Testing ownership-based access control",
-                status: "in-progress"
-            };
+            // Protected Routes & User Ownership (JWT Authz)
+            // Fetch Tasks belonging only to the logged-in user using JWT Token
+            async function fetchProtectedTasks() {
+                const output = document.getElementById('protected-task-output');
+                const token = localStorage.getItem("authToken");
 
-            try {
-                const res = await fetch(`${API_URL}/api/tasks/create`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Authorization': `Bearer ${token}`
-                    },
-                    body: JSON.stringify(taskData)
-                });
-                const data = await res.json();
-                alert("Task Created & Linked to User Successfully!");
-                fetchProtectedTasks();
-            } catch (error) {
-                console.error("Creation error:", error);
+                if (!token) {
+                    output.innerHTML = "<span class='text-danger'>Error: No Auth Token found! Please login first.</span>";
+                    return;
+                }
+
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks`, {
+                        method: 'GET',
+                        headers: {
+                            'Authorization': `Bearer ${token}` // Passing JWT in headers
+                        }
+                    });
+                    const data = await res.json();
+                    output.innerText = JSON.stringify(data, null, 2);
+                } catch (error) {
+                    output.innerText = "Error fetching protected tasks.";
+                }
             }
-        }
 
-        // window.onload = fetchOS;
-    </script>
+            // Create a Task linked to the authenticated user
+            async function createProtectedTask() {
+                const token = localStorage.getItem("authToken");
+                const output = document.getElementById('protected-task-output');
+
+                if (!token) {
+                    output.innerHTML = "<span class='text-danger'>Error: Please login first to create a task!</span>";
+                    return;
+                }
+
+                const taskData = {
+                    title: "Secure Task via JWT",
+                    description: "Testing ownership-based access control",
+                    status: "in-progress"
+                };
+
+                try {
+                    const res = await fetch(`${API_URL}/api/tasks/create`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify(taskData)
+                    });
+                    const data = await res.json();
+                    alert("Task Created & Linked to User Successfully!");
+                    fetchProtectedTasks();
+                } catch (error) {
+                    console.error("Creation error:", error);
+                }
+            }
+
+            // window.onload = fetchOS;
+        </script>
 
 
 
