@@ -179,93 +179,130 @@
         <div class="lab-card">
             <h4>Authentication & Security</h4>
             <p class="text-secondary small">
-                <strong>Secure Identity Management:</strong> Implementing multi-factor login (Email + Pin) with
-                environment-based configuration, ensuring robust data privacy.
+                <strong>Secure Identity Management:</strong> Implementing user registration with Bcrypt hashing and
+                JWT-based secure authentication.
             </p>
             <div class="row">
+                <!-- Registration Form -->
                 <div class="col-md-6">
+                    <h6 class="text-info">Register New User</h6>
                     <form onsubmit="event.preventDefault(); registerUser();">
                         <input type="text" id="reg-name" class="form-control mb-2" placeholder="Username" required>
                         <input type="email" id="reg-email" class="form-control mb-2" placeholder="Email" required
                             autocomplete="email">
                         <input type="password" id="reg-pass" class="form-control mb-2" placeholder="Password" required
                             autocomplete="current-password">
-                        <button type="submit" class="btn btn-info">Register</button>
+                        <button type="submit" class="btn btn-info w-100">Register</button>
+                    </form>
+                </div>
+
+                <!-- Login Form -->
+                <div class="col-md-6">
+                    <h6 class="text-info">User Login (Get JWT Token)</h6>
+                    <form onsubmit="event.preventDefault(); loginUser();">
+                        <input type="email" id="log-email" class="form-control mb-2" placeholder="Email" required
+                            autocomplete="email">
+                        <input type="password" id="log-pass" class="form-control mb-2" placeholder="Password" required
+                            autocomplete="current-password">
+                        <button type="submit" class="btn btn-success w-100">Login & Get Token</button>
                     </form>
                 </div>
             </div>
-        </div>
 
-
-        <div class="lab-card">
-            <h4>Database Management (MongoDB)</h4>
-            <p class="text-secondary small">
-                <strong>Persistent Data Layer:</strong> Leveraging MongoDB and Mongoose ODM to manage task states.
-                Data persists across server restarts, ensuring enterprise-grade data integrity.
-            </p>
-            <div class="row">
-                <div class="col-md-6">
-                    <input type="text" id="t-title" class="form-control mb-2" placeholder="Task Title">
-                    <input type="text" id="t-desc" class="form-control mb-2" placeholder="Description">
-                    <button class="btn btn-info" onclick="saveTask()">Save Task to DB</button>
+            <div class="lab-card mt-3">
+                <h4>Protected Routes & User Ownership (JWT Authz)</h4>
+                <p class="text-secondary small">
+                    <strong>Secure Resource Isolation:</strong> Implementing role/ownership-based access control where
+                    tasks
+                    are securely bound to authenticated users using JWT middleware and Mongoose <code>ObjectId</code>
+                    references.
+                </p>
+                <div class="d-flex gap-2 mb-2">
+                    <button class="btn btn-info" onclick="fetchProtectedTasks()">Fetch My Tasks (Secured)</button>
+                    <button class="btn btn-outline-info" onclick="createProtectedTask()">Create User Task</button>
                 </div>
+                <div id="protected-task-output" class="mt-2 text-info small"></div>
             </div>
         </div>
 
+    </div>
 
-        <div class="lab-card">
-            <h4>User-Task Relationship Management</h4>
-            <p class="text-secondary small">
-                <strong>One-to-Many Architecture:</strong> Demonstrating relational data modeling where each user
-                maintains multiple task records using <code>ObjectId</code> references.
-            </p>
-            <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
-            <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
-        </div>
 
-        <div class="lab-card">
-            <h4>RESTful Task Management API</h4>
-            <p class="text-secondary small">
-                <strong>CRUD Operations:</strong> Implemented complete lifecycle management for tasks including
-                filtering, updates, and deletion.
-            </p>
-            <div class="d-flex gap-2">
-                <button class="btn btn-info" onclick="fetchTasks()">Load All Tasks</button>
-                <button class="btn btn-info" onclick="addNewTask()">Add New Task</button>
+
+
+
+
+
+    <div class="lab-card">
+        <h4>Database Management (MongoDB)</h4>
+        <p class="text-secondary small">
+            <strong>Persistent Data Layer:</strong> Leveraging MongoDB and Mongoose ODM to manage task states.
+            Data persists across server restarts, ensuring enterprise-grade data integrity.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <input type="text" id="t-title" class="form-control mb-2" placeholder="Task Title">
+                <input type="text" id="t-desc" class="form-control mb-2" placeholder="Description">
+                <button class="btn btn-info" onclick="saveTask()">Save Task to DB</button>
             </div>
-            <div id="api-output" class="mt-2 text-info small"></div>
         </div>
+    </div>
+
+
+    <div class="lab-card">
+        <h4>User-Task Relationship Management</h4>
+        <p class="text-secondary small">
+            <strong>One-to-Many Architecture:</strong> Demonstrating relational data modeling where each user
+            maintains multiple task records using <code>ObjectId</code> references.
+        </p>
+        <button class="btn btn-info" onclick="setupDatabasePractice()">Initialize Practice DB</button>
+        <div id="db-practice-output" class="alert alert-success mt-2" style="display:none;"></div>
+    </div>
+
+    <div class="lab-card">
+        <h4>RESTful Task Management API</h4>
+        <p class="text-secondary small">
+            <strong>CRUD Operations:</strong> Implemented complete lifecycle management for tasks including
+            filtering, updates, and deletion.
+        </p>
+        <div class="d-flex gap-2">
+            <button class="btn btn-info" onclick="fetchTasks()">Load All Tasks</button>
+            <button class="btn btn-info" onclick="addNewTask()">Add New Task</button>
+        </div>
+        <div id="api-output" class="mt-2 text-info small"></div>
+    </div>
+
+
+    <div class="lab-card">
+        <h4>MongoDB Aggregation & Analytics</h4>
+        <p class="text-secondary small">
+            <strong>Data Pipeline Execution:</strong> Leveraging MongoDB Aggregation Framework ($count, $group,
+            $sort) to analyze task distribution and optimize database performance.
+        </p>
+        <div class="d-flex gap-2 mb-3">
+            <button class="btn btn-info" onclick="fetchTaskStats()">Fetch Task Analytics</button>
+            <button class="btn btn-outline-info" onclick="checkTaskIndexPerformance()">Check Index
+                Performance</button>
+        </div>
+        <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
 
 
         <div class="lab-card">
-            <h4>MongoDB Aggregation & Analytics</h4>
+            <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
             <p class="text-secondary small">
-                <strong>Data Pipeline Execution:</strong> Leveraging MongoDB Aggregation Framework ($count, $group,
-                $sort) to analyze task distribution and optimize database performance.
+                <strong>Query Optimization Proof:</strong> Compare the performance metrics between an unoptimized
+                full
+                collection scan and an indexed lookup in real-time.
             </p>
             <div class="d-flex gap-2 mb-3">
-                <button class="btn btn-info" onclick="fetchTaskStats()">Fetch Task Analytics</button>
-                <button class="btn btn-outline-info" onclick="checkTaskIndexPerformance()">Check Index
-                    Performance</button>
+                <button class="btn btn-danger" onclick="runCollScanTest()">1. Test COLLSCAN (Slow)</button>
+                <button class="btn btn-success" onclick="runIxScanTest()">2. Test IXSCAN (Fast)</button>
             </div>
-            <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
-
-
-            <div class="lab-card">
-                <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
-                <p class="text-secondary small">
-                    <strong>Query Optimization Proof:</strong> Compare the performance metrics between an unoptimized
-                    full
-                    collection scan and an indexed lookup in real-time.
-                </p>
-                <div class="d-flex gap-2 mb-3">
-                    <button class="btn btn-danger" onclick="runCollScanTest()">1. Test COLLSCAN (Slow)</button>
-                    <button class="btn btn-success" onclick="runIxScanTest()">2. Test IXSCAN (Fast)</button>
-                </div>
-                <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...
-                </div>
+            <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...
             </div>
         </div>
+    </div>
+
 
 
 
@@ -504,10 +541,16 @@
         // Function to fetch all tasks from MongoDB and display them
         async function fetchTasks() {
             const output = document.getElementById('api-output');
+            const token = localStorage.getItem("authToken");
             // const API_URL = "http://localhost:8080/api/tasks";
 
             try {
-                const response = await fetch(`${API_URL}/api/tasks/`);
+                const response = await fetch(`${API_URL}/api/tasks/`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
                 if (!response.ok) throw new Error("Network response was not ok");
                 const tasks = await response.json();
 
@@ -528,13 +571,15 @@
                 output.innerHTML = html;
 
             } catch (error) {
-                output.innerText = "Error: Could not connect to Database.";
+                output.innerText = "Error: Could not connect to Database or Unauthorized.";
                 console.error("Fetch Error:", error);
             }
         }
 
 
         async function addNewTask() {
+            const token = localStorage.getItem("authToken"); // Adding the token for security
+           
             const taskData = {
                 title: "New Task from UI",
                 description: "Testing API integration",
@@ -544,12 +589,16 @@
             try {
                 const response = await fetch(`${API_URL}/api/tasks/create`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 
+                        'Content-Type': 'application/json', 
+                        'Authorization': `Bearer ${token}` // Attaching the JWT token
+                },
                     body: JSON.stringify(taskData)
                 });
+
                 const result = await response.json();
                 alert("Task Added Successfully!");
-                fetchTasks();
+                fetchTasks(); // To refresh the data and display it in the UI
             } catch (error) {
                 console.error("Add Error:", error);
             }
@@ -641,8 +690,8 @@
         // Login User & Get JWT Token (Authentication & Security)
         async function loginUser() {
             const credentials = {
-                email: document.getElementById('reg-email').value,
-                password: document.getElementById('reg-pass').value
+                email: document.getElementById('log-email').value,
+                password: document.getElementById('log-pass').value
             };
 
             try {
@@ -655,7 +704,7 @@
                 const data = await res.json();
 
                 if (res.status === 200) {
-                    alert(data.message + "\n\nJWT ​​Token: " + data.token.substring(0, 30) + "...");
+                    alert(data.message + "\n\nJWT Token Generated Successfully!");
                     // Store the token in local storage 
                     localStorage.setItem("authToken", data.token);
                 } else {
@@ -663,6 +712,64 @@
                 }
             } catch (error) {
                 console.error("Login failed:", error);
+            }
+        }
+
+        // Protected Routes & User Ownership (JWT Authz)
+        // Fetch Tasks belonging only to the logged-in user using JWT Token
+        async function fetchProtectedTasks() {
+            const output = document.getElementById('protected-task-output');
+            const token = localStorage.getItem("authToken");
+
+            if (!token) {
+                output.innerHTML = "<span class='text-danger'>Error: No Auth Token found! Please login first.</span>";
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks`, {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': `Bearer ${token}` // Passing JWT in headers
+                    }
+                });
+                const data = await res.json();
+                output.innerText = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.innerText = "Error fetching protected tasks.";
+            }
+        }
+
+        // Create a Task linked to the authenticated user
+        async function createProtectedTask() {
+            const token = localStorage.getItem("authToken");
+            const output = document.getElementById('protected-task-output');
+
+            if (!token) {
+                output.innerHTML = "<span class='text-danger'>Error: Please login first to create a task!</span>";
+                return;
+            }
+
+            const taskData = {
+                title: "Secure Task via JWT",
+                description: "Testing ownership-based access control",
+                status: "in-progress"
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/api/tasks/create`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify(taskData)
+                });
+                const data = await res.json();
+                alert("Task Created & Linked to User Successfully!");
+                fetchProtectedTasks();
+            } catch (error) {
+                console.error("Creation error:", error);
             }
         }
 
