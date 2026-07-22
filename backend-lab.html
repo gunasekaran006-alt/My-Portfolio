@@ -249,23 +249,25 @@
                     Performance</button>
             </div>
             <pre id="agg-output" class="text-info small">Click a button to analyze data...</pre>
-        
-        
-        <div class="lab-card">
-            <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
-            <p class="text-secondary small">
-                <strong>Query Optimization Proof:</strong> Compare the performance metrics between an unoptimized full
-                collection scan and an indexed lookup in real-time.
-            </p>
-            <div class="d-flex gap-2 mb-3">
-                <button class="btn btn-danger" onclick="runCollScanTest()">1. Test COLLSCAN (Slow)</button>
-                <button class="btn btn-success" onclick="runIxScanTest()">2. Test IXSCAN (Fast)</button>
+
+
+            <div class="lab-card">
+                <h4>MongoDB Performance Comparison (COLLSCAN vs IXSCAN)</h4>
+                <p class="text-secondary small">
+                    <strong>Query Optimization Proof:</strong> Compare the performance metrics between an unoptimized
+                    full
+                    collection scan and an indexed lookup in real-time.
+                </p>
+                <div class="d-flex gap-2 mb-3">
+                    <button class="btn btn-danger" onclick="runCollScanTest()">1. Test COLLSCAN (Slow)</button>
+                    <button class="btn btn-success" onclick="runIxScanTest()">2. Test IXSCAN (Fast)</button>
+                </div>
+                <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...
+                </div>
             </div>
-            <div id="comparison-output" class="text-info small">Click a test button to view performance metrics...</div>
-        </div>
         </div>
 
-        
+
 
 
     </div>
@@ -432,7 +434,8 @@
             };
 
             try {
-                const res = await fetch(`${API_URL}/auth/register`, {
+                // const res = await fetch(`${API_URL}/auth/register`, {
+                const res = await fetch(`${API_URL}/user/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(user)
@@ -441,7 +444,11 @@
                 const data = await res.json();
 
                 if (res.status === 201) {
-                    alert(data.message + "\n\nLogin PIN: " + data.loginPin);
+
+                    // alert(data.message + "\n\nLogin PIN: " + data.loginPin);
+                    // Here, we will display the new username instead of loginPin
+                    alert(data.message + "\nRegistered User: " + data.user.username);
+
                 } else {
                     alert(data.message);
                 }
@@ -550,7 +557,7 @@
 
 
 
-
+        // MongoDB Aggregation & Analytics
         // 1. Fetch Task Analytics using Aggregation
         async function fetchTaskStats() {
             const output = document.getElementById('agg-output');
@@ -584,7 +591,7 @@
 
 
 
-
+        // MongoDB Performance Comparison (COLLSCAN vs IXSCAN)
         async function runCollScanTest() {
             const output = document.getElementById('comparison-output');
             output.innerHTML = "Running COLLSCAN test...";
@@ -628,6 +635,36 @@
             }
         }
 
+
+
+
+        // Login User & Get JWT Token (Authentication & Security)
+        async function loginUser() {
+            const credentials = {
+                email: document.getElementById('reg-email').value,
+                password: document.getElementById('reg-pass').value
+            };
+
+            try {
+                const res = await fetch(`${API_URL}/user/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(credentials)
+                });
+
+                const data = await res.json();
+
+                if (res.status === 200) {
+                    alert(data.message + "\n\nJWT ​​Token: " + data.token.substring(0, 30) + "...");
+                    // Store the token in local storage 
+                    localStorage.setItem("authToken", data.token);
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error("Login failed:", error);
+            }
+        }
 
         // window.onload = fetchOS;
     </script>
