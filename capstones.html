@@ -23,18 +23,31 @@
             margin: 0 auto;
         }
 
+        /* ⚡ Updated Cyan Glowing Back Button matching Portfolio Style ⚡ */
         .back-btn {
-            color: #a0a0a0;
-            text-decoration: none;
-            font-size: 16px;
-            transition: 0.3s;
             display: inline-block;
+            background-color: #27C8F5 !important;
+            color: #000000 !important;
+            font-size: 15px;
+            padding: 8px 18px;
+            border-radius: 5px;
+            font-weight: bold;
+            border: 2px solid #27C8F5 !important;
+            text-decoration: none;
+            transition: all 0.3s ease;
             margin-bottom: 30px;
         }
 
         .back-btn:hover {
-            color: #27C8F5;
-            transform: translateX(-5px);
+            background-color: transparent !important;
+            color: #27C8F5 !important;
+            box-shadow: 0px 0px 15px rgba(39, 200, 245, 0.8);
+            transform: scale(1.05);
+        }
+
+        .back-btn:active {
+            transform: scale(0.95);
+            box-shadow: none;
         }
 
         .vault-title {
@@ -117,7 +130,7 @@
 <body>
 
     <div class="vault-container">
-        <!-- Back Button -->
+        <!-- Back Button with Cyan Hover & Glow Effect -->
         <a href="index.html" class="back-btn"><i class="bi bi-arrow-left"></i> Back to Main Hub</a>
 
         <!-- Title -->
@@ -159,27 +172,20 @@
                     <div class="mb-3">
                         <div class="text-white small fw-bold mb-2">🔑 Key Features:</div>
                         <div class="d-flex flex-wrap gap-1">
-                            <span class="badge border border-info text-info" style="font-size: 11px;">JWT & HttpOnly
-                                Cookies</span>
-                            <span class="badge border border-success text-success" style="font-size: 11px;">AI Magic
-                                Fill (Gemini API)</span>
-                            <span class="badge border border-warning text-warning" style="font-size: 11px;">Web Speech
-                                Voice Search</span>
-                            <span class="badge border border-danger text-danger" style="font-size: 11px;">MongoDB
-                                Aggregation Stats</span>
-                            <span class="badge border border-primary text-primary" style="font-size: 11px;">Ownership
-                                Protected CRUD</span>
+                            <span class="badge border border-info text-info" style="font-size: 11px;">JWT & HttpOnly Cookies</span>
+                            <span class="badge border border-success text-success" style="font-size: 11px;">AI Magic Fill (Gemini API)</span>
+                            <span class="badge border border-warning text-warning" style="font-size: 11px;">Web Speech Voice Search</span>
+                            <span class="badge border border-danger text-danger" style="font-size: 11px;">MongoDB Aggregation Stats</span>
+                            <span class="badge border border-primary text-primary" style="font-size: 11px;">Ownership Protected CRUD</span>
                         </div>
                     </div>
 
                     <!-- Action Buttons with Live Link (Cyan Theme Standard) -->
                     <div class="d-flex flex-wrap gap-3 mt-4">
-                        
                         <a href="https://github.com/gunasekaran006-alt/recipe-app.git" target="_blank"
                             class="github-btn" style="width: fit-content;">
                             <i class="bi bi-github fs-5"></i> Source Code
                         </a>
-                        
                         
                         <a href="https://interactive-recipe-sharing-platform.vercel.app" target="_blank"
                             class="btn fw-bold px-4 rounded-pill d-flex align-items-center gap-2 shadow-sm"
@@ -188,8 +194,6 @@
                             onmouseout="this.style.backgroundColor='transparent'; this.style.color='#27C8F5';">
                             <i class="bi bi-globe fs-5"></i> View Live App 🚀
                         </a>
-
-                        
                     </div>
 
                     <div class="status-badge mt-3"
@@ -217,8 +221,7 @@
                 <div class="mt-4">
                     <span class="badge border border-secondary text-secondary me-2"><i
                             class="bi bi-gear-wide-connected"></i> Backend Architecture</span>
-                    <span class="badge border border-secondary text-secondary"><i class="bi bi-database-add"></i> Cloud
-                        Database</span>
+                    <span class="badge border border-secondary text-secondary"><i class="bi bi-database-add"></i> Cloud Database</span>
                 </div>
             </div>
         </div>
